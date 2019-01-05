@@ -1,0 +1,16 @@
+{
+  "usage": {
+    "Getting started": [
+      "introduction",
+      "installation"
+    ],
+    "Migration": [
+      "migrating-from-babel",
+      "migrating-from-babel-cli"
+    ],
+    "APIs": [
+      "api-core",
+      "api-swc-loader"
+    ]
+  }
+}
