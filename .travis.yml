@@ -1,6 +1,6 @@
 dist: trusty
 
-language: nodejs
+language: node_js
 node_js:
   - 10
 # Need to cache the whole `.cargo` directory to keep .crates.toml for
