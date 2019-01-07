@@ -18,7 +18,7 @@ before_deploy:
     - npm run-script build
 
 deploy:
-  local_dir: website/build
+  local_dir: website/build/swc
   repo: swc-project/swc-project.github.io
   target_branch: master
   provider: pages

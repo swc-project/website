@@ -1,5 +1,5 @@
 ---
-id: api-core
+id: usage-core
 title: swc api
 sidebar_label: swc (core)
 ---

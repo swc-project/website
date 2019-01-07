@@ -4,13 +4,16 @@
       "introduction",
       "installation"
     ],
+    "Configuring swc": [
+      "configuring-swc"
+    ],
+    "Usage": [
+      "usage-core",
+      "usage-swc-loader"
+    ],
     "Migration": [
       "migrating-from-babel",
       "migrating-from-babel-cli"
-    ],
-    "APIs": [
-      "api-core",
-      "api-swc-loader"
     ]
   }
 }

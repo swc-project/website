@@ -5,13 +5,9 @@
     "previous": "Previous",
     "tagline": "Super fast alternative for babel",
     "docs": {
-      "api-core": {
-        "title": "swc api",
-        "sidebar_label": "swc (core)"
-      },
-      "api-swc-loader": {
-        "title": "swc api",
-        "sidebar_label": "swc-loader (Webpack)"
+      "configuring-swc": {
+        "title": "Configuring swc",
+        "sidebar_label": "Configuring swc"
       },
       "installation": {
         "title": "Installation"
@@ -20,13 +16,21 @@
         "title": "Introduction",
         "sidebar_label": "Introduction"
       },
-      "migration-from-babel-cli": {
+      "migrating-from-babel-cli": {
         "title": "Migrating from babel cli",
         "sidebar_label": "@babel/cli"
       },
-      "migration-from-babel": {
+      "migrating-from-babel": {
         "title": "Migrating from babel",
         "sidebar_label": "@babel/core"
+      },
+      "usage-core": {
+        "title": "swc api",
+        "sidebar_label": "swc (core)"
+      },
+      "usage-swc-loader": {
+        "title": "Using swc with webpack",
+        "sidebar_label": "swc-loader (Webpack)"
       }
     },
     "links": {
@@ -37,8 +41,9 @@
     },
     "categories": {
       "Getting started": "Getting started",
-      "Migration": "Migration",
-      "APIs": "APIs"
+      "Configuring swc": "Configuring swc",
+      "Usage": "Usage",
+      "Migration": "Migration"
     }
   },
   "pages-strings": {

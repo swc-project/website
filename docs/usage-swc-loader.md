@@ -1,6 +1,6 @@
 ---
-id: api-swc-loader
-title: swc api
+id: usage-swc-loader
+title: Using swc with webpack
 sidebar_label: swc-loader (Webpack)
 ---
 

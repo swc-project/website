@@ -3,8 +3,6 @@ id: installation
 title: Installation
 ---
 
-# Installation
-
 You can install `swc` via
 
 ```

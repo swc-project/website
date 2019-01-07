@@ -1,5 +1,5 @@
 ---
-id: migration-from-babel-cli
+id: migrating-from-babel-cli
 title: Migrating from babel cli
 sidebar_label: @babel/cli
 ---
