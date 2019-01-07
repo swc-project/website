@@ -1,0 +1,36 @@
+dist: trusty
+
+language: nodejs
+
+# Need to cache the whole `.cargo` directory to keep .crates.toml for
+# cargo-update to work
+cache:
+  - npm
+
+install:
+    - cd website && npm install
+
+script:
+    - true
+
+before_deploy:
+    - npm run-script build
+
+deploy:
+  local_dir: website/build
+  repo: swc-project/swc-project.github.io
+  target_branch: master
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  email: kdy1@outlook.kr
+  name: "강동윤"
+  on:
+    branch: master
+
+notifications:
+  email: never
+
+branches:
+  only:
+    - master
