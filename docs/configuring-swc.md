@@ -60,13 +60,15 @@ Exmaple
         "development": false,
         "use_builtins": false
       },
-      "optimizer": {},
-      "globals": {
-        "vars": {
-          "__DEBUG__": "true"
+      "optimizer": {
+        "globals": {
+          "vars": {
+            "__DEBUG__": "true"
+          }
         }
       }
     }
   }
 }
+
 ```
