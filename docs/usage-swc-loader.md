@@ -5,6 +5,17 @@ sidebar_label: swc-loader (Webpack)
 ---
 
 ```js
-const swcLoader = require('swc-loader');
+module: {
+  rules: [
+    {
+      test: /\.m?js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        // `.swcrc` can be used to configure swc
+        loader: 'swc-loader',
+      }
+    }
+  ]
+}
 
 ```
