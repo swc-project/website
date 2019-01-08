@@ -10,13 +10,22 @@ sidebar_label: swc (core)
 const swc = require('swc');
 
 const output = swc.transformSync('source code', {
-    
+    // Equivalent to .swcrc
+    jsc: {
+        parser: {
+            syntax: "ecmascript",
+        },
+        transform: {
+            
+        }
+    }
 });
 output.code; // transformed code
 output.map; // source map (in string)
 
 const output2 = swc.transformFileSync('path_to_file', {
-    
+    // Equivalent to .swcrc
+    // ...    
 })
 output2.code; // transformed code
 output2.map; // source map (in string)
