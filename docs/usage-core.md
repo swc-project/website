@@ -9,13 +9,13 @@ sidebar_label: swc (core)
 ```js
 const swc = require('swc');
 
-const output = swc.transform('source code', {
+const output = swc.transformSync('source code', {
     
 });
 output.code; // transformed code
 output.map; // source map (in string)
 
-const output2 = swc.transformFileSync(pathToFile, {
+const output2 = swc.transformFileSync('path_to_file', {
     
 })
 output2.code; // transformed code
