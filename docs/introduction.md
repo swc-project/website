@@ -11,3 +11,7 @@ sidebar_label: Introduction
 
 It can transpile new-generation javascript to old-days javascript.
 
+## How fast is swc?
+
+It's 13x faster than babel even on single-core benchmark.
+
