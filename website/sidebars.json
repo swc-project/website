@@ -9,6 +9,7 @@
     ],
     "Usage": [
       "usage-core",
+      "usage-cli",
       "usage-swc-loader"
     ],
     "Migration": [
