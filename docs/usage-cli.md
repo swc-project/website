@@ -19,8 +19,8 @@ npx swc FILE
 npx swc FILE -o output
 
 # Transpile and merge into one file
-npx swc DIR -o lib
+npx swc DIR -o lib.js
 
-# Transpile and merge into one file
-npx swc DIR -d 
+# Transpile and write output to dir
+npx swc DIR -d dir
 ```
