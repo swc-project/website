@@ -13,7 +13,7 @@
       "usage-swc-loader"
     ],
     "Migration": [
-      "migrating-from-babel",
+      "migrating-from-babel-core",
       "migrating-from-babel-cli"
     ]
   }

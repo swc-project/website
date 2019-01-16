@@ -1,7 +1,7 @@
 ---
 id: usage-cli
 title: Using cli
-sidebar_label: CLI
+sidebar_label: cli
 ---
 
 ## Installation

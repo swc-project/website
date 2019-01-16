@@ -4,6 +4,13 @@ title: Using swc with webpack
 sidebar_label: swc-loader (Webpack)
 ---
 
+## Installation
+```
+npm i --save-dev swc swc-loader
+```
+
+
+## Configuration
 ```js
 module: {
   rules: [

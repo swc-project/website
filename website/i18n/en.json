@@ -20,13 +20,13 @@
         "title": "Migrating from babel cli",
         "sidebar_label": "@babel/cli"
       },
-      "migrating-from-babel": {
-        "title": "Migrating from babel",
+      "migrating-from-babel-core": {
+        "title": "Migrating from @babel/core",
         "sidebar_label": "@babel/core"
       },
       "usage-cli": {
-        "title": "swc-cli",
-        "sidebar_label": "CLI"
+        "title": "Using cli",
+        "sidebar_label": "cli"
       },
       "usage-core": {
         "title": "swc api",

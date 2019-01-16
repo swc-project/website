@@ -1,9 +1,14 @@
 ---
-title: Changelog for 1.0.0-beta.2
+title: Introducing swc
 author: DongYoon Kang
 authorURL: http://github.com/kdy1
 authorFBID: 100024888122318
 ---
+
+
+
+
+# Features
 
 ## Typescript support
 
