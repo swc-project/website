@@ -64,7 +64,23 @@ class HomeSplash extends React.Component {
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href={docUrl('introduction')}>Getting started</Button>
+            <Button href={docUrl('introduction')} style={{ display: 'block' }}>Getting started</Button>
+          </PromoSection>
+          <PromoSection>
+            <a className="github-button"
+              href="https://github.com/swc-project/swc"
+              data-icon="octicon-star"
+              data-size="large"
+              data-show-count="true"
+              aria-label="Star swc-project/swc on GitHub">Star</a>
+
+            <a className="github-button"
+              href="https://github.com/swc-project/swc/fork"
+              data-icon="octicon-repo-forked"
+              data-size="large"
+              data-show-count="true"
+              aria-label="Fork swc-project/swc on GitHub">Fork</a>
+
           </PromoSection>
         </div>
       </SplashContainer>
@@ -97,19 +113,6 @@ class Index extends React.Component {
         <h2>Feature Callout</h2>
         <MarkdownBlock>These are features of this project</MarkdownBlock>
       </div>
-    );
-
-    const TryOut = () => (
-      <Block id="try">
-        {[
-          {
-            content: 'Talk about trying this out',
-            image: `${baseUrl}img/docusaurus.svg`,
-            imageAlign: 'left',
-            title: 'Try it Out',
-          },
-        ]}
-      </Block>
     );
 
     const Description = () => (
@@ -194,7 +197,6 @@ class Index extends React.Component {
           <Features />
           <FeatureCallout />
           <LearnHow />
-          <TryOut />
           <Description />
           <Showcase />
         </div>

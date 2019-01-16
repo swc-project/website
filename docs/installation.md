@@ -3,7 +3,7 @@ id: installation
 title: Installation
 ---
 
-You can install `swc` via
+You can install `swc` with
 
 ```
 npm i -D swc
@@ -15,9 +15,9 @@ yarn add --dev swc
 
 
 This will download prebuilt binary instead of building swc if possible.
-Currently prebuilt binaries are provided only for `mac (x64)` / `linux (x86_64)` and for some of node js versions (6, 8, 10, 11).
+Currently prebuilt binaries are provided only for `mac (x64)` / `linux (x86_64)` / `win32-x64` and for some of node js versions (6, 8, 10, 11).
 
-To use swc in other environment, you should install nightly version of [rust](https://www.rust-lang.org/) first. It can be done with
+To use swc in other environments, you should install nightly version of [rust](https://www.rust-lang.org/) first. It can be done with
 ```
 curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain=nightly
 ```
