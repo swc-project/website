@@ -107,7 +107,7 @@ Though the JSX spec allows this, it is disabled by default since React's JSX doe
 Variables to inline.
 
 e.g.
-`,swcrc`:
+`.swcrc`:
 ```json
 {
   "jsc": {
