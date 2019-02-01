@@ -12,10 +12,10 @@ npm i --save-dev swc-cli swc
 ## Usage
 
 ```sh
-# Trnanspile one file and emit to stdout.
+# Transpile one file and emit to stdout.
 npx swc FILE
 
-# Trnanspile one file and emit to output.
+# Transpile one file and emit to output.
 npx swc FILE -o output
 
 # Transpile and merge into one file
