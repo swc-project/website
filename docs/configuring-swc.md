@@ -47,7 +47,7 @@ Swc can be configured with `.swcrc`.
 
 ### jsc.transform
 
-Exmaple
+Example
 
 ```json
 {
