@@ -60,7 +60,7 @@ class HomeSplash extends React.Component {
 
     return (
       <SplashContainer>
-        <Logo img_src={`${baseUrl}img/docusaurus.svg`} />
+        <Logo img_src='https://raw.githubusercontent.com/swc-project/logo/master/swc.png' />
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
