@@ -43,6 +43,7 @@ const siteConfig = {
     { blog: true, label: 'Blog' },
     { href: 'https://opencollective.com/swc', label: 'Donate' },
     { href: "https://github.com/swc-project/swc", label: "GitHub" },
+    { search: true },
   ],
 
   // If you have users set above, you add it here:
@@ -102,6 +103,12 @@ const siteConfig = {
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
   repoUrl: 'https://github.com/swc-project/swc',
+
+  algolia: {
+    apiKey: '346577cc6b73ae8e2d4c05857a177b62',
+    indexName: 'website',
+    algoliaOptions: {} // Optional, if provided by Algolia
+  },
 };
 
 module.exports = siteConfig;
