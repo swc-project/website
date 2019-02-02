@@ -28,7 +28,7 @@ class Footer extends React.Component {
           <a href={this.props.config.baseUrl} className="nav-home">
             {this.props.config.footerIcon && (
               <img
-                src={this.props.config.baseUrl + this.props.config.footerIcon}
+                src={this.props.config.footerIcon}
                 alt={this.props.config.title}
                 width="66"
                 height="58"
