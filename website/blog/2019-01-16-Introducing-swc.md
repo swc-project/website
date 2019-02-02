@@ -30,7 +30,7 @@ class Bar extends Foo {
 It's 13x faster than babel even on single-core benchmark.
 
 
-# Intallation
+# Installation
 
 You can install `swc` with
 
