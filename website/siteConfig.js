@@ -49,7 +49,7 @@ const siteConfig = {
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'https://raw.githubusercontent.com/swc-project/logo/master/swc.png',
+  headerIcon: 'img/swc.png',
   footerIcon: 'https://raw.githubusercontent.com/swc-project/logo/master/swc.png',
   favicon: 'img/favicon.png',
 
@@ -90,8 +90,8 @@ const siteConfig = {
   cleanUrl: true,
 
   // Open Graph and Twitter card images.
-  ogImage: 'https://raw.githubusercontent.com/swc-project/logo/master/swc.png',
-  twitterImage: 'https://raw.githubusercontent.com/swc-project/logo/master/swc.png',
+  ogImage: 'img/swc.png',
+  twitterImage: 'img/swc.png',
 
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,
