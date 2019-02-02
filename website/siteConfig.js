@@ -40,8 +40,9 @@ const siteConfig = {
   headerLinks: [
     { doc: 'introduction', label: 'Docs' },
     { page: 'help', label: 'Help' },
-    { href: "https://github.com/swc-project/swc", label: "GitHub" },
     { blog: true, label: 'Blog' },
+    { href: 'https://opencollective.com/swc', label: 'Donate' },
+    { href: "https://github.com/swc-project/swc", label: "GitHub" },
   ],
 
   // If you have users set above, you add it here:
