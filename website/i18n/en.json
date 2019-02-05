@@ -40,8 +40,9 @@
     "links": {
       "Docs": "Docs",
       "Help": "Help",
-      "GitHub": "GitHub",
-      "Blog": "Blog"
+      "Blog": "Blog",
+      "Donate": "Donate",
+      "GitHub": "GitHub"
     },
     "categories": {
       "Getting started": "Getting started",
