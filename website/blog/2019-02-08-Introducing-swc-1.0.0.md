@@ -138,13 +138,13 @@ See [docs](/docs/configuring-swc) for more details.
 
 Run `npm i --save-dev swc` or `yarn add --dev swc`.
 
-See [docs](/docs/migrating-from-babel-core) for more details.
+See [migration docs](/docs/migrating-from-babel-core) for more details.
 
 ### @babel/cli
 
 Run `npm i --save-dev swc swc-cli` or `yarn add --dev swc swc-cli` to install. CLI apis of `swc-cli` is almost equivalent to it of `@babel/cli`. So you can just replace `npx babel` to `npx swc`.
 
-See [docs](/docs/migrating-from-babel-core) for more details.
+See [migration docs](/docs/migrating-from-babel-cli) for more details.
 
 
 

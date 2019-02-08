@@ -15,11 +15,8 @@ npm i --save-dev swc-cli swc
 # Transpile one file and emit to stdout.
 npx swc FILE
 
-# Transpile one file and emit to output.
-npx swc FILE -o output
-
-# Transpile and merge into one file
-npx swc DIR -o lib.js
+# Transpile one file and emit to `output.js`.
+npx swc FILE -o output.js
 
 # Transpile and write output to dir
 npx swc DIR -d dir

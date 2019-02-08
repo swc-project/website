@@ -14,3 +14,5 @@ or
 ```sh
 yarn add --dev swc
 ```
+
+## Usage
