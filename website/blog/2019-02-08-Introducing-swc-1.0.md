@@ -1,5 +1,5 @@
 ---
-title: Introducing swc 1.0.0
+title: Introducing swc 1.0
 author: DongYoon Kang
 authorURL: http://github.com/kdy1
 authorFBID: 100024888122318
@@ -8,11 +8,11 @@ authorFBID: 100024888122318
 ## Introduction
 
 ### What is swc?
-[swc](https://github.com/swc-project/swc) is a super-fast javascript compiler.
+[swc](https://github.com/swc-project/swc) is a super-fast javascript to javascript compiler.
 
 ### What can swc do?
 
-It can transpile typescript / jsx / ecmascript 2019 to es3.
+It can transpile typescript / jsx / ecmascript 2019 to browser-compatible javascript.
 
 `input.js`:
 ```js
@@ -138,13 +138,13 @@ See [docs](/docs/configuring-swc) for more details.
 
 Run `npm i --save-dev swc` or `yarn add --dev swc`.
 
-See [migration docs](/docs/migrating-from-babel-core) for more details.
+See [usage docs](/docs/usage-core) and [migration docs](/docs/migrating-from-babel-core) for more details.
 
 ### @babel/cli
 
 Run `npm i --save-dev swc swc-cli` or `yarn add --dev swc swc-cli` to install. CLI apis of `swc-cli` is almost equivalent to it of `@babel/cli`. So you can just replace `npx babel` to `npx swc`.
 
-See [migration docs](/docs/migrating-from-babel-cli) for more details.
+See [usage docs](/docs/usage-cli) and [migration docs](/docs/migrating-from-babel-cli) for more details.
 
 
 

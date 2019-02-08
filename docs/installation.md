@@ -5,11 +5,11 @@ title: Installation
 
 You can install `swc` with
 
-```
+```sh
 npm i -D swc
 ```
 or
-```
+```sh
 yarn add --dev swc
 ```
 

@@ -4,9 +4,12 @@ title: swc api
 sidebar_label: swc (core)
 ---
 
+
+## APIs
+
 *Note: If you are **not** developing build tools, you can skip this.*
 
-## transform
+### transform
 Returns `Promise<{ code: string, out: string }>`
 
 ```js
@@ -28,13 +31,15 @@ swc.transform('source code', {
 });
 ```
 
-## transformSync
+### transformSync
 Returns `{ code: string, out: string }`
 
-## transformFile
+### transformFile
 Returns `Promise<{ code: string, out: string }>`
 
-## transformFileSync
+### transformFileSync
 Returns `{ code: string, out: string }`
 
+
+## Options
 
