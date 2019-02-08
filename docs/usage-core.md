@@ -6,11 +6,14 @@ sidebar_label: swc (core)
 
 *Note: If you are **not** developing build tools, you can skip this.*
 
+## transform
+Returns `Promise<{ code: string, out: string }>`
+
 ```js
 const swc = require('swc');
 
-const output = swc.transformSync('source code', {
-    // Equivalent to .swcrc
+swc.transform('source code', {
+    // Some options cannot be specified in .swcrc
     jsc: {
         parser: {
             syntax: "ecmascript",
@@ -19,15 +22,19 @@ const output = swc.transformSync('source code', {
             
         }
     }
+}).then((output) => {
+    output.code; // transformed code
+    output.map; // source map (in string)
 });
-output.code; // transformed code
-output.map; // source map (in string)
-
-const output2 = swc.transformFileSync('path_to_file', {
-    // Equivalent to .swcrc
-    // ...    
-})
-output2.code; // transformed code
-output2.map; // source map (in string)
-
 ```
+
+## transformSync
+Returns `{ code: string, out: string }`
+
+## transformFile
+Returns `Promise<{ code: string, out: string }>`
+
+## transformFileSync
+Returns `{ code: string, out: string }`
+
+

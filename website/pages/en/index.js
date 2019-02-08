@@ -37,7 +37,7 @@ class HomeSplash extends React.Component {
 
     const ProjectTitle = () => (
       <h2 className="projectTitle">
-        {siteConfig.title}
+        <img src='https://raw.githubusercontent.com/swc-project/logo/master/swc.png' width="200" />
         <small>{siteConfig.tagline}</small>
       </h2>
     );
@@ -60,11 +60,11 @@ class HomeSplash extends React.Component {
 
     return (
       <SplashContainer>
-        <Logo img_src='https://raw.githubusercontent.com/swc-project/logo/master/swc.png' />
+        {/* <Logo img_src='https://raw.githubusercontent.com/swc-project/logo/master/swc.png' /> */}
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href={docUrl('introduction')} style={{ display: 'block' }}>Getting started</Button>
+            <Button href={docUrl('installation')} style={{ display: 'block' }}>Getting started</Button>
           </PromoSection>
           <PromoSection>
             <a className="github-button"
@@ -106,71 +106,26 @@ class Index extends React.Component {
       </Container>
     );
 
-    const FeatureCallout = () => (
-      <div
-        className="productShowcaseSection paddingBottom"
-        style={{ textAlign: 'center' }}>
-        <h2>Feature Callout</h2>
-        <MarkdownBlock>These are features of this project</MarkdownBlock>
-      </div>
-    );
-
-    const Description = () => (
-      <Block background="dark">
-        {[
-          {
-            content:
-              'This is another description of how this project is useful',
-            image: `${baseUrl}img/docusaurus.svg`,
-            imageAlign: 'right',
-            title: 'Description',
-          },
-        ]}
-      </Block>
-    );
-
-    const LearnHow = () => (
-      <Block background="light">
-        {[
-          {
-            content: 'Talk about learning how to use this',
-            image: `${baseUrl}img/docusaurus.svg`,
-            imageAlign: 'right',
-            title: 'Learn How',
-          },
-        ]}
-      </Block>
-    );
-
     const Features = () => (
       <Block layout="fourColumn">
         {[
           {
-            content: 'This is the content of my feature',
-            image: `${baseUrl}img/docusaurus.svg`,
-            imageAlign: 'top',
-            title: 'Feature One',
+            title: 'Transcompile to es3',
+            content: 'Swc can transcompile next generation ecmascript to old-days javascript',
           },
           {
-            content: 'The content of my second feature',
-            image: `${baseUrl}img/docusaurus.svg`,
-            imageAlign: 'top',
-            title: 'Feature Two',
+            title: 'Super fast',
+            content: "It's 16x faster than babel.",
           },
         ]}
       </Block>
     );
 
     const Showcase = () => {
-      if ((siteConfig.users || []).length === 0) {
-        return null;
-      }
-
-      const showcase = siteConfig.users
-        .filter(user => user.pinned)
-        .map(user => (
-          <a href={user.infoLink} key={user.infoLink}>
-            <img src={user.image} alt={user.caption} title={user.caption} />
+      const showcase = siteConfig.sponsors
+        .map(sponsor => (
+          <a href={sponsor.infoLink} key={sponsor.infoLink}>
+            <img src={sponsor.image} alt={sponsor.caption} title={sponsor.caption} />
           </a>
         ));
 
@@ -178,12 +133,11 @@ class Index extends React.Component {
 
       return (
         <div className="productShowcaseSection paddingBottom">
-          <h2>Who is Using This?</h2>
-          <p>This project is used by all these people</p>
+          <h2>Open Collective Sponsors</h2>
           <div className="logos">{showcase}</div>
           <div className="more-users">
-            <a className="button" href={pageUrl('users.html')}>
-              More {siteConfig.title} Users
+            <a className="button" href='https://opencollective.com/swc'>
+              Donate
             </a>
           </div>
         </div>
@@ -195,9 +149,6 @@ class Index extends React.Component {
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
           <Features />
-          <FeatureCallout />
-          <LearnHow />
-          <Description />
           <Showcase />
         </div>
       </div>

@@ -12,10 +12,6 @@
       "installation": {
         "title": "Installation"
       },
-      "introduction": {
-        "title": "Introduction",
-        "sidebar_label": "Introduction"
-      },
       "migrating-from-babel-cli": {
         "title": "Migrating from babel cli",
         "sidebar_label": "@babel/cli"

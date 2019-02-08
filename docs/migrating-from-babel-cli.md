@@ -5,27 +5,14 @@ sidebar_label: @babel/cli
 ---
 
 ## Installation
+Run 
 ```sh
 npm i --save-dev swc-cli swc
 ```
-
-
-## Usage
-
+or 
 ```sh
-# from
-npx babel FILE
-# to
-npx swc FILE
-
-
-# from
-npx babel FILE -o output.js
-# to
-npx swc FILE -o output.js
-
-# from
-npx babel DIR -d out
-# to
-npx swc DIR -d out
+yarn add --dev swc-cli swc
 ```
+
+
+CLI apis of `swc-cli` are intentionally almost same as it of `@babel/cli`. So you can just replace `npx babel` to `npx swc`. If it results in an error, please [report an error][issues].

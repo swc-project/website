@@ -5,4 +5,12 @@ sidebar_label: @babel/core
 ---
 
 
-TODO
+## Installation
+Run 
+```sh
+npm i --save-dev swc
+```
+or 
+```sh
+yarn add --dev swc
+```

@@ -10,15 +10,17 @@
 
 // List of projects/orgs using your project for the users page.
 const users = [
-  {
-    caption: 'kdy1',
-    // You will need to prepend the image path with your baseUrl
-    // if it is not '/', like: '/test-site/img/docusaurus.svg'.
-    image: '/img/docusaurus.svg',
-    infoLink: 'https://www.facebook.com',
-    pinned: true,
-  },
+  // {
+  //   caption: 'kdy1',
+  //   // You will need to prepend the image path with your baseUrl
+  //   // if it is not '/', like: '/test-site/img/docusaurus.svg'.
+  //   image: '/img/docusaurus.svg',
+  //   infoLink: 'https://www.facebook.com',
+  //   pinned: true,
+  // },
 ];
+
+const sponsors = [];
 
 const siteConfig = {
   title: 'swc', // Title for your website.
@@ -38,7 +40,7 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: 'introduction', label: 'Docs' },
+    { doc: 'installation', label: 'Docs' },
     { page: 'help', label: 'Help' },
     { blog: true, label: 'Blog' },
     { href: 'https://opencollective.com/swc', label: 'Donate' },
@@ -48,10 +50,11 @@ const siteConfig = {
 
   // If you have users set above, you add it here:
   users,
+  sponsors,
 
   /* path to images for header/footer */
-  headerIcon: 'img/swc.png',
-  footerIcon: 'https://raw.githubusercontent.com/swc-project/logo/master/swc.png',
+  // headerIcon: 'img/swc-without-extra.png',
+  footerIcon: 'https://raw.githubusercontent.com/swc-project/logo/master/swc-without-extra.png',
   favicon: 'img/favicon.png',
 
   /* Colors for website */
@@ -103,6 +106,10 @@ const siteConfig = {
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
   repoUrl: 'https://github.com/swc-project/swc',
+
+
+  gaTrackingId: 'UA-81467907-3',
+  facebookComments: true,
 
   algolia: {
     apiKey: '346577cc6b73ae8e2d4c05857a177b62',
