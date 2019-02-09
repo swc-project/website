@@ -8,7 +8,7 @@ authorFBID: 100024888122318
 ## Introduction
 
 ### What is swc?
-[swc](https://github.com/swc-project/swc)(speedy web compiler) is a super-fast javascript to javascript compiler.
+[swc](https://github.com/swc-project/swc)(speedy web compiler) is a super-fast javascript to javascript compiler. It's also an alternative to babel.
 
 ### What can swc do?
 
