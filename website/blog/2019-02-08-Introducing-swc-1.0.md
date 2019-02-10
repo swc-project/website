@@ -70,7 +70,7 @@ Swc implements almost all babel plugins. As of 1.0.0, swc can understand various
   "jsc": {
     "parser": {
       "syntax": "ecmascript",
-      "jsc": true
+      "jsx": true
     }
   }
 }
