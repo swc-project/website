@@ -211,3 +211,13 @@ To emit umd module, you can do so by
 #### globals
 
 TODO
+
+## minify
+To get minified output, you can configure swc by
+
+`.swcrc`:
+```json
+{
+  "minify": true
+}
+```
