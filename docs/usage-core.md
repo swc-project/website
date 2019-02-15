@@ -13,7 +13,7 @@ sidebar_label: swc (core)
 Returns `Promise<{ code: string, out: string }>`
 
 ```js
-const swc = require('swc');
+const swc = require('@swc/core');
 
 swc.transform('source code', {
     // Some options cannot be specified in .swcrc

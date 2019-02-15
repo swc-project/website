@@ -6,7 +6,7 @@ sidebar_label: swc-loader (Webpack)
 
 ## Installation
 ```
-npm i --save-dev swc swc-loader
+npm i --save-dev @swc/core swc-loader
 ```
 
 

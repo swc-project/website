@@ -6,11 +6,11 @@ title: Installation
 You can install `swc` with
 
 ```sh
-npm i -D swc
+npm i -D @swc/core
 ```
 or
 ```sh
-yarn add --dev swc
+yarn add --dev @swc/core
 ```
 
 

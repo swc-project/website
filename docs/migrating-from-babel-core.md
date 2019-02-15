@@ -8,11 +8,11 @@ sidebar_label: @babel/core
 ## Installation
 Run 
 ```sh
-npm i --save-dev swc
+npm i --save-dev @swc/core
 ```
 or 
 ```sh
-yarn add --dev swc
+yarn add --dev @swc/core
 ```
 
 ## Usage

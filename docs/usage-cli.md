@@ -6,7 +6,7 @@ sidebar_label: cli
 
 ## Installation
 ```sh
-npm i --save-dev swc-cli swc
+npm i --save-dev @swc/cli @swc/core
 ```
 
 ## Usage
