@@ -35,11 +35,11 @@ It's 16x - 20x faster than babel even on single-core synchronous benchmark. Note
 You can install `swc` with
 
 ```sh
-npm install --save-dev swc
+npm install --save-dev @swc/core
 ```
 or
 ```sh
-yarn add --dev swc
+yarn add --dev @swc/core
 ```
 See [installation guide](/docs/installation) for more details.
 
@@ -136,7 +136,7 @@ See [docs](/docs/configuring-swc) for more details.
 
 ### @babel/core
 
-Run `npm i --save-dev swc` or `yarn add --dev swc`.
+Run `npm i --save-dev @swc/core` or `yarn add --dev @swc/core`.
 
 Swc enables all passes by default. So if you are using only standartd ecmascript, you can just delete `.babelrc` and change `babel.transform()` to `swc.transform()`.
 
@@ -146,7 +146,7 @@ Also note that swc does not support custom plugin yet.
 
 ### @babel/cli
 
-Run `npm i --save-dev swc swc-cli` or `yarn add --dev swc swc-cli` to install. CLI apis of `swc-cli` is almost equivalent to it of `@babel/cli`. So if you are using standartd ecmascript, you can just replace `npx babel` to `npx swc`. If it results in an error, please [report an error][issues].
+Run `npm i --save-dev @swc/core @swc/cli` or `yarn add --dev @swc/core @swc/cli` to install. CLI apis of `@swc/cli` is almost equivalent to it of `@babel/cli`. So if you are using standartd ecmascript, you can just replace `npx babel` to `npx swc`. If it results in an error, please [report an error][issues].
 
 See [usage docs](/docs/usage-cli) and [migration docs](/docs/migrating-from-babel-cli) for more details. Also note that swc does not support custom plugin yet.
 
