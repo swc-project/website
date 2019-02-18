@@ -10,7 +10,7 @@ sidebar_label: swc (core)
 *Note: If you are **not** developing build tools, you can skip this.*
 
 ### transform
-Returns `Promise<{ code: string, out: string }>`
+Returns `Promise<{ code: string, map?: string }>`
 
 ```js
 const swc = require('@swc/core');
@@ -32,13 +32,13 @@ swc.transform('source code', {
 ```
 
 ### transformSync
-Returns `{ code: string, out: string }`
+Returns `{ code: string, map?: string }`
 
 ### transformFile
-Returns `Promise<{ code: string, out: string }>`
+Returns `Promise<{ code: string, map?: string }>`
 
 ### transformFileSync
-Returns `{ code: string, out: string }`
+Returns `{ code: string, map?: string }`
 
 
 ## Options
