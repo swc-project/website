@@ -127,17 +127,19 @@ true
 ```
 
 ## module
-swc can transpile es6 modules to common js module or umd module.
+swc can transpile es6 modules to common js module, umd module or amd module.
 
-### common js
-To emit node js modules with swc, you can do so by 
+### shared options
+These options are shared by common js / umd / amd.
+
+
 
 `.swcrc`:
 ```json
 {
   "module": {
+    // You can specify "commonjs", "amd", "umd"
     "type": "commonjs",
-    // Default values for common js
     "strict": false,
     "strictMode": true,
     "lazy": false,
@@ -150,7 +152,7 @@ To emit node js modules with swc, you can do so by
 
 By default, when using exports with swc a non-enumerable `__esModule` property is exported. In some cases this property is used to determine if the import is the default export or if it contains the default export.
           
-In order to prevent the __esModule property from being exported, you can set the strict option to true.
+In order to prevent the `__esModule` property from being exported, you can set the strict option to true.
 
 Defaults to `false`.
 
@@ -195,6 +197,48 @@ In cases where the auto-unwrapping of default is not needed, you can set the noI
    
 Defaults to `false`.
 
+### common js
+To emit common js module, you can do so by
+
+`.swcrc`:
+```json
+{
+  "module": {
+    "type": "commonjs",
+
+    // These are defaults.
+    "strict": false,
+    "strictMode": true,
+    "lazy": false,
+    "noInterop": false
+  }
+}
+```
+
+### amd
+To emit amd module, you can do so by
+
+`.swcrc`:
+```json
+{
+  "module": {
+    "type": "amd",
+    // Optional. If specified, swc emits named amd module.
+    "moduleId": "foo",
+
+    // These are defaults.
+    "strict": false,
+    "strictMode": true,
+    "lazy": false,
+    "noInterop": false
+  }
+}
+```
+
+#### moduleId
+Defaults to `undefined`. If specified, swc emits named amd module.
+
+
 ### umd
 To emit umd module, you can do so by
 
@@ -204,6 +248,12 @@ To emit umd module, you can do so by
   "module": {
     "type": "umd",
     "globals": {},
+
+    // These are defaults.
+    "strict": false,
+    "strictMode": true,
+    "lazy": false,
+    "noInterop": false
   }
 }
 ```
