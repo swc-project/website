@@ -42,6 +42,18 @@ Swc can be configured with `.swcrc` file.
 }
 ```
 
+## jsc.target
+Starting from `@swc/core` v1.0.27, you can specify target environment by using the field.
+```json
+{
+  "jsc": {
+    // Disable es3 / es5 / es2015 trnasforms
+    "target": "es2016"
+  }
+}
+```
+Possible values are `es3`, `es5`, `es2015`, `es2016`, `es2017`, `es2018`.
+
 ## jsc.transform
 
 Example
