@@ -47,7 +47,7 @@ Starting from `@swc/core` v1.0.27, you can specify target environment by using t
 ```json
 {
   "jsc": {
-    // Disable es3 / es5 / es2015 trnasforms
+    // Disable es3 / es5 / es2015 transforms
     "target": "es2016"
   }
 }
