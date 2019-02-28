@@ -17,6 +17,10 @@ const swc = require('@swc/core');
 
 swc.transform('source code', {
     // Some options cannot be specified in .swcrc
+    filename: 'input.js',
+    sourceMaps: true,
+
+    // All options below can be configured via .swcrc
     jsc: {
         parser: {
             syntax: "ecmascript",
