@@ -30,6 +30,7 @@ Swc can be configured with `.swcrc` file.
     "parser": {
       "syntax": "ecmascript",
       "jsx": false,
+      "dynamicImport": false,
       "numericSeparator": false,
       "classPrivateProperty": false,
       "privateMethod": false,
