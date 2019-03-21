@@ -114,7 +114,7 @@ const siteConfig = {
   algolia: {
     apiKey: '346577cc6b73ae8e2d4c05857a177b62',
     indexName: 'website',
-    algoliaOptions: {} // Optional, if provided by Algolia
+    algoliaOptions: {}
   },
 };
 
