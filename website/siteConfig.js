@@ -54,7 +54,7 @@ const siteConfig = {
 
   /* path to images for header/footer */
   // headerIcon: 'img/swc-without-extra.png',
-  footerIcon: 'https://raw.githubusercontent.com/swc-project/logo/master/swc-without-extra.png',
+  footerIcon: 'https://raw.githubusercontent.com/swc-project/logo/master/swc.png',
   favicon: 'img/favicon.png',
 
   /* Colors for website */
