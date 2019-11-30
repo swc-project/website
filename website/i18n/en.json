@@ -28,6 +28,10 @@
         "title": "swc api",
         "sidebar_label": "swc (core)"
       },
+      "usage-plugin": {
+        "title": "Using custom plugins with swc",
+        "sidebar_label": "Plugin"
+      },
       "usage-swc-loader": {
         "title": "Using swc with webpack",
         "sidebar_label": "swc-loader (Webpack)"

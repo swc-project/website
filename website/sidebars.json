@@ -8,6 +8,7 @@
     ],
     "Usage": [
       "usage-core",
+      "usage-plugin",
       "usage-cli",
       "usage-swc-loader"
     ],
