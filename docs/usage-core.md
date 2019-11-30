@@ -1,6 +1,6 @@
 ---
 id: usage-core
-title: swc api
+title: swc core api
 sidebar_label: swc (core)
 ---
 
@@ -9,7 +9,13 @@ sidebar_label: swc (core)
 
 *Note: If you are **not** developing build tools, you can skip this.*
 
+
 ### transform
+
+*Note:*
+ - Package `@swc/core` provides appropriate `.d.ts` file, so you may not need this document
+
+
 Returns `Promise<{ code: string, map?: string }>`
 
 ```js

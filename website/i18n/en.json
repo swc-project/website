@@ -25,7 +25,7 @@
         "sidebar_label": "cli"
       },
       "usage-core": {
-        "title": "swc api",
+        "title": "swc core api",
         "sidebar_label": "swc (core)"
       },
       "usage-plugin": {
