@@ -27,7 +27,7 @@ Starting with `v1.0.47`, you can specify multiple entries. For exmaple,
 ]
 ```
 
-this make swc compile js files as common js module (uses required('foo')) and compile ts files as amd modules.
+this make swc compile javascript files as common js module (uses `require('foo')`) and compile typescript files as amd modules.
 
 # jsc
 
