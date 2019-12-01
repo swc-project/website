@@ -167,6 +167,33 @@ e.g.
 true;
 ```
 
+
+#### jsc.transform.optimizer.jsonify
+
+**Note:** This feature is requires `v1.1.1`+
+
+- `minCost`
+If cost of parsing a pure object literal is larger than this value, the object literal is converted to `JSON.parse('{"foo": "bar"}')`. Defaults to 1024.
+
+e.g.
+`.swcrc`:
+
+```json
+{
+  "jsc": {
+    "transform": {
+      "optimizer": {
+        "jsonify": {
+            "minCost": 0
+        }
+      }
+    }
+  }
+}
+```
+
+This will change all **pure** object literals to `JSON.parse("")`.
+
 ## module
 
 swc can transpile es6 modules to common js module, umd module or amd module.
