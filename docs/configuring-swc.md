@@ -85,7 +85,19 @@ Starting from `@swc/core` v1.0.27, you can specify target environment by using t
 }
 ```
 
-Possible values are `es3`, `es5`, `es2015`, `es2016`, `es2017`, `es2018`.
+## jsc.loose
+
+Starting from `@swc/core` v1.1.4, you can enable loose mode by
+
+```json
+{
+  "jsc": {
+    "loose": true
+  }
+}
+```
+
+In loose mode, swc generates more efficient code.
 
 ## jsc.transform
 
@@ -171,13 +183,12 @@ e.g.
 true;
 ```
 
-
 #### jsc.transform.optimizer.jsonify
 
 **Note:** This feature is requires `v1.1.1`+
 
 - `minCost`
-If cost of parsing a pure object literal is larger than this value, the object literal is converted to `JSON.parse('{"foo": "bar"}')`. Defaults to 1024.
+  If cost of parsing a pure object literal is larger than this value, the object literal is converted to `JSON.parse('{"foo": "bar"}')`. Defaults to 1024.
 
 e.g.
 `.swcrc`:
@@ -188,7 +199,7 @@ e.g.
     "transform": {
       "optimizer": {
         "jsonify": {
-            "minCost": 0
+          "minCost": 0
         }
       }
     }
