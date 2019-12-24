@@ -41,7 +41,8 @@ this make swc compile javascript files as common js module (uses `require('foo')
     "parser": {
       "syntax": "typescript",
       "tsx": false,
-      "decorators": false
+      "decorators": false,
+      "dynamicImport": false
     }
   }
 }
@@ -61,8 +62,11 @@ this make swc compile javascript files as common js module (uses `require('foo')
       "privateMethod": false,
       "classProperty": false,
       "functionBind": false,
+      "exportDefaultFrom": false,
+      "exportNamespaceFrom": false,
       "decorators": false,
-      "decoratorsBeforeExport": false
+      "decoratorsBeforeExport": false,
+      "nullishCoalescing": false
     }
   }
 }
