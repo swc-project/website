@@ -5,7 +5,6 @@ authorURL: http://github.com/kdy1
 authorFBID: 100024888122318
 ---
 
-
 ## Plugin
 
 `swc` now supports custom plugins written in javascript and friends! Note that `.d.ts` file for ast nodes and `Visitor` is provided.
@@ -41,38 +40,40 @@ One of difference of `swc` with `babel` is performance. I optimized `swc` binary
 
 `:babel` does same tasks as "swc (es5)" while `:plugin` does tasks of "swc (es3)" and javsacript-based traversal of all ast nodes. `swc` is much faster than babel even though `swc` does more work.
 
-
 ### Example plugin
 
 Let's write a transform which removes console calls such as `console.log()`.
 
 ```ts
-import { CallExpression, Expression } from '@swc/core';
-import Visitor from '@swc/core/Visitor'
+import { CallExpression, Expression } from "@swc/core";
+import Visitor from "@swc/core/Visitor";
 
 export default class ConsoleStripper extends Visitor {
-    visitCallExpression(e: CallExpression): Expression {
-        if (e.callee.type !== 'MemberExpression') {
-            return e;
-        }
-
-        if (e.callee.object.type === 'Identifier' && e.callee.object.value === 'console') {
-            if (e.callee.property.type === 'Identifier') {
-                return {
-                    type: "UnaryExpression",
-                    span: e.span,
-                    operator: 'void',
-                    argument: {
-                        type: 'NumericLiteral',
-                        span: e.span,
-                        value: 0
-                    }
-                }
-            }
-        }
-
-        return e
+  visitCallExpression(e: CallExpression): Expression {
+    if (e.callee.type !== "MemberExpression") {
+      return e;
     }
+
+    if (
+      e.callee.object.type === "Identifier" &&
+      e.callee.object.value === "console"
+    ) {
+      if (e.callee.property.type === "Identifier") {
+        return {
+          type: "UnaryExpression",
+          span: e.span,
+          operator: "void",
+          argument: {
+            type: "NumericLiteral",
+            span: e.span,
+            value: 0
+          }
+        };
+      }
+    }
+
+    return e;
+  }
 }
 ```
 
@@ -80,14 +81,11 @@ You are done. You can turn on swc's optimizer with `jsc.transform.optimizer` to 
 
 See: https://github.com/swc-project/plugin-strip-console
 
-
-
 ## Parser
 
 ### Performance
 
 Again, `swc` is fast.
-
 
 ```
 test angular          ... bench:  30,891,704 ns/iter (+/- 772,962) = 23 MB/s
@@ -100,7 +98,6 @@ test underscore       ... bench:   3,628,824 ns/iter (+/- 101,667) = 12 MB/s
 test yui              ... bench:  18,176,174 ns/iter (+/- 213,133) = 18 MB/s
 ```
 
-
 ### Optional chaining ([#442](https://github.com/swc-project/swc/issues/442))
 
 `swc` now supports optional chaining from [typescript 3.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html).
@@ -111,12 +108,11 @@ let foo = a?.b?.c;
 
 As this is official syntax, this is enabled by default if you configure `{ syntax: "typescript" }` in `.swcrc`.
 
-
 ### Error recovery
 
 `swc_ecma_parser` did not supported any error recovert when `v1.0.0` was released. As it made debugging hard, I implemented lot of error recovery logic. Note that I'll keep improving error recovery while `swc` matches the grade of tsc.
 
-I stored reference errors of each file in [ecmascript parser's test suite](https://github.com/swc-project/swc/tree/master/ecmascript/parser/tests/test262-error-references/fail). 
+I stored reference errors of each file in [ecmascript parser's test suite](https://github.com/swc-project/swc/tree/master/ecmascript/parser/tests/test262-error-references/fail).
 
 ```
 error: Unexpected token Some(Comma)
@@ -133,17 +129,13 @@ This is an exmaple of reference.
 
 Span of error becomes much more accurate. Swc has an error reporting test which tests many tests from [test262][], the official ecmascript test suite.
 
-
-
-
 ## .swcrc
 
 `.swcrc` file is improved.
 
-
 ### Multiple entries
 
-Starting with `v1.0.47`, you can specify multiple entries in `.swcrc`. 
+Starting with `v1.0.47`, you can specify multiple entries in `.swcrc`.
 
 ```json
 [
@@ -164,6 +156,4 @@ Starting with `v1.0.47`, you can specify multiple entries in `.swcrc`.
 
 This make swc compile javascript files as common js module (uses `require('foo')`) and compile typescript files as amd modules.
 
-
-
-[test262]:https://github.com/tc39/test262
+[test262]: https://github.com/tc39/test262
