@@ -123,7 +123,7 @@ error: Unexpected token Some(Comma)
 
 ```
 
-This is an exmaple of reference.
+This is an example of reference.
 
 ### Span
 

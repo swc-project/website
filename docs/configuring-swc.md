@@ -12,7 +12,7 @@ See [preset-env](/docs/preset-env) for using swc with `browserslist`.
 
 # Multiple entries
 
-Starting with `v1.0.47`, you can specify multiple entries. For exmaple,
+Starting with `v1.0.47`, you can specify multiple entries. For example,
 
 ```json
 [
