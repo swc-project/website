@@ -1,20 +1,8 @@
 {
   "usage": {
-    "Getting started": [
-      "installation"
-    ],
-    "Configuring swc": [
-      "configuring-swc"
-    ],
-    "Usage": [
-      "usage-core",
-      "usage-plugin",
-      "usage-cli",
-      "usage-swc-loader"
-    ],
-    "Migration": [
-      "migrating-from-babel-core",
-      "migrating-from-babel-cli"
-    ]
+    "Getting started": ["installation"],
+    "Configuring swc": ["configuring-swc", "preset-env"],
+    "Usage": ["usage-core", "usage-plugin", "usage-cli", "usage-swc-loader"],
+    "Migration": ["migrating-from-babel-core", "migrating-from-babel-cli"]
   }
 }

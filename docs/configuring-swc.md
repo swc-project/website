@@ -4,7 +4,11 @@ title: Configuring swc
 sidebar_label: Configuring swc
 ---
 
-Swc can be configured with `.swcrc` file.
+`swc` can be configured with `.swcrc` file.
+
+## preset-env
+
+See [preset-env](/docs/preset-env) for using swc with `browserslist`.
 
 # Multiple entries
 

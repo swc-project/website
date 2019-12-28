@@ -5,6 +5,10 @@
     "previous": "Previous",
     "tagline": "Super fast alternative for babel",
     "docs": {
+      "preset-env": {
+        "title": "preset-env",
+        "sidebar_label": "preset-env"
+      },
       "configuring-swc": {
         "title": "Configuring swc",
         "sidebar_label": "Configuring swc"
