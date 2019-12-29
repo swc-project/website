@@ -4,13 +4,16 @@ title: Migrating from @babel/core
 sidebar_label: @babel/core
 ---
 
-
 ## Installation
-Run 
+
+Run
+
 ```sh
 npm i --save-dev @swc/core
 ```
-or 
+
+or
+
 ```sh
 yarn add --dev @swc/core
 ```

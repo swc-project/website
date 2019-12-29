@@ -5,12 +5,13 @@ sidebar_label: swc-loader (Webpack)
 ---
 
 ## Installation
+
 ```
 npm i --save-dev @swc/core swc-loader
 ```
 
-
 ## Configuration
+
 ```js
 module: {
   rules: [
@@ -19,10 +20,9 @@ module: {
       exclude: /(node_modules|bower_components)/,
       use: {
         // `.swcrc` can be used to configure swc
-        loader: 'swc-loader',
+        loader: "swc-loader"
       }
     }
-  ]
+  ];
 }
-
 ```
