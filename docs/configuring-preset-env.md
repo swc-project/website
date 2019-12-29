@@ -18,7 +18,8 @@ Starting with `v1.1.10`, you can now use browserslist to automaticallly configur
     "targets": {
       "chrome": "79"
     },
-    "mode": "entry"
+    "mode": "entry",
+    "coreJs": 3
   }
 }
 ```
@@ -31,7 +32,9 @@ If you want to use `browserslist` with swc, you can just omit `targets` field li
 
 ```json
 {
-  "env": {}
+  "env": {
+    "coreJs": 3
+  }
 }
 ```
 
