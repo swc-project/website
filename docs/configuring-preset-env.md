@@ -79,6 +79,8 @@ If `targets` is not specified, `swc` uses `browserslist` to get target informati
 Possible values: `usage`, `entry`, `undefined`
 Defaults to `undefined`.
 
+_Note:_ Currently `usage` is not efficient as one of babel. Even though, it does not matter in real world codes.
+
 ### debug
 
 Defaults to `false`.
