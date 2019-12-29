@@ -5,6 +5,10 @@
     "previous": "Previous",
     "tagline": "Super fast alternative for babel",
     "docs": {
+      "comparison-babel": {
+        "title": "Comparison with babel",
+        "sidebar_label": "Comparison with babel"
+      },
       "preset-env": {
         "title": "preset-env",
         "sidebar_label": "preset-env"
@@ -52,7 +56,8 @@
       "Getting started": "Getting started",
       "Configuring swc": "Configuring swc",
       "Usage": "Usage",
-      "Migration": "Migration"
+      "Migration": "Migration",
+      "Comparison": "Comparison"
     }
   },
   "pages-strings": {
