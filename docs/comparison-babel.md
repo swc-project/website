@@ -91,7 +91,7 @@ sidebar_label: Comparison with babel
 | babel-plugin-transform-react-jsx-compat                  |        ❌         |
 | babel-plugin-transform-react-jsx-self                    |        ✔️         |
 | babel-plugin-transform-react-jsx-source                  |        ✔️         |
-| babel-plugin-transform-regenerator                       |     ❌ (wip)      |
+| babel-plugin-transform-regenerator                       |        ✔️         |
 | babel-plugin-transform-reserved-words                    |        ✔️         |
 | babel-plugin-transform-runtime                           |        ❌         |
 | babel-plugin-transform-shorthand-properties              |        ✔️         |
