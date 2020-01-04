@@ -23,29 +23,29 @@ const users = [
 const sponsors = [];
 
 const siteConfig = {
-  title: 'swc', // Title for your website.
-  tagline: 'Super fast alternative for babel',
-  url: 'https://swc-project.github.io', // Your website URL
-  baseUrl: '/', // Base URL for your project */
+  title: "swc", // Title for your website.
+  tagline: "Super fast javascript / typescript compiler",
+  url: "https://swc-project.github.io", // Your website URL
+  baseUrl: "/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: 'swc',
-  organizationName: 'swc-project',
+  projectName: "swc",
+  organizationName: "swc-project",
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: 'installation', label: 'Docs' },
-    { page: 'help', label: 'Help' },
-    { blog: true, label: 'Blog' },
-    { href: 'https://opencollective.com/swc', label: 'Donate' },
+    { doc: "installation", label: "Docs" },
+    { page: "help", label: "Help" },
+    { blog: true, label: "Blog" },
+    { href: "https://opencollective.com/swc", label: "Donate" },
     { href: "https://github.com/swc-project/swc", label: "GitHub" },
-    { search: true },
+    { search: true }
   ],
 
   // If you have users set above, you add it here:
@@ -54,13 +54,14 @@ const siteConfig = {
 
   /* path to images for header/footer */
   // headerIcon: 'img/swc-without-extra.png',
-  footerIcon: 'https://raw.githubusercontent.com/swc-project/logo/master/swc.png',
-  favicon: 'img/favicon.png',
+  footerIcon:
+    "https://raw.githubusercontent.com/swc-project/logo/master/swc.png",
+  favicon: "img/favicon.png",
 
   /* Colors for website */
   colors: {
-    primaryColor: '#2E8555',
-    secondaryColor: '#205C3B',
+    primaryColor: "#2E8555",
+    secondaryColor: "#205C3B"
   },
 
   /* Custom fonts for website */
@@ -82,20 +83,20 @@ const siteConfig = {
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
-    theme: 'default',
+    theme: "default"
   },
 
   // Add custom scripts here that would be placed in <script> tags.
-  scripts: ['https://buttons.github.io/buttons.js'],
+  scripts: ["https://buttons.github.io/buttons.js"],
 
   // On page navigation for the current documentation page.
-  onPageNav: 'separate',
+  onPageNav: "separate",
   // No .html extensions for paths.
   cleanUrl: true,
 
   // Open Graph and Twitter card images.
-  ogImage: 'img/swc.png',
-  twitterImage: 'img/swc.png',
+  ogImage: "img/swc.png",
+  twitterImage: "img/swc.png",
 
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,
@@ -105,17 +106,16 @@ const siteConfig = {
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-  repoUrl: 'https://github.com/swc-project/swc',
+  repoUrl: "https://github.com/swc-project/swc",
 
-
-  gaTrackingId: 'UA-81467907-3',
+  gaTrackingId: "UA-81467907-3",
   facebookComments: true,
 
   algolia: {
-    apiKey: '346577cc6b73ae8e2d4c05857a177b62',
-    indexName: 'website',
+    apiKey: "346577cc6b73ae8e2d4c05857a177b62",
+    indexName: "website",
     algoliaOptions: {}
-  },
+  }
 };
 
 module.exports = siteConfig;
