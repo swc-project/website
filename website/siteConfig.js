@@ -99,7 +99,7 @@ const siteConfig = {
   twitterImage: "img/swc.png",
 
   // Show documentation's last contributor's name.
-  // enableUpdateBy: true,
+  enableUpdateBy: true,
 
   // Show documentation's last update time.
   enableUpdateTime: true,
@@ -109,6 +109,7 @@ const siteConfig = {
   repoUrl: "https://github.com/swc-project/swc",
 
   gaTrackingId: "UA-81467907-3",
+  facebookAppId: "3577925395580880",
   facebookComments: true,
 
   algolia: {
