@@ -48,6 +48,8 @@ const siteConfig = {
     { search: true }
   ],
 
+  blogSidebarCount: "ALL",
+
   // If you have users set above, you add it here:
   users,
   sponsors,
