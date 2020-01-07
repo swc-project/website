@@ -115,8 +115,8 @@ const siteConfig = {
   facebookComments: true,
 
   algolia: {
-    apiKey: "346577cc6b73ae8e2d4c05857a177b62",
-    indexName: "website",
+    apiKey: "5b6acdf7dc8baaa86317236bb5e2bb9e",
+    indexName: "swc-project",
     algoliaOptions: {}
   }
 };
