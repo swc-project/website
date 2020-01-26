@@ -49,7 +49,75 @@ Note that `test` option can be used to transcompile only typescript files, like
 }
 ```
 
+# test
+
+Type: Regex / Regex[]
+
+Usage:
+
+`.swcrc`:
+
+```json
+{
+  "test": ".*.ts$",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": true
+    }
+  }
+}
+```
+
+# exclude
+
+Type: Regex / Regex[]
+
+`.swcrc`:
+
+```json
+{
+  "exclude": [".*.js$", ".*.map$"],
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": true
+    }
+  }
+}
+```
+
 # jsc
+
+This is optional, and defaults to
+
+```json
+{
+  "jsc": {
+    "parser": {
+      "syntax": "ecmascript",
+      "jsx": false,
+      "dynamicImport": false,
+      "numericSeparator": false,
+      "classPrivateProperty": false,
+      "privateMethod": false,
+      "classProperty": false,
+      "functionBind": false,
+      "exportDefaultFrom": false,
+      "exportNamespaceFrom": false,
+      "decorators": false,
+      "decoratorsBeforeExport": false,
+      "nullishCoalescing": false
+    }
+  }
+}
+```
+
+````
 
 ## jsc.parser
 
@@ -66,7 +134,7 @@ Note that `test` option can be used to transcompile only typescript files, like
     }
   }
 }
-```
+````
 
 `ecmascript`:
 
