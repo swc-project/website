@@ -117,8 +117,6 @@ This is optional, and defaults to
 }
 ```
 
-````
-
 ## jsc.parser
 
 `typescript`:
@@ -134,7 +132,7 @@ This is optional, and defaults to
     }
   }
 }
-````
+```
 
 `ecmascript`:
 
