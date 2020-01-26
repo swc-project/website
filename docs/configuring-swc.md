@@ -33,6 +33,22 @@ Starting with `v1.0.47`, you can specify multiple entries. For example,
 
 this make swc compile javascript files as common js module (uses `require('foo')`) and compile typescript files as amd modules.
 
+Note that `test` option can be used to transcompile only typescript files, like
+
+```json
+{
+  "test": ".*.ts$",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": true
+    }
+  }
+}
+```
+
 # jsc
 
 ## jsc.parser

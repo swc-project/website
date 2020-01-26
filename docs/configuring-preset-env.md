@@ -6,6 +6,8 @@ sidebar_label: preset-env
 
 Starting with `v1.1.10`, you can now use browserslist to automaticallly configure swc.
 
+You need to install `browserslist` to use this feature.
+
 ## Usage
 
 ### Example
