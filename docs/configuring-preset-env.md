@@ -55,7 +55,9 @@ This can either be a [browserslist-compatible](https://github.com/ai/browserslis
 
 ```json
 {
-  "targets": "> 0.25%, not dead"
+  "env": {
+    "targets": "> 0.25%, not dead"
+  }
 }
 ```
 
@@ -63,9 +65,11 @@ Or an object of minimum environment versions to support:
 
 ```json
 {
-  "targets": {
-    "chrome": "58",
-    "ie": "11"
+  "env": {
+    "targets": {
+      "chrome": "58",
+      "ie": "11"
+    }
   }
 }
 ```
@@ -75,6 +79,8 @@ Example environments: `chrome`, `opera`, `edge`, `firefox`, `safari`, `ie`, `ios
 If `targets` is not specified, `swc` uses `browserslist` to get target information. See [browserslist](#browserslist)
 
 ### mode
+
+See: https://babeljs.io/docs/en/babel-preset-env#usebuiltins
 
 Possible values: `usage`, `entry`, `undefined`
 Defaults to `undefined`.
