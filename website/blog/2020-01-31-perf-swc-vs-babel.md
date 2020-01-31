@@ -8,7 +8,10 @@ draft: true
 
 ## Single core world
 
-JavaScript is single-threaded. Definitely, the js thread is not a good place to do heavy computation. Let's talk about babel and swc, which are both compute-heavy.
+JavaScript is single-threaded. Definitely, the js thread is not a good place to do heavy computation. Let's talk about `babel` and `swc`, which are both compute-heavy.
+
+swc repository: [swc][]
+babel homepage: [babel][https://babeljs.io/]
 
 ### Benchmark
 
@@ -158,3 +161,9 @@ Hmm... We need a table.
 `swc` scales well, as it does almost all work in the worker thread. From the fact that the throughput of `100 promises` was better than `4 promises`, we can conclude that the worker thread pool of node js utilizes hyperthreading.
 
 For the conclusion, `swc` scales up with the number of cpu cores. `Promise.all` is enough for scaling. No additional process. I recommend trying it.
+
+Repository: [swc][]
+
+---
+
+[swc]: https://github.com/swc-project/swc
