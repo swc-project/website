@@ -93,7 +93,7 @@ Type: Regex / Regex[]
 
 # jsc
 
-This is optional, and defaults to
+This is optional and defaults to
 
 ```json
 {
@@ -160,7 +160,7 @@ This is optional, and defaults to
 
 ## jsc.target
 
-Starting from `@swc/core` v1.0.27, you can specify target environment by using the field.
+Starting from `@swc/core` v1.0.27, you can specify the target environment by using the field.
 
 ```json
 {
@@ -271,7 +271,7 @@ true;
 
 #### jsc.transform.optimizer.jsonify
 
-**Note:** This feature is requires `v1.1.1`+
+**Note:** This feature requires `v1.1.1`+
 
 - `minCost`
   If cost of parsing a pure object literal is larger than this value, the object literal is converted to `JSON.parse('{"foo": "bar"}')`. Defaults to 1024.
@@ -320,9 +320,9 @@ These options are shared by common js / umd / amd.
 
 #### strict
 
-By default, when using exports with swc a non-enumerable `__esModule` property is exported. In some cases this property is used to determine if the import is the default export or if it contains the default export.
+By default, when using exports with swc a non-enumerable `__esModule` property is exported. In some cases, this property is used to determine if the import is the default export or if it contains the default export.
 
-In order to prevent the `__esModule` property from being exported, you can set the strict option to true.
+To prevent the `__esModule` property from being exported, you can set the strict option to true.
 
 Defaults to `false`.
 
@@ -334,7 +334,7 @@ Defaults to `true`.
 
 #### lazy
 
-Changes Babel's compiled import statements to be lazily evaluated when their imported bindings are used for the first time. This can improve initial load time of your module because evaluating dependencies up front is sometimes entirely un-necessary. This is especially the case when implementing a library module.
+Changes Babel's compiled import statements to be lazily evaluated when their imported bindings are used for the first time. This can improve the initial load time of your module because evaluating dependencies upfront is sometimes entirely unnecessary. This is especially the case when implementing a library module.
 
 The value of `lazy` has a few possible effects:
 
@@ -349,8 +349,7 @@ The value of `lazy` has a few possible effects:
 The two cases where imports can never be lazy are:
 
 - `import "foo";`
-  Side-effect imports are automatically non-lazy since their very existence means
-  that there is no binding to later kick off initialization.
+  Side-effect imports are automatically non-lazy since their very existence means that there is no binding to later kick-off initialization.
 - `export from "foo"`
   Re-exporting all names requires up-front execution because otherwise there is no
   way to know what names need to be exported.
@@ -414,7 +413,7 @@ Defaults to `undefined`. If specified, swc emits named amd module.
 
 ### umd
 
-To emit umd module, you can do so by
+To emit `umd` module, you can do so by
 
 `.swcrc`:
 

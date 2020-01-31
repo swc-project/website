@@ -1,3 +1,18 @@
 {
-    "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "grammarly.userWords": [
+    "api",
+    "cli",
+    "npx",
+    "swc",
+    "webpack",
+    "apis",
+    "amd",
+    "umd"
+  ],
+  "grammarly.diagnostics": {
+    "[markdown]": {
+      "ignore": ["inlineCode", "code"]
+    }
+  }
 }

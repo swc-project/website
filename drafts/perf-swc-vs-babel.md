@@ -21,9 +21,11 @@ JavaScript is single-threaded.
 
 ```
 
-Well, `swc` is very fast. It is an expected result.
+Well, swc is very fast. It is an expected result.
 
 # Real world
+
+However, we don't use `transformSync`, as it blocks the current thread and everything stops.
 
 (The output below is copied as-is from benchmark output)
 

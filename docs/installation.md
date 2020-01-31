@@ -15,10 +15,10 @@ or
 yarn add --dev @swc/core @swc/cli
 ```
 
-This will download prebuilt binary instead of building swc if possible.
+This will download a prebuilt binary instead of building swc if possible.
 Currently prebuilt binaries are provided only for `mac (x64)` / `linux (x86_64)` / `win32-x64` and for some of node js versions (8, 10, 11, 12, 13).
 
-To use swc in other environments, you should install nightly version of [rust](https://www.rust-lang.org/) first. It can be done with
+To use swc in other environments, you should install the nightly version of [rust](https://www.rust-lang.org/) first. It can be done with
 
 ```
 curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain=nightly
