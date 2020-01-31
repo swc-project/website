@@ -8,10 +8,10 @@ draft: true
 
 ## Single core world
 
-JavaScript is single-threaded. Definitely, the js thread is not a good place to do heavy computation. Let's talk about `babel` and `swc`, which are both compute-heavy.
+JavaScript is single-threaded. The js thread is not a good place to do heavy computation. Let's talk about `babel` and `swc`, which are both compute-heavy.
 
 swc repository: [swc][]
-babel homepage: [babel][https://babeljs.io/]
+babel homepage: [babel]([https://babeljs.io/)
 
 ### Benchmark
 
