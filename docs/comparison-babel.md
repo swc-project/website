@@ -51,7 +51,7 @@ sidebar_label: Comparison with babel
 | babel-plugin-syntax-partial-application                  |   ❌ (stage 1)    |
 | babel-plugin-syntax-pipeline-operator                    |   ❌ (stage 0)    |
 | babel-plugin-syntax-throw-expressions                    |   ❌ (stage 2)    |
-| babel-plugin-syntax-top-level-await                      | ❌ (stage 3, wip) |
+| babel-plugin-syntax-top-level-await                      |        ✔️         |
 | babel-plugin-syntax-typescript                           |        ✔️         |
 | babel-plugin-transform-arrow-functions                   |        ✔️         |
 | babel-plugin-transform-async-to-generator                |        ✔️         |

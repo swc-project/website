@@ -112,7 +112,9 @@ This is optional and defaults to
       "decorators": false,
       "decoratorsBeforeExport": false,
       "nullishCoalescing": false,
-      "topLevelAwait": false
+      "topLevelAwait": false,
+      "importMeta": false,
+      "optionalChaining": false
     }
   }
 }
@@ -153,7 +155,9 @@ This is optional and defaults to
       "exportNamespaceFrom": false,
       "decorators": false,
       "decoratorsBeforeExport": false,
-      "nullishCoalescing": false
+      "nullishCoalescing": false,
+      "importMeta": false,
+      "optionalChaining": false
     }
   }
 }
