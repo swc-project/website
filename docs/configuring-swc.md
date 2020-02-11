@@ -112,6 +112,7 @@ This is optional and defaults to
       "decorators": false,
       "decoratorsBeforeExport": false,
       "nullishCoalescing": false,
+      "topLevelAwait": false,
       "importMeta": false,
       "optionalChaining": false
     }
