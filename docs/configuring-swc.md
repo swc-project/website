@@ -242,7 +242,21 @@ Though the JSX spec allows this, it is disabled by default since React's JSX doe
 
 ### jsc.transform.optimizer
 
-- Setting this to `undefined` skips optimizer pass
+**Note**: Optimizer of the swc assumes
+
+- It's a module or wrapped in an iife.
+
+* Accessing (get) global variables does not have a side-effect.
+
+It is the same assumption as the google closure compiler.
+
+- You don't add fields to literals like a numeric literal, regular expression or a string literal.
+
+* Files are served as gzipped.
+
+It means that swc will not focus on reducing size of not-gzipped file size.
+
+Setting this to `undefined` skips optimizer pass
 
 #### jsc.transform.optimizer.globals
 
