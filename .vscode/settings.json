@@ -1,15 +1,15 @@
 {
   "editor.formatOnSave": true,
   "grammarly.userWords": [
+    "amd",
     "api",
+    "apis",
     "cli",
+    "cpu",
     "npx",
     "swc",
-    "webpack",
-    "apis",
-    "amd",
     "umd",
-    "cpu"
+    "webpack"
   ],
   "grammarly.diagnostics": {
     "[markdown]": {
