@@ -5,7 +5,7 @@ authorURL: "http://github.com/kdy1"
 authorFBID: 100024888122318
 ---
 
-[swc](https://github.com/swc-project/swc) is fast. Very fast. It's 18x faster than babel on a single-core benchmark, and on a parallel benchmark, it's 68x faster than babel on a 4 core (8 HT) machine. Why? Just because it's written in rust? No. Its fundamental design differs from any other tool.
+`swc` is fast. Very fast. It's 18x faster than babel on a single-core benchmark, and on a parallel benchmark, it's 68x faster than babel on a 4 core (8 HT) machine. Why? Just because it's written in rust? No. Its fundamental design differs from any other tool.
 
 ## The language
 
@@ -175,7 +175,26 @@ const foo2 = 3;
 
 It means that passes between `resolver` and `hygiene` can inject identifiers as they want without any heavy operation.
 
-The basic idea of hygiene is taken from the macro system of rustc. Note that no compiler works in this way and I call this approach _identifier hygiene_. (Please correct me if I'm wrong.)
+For comparison, babel maintains the scope while transcompiling and [uses it](https://github.com/babel/babel/blob/31b05060409107caa5737f90bdf79fc3538c0a2d/packages/babel-plugin-transform-modules-commonjs/src/index.js#L148-L152) like `scope.rename('require')` to ensure that the name does not conflict.
+However, given the fact that [babel does renaming directly instead of queueing](https://github.com/babel/babel/blob/31b05060409107caa5737f90bdf79fc3538c0a2d/packages/babel-traverse/src/scope/index.js#L370-L378), api like this means that all identifiers in the file are visited on each call. For common js module, babel does like
+
+```js
+path.scope.rename("exports");
+path.scope.rename("module");
+path.scope.rename("require");
+path.scope.rename("__filename");
+path.scope.rename("__dirname");
+```
+
+and it results in 5 scope analysis.
+
+The basic idea of `hygiene` is taken from the macro system of rustc. Note that no compiler works in this way and I call this approach _identifier hygiene_. (Please correct me if I'm wrong.)
+
+---
+
+Edit: Added how babel works
+
+---
 
 ### No graph traversal
 
