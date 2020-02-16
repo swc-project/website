@@ -201,7 +201,20 @@ Edit: Added how babel works
 
 ---
 
-### No graph traversal
+### No use of graph data structures
 
-Graph traversal makes writing stuffs easy. However, it makes optimizing performance harder. So `swc` currently does not use graph traversal.
-All passes which do scope analysis use vectors and hash maps, which is faster.
+`swc` does not use graph structures for some reason.
+The most important one is the fact that rust is not a language with a garbage collector.
+After parsing, we have ast node, which consists of some vectors.
+
+To use a graph data structures like `petgraph::DiGraph`, we need to destruct a vector and create a graph of nodes.
+Also, as js code generator takes ast node, we have to reconstruct the nodes from graph structures.
+This is an obvious overhead, and I wanted to avoid it.
+
+Some graph traversal are possible with vectors, so I decided to go without graph data structures.
+
+---
+
+Edit: `swc` uses dfs and bfs, so we can't say it does not do graph traversal
+
+--

@@ -7,11 +7,12 @@
     "cli",
     "cpu",
     "npx",
+    "rustc",
     "swc",
+    "transcompiling",
     "umd",
     "webpack",
-    "rustc",
-    "transcompiling"
+    "ast"
   ],
   "grammarly.diagnostics": {
     "[markdown]": {
