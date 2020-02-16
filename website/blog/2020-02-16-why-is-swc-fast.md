@@ -116,8 +116,10 @@ Note that the symbol is not changed. `___` denotes the context number and it's n
 
 ```js
 const foo = 1;
+use(foo);
 {
   const foo = 2;
+  use(foo);
 }
 ```
 
@@ -125,8 +127,11 @@ becomes
 
 ```js
 const foo___1 = 1;
+use(foo___1);
+
 {
   const foo___2 = 2;
+  use(foo___2);
 }
 ```
 
@@ -137,8 +142,10 @@ It's now
 
 ```js
 const foo = 1;
+use(foo);
 {
   const foo = 2;
+  use(foo);
 }
 const foo = 3;
 ```
@@ -147,28 +154,22 @@ and with expanded context number, it's
 
 ```js
 const foo___1 = 1;
+use(foo___1);
 {
   const foo___2 = 2;
+  use(foo__2);
 }
 const foo___3 = 3;
 ```
 
-The last pass, named hygiene, removes context numbers and changes symbol to the appropriate one.
-
-```js
-const foo___1 = 1;
-{
-  const foo___2 = 2;
-}
-const foo___3 = 3;
-```
-
-becomes
+The last pass, named hygiene, removes context numbers and changes symbol to the appropriate one. It becomes
 
 ```js
 const foo = 1;
+use(foo);
 {
   const foo1 = 2;
+  use(foo1);
 }
 const foo2 = 3;
 ```
@@ -188,7 +189,7 @@ path.scope.rename("__dirname");
 
 and it results in 5 scope analysis.
 
-The basic idea of `hygiene` is taken from the macro system of rustc. Note that no compiler works in this way and I call this approach _identifier hygiene_. (Please correct me if I'm wrong.)
+The basic idea of `hygiene` is taken from the macro system of rustc. Note that no compiler works in this way and I call this approach _identifier hygiene_. Please correct me if I'm wrong.
 
 ---
 
