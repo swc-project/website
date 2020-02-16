@@ -9,13 +9,13 @@ cache:
   - npm
 
 install:
-    - cd website && npm install
+  - cd website && npm install
 
 script:
-    - true
+  - true
 
 before_deploy:
-    - npm run-script build
+  - npm run-script build
 
 deploy:
   local_dir: website/build/swc
@@ -25,7 +25,7 @@ deploy:
   skip_cleanup: true
   github_token: $GH_TOKEN
   email: kdy1@outlook.kr
-  name: "강동윤"
+  # name: "강동윤"
   on:
     branch: master
 
