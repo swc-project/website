@@ -10,7 +10,8 @@
     "swc",
     "umd",
     "webpack",
-    "rustc"
+    "rustc",
+    "transcompiling"
   ],
   "grammarly.diagnostics": {
     "[markdown]": {

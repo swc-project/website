@@ -189,7 +189,11 @@ path.scope.rename("__dirname");
 
 and it results in 5 scope analysis.
 
-The basic idea of `hygiene` is taken from the macro system of rustc. Note that no compiler works in this way and I call this approach _identifier hygiene_. Please correct me if I'm wrong.
+The basic idea of `hygiene` is taken from the macro system of rustc. Note that no compiler works in this way and I call this approach _identifier hygiene_. (Please correct me if I'm wrong.)
+
+Note that this will also help writing a fast bundler.
+While bundling modules, only a single invocation of the resolver pass is enough to distinguish identifiers from multiple modules.
+Hygiene pass is invoked only once at the end.
 
 ---
 
