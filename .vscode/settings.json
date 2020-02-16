@@ -9,7 +9,8 @@
     "npx",
     "swc",
     "umd",
-    "webpack"
+    "webpack",
+    "rustc"
   ],
   "grammarly.diagnostics": {
     "[markdown]": {

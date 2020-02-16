@@ -11,10 +11,20 @@ authorFBID: 100024888122318
 
 > Just rewriting something in another language does not make it faster.
 
-This is _partially_ correct. Rewriting something in a language with an optimizing compiler makes difference.
+This is _partially_ correct. Rewriting something in a language with an optimizing compiler can make difference.
 Some compilers including rustc, which uses llvm as a backend, are good at optimizing codes.
 
-Let me explain more about it. Not all passes touch all of the ast. Many passes return the given ast node as-is. Especially, most passes have nothing to do with types. So those passes return the typings as-is.
+---
+
+Edit: makes -> can make, created an `optimization hints` section,
+
+---
+
+## Optimization hints
+
+Sometimes, rustc cannot deduce that it's dead code even if it is dead. In swc, we give enough hint if it's the case.
+
+For example, not all passes touch all of the ast. Many passes return the given ast node as-is. Especially, most passes have nothing to do with types. So those passes return the typings as-is.
 So, it would be cool if those handlers are optimized out.
 `rustc` failed to optimize it out by default because it changes semantic, but we can help it.
 
