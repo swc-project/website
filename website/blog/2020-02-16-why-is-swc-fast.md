@@ -5,7 +5,7 @@ authorURL: "http://github.com/kdy1"
 authorFBID: 100024888122318
 ---
 
-`swc` is fast. Very fast. It's 18x faster than babel on a single-core benchmark, and on a parallel benchmark, it's 68x faster than babel on a 4 core (8 HT) machine. Why? Just because it's written in rust? No. Its fundamental design differs from any other tool.
+[swc](https://github.com/swc-project/swc) is fast. Very fast. It's 18x faster than babel on a single-core benchmark, and on a parallel benchmark, it's 68x faster than babel on a 4 core (8 HT) machine. Why? Just because it's written in rust? No. Its fundamental design differs from any other tool.
 
 ## The language
 
