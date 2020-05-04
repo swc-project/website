@@ -217,6 +217,26 @@ Example
 }
 ```
 
+### jsc.transform.legactDecorator
+
+You can use legacy decorators with `swc`. To enable legacy decorator, set `jsc.transform.legactDecorator` and `jsc.parser.decorators` to true.
+
+e.g.
+
+```json
+{
+  "jsc": {
+    "parser": {
+      "syntax": "ecmascript",
+      "decorators": true
+    },
+    "transform": {
+      "legacyDecorator": true
+    }
+  }
+}
+```
+
 ### jsc.transform.react
 
 - `pragma`
