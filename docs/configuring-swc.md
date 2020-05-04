@@ -217,9 +217,9 @@ Example
 }
 ```
 
-### jsc.transform.legactDecorator
+### jsc.transform.legacyDecorator
 
-You can use legacy decorators with `swc`. To enable legacy decorator, set `jsc.transform.legactDecorator` and `jsc.parser.decorators` to true.
+You can use legacy decorators with `swc`. To enable legacy decorator, set `jsc.transform.legacyDecorator` and `jsc.parser.decorators` to true.
 
 e.g.
 
