@@ -97,8 +97,8 @@ const siteConfig = {
   cleanUrl: true,
 
   // Open Graph and Twitter card images.
-  ogImage: "img/swc.png",
-  twitterImage: "img/swc.png",
+  ogImage: "https://raw.githubusercontent.com/swc-project/logo/master/swc.png",
+  twitterImage: "https://raw.githubusercontent.com/swc-project/logo/master/swc.png",
 
   // Show documentation's last contributor's name.
   enableUpdateBy: true,
