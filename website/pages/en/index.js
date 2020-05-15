@@ -38,7 +38,7 @@ class HomeSplash extends React.Component {
     const ProjectTitle = () => (
       <h2 className="projectTitle">
         <img
-          src="https://raw.githubusercontent.com/swc-project/logo/master/swc.png"
+          src={siteConfig.twitterImage}
           width="200"
         />
         <small>{siteConfig.tagline}</small>
