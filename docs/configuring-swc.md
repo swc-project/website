@@ -10,87 +10,6 @@ sidebar_label: Configuring swc
 
 See [preset-env](/docs/preset-env) for using swc with `browserslist`.
 
-# Multiple entries
-
-Starting with `v1.0.47`, you can specify multiple entries. For example,
-
-```json
-[
-  {
-    "test": ".*.js$",
-    "module": {
-      "type": "commonjs"
-    }
-  },
-  {
-    "test": ".*.ts$",
-    "module": {
-      "type": "amd"
-    }
-  }
-]
-```
-
-this make swc compile javascript files as common js module (uses `require('foo')`) and compile typescript files as amd modules.
-
-Note that `test` option can be used to transcompile only typescript files, like
-
-```json
-{
-  "test": ".*.ts$",
-  "jsc": {
-    "parser": {
-      "syntax": "typescript",
-      "tsx": false,
-      "decorators": true,
-      "dynamicImport": true
-    }
-  }
-}
-```
-
-# test
-
-Type: Regex / Regex[]
-
-Usage:
-
-`.swcrc`:
-
-```json
-{
-  "test": ".*.ts$",
-  "jsc": {
-    "parser": {
-      "syntax": "typescript",
-      "tsx": false,
-      "decorators": true,
-      "dynamicImport": true
-    }
-  }
-}
-```
-
-# exclude
-
-Type: Regex / Regex[]
-
-`.swcrc`:
-
-```json
-{
-  "exclude": [".*.js$", ".*.map$"],
-  "jsc": {
-    "parser": {
-      "syntax": "typescript",
-      "tsx": false,
-      "decorators": true,
-      "dynamicImport": true
-    }
-  }
-}
-```
-
 # jsc
 
 This is optional and defaults to
@@ -484,5 +403,86 @@ To get minified output, you can configure swc by
 ```json
 {
   "minify": true
+}
+```
+
+## Multiple entries
+
+Starting with `v1.0.47`, you can specify multiple entries. For example,
+
+```json
+[
+  {
+    "test": ".*.js$",
+    "module": {
+      "type": "commonjs"
+    }
+  },
+  {
+    "test": ".*.ts$",
+    "module": {
+      "type": "amd"
+    }
+  }
+]
+```
+
+this make swc compile javascript files as common js module (uses `require('foo')`) and compile typescript files as amd modules.
+
+Note that `test` option can be used to transcompile only typescript files, like
+
+```json
+{
+  "test": ".*.ts$",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": true
+    }
+  }
+}
+```
+
+### test
+
+Type: Regex / Regex[]
+
+Usage:
+
+`.swcrc`:
+
+```json
+{
+  "test": ".*.ts$",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": true
+    }
+  }
+}
+```
+
+### exclude
+
+Type: Regex / Regex[]
+
+`.swcrc`:
+
+```json
+{
+  "exclude": [".*.js$", ".*.map$"],
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": true
+    }
+  }
 }
 ```
