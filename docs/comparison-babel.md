@@ -18,7 +18,7 @@ sidebar_label: Comparison with babel
 | babel-plugin-proposal-function-sent                      |   ❌ (stage 2)    |
 | babel-plugin-proposal-json-strings                       |        ✔️         |
 | babel-plugin-proposal-logical-assignment-operators       |   ❌ (stage 1)    |
-| babel-plugin-proposal-nullish-coalescing-operator        |        ✔️         |
+| babel-plugin-proposal-nullish-coalescing-operator        |        ❌         |
 | babel-plugin-proposal-numeric-separator                  |        ✔️         |
 | babel-plugin-proposal-object-rest-spread                 |        ✔️         |
 | babel-plugin-proposal-optional-catch-binding             |        ✔️         |
