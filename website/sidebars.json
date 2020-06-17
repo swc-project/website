@@ -2,7 +2,14 @@
   "usage": {
     "Getting started": ["installation"],
     "Configuring swc": ["configuring-swc", "preset-env"],
-    "Usage": ["usage-core", "usage-plugin", "usage-cli", "usage-swc-loader"],
+    "Configuring spack": ["configuring-spack"],
+    "Usage": [
+      "usage-swc-cli",
+      "usage-spack-cli",
+      "usage-swc-loader",
+      "usage-core",
+      "usage-plugin"
+    ],
     "Migration": ["migrating-from-babel-core", "migrating-from-babel-cli"],
     "Comparison": ["comparison-babel"]
   }

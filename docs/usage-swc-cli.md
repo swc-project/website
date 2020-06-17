@@ -1,7 +1,7 @@
 ---
-id: usage-cli
-title: Using cli
-sidebar_label: cli
+id: usage-swc-cli
+title: Using cli (swc)
+sidebar_label: cli (swc)
 ---
 
 ## Installation
