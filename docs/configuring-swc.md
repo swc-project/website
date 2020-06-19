@@ -22,18 +22,14 @@ This is optional and defaults to
       "jsx": false,
       "dynamicImport": false,
       "numericSeparator": false,
-      "classPrivateProperty": false,
       "privateMethod": false,
-      "classProperty": false,
       "functionBind": false,
       "exportDefaultFrom": false,
       "exportNamespaceFrom": false,
       "decorators": false,
       "decoratorsBeforeExport": false,
-      "nullishCoalescing": false,
       "topLevelAwait": false,
-      "importMeta": false,
-      "optionalChaining": false
+      "importMeta": false
     }
   }
 }
@@ -66,17 +62,13 @@ This is optional and defaults to
       "jsx": false,
       "dynamicImport": false,
       "numericSeparator": false,
-      "classPrivateProperty": false,
       "privateMethod": false,
-      "classProperty": false,
       "functionBind": false,
       "exportDefaultFrom": false,
       "exportNamespaceFrom": false,
       "decorators": false,
       "decoratorsBeforeExport": false,
-      "nullishCoalescing": false,
-      "importMeta": false,
-      "optionalChaining": false
+      "importMeta": false
     }
   }
 }
