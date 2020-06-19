@@ -4,15 +4,17 @@
     "amd",
     "api",
     "apis",
+    "ast",
+    "authorURL",
     "cli",
     "cpu",
     "npx",
+    "nullish",
     "rustc",
     "swc",
     "transcompiling",
     "umd",
-    "webpack",
-    "ast"
+    "webpack"
   ],
   "grammarly.diagnostics": {
     "[markdown]": {
