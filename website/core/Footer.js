@@ -43,7 +43,7 @@ class Footer extends React.Component {
             <a href={this.docUrl("configuring-swc.html", this.props.language)}>
               Configuring swc
             </a>
-            <a href={this.docUrl("usage-cli.html", this.props.language)}>
+            <a href={this.docUrl("usage-swc-cli.html", this.props.language)}>
               Usage
             </a>
             <a
