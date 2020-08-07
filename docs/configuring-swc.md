@@ -148,6 +148,29 @@ e.g.
 }
 ```
 
+### jsc.transform.decoratorMetadata
+
+If you are using typescript and decorators with `emitDecoratorMetadata` enabled, you can use `swc` for faster iteration like
+
+e.g.
+
+```json
+{
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true
+    },
+    "transform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": true
+    }
+  }
+}
+```
+
+Note: This feature requires `v1.2.12+`.
+
 ### jsc.transform.react
 
 - `pragma`
