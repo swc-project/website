@@ -169,7 +169,7 @@ e.g.
 }
 ```
 
-Note: This feature requires `v1.2.12+`.
+Note: This feature requires `v1.2.13+`.
 
 ### jsc.transform.react
 
