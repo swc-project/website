@@ -139,7 +139,37 @@ class Index extends React.Component {
       </Block>
     );
 
-    const Showcase = () => {
+    const Showcases = () => {
+      if ((siteConfig.users || []).length === 0) {
+        return null;
+      }
+
+      const showcase = siteConfig.users
+        .filter((user) => user.pinned)
+        .map((user) => (
+          <a href={user.infoLink} key={user.infoLink}>
+            <img src={user.image} alt={user.caption} title={user.caption} />
+          </a>
+        ));
+
+      const pageUrl = (page) =>
+        baseUrl + (language ? `${language}/` : '') + page;
+
+      return (
+        <div className="productShowcaseSection paddingBottom">
+          <h2>Who is Using This?</h2>
+          <div className="logos">{showcase}</div>
+          <div className="more-users">
+            <a className="button" href={pageUrl('users.html')}>
+              More {siteConfig.title} Users
+            </a>
+          </div>
+        </div>
+      );
+    };
+
+    const Sponsors = () => {
+
       // const showcase = siteConfig.sponsors.map(sponsor => (
       //   <a href={sponsor.infoLink} key={sponsor.infoLink}>
       //     <img
@@ -197,9 +227,10 @@ class Index extends React.Component {
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
           <Features />
-          <Showcase />
+          <Showcases />
+          <Sponsors />
         </div>
-      </div>
+      </div >
     );
   }
 }
