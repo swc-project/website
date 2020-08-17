@@ -20,10 +20,14 @@ const users = [
   // },
   {
     caption: 'ByteDance',
-    // You will need to prepend the image path with your baseUrl
-    // if it is not '/', like: '/test-site/img/docusaurus.svg'.
     image: '/img/users/byte-dance.png',
     infoLink: 'https://www.bytedance.com',
+    pinned: true,
+  },
+  {
+    caption: 'Deno',
+    image: '/img/users/deno.svg',
+    infoLink: 'https://deno.land',
     pinned: true,
   },
 ];
