@@ -30,6 +30,12 @@ const users = [
     infoLink: 'https://deno.land',
     pinned: true,
   },
+  {
+    caption: 'Fundamentei',
+    image: '/img/users/fundamentei.png',
+    infoLink: 'https://fundamentei.com/',
+    pinned: true,
+  },
 ];
 
 const sponsors = [];
