@@ -36,6 +36,12 @@ const users = [
     infoLink: 'https://fundamentei.com/',
     pinned: true,
   },
+  {
+    caption: 'Framer',
+    image: '/img/users/framer.svg',
+    infoLink: 'https://framer.com/',
+    pinned: true,
+  },
 ];
 
 const sponsors = [];
