@@ -42,6 +42,12 @@ const users = [
     infoLink: 'https://framer.com/',
     pinned: true,
   },
+  {
+    caption: 'strapi',
+    image: '/img/users/strapi.svg',
+    infoLink: 'https://strapi.io/',
+    pinned: true,
+  }
 ];
 
 const sponsors = [];
