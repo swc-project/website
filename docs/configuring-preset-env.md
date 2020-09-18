@@ -103,6 +103,22 @@ Defaults to `false`.
 
 Enable ["loose" transformations](http://2ality.com/2015/12/babel6-loose-mode.html) for any plugins in this preset that allow them.
 
+### skip
+
+Skip some es features. You can use this option to reduce bundle size.
+
+For example, to exclude `core-js/modules/foo`, you can use
+
+`.swcrc`:
+
+```json
+{
+  "env": {
+    "skip": ["core-js/modules/foo"]
+  }
+}
+```
+
 ### include
 
 - Type is string[]
