@@ -197,7 +197,7 @@ Defaults to `React.createElement`.
 Defaults to `React.Fragment`
 
 - `throwIfNamespace`
-  Toggles whether or not to throw an error if a XML namespaced tag name is used. For example: `<f:image />`
+  Toggles whether or not to throw an error if an XML namespaced tag name is used. For example: `<f:image />`
 
 Though the JSX spec allows this, it is disabled by default since React's JSX does not currently have support for it.
 
@@ -258,7 +258,7 @@ It is the same assumption as the google closure compiler.
 
 * Files are served as gzipped.
 
-It means that swc will not focus on reducing size of not-gzipped file size.
+It means that swc will not focus on reducing the size of non-gzipped file size.
 
 Setting this to `undefined` skips optimizer pass
 
@@ -390,7 +390,7 @@ Defaults to `false`.
 
 ### common js
 
-To emit common js module, you can do so by
+To emit a common js module, you can do so by
 
 `.swcrc`:
 
