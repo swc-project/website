@@ -21,7 +21,6 @@ This is optional and defaults to
       "syntax": "ecmascript",
       "jsx": false,
       "dynamicImport": false,
-      "numericSeparator": false,
       "privateMethod": false,
       "functionBind": false,
       "exportDefaultFrom": false,
@@ -31,6 +30,20 @@ This is optional and defaults to
       "topLevelAwait": false,
       "importMeta": false
     }
+  }
+}
+```
+
+## jsc.externalHelpers
+
+You can helpers from an external module named `@swc/helpers`.
+
+While bundling, this option will greatly reduce your file size.
+
+```json
+{
+  "jsc": {
+    "externalHelpers": true
   }
 }
 ```
@@ -61,9 +74,9 @@ This is optional and defaults to
       "syntax": "ecmascript",
       "jsx": false,
       "dynamicImport": false,
-      "numericSeparator": false,
       "privateMethod": false,
       "functionBind": false,
+      "classPrivateProperty": false,
       "exportDefaultFrom": false,
       "exportNamespaceFrom": false,
       "decorators": false,
