@@ -194,6 +194,43 @@ Though the JSX spec allows this, it is disabled by default since React's JSX doe
 - `useBuiltins`
   Use `Object.assign()` instead of `_extends`. Defaults to false.
 
+### jsc.transform.constModules
+
+`.swcrc`:
+
+```json
+{
+  "jsc": {
+    "transform": {
+      "constModules": {
+        "globals": {
+          "@ember/env-flags": {
+            "DEBUG": "true"
+          },
+          "@ember/features": {
+            "FEATURE_A": "false",
+            "FEATURE_B": "true"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+```js
+import { DEBUG } from "@ember/env-flags";
+import { FEATURE_A, FEATURE_B } from "@ember/features";
+
+console.log(DEBUG, FEATURE_A, FEATURE_B);
+```
+
+becomes
+
+```js
+console.log(true, false, true);
+```
+
 ### jsc.transform.optimizer
 
 **Note**: Optimizer of the swc assumes
