@@ -48,6 +48,10 @@
         "title": "Using cli (swc)",
         "sidebar_label": "cli (swc)"
       },
+      "usage-swc-jest": {
+        "title": "Using swc with jest",
+        "sidebar_label": "@swc/jest"
+      },
       "usage-swc-loader": {
         "title": "Using swc with webpack",
         "sidebar_label": "swc-loader (Webpack)"
