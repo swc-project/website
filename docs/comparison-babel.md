@@ -7,7 +7,7 @@ sidebar_label: Comparison with babel
 | babel package name                                       |        swc        |
 | -------------------------------------------------------- | :---------------: |
 | babel-plugin-external-helpers                            |        ✔️         |
-| babel-plugin-proposal-async-generator-functions          |        ❌         |
+| babel-plugin-proposal-async-generator-functions          |        ✔️         |
 | babel-plugin-proposal-class-properties                   |        ✔️         |
 | babel-plugin-proposal-decorators                         |        ✔️         |
 | babel-plugin-proposal-do-expressions                     |   ❌ (stage 1)    |
