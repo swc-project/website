@@ -28,7 +28,7 @@ sidebar_label: Comparison with babel
 | babel-plugin-proposal-private-methods                    |        ✔️         |
 | babel-plugin-proposal-throw-expressions                  |   ❌ (stage 2)    |
 | babel-plugin-proposal-unicode-property-regex             |     ❌ (wip)      |
-| babel-plugin-syntax-async-generators                     |                   |
+| babel-plugin-syntax-async-generators                     |        ✔️         |
 | babel-plugin-syntax-bigint                               |        ✔️         |
 | babel-plugin-syntax-class-properties                     |        ✔️         |
 | babel-plugin-syntax-decorators                           |        ✔️         |
