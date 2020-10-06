@@ -36,7 +36,7 @@ This is optional and defaults to
 
 ## jsc.externalHelpers
 
-You can helpers from an external module named `@swc/helpers`.
+You can use helpers from an external module named `@swc/helpers`.
 
 While bundling, this option will greatly reduce your file size.
 
