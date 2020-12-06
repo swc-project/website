@@ -47,6 +47,12 @@ const users = [
     image: '/img/users/strapi.svg',
     infoLink: 'https://strapi.io/',
     pinned: true,
+  },
+  {
+    caption: 'octopol',
+    image: '/img/users/octopol.jpeg',
+    infoLink: 'https://octopol.io/',
+    pinned: true,
   }
 ];
 
