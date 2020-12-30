@@ -5,18 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const React = require("react");
+import React from "react";
+import Features from "../components/Features";
 
 const CompLibrary = {
-  Container: props => <div {...props}></div>,
-  GridBlock: props => <div {...props}></div>,
-  MarkdownBlock: props => <div {...props}></div>
+  GridBlock: (props) => <div {...props}></div>,
+  MarkdownBlock: (props) => <div {...props}></div>,
 };
 
 import Layout from "@theme/Layout";
+import Block from "../components/Block";
 
-const MarkdownBlock = CompLibrary.MarkdownBlock;/* Used to read markdown */
-const Container = CompLibrary.Container;
+const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
 const GridBlock = CompLibrary.GridBlock;
 
 class HomeSplash extends React.Component {
@@ -25,9 +25,9 @@ class HomeSplash extends React.Component {
     const { baseUrl, docsUrl } = siteConfig;
     const docsPart = `${docsUrl ? `${docsUrl}/` : ""}`;
     const langPart = `${language ? `${language}/` : ""}`;
-    const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
+    const docUrl = (doc) => `${baseUrl}${docsPart}${langPart}${doc}`;
 
-    const SplashContainer = props => (
+    const SplashContainer = (props) => (
       <div className="homeContainer">
         <div className="homeSplashFade">
           <div className="wrapper homeWrapper">{props.children}</div>
@@ -35,7 +35,7 @@ class HomeSplash extends React.Component {
       </div>
     );
 
-    const Logo = props => (
+    const Logo = (props) => (
       <div className="projectLogo">
         <img src={props.img_src} alt="Project Logo" />
       </div>
@@ -43,15 +43,12 @@ class HomeSplash extends React.Component {
 
     const ProjectTitle = () => (
       <h2 className="projectTitle">
-        <img
-          src={siteConfig.twitterImage}
-          width="200"
-        />
+        <img src={siteConfig.twitterImage} width="200" />
         <small>{siteConfig.tagline}</small>
       </h2>
     );
 
-    const PromoSection = props => (
+    const PromoSection = (props) => (
       <div className="section promoSection">
         <div className="promoRow">
           <div className="pluginRowBlock">{props.children}</div>
@@ -59,7 +56,7 @@ class HomeSplash extends React.Component {
       </div>
     );
 
-    const Button = props => (
+    const Button = (props) => (
       <div className="pluginWrapper buttonWrapper">
         <a className="button" href={props.href} target={props.target}>
           {props.children}
@@ -111,40 +108,6 @@ class Index extends React.Component {
     const { config: siteConfig, language = "" } = this.props;
     const { baseUrl } = siteConfig;
 
-    const Block = props => (
-      <Container
-        padding={["bottom", "top"]}
-        id={props.id}
-        background={props.background}
-      >
-        <GridBlock
-          align="center"
-          contents={props.children}
-          layout={props.layout}
-        />
-      </Container>
-    );
-
-    const Features = () => (
-      <Block layout="fourColumn">
-        {[
-          {
-            title: "Transcompile",
-            content:
-              "swc is a typescript / javascript compiler. It consumes a javascript or typescript file which uses recently added features like async-await and emits javascript code which can be executed on old browsers."
-          },
-          {
-            title: "Super fast",
-            content: "It's 20x faster than babel on single thread, and 70x faster on 4 core benchmark"
-          },
-          {
-            title: "Bundling",
-            content: "spack is a super-fast javascript bundler with tree shaking"
-          }
-        ]}
-      </Block>
-    );
-
     const Showcases = () => {
       if ((siteConfig.users || []).length === 0) {
         return null;
@@ -159,14 +122,14 @@ class Index extends React.Component {
         ));
 
       const pageUrl = (page) =>
-        baseUrl + (language ? `${language}/` : '') + page;
+        baseUrl + (language ? `${language}/` : "") + page;
 
       return (
         <div className="productShowcaseSection paddingBottom">
           <h2>Who is Using This?</h2>
           <div className="logos">{showcase}</div>
           <div className="more-users">
-            <a className="button" href={pageUrl('users.html')}>
+            <a className="button" href={pageUrl("users.html")}>
               More {siteConfig.title} Users
             </a>
           </div>
@@ -175,19 +138,6 @@ class Index extends React.Component {
     };
 
     const Sponsors = () => {
-
-      // const showcase = siteConfig.sponsors.map(sponsor => (
-      //   <a href={sponsor.infoLink} key={sponsor.infoLink}>
-      //     <img
-      //       src={sponsor.image}
-      //       alt={sponsor.caption}
-      //       title={sponsor.caption}
-      //     />
-      //   </a>
-      // ));
-
-      // const pageUrl = page => baseUrl + (language ? `${language}/` : "") + page;
-
       return (
         <div className="productShowcaseSection paddingBottom">
           <div>
@@ -236,9 +186,13 @@ class Index extends React.Component {
           <Showcases />
           <Sponsors />
         </div>
-      </div >
+      </div>
     );
   }
 }
 
-export default props => <Layout><Index {...props} /></Layout>;
+export default (props) => (
+  <Layout>
+    <Index {...props} />
+  </Layout>
+);
