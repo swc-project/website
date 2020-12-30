@@ -15,6 +15,7 @@ const CompLibrary = {
 
 import Layout from "@theme/Layout";
 import Block from "../components/Block";
+import Sponsors from "../components/Sponsors";
 
 const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
 const GridBlock = CompLibrary.GridBlock;
@@ -131,47 +132,6 @@ class Index extends React.Component {
           <div className="more-users">
             <a className="button" href={pageUrl("users.html")}>
               More {siteConfig.title} Users
-            </a>
-          </div>
-        </div>
-      );
-    };
-
-    const Sponsors = () => {
-      return (
-        <div className="productShowcaseSection paddingBottom">
-          <div>
-            <h2 id="gold-sponsers" align="center">
-              Gold Sponsors
-            </h2>
-            <a href="https://opencollective.com/swc">
-              <img src="https://opencollective.com/swc/tiers/gold-sponsers.svg?avatarHeight=64" />
-            </a>
-
-            <h2 id="silver-sponsers" align="center">
-              Silver Sponsors
-            </h2>
-            <a href="https://opencollective.com/swc">
-              <img src="https://opencollective.com/swc/tiers/silver-sponsers.svg?avatarHeight=64" />
-            </a>
-
-            <h2 id="bronze-sponsers" align="center">
-              Bronze Sponsors
-            </h2>
-            <a href="https://opencollective.com/swc">
-              <img src="https://opencollective.com/swc/tiers/bronze-sponsers.svg?avatarHeight=64" />
-            </a>
-
-            <h2 id="backers" align="center">
-              Backers
-            </h2>
-            <a href="https://opencollective.com/swc">
-              <img src="https://opencollective.com/swc/tiers/backer.svg?avatarHeight=64" />
-            </a>
-          </div>
-          <div className="more-users">
-            <a className="button" href="https://opencollective.com/swc">
-              Donate
             </a>
           </div>
         </div>
