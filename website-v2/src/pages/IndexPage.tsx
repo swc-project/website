@@ -5,6 +5,7 @@ import { User } from "./users";
 import { Sponsors } from "../components/Sponsors";
 import { Features } from "../components/Features";
 import { UserComponent } from "../components/UserComponent";
+import { LinkButton } from "../components/LinkButton";
 
 export class IndexPage extends React.Component<CommonProps> {
   render() {
@@ -37,9 +38,7 @@ export class IndexPage extends React.Component<CommonProps> {
             {showcase}
           </div>
           <div className="more-users">
-            <a className="button" href="/users">
-              More {siteConfig.title} Users
-            </a>
+            <LinkButton href="/users">More {siteConfig.title} Users</LinkButton>
           </div>
         </div>
       );

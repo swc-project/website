@@ -1,5 +1,6 @@
 import React from "react";
 import { GithubButton } from "../components/GithubButton";
+import { LinkButton } from "../components/LinkButton";
 import { DocusaurusProps, SWCSiteConfig } from "./index";
 
 export class HomeSplash extends React.Component<DocusaurusProps> {
@@ -35,22 +36,12 @@ export class HomeSplash extends React.Component<DocusaurusProps> {
       </div>
     );
 
-    const Button = (props) => (
-      <div className="pluginWrapper buttonWrapper">
-        <a className="button" href={props.href} target={props.target}>
-          {props.children}
-        </a>
-      </div>
-    );
-
     return (
       <SplashContainer>
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href="/docs" style={{ display: "block" }}>
-              Getting started
-            </Button>
+            <LinkButton href="/docs">Getting started</LinkButton>
           </PromoSection>
           <PromoSection>
             <GithubButton

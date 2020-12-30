@@ -1,4 +1,5 @@
 import React from "react";
+import { LinkButton } from "../LinkButton";
 
 export function Sponsors() {
   return (
@@ -33,9 +34,7 @@ export function Sponsors() {
         </a>
       </div>
       <div className="more-users">
-        <a className="button" href="https://opencollective.com/swc">
-          Donate
-        </a>
+        <LinkButton href="https://opencollective.com/swc">Donate</LinkButton>
       </div>
     </div>
   );
