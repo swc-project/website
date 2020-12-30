@@ -1,7 +1,7 @@
 ---
 title: Introducing swc 1.0
 author: DongYoon Kang
-authorURL: http://github.com/kdy1
+authorURL: "http://github.com/kdy1"
 authorFBID: 100024888122318
 ---
 

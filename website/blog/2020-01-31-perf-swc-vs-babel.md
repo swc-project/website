@@ -1,5 +1,5 @@
 ---
-title: "Performance comparison of swc and babel"
+title: Performance comparison of swc and babel
 author: DongYoon Kang
 authorURL: "http://github.com/kdy1"
 authorFBID: 100024888122318

@@ -1,5 +1,5 @@
 ---
-title: "Why is swc fast?"
+title: Why is swc fast?
 author: DongYoon Kang
 authorURL: "http://github.com/kdy1"
 authorFBID: 100024888122318
