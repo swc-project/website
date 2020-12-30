@@ -5,7 +5,6 @@ module.exports = {
   baseUrl: "/",
   organizationName: "swc-project",
   projectName: "swc",
-  scripts: ["https://buttons.github.io/buttons.js"],
   favicon: "img/favicon.png",
   customFields: {
     blogSidebarCount: "ALL",

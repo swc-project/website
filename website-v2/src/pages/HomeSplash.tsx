@@ -1,4 +1,5 @@
 import React from "react";
+import { GithubButton } from "../components/GithubButton";
 import { DocusaurusProps, SWCSiteConfig } from "./index";
 
 export class HomeSplash extends React.Component<DocusaurusProps> {
@@ -52,27 +53,23 @@ export class HomeSplash extends React.Component<DocusaurusProps> {
             </Button>
           </PromoSection>
           <PromoSection>
-            <a
-              className="github-button"
+            <GithubButton
+              title="Star"
               href="https://github.com/swc-project/swc"
               data-icon="octicon-star"
               data-size="large"
               data-show-count="true"
               aria-label="Star swc-project/swc on GitHub"
-            >
-              Star
-            </a>
+            />
 
-            <a
-              className="github-button"
+            <GithubButton
+              title="Fork"
               href="https://github.com/swc-project/swc/fork"
               data-icon="octicon-repo-forked"
               data-size="large"
               data-show-count="true"
               aria-label="Fork swc-project/swc on GitHub"
-            >
-              Fork
-            </a>
+            />
           </PromoSection>
         </div>
       </SplashContainer>
