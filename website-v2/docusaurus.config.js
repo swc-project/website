@@ -70,9 +70,14 @@ module.exports = {
   plugins: [],
   themeConfig: {
     navbar: {
-      title: "swc",
+      title: "SWC",
       items: [
         { to: "docs", label: "Docs", position: "right" },
+        {
+          href: "https://swc.rs/rustdoc/swc/",
+          label: "SWC RustDocs",
+          position: "right",
+        },
         { to: "help", label: "Help", position: "right" },
         { to: "blog", label: "Blog", position: "right" },
         {
