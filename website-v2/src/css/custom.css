@@ -7,5 +7,6 @@
   --ifm-color-primary-darker: #277148;
   --ifm-color-primary-darkest: #205d3b;
   --ifm-navbar-background-color: var(--ifm-color-primary);
-  --ifm-navbar-link-color: white;
+  --ifm-navbar-link-color: hsla(0, 0%, 100%, 0.8);
+  --ifm-navbar-link-hover-color: white;
 }
