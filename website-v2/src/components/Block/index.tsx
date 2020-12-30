@@ -10,7 +10,7 @@ interface BlockProps {
   id?: string;
 }
 
-export default function Block(props: BlockProps) {
+export function Block(props: BlockProps) {
   return (
     <div className="container">
       <div id={props.id} className="row">

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Sponsors() {
+export function Sponsors() {
   return (
     <div className="productShowcaseSection paddingBottom">
       <div>

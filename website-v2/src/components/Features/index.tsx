@@ -1,7 +1,7 @@
 import React from "react";
-import Block from "../Block";
+import { Block } from "../Block";
 
-export default function Features() {
+export function Features() {
   return (
     <Block>
       {[

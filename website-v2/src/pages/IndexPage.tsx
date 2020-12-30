@@ -1,9 +1,9 @@
 import React from "react";
-import Features from "../components/Features";
-import Sponsors from "../components/Sponsors";
 import { CommonProps } from "./index";
 import { HomeSplash } from "./HomeSplash";
 import { User } from "./users";
+import { Sponsors } from "../components/Sponsors";
+import { Features } from "../components/Features";
 
 export class IndexPage extends React.Component<CommonProps> {
   render() {
