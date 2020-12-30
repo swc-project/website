@@ -72,16 +72,8 @@ module.exports = {
     navbar: {
       title: "swc",
       items: [
-        {
-          to: "docs/",
-          label: "Docs",
-          position: "left",
-        },
-        {
-          to: "/help",
-          label: "Help",
-          position: "left",
-        },
+        { to: "docs", label: "Docs", position: "left" },
+        { to: "help", label: "Help", position: "left" },
         { to: "blog", label: "Blog", position: "left" },
         {
           href: "https://opencollective.com/swc",
