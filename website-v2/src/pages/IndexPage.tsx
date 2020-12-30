@@ -4,6 +4,7 @@ import { HomeSplash } from "./HomeSplash";
 import { User } from "./users";
 import { Sponsors } from "../components/Sponsors";
 import { Features } from "../components/Features";
+import { UserComponent } from "../components/UserComponent";
 
 export class IndexPage extends React.Component<CommonProps> {
   render() {
@@ -11,19 +12,13 @@ export class IndexPage extends React.Component<CommonProps> {
     const { baseUrl } = siteConfig;
 
     const Showcases = () => {
-      console.log(siteConfig);
-
       if (((siteConfig.customFields?.users as User[]) || []).length === 0) {
         return null;
       }
 
       const showcase = (siteConfig.customFields.users as User[])
         .filter((user) => user.pinned)
-        .map((user) => (
-          <a href={user.infoLink} key={user.infoLink}>
-            <img src={user.image} alt={user.caption} title={user.caption} />
-          </a>
-        ));
+        .map((user) => <UserComponent key={user.infoLink} {...user} />);
 
       const pageUrl = (page) =>
         baseUrl + (language ? `${language}/` : "") + page;
@@ -31,7 +26,16 @@ export class IndexPage extends React.Component<CommonProps> {
       return (
         <div className="productShowcaseSection paddingBottom">
           <h2>Who is Using This?</h2>
-          <div className="logos">{showcase}</div>
+          <div
+            className="logos"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {showcase}
+          </div>
           <div className="more-users">
             <a className="button" href="/users">
               More {siteConfig.title} Users
