@@ -64,9 +64,6 @@ module.exports = {
           path: "../docs",
           sidebarPath: "../website/sidebars.json",
         },
-        blog: {
-          path: "blog",
-        },
         theme: {
           customCss: "../src/css/customTheme.css",
         },
@@ -88,6 +85,7 @@ module.exports = {
           label: "Help",
           position: "left",
         },
+        { to: "blog", label: "Blog", position: "left" },
         {
           href: "https://opencollective.com/swc",
           label: "Donate",
