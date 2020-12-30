@@ -7,7 +7,6 @@ module.exports = {
   projectName: "swc",
   favicon: "img/favicon.png",
   customFields: {
-    blogSidebarCount: "ALL",
     users: [
       {
         caption: "ByteDance",
@@ -64,6 +63,7 @@ module.exports = {
         theme: {
           customCss: [require.resolve("./src/css/custom.css")],
         },
+        blog: { blogSidebarCount: 1000 },
       },
     ],
   ],
