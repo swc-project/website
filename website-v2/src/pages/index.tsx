@@ -9,10 +9,14 @@ import React from "react";
 import Layout from "@theme/Layout";
 import { DocusaurusConfig } from "@docusaurus/types";
 import { IndexPage } from "./IndexPage";
+import { User } from "./users";
 
 export interface SWCSiteConfig extends DocusaurusConfig {
   docsUrl?: string;
-  twitterImage: string;
+  customFields: {
+    twitterImage: string;
+    users: User[];
+  };
 }
 export interface DocusaurusProps {
   siteConfig: SWCSiteConfig;
