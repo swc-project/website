@@ -6,27 +6,31 @@
  */
 
 import React from "react";
-import Features from "../components/Features";
-
-const CompLibrary = {
-  GridBlock: (props) => <div {...props}></div>,
-  MarkdownBlock: (props) => <div {...props}></div>,
-};
-
 import Layout from "@theme/Layout";
-import Block from "../components/Block";
+import Features from "../components/Features";
 import Sponsors from "../components/Sponsors";
+import { DocusaurusConfig } from "@docusaurus/types";
 
-const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
-const GridBlock = CompLibrary.GridBlock;
+interface SWCSiteConfig extends DocusaurusConfig {
+  docsUrl?: string;
+  twitterImage: string;
+  users: User[];
+}
+interface User {
+  caption: string;
+  image: string;
+  infoLink: string;
+  pinned: boolean;
+}
 
-class HomeSplash extends React.Component {
+interface DocusaurusProps {
+  siteConfig: SWCSiteConfig;
+  language: string;
+}
+
+class HomeSplash extends React.Component<DocusaurusProps> {
   render() {
-    const { siteConfig, language = "" } = this.props;
-    const { baseUrl, docsUrl } = siteConfig;
-    const docsPart = `${docsUrl ? `${docsUrl}/` : ""}`;
-    const langPart = `${language ? `${language}/` : ""}`;
-    const docUrl = (doc) => `${baseUrl}${docsPart}${langPart}${doc}`;
+    const { siteConfig } = this.props;
 
     const SplashContainer = (props) => (
       <div className="homeContainer">
@@ -42,7 +46,7 @@ class HomeSplash extends React.Component {
       </div>
     );
 
-    const ProjectTitle = () => (
+    const ProjectTitle = (props: { siteConfig: SWCSiteConfig }) => (
       <h2 className="projectTitle">
         <img src={siteConfig.twitterImage} width="200" />
         <small>{siteConfig.tagline}</small>
@@ -71,7 +75,7 @@ class HomeSplash extends React.Component {
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href={docUrl("installation")} style={{ display: "block" }}>
+            <Button href="/docs" style={{ display: "block" }}>
               Getting started
             </Button>
           </PromoSection>
@@ -104,9 +108,9 @@ class HomeSplash extends React.Component {
   }
 }
 
-class Index extends React.Component {
+class Index extends React.Component<DocusaurusProps> {
   render() {
-    const { config: siteConfig, language = "" } = this.props;
+    const { siteConfig, language = "" } = this.props;
     const { baseUrl } = siteConfig;
 
     const Showcases = () => {
