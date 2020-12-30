@@ -2,17 +2,14 @@ import React from "react";
 import { GithubButton } from "../components/GithubButton";
 import { LinkButton } from "../components/LinkButton";
 import { DocusaurusProps, SWCSiteConfig } from "./index";
+import styles from "./common.module.css";
 
 export class HomeSplash extends React.Component<DocusaurusProps> {
   render() {
     const { siteConfig } = this.props;
 
     const SplashContainer = (props: { children: React.ReactNode }) => (
-      <div className="homeContainer">
-        <div className="homeSplashFade">
-          <div className="wrapper homeWrapper">{props.children}</div>
-        </div>
-      </div>
+      <div className={styles.flexRowCenter}>{props.children}</div>
     );
 
     const Logo = (props) => (
@@ -22,23 +19,25 @@ export class HomeSplash extends React.Component<DocusaurusProps> {
     );
 
     const ProjectTitle = (props: { siteConfig: SWCSiteConfig }) => (
-      <h2 className="projectTitle">
-        <img src={siteConfig.customFields.twitterImage} width="200" />
+      <h2 className={styles.flexColumnCenter}>
+        <img
+          src={siteConfig.customFields.twitterImage}
+          width="200"
+          className="padding-bottom--md"
+        />
         <small>{siteConfig.tagline}</small>
       </h2>
     );
 
     const PromoSection = (props) => (
-      <div className="section promoSection">
-        <div className="promoRow">
-          <div className="pluginRowBlock">{props.children}</div>
-        </div>
+      <div className={`padding-vert--md ${styles.flexRowCenter}`}>
+        {props.children}
       </div>
     );
 
     return (
       <SplashContainer>
-        <div className="inner">
+        <div className={`inner padding-vert--lg`}>
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
             <LinkButton href="/docs">Getting started</LinkButton>
