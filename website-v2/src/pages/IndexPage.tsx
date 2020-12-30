@@ -6,6 +6,7 @@ import { Sponsors } from "../components/Sponsors";
 import { Features } from "../components/Features";
 import { UserComponent } from "../components/UserComponent";
 import { LinkButton } from "../components/LinkButton";
+import styles from "./common.module.css";
 
 export class IndexPage extends React.Component<CommonProps> {
   render() {
@@ -25,19 +26,10 @@ export class IndexPage extends React.Component<CommonProps> {
         baseUrl + (language ? `${language}/` : "") + page;
 
       return (
-        <div className="productShowcaseSection paddingBottom">
-          <h2>Who is Using This?</h2>
-          <div
-            className="logos"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            {showcase}
-          </div>
-          <div className="more-users">
+        <div className={styles.flexColumnCenter}>
+          <h2 className="padding-vert--lg">Who is Using This?</h2>
+          <div className={styles.flexRowCenter}>{showcase}</div>
+          <div className={`padding-vert--lg ${styles.flexRowCenter}`}>
             <LinkButton href="/users">More {siteConfig.title} Users</LinkButton>
           </div>
         </div>
