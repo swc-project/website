@@ -1,7 +1,7 @@
 ---
 id: usage-swc-jest
 title: Using swc with jest
-sidebar_label: @swc/jest
+sidebar_label: "@swc/jest"
 ---
 
 ## Installation
