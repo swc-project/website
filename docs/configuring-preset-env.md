@@ -43,7 +43,7 @@ If you want to use `browserslist` with swc, you can just omit `targets` field li
 Note that [browserlists](https://github.com/browserslist/browserslist) can be configured by multiple ways.
 
 - `.browserslistrc`
-- `browsers` field in package.json
+- `browserslist` field in package.json
 
 ## Options
 
