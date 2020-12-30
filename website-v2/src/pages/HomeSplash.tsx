@@ -21,7 +21,7 @@ export class HomeSplash extends React.Component<DocusaurusProps> {
 
     const ProjectTitle = (props: { siteConfig: SWCSiteConfig }) => (
       <h2 className="projectTitle">
-        <img src={siteConfig.twitterImage} width="200" />
+        <img src={siteConfig.customFields.twitterImage} width="200" />
         <small>{siteConfig.tagline}</small>
       </h2>
     );
