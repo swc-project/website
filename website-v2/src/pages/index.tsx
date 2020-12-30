@@ -108,9 +108,14 @@ class HomeSplash extends React.Component<DocusaurusProps> {
   }
 }
 
-class Index extends React.Component<DocusaurusProps> {
+interface IndexProps {
+  config: SWCSiteConfig;
+  language: string;
+}
+
+class Index extends React.Component<IndexProps> {
   render() {
-    const { siteConfig, language = "" } = this.props;
+    const { config: siteConfig, language = "" } = this.props;
     const { baseUrl } = siteConfig;
 
     const Showcases = () => {
