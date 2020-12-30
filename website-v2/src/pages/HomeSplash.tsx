@@ -43,14 +43,16 @@ export class HomeSplash extends React.Component<DocusaurusProps> {
             <LinkButton href="/docs">Getting started</LinkButton>
           </PromoSection>
           <PromoSection>
-            <GithubButton
-              title="Star"
-              href="https://github.com/swc-project/swc"
-              data-icon="octicon-star"
-              data-size="large"
-              data-show-count="true"
-              aria-label="Star swc-project/swc on GitHub"
-            />
+            <div className="margin-right--sm">
+              <GithubButton
+                title="Star"
+                href="https://github.com/swc-project/swc"
+                data-icon="octicon-star"
+                data-size="large"
+                data-show-count="true"
+                aria-label="Star swc-project/swc on GitHub"
+              />
+            </div>
 
             <GithubButton
               title="Fork"
