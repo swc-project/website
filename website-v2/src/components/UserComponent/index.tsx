@@ -3,12 +3,12 @@ import styles from "./styles.module.css";
 
 export function UserComponent(props) {
   return (
-    <a href={props.infoLink}>
+    <a href={props.infoLink} className={styles.logo}>
       <img
         src={props.image}
         alt={props.caption}
         title={props.caption}
-        className={styles.logo}
+        className={styles.image}
       />
     </a>
   );
