@@ -58,11 +58,8 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
-          homePageId: "installation",
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          path: "../docs",
-          sidebarPath: "../website/sidebars.json",
         },
         theme: {
           customCss: "../src/css/customTheme.css",

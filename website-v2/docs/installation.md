@@ -1,6 +1,7 @@
 ---
 id: installation
 title: Installation
+slug: /
 ---
 
 You can install `swc` with
