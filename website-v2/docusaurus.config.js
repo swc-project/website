@@ -62,7 +62,7 @@ module.exports = {
           showLastUpdateTime: true,
         },
         theme: {
-          customCss: "../src/css/customTheme.css",
+          customCss: [require.resolve("./src/css/custom.css")],
         },
       },
     ],
