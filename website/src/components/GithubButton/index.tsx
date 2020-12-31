@@ -1,6 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import { render as renderGH } from "github-buttons";
-
 interface GHButtonProps {
   title: string;
   href: string;
@@ -9,11 +7,13 @@ interface GHButtonProps {
 export function GithubButton(props: GHButtonProps) {
   const ref = useRef<HTMLAnchorElement>(null);
   useEffect(() => {
-    renderGH(ref.current, function (element: HTMLElement) {
-      if (!ref.current) {
-        return;
-      }
-      ref.current.parentNode.replaceChild(element, ref.current);
+    import(/* webpackMode: "eager" */ "github-buttons").then(({ render }) => {
+      render(ref.current, function (element: HTMLElement) {
+        if (!ref.current) {
+          return;
+        }
+        ref.current.parentNode.replaceChild(element, ref.current);
+      });
     });
   }, []);
 
