@@ -45,7 +45,7 @@ or
 yarn add --dev @swc/core
 ```
 
-See [installation guide](/docs/installation) for more details.
+See [installation guide](/docs) for more details.
 
 ## What is included in swc 1.0.0?
 
@@ -158,6 +158,6 @@ Also note that swc does not support custom plugin yet.
 
 Run `npm i --save-dev @swc/core @swc/cli` or `yarn add --dev @swc/core @swc/cli` to install. CLI apis of `@swc/cli` is almost equivalent to it of `@babel/cli`. So if you are using standartd ecmascript, you can just replace `npx babel` to `npx swc`. If it results in an error, please [report an error][issues].
 
-See [usage docs](/docs/usage-cli) and [migration docs](/docs/migrating-from-babel-cli) for more details. Also note that swc does not support custom plugin yet.
+See [usage docs](/docs/usage-swc-cli) and [migration docs](/docs/migrating-from-babel-cli) for more details. Also note that swc does not support custom plugin yet.
 
 [issues]: https://github.com/swc-project/swc/issues

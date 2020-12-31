@@ -8,8 +8,8 @@
 import React from "react";
 import Layout from "@theme/Layout";
 import { DocusaurusConfig } from "@docusaurus/types";
-import { IndexPage } from "./IndexPage";
 import { User } from "./users";
+import { IndexPage } from "../components/IndexPage";
 
 export interface SWCSiteConfig extends DocusaurusConfig {
   docsUrl?: string;
