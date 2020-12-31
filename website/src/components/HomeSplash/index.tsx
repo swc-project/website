@@ -1,8 +1,8 @@
 import React from "react";
-import { GithubButton } from "../components/GithubButton";
-import { LinkButton } from "../components/LinkButton";
-import { DocusaurusProps, SWCSiteConfig } from "./index";
-import styles from "./common.module.css";
+import { DocusaurusProps, SWCSiteConfig } from "../../pages";
+import { GithubButton } from "../GithubButton";
+import { LinkButton } from "../LinkButton";
+import styles from "../../pages/common.module.css";
 
 export class HomeSplash extends React.Component<DocusaurusProps> {
   render() {

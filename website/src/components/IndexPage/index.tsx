@@ -1,12 +1,12 @@
 import React from "react";
-import { CommonProps } from "./index";
-import { HomeSplash } from "./HomeSplash";
-import { User } from "./users";
-import { Sponsors } from "../components/Sponsors";
-import { Features } from "../components/Features";
-import { UserComponent } from "../components/UserComponent";
-import { LinkButton } from "../components/LinkButton";
-import styles from "./common.module.css";
+import { CommonProps } from "../../pages";
+import { User } from "../../pages/users";
+import { Features } from "../Features";
+import { HomeSplash } from "../HomeSplash";
+import { LinkButton } from "../LinkButton";
+import { Sponsors } from "../Sponsors";
+import { UserComponent } from "../UserComponent";
+import styles from "../../pages/common.module.css";
 
 export class IndexPage extends React.Component<CommonProps> {
   render() {
