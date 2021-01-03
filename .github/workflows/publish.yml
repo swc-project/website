@@ -16,7 +16,7 @@ jobs:
         run: |
           cd website
           npm install
-          npm run deploy
+          npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
