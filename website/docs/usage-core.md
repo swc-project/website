@@ -54,3 +54,5 @@ Returns `Promise<{ code: string, map?: string }>`
 Returns `{ code: string, map?: string }`
 
 ## Options
+
+TODO:
