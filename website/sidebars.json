@@ -2,7 +2,7 @@
   "usage": {
     "Getting started": ["installation"],
     "Configuring swc": ["configuring-swc", "preset-env"],
-    "Configuring spack": ["configuring-spack"],
+    "Configuring spack": ["spack-basic", "spack-multi-bundle"],
     "Usage": [
       "usage-swc-cli",
       "usage-spack-cli",
