@@ -72,7 +72,7 @@ module.exports = {
     navbar: {
       title: "SWC",
       items: [
-        { to: "docs", label: "Docs", position: "right" },
+        { to: "docs/", label: "Docs", position: "right" },
         {
           href: "https://swc.rs/rustdoc/swc/",
           label: "SWC RustDocs",
