@@ -10,7 +10,7 @@ This project is maintained by a dedicated group of people
   <div class="row">
     <div class="col">
       <h2>Browse Docs</h2>
-      Learn more about using the <a href="/docs">documentation on this site</a>
+      Learn more about using the <a href="/docs/installation">documentation on this site</a>
     </div>
     <div class="col">
       <h2>Join the community</h2>

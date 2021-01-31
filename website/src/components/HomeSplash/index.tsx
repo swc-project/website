@@ -40,7 +40,7 @@ export class HomeSplash extends React.Component<DocusaurusProps> {
         <div className={`inner padding-vert--lg`}>
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <LinkButton href="/docs">Getting started</LinkButton>
+            <LinkButton href="/docs/installation">Getting started</LinkButton>
           </PromoSection>
           <PromoSection>
             <div className="margin-right--sm">
