@@ -40,10 +40,12 @@ If you want to use `browserslist` with swc, you can just omit `targets` field li
 }
 ```
 
-Note that [browserlists](https://github.com/browserslist/browserslist) can be configured by multiple ways.
+Note that [browserlists](https://github.com/browserslist/browserslist) can be configured in multiple ways.
 
 - `.browserslistrc`
 - `browserslist` field in package.json
+
+You can use [path](#path) to specify a custom path to load these configuration files from.
 
 ## Options
 
@@ -79,6 +81,15 @@ Or an object of minimum environment versions to support:
 Example environments: `chrome`, `opera`, `edge`, `firefox`, `safari`, `ie`, `ios`, `android`, `node`, `electron`.
 
 If `targets` is not specified, `swc` uses `browserslist` to get target information. See [browserslist](#browserslist)
+
+### path
+
+`string`, defaults to current directory.
+
+The path specifies the directory to load the browserslist module and any browserslist configuration files
+(e.g. `.browserslistrc`, `browserslist` field in package.json).
+
+This can be useful if your build system isn't in the root of your project.
 
 ### mode
 
