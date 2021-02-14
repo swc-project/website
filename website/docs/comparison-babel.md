@@ -27,7 +27,7 @@ sidebar_label: Comparison with babel
 | babel-plugin-proposal-pipeline-operator                  |   ❌ (stage 0)    |
 | babel-plugin-proposal-private-methods                    |        ✔️         |
 | babel-plugin-proposal-throw-expressions                  |   ❌ (stage 2)    |
-| babel-plugin-proposal-unicode-property-regex             |     ❌ (wip)      |
+| babel-plugin-proposal-unicode-property-regex             |        ❌         |
 | babel-plugin-syntax-async-generators                     |        ✔️         |
 | babel-plugin-syntax-bigint                               |        ✔️         |
 | babel-plugin-syntax-class-properties                     |        ✔️         |
@@ -60,7 +60,7 @@ sidebar_label: Comparison with babel
 | babel-plugin-transform-classes                           |        ✔️         |
 | babel-plugin-transform-computed-properties               |        ✔️         |
 | babel-plugin-transform-destructuring                     |        ✔️         |
-| babel-plugin-transform-dotall-regex                      |     ❌ (wip)      |
+| babel-plugin-transform-dotall-regex                      |        ❌         |
 | babel-plugin-transform-duplicate-keys                    |        ✔️         |
 | babel-plugin-transform-exponentiation-operator           |        ✔️         |
 | babel-plugin-transform-flow-comments                     |        ❌         |
@@ -73,20 +73,21 @@ sidebar_label: Comparison with babel
 | babel-plugin-transform-member-expression-literals        |        ✔️         |
 | babel-plugin-transform-modules-amd                       |        ✔️         |
 | babel-plugin-transform-modules-commonjs                  |        ✔️         |
-| babel-plugin-transform-modules-systemjs                  |     ❌ (wip)      |
+| babel-plugin-transform-modules-systemjs                  |        ❌         |
 | babel-plugin-transform-modules-umd                       |        ✔️         |
-| babel-plugin-transform-named-capturing-groups-regex      |     ❌ (wip)      |
-| babel-plugin-transform-new-target                        |     ❌ (wip)      |
-| babel-plugin-transform-object-assign                     |     ❌ (wip)      |
-| babel-plugin-transform-object-set-prototype-of-to-assign |     ❌ (wip)      |
-| babel-plugin-transform-object-super                      |     ❌ (wip)      |
+| babel-plugin-transform-named-capturing-groups-regex      |        ❌         |
+| babel-plugin-transform-new-target                        |        ❌         |
+| babel-plugin-transform-object-assign                     |        ❌         |
+| babel-plugin-transform-object-set-prototype-of-to-assign |        ❌         |
+| babel-plugin-transform-object-super                      |        ❌         |
+| babel-plugin-transform-object-rest-spread                |        ✔️         |
 | babel-plugin-transform-parameters                        |        ✔️         |
 | babel-plugin-transform-property-literals                 |        ✔️         |
-| babel-plugin-transform-property-mutators                 |     ❌ (wip)      |
-| babel-plugin-transform-proto-to-assign                   |     ❌ (wip)      |
-| babel-plugin-transform-react-constant-elements           |     ❌ (wip)      |
+| babel-plugin-transform-property-mutators                 |        ❌         |
+| babel-plugin-transform-proto-to-assign                   |        ❌         |
+| babel-plugin-transform-react-constant-elements           |        ❌         |
 | babel-plugin-transform-react-display-name                |        ✔️         |
-| babel-plugin-transform-react-inline-elements             |     ❌ (wip)      |
+| babel-plugin-transform-react-inline-elements             |        ❌         |
 | babel-plugin-transform-react-jsx                         |        ✔️         |
 | babel-plugin-transform-react-jsx-compat                  |        ❌         |
 | babel-plugin-transform-react-jsx-self                    |        ✔️         |
@@ -101,7 +102,7 @@ sidebar_label: Comparison with babel
 | babel-plugin-transform-template-literals                 |        ✔️         |
 | babel-plugin-transform-typeof-symbol                     |        ✔️         |
 | babel-plugin-transform-typescript                        |        ✔️         |
-| babel-plugin-transform-unicode-regex                     |     ❌ (wip)      |
+| babel-plugin-transform-unicode-regex                     |        ❌         |
 | babel-preset-env                                         |        ✔️         |
 | babel-preset-env-standalone                              |        ❌         |
 | babel-preset-flow                                        |        ❌         |
