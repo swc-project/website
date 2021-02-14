@@ -4,6 +4,8 @@ title: Comparison with babel
 sidebar_label: Comparison with babel
 ---
 
+Note: For the case where this document is outdated, you can expect swc to support all of ecmascript specifcation.
+
 | babel package name                                       |        swc        |
 | -------------------------------------------------------- | :---------------: |
 | babel-plugin-external-helpers                            |        ✔️         |
