@@ -27,7 +27,7 @@ class Users extends React.Component<CommonProps> {
       return null;
     }
 
-    const editUrl = `https://github.com/swc-project/website/edit/master/website/siteConfig.js`;
+    const editUrl = `https://github.com/swc-project/website/blob/master/website/docusaurus.config.js`;
 
     const showcase = (siteConfig.customFields.users as User[]).map((user) => (
       <UserComponent key={user.infoLink} {...user} />
