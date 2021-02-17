@@ -44,6 +44,12 @@ module.exports = {
         infoLink: "https://octopol.io/",
         pinned: true,
       },
+      {
+        caption: "Pollen",
+        image: "/img/users/pollen.png",
+        infoLink: "https://team.pollen.co/",
+        pinned: true,
+      }
     ],
     repoUrl: "https://github.com/swc-project/swc",
     sponsors: [],
