@@ -34,7 +34,7 @@ This is optional and defaults to
     "target": "es5",
     "loose": false,
     "externalHelpers": false,
-    // Required v1.2.50 or upper and requires target to be es2016 or upper.
+    // Required v1.2.50 (not release yet) or upper and requires target to be es2016 or upper.
     "keepClassNames": false
   }
 }
@@ -560,7 +560,7 @@ Type: Regex / Regex[]
 
 # sourceMaps
 
-Starting from `v1.2.50`, you can enable source map by adding `sourceMaps: true` or `sourceMaps: 'inline'` to the `.swcrc`.
+Starting from `v1.2.50` (not released yet), you can enable source map by adding `sourceMaps: true` or `sourceMaps: 'inline'` to the `.swcrc`.
 
 Example:
 
