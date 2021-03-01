@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 1em;
+}
+
+.titleContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.textContainer {
+  display: flex;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.textContainer > div {
+  width: 50%;
+}
