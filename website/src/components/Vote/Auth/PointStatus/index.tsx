@@ -1,5 +1,5 @@
 import React from "react";
 
-export const LoginButton: React.FC = () => {
+export const PointStatusButton: React.FC = () => {
   return <div></div>;
 };
