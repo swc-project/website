@@ -29,7 +29,13 @@ This is optional and defaults to
       "decoratorsBeforeExport": false,
       "topLevelAwait": false,
       "importMeta": false
-    }
+    },
+    "transorm": null,
+    "target": "es5",
+    "loose": false,
+    "externalHelpers": false,
+    // Required v1.2.50 or upper
+    "keepClassNames": false
   }
 }
 ```
