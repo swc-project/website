@@ -81,11 +81,12 @@ module.exports = {
         { to: "docs/installation", label: "Docs", position: "right" },
         {
           href: "https://swc.rs/rustdoc/swc/",
-          label: "SWC RustDocs",
+          label: "Rustdoc",
           position: "right",
         },
         { to: "help", label: "Help", position: "right" },
         { to: "blog", label: "Blog", position: "right" },
+        { to: "vote", label: "Vote", position: "right" },
         {
           href: "https://opencollective.com/swc",
           label: "Donate",
