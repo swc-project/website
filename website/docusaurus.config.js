@@ -84,7 +84,6 @@ module.exports = {
           label: "Rustdoc",
           position: "right",
         },
-        { to: "help", label: "Help", position: "right" },
         { to: "blog", label: "Blog", position: "right" },
         { to: "vote", label: "Vote", position: "right" },
         {
