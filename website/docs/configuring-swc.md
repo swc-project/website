@@ -34,7 +34,7 @@ This is optional and defaults to
     "target": "es5",
     "loose": false,
     "externalHelpers": false,
-    // Required v1.2.50 (not release yet) or upper and requires target to be es2016 or upper.
+    // Requires v1.2.50 (not released yet) or upper and requires target to be es2016 or upper.
     "keepClassNames": false
   }
 }
