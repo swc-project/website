@@ -30,7 +30,7 @@ This is optional and defaults to
       "topLevelAwait": false,
       "importMeta": false
     },
-    "transorm": null,
+    "transform": null,
     "target": "es5",
     "loose": false,
     "externalHelpers": false,
