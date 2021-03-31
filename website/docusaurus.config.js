@@ -80,7 +80,7 @@ module.exports = {
       items: [
         { to: "docs/installation", label: "Docs", position: "right" },
         {
-          href: "https://swc.rs/rustdoc/swc/",
+          href: "https://rustdoc.swc.rs/swc/",
           label: "SWC RustDocs",
           position: "right",
         },
