@@ -209,10 +209,14 @@ Determines the runtime library to import.
 - `pragma`
   Replace the function used when compiling JSX expressions.
 
+This option can be overrided with `@jsx foo`.
+
 Defaults to `React.createElement`.
 
 - `pragmaFrag`
   Replace the component used when compiling JSX fragments.
+
+This option can be overrided with `@jsxFrag foo`.
 
 Defaults to `React.Fragment`
 
