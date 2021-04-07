@@ -192,6 +192,20 @@ Note: This feature requires `v1.2.13+`.
 
 ### jsc.transform.react
 
+- `runtime`
+
+Possible values: `automatic`, `classic`.
+
+Use `automatic` to use new jsx runtimes.
+
+- `importSource`
+
+Only for `runtime: automatic`. `react` by default.
+
+This option can be overrided with `@jsxImportSource foo`.
+
+Determines the runtime library to import.
+
 - `pragma`
   Replace the function used when compiling JSX expressions.
 
