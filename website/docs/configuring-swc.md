@@ -231,6 +231,16 @@ Though the JSX spec allows this, it is disabled by default since React's JSX doe
 - `useBuiltins`
   Use `Object.assign()` instead of `_extends`. Defaults to false.
 
+- `refresh`
+
+```ts
+interface ReactRefreshConfig {
+  refreshReg: String;
+  refreshSig: String;
+  emitFullSignatures: boolean;
+}
+```
+
 ### jsc.transform.constModules
 
 `.swcrc`:
