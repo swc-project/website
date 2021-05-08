@@ -352,7 +352,7 @@ e.g.
 
 This will change all **pure** object literals to `JSON.parse("")`.
 
-## module
+## jsc.module
 
 swc can transpile es6 modules to common js module, umd module or amd module.
 
@@ -493,7 +493,7 @@ To emit `umd` module, you can do so by
 
 TODO
 
-### jsc.keepClassNames
+## jsc.keepClassNames
 
 Requires v1.2.50 or upper and requires target to be es2016 or upper.
 
