@@ -493,6 +493,12 @@ To emit `umd` module, you can do so by
 
 TODO
 
+### jsc.keepClassNames
+
+Requires v1.2.50 or upper and requires target to be es2016 or upper.
+
+Enabling this option will make swc preserve original class names.
+
 ## minify
 
 To get minified output, you can configure swc by
