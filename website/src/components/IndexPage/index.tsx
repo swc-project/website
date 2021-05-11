@@ -42,6 +42,7 @@ export class IndexPage extends React.Component<CommonProps> {
         <div className="mainContainer">
           <Features />
           <Showcases />
+          <Sponsors />
           <iframe
             src="https://opencollective.com/embed/swc/donate"
             style={{
@@ -49,8 +50,6 @@ export class IndexPage extends React.Component<CommonProps> {
               minHeight: "100vh",
             }}
           ></iframe>
-
-          <Sponsors />
         </div>
       </div>
     );
