@@ -23,6 +23,8 @@ If you are not lucky enough and you need to apply transforms synchronously, `syn
 
 ## Parallel
 
+Performance of babel and tsc is identical as them of sychronous benchmark.
+
 ### es3
 
 ![Images](https://raw.githubusercontent.com/kdy1/benchmark-done-right/main/images/transform/parallel/es3.png)
@@ -92,6 +94,8 @@ If you are not lucky enough and you need to apply transforms synchronously, `syn
 ## Asynchronous
 
 This benchmark suite does not use all cpu cores.
+
+For swc, the benchmark stores only one task on node.js thread pool at a time.
 
 ### es3
 
