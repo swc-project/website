@@ -84,7 +84,6 @@ module.exports = {
           label: "SWC RustDocs",
           position: "right",
         },
-        { to: "help", label: "Help", position: "right" },
         { to: "blog", label: "Blog", position: "right" },
         {
           href: "https://opencollective.com/swc",
