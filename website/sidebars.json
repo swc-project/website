@@ -12,6 +12,7 @@
       "usage-plugin"
     ],
     "Migration": ["migrating-from-babel-core", "migrating-from-babel-cli"],
-    "Comparison": ["comparison-babel"]
+    "Comparison": ["comparison-babel"],
+    "Benchmark": ["benchmark-transform"]
   }
 }
