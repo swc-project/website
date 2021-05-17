@@ -8,11 +8,12 @@ module.exports = {
   favicon: "img/favicon.png",
   customFields: {
     users: [
+      // Pin only open source projects
       {
         caption: "ByteDance",
         image: "/img/users/byte-dance.png",
         infoLink: "https://www.bytedance.com",
-        pinned: true,
+        pinned: false,
       },
       {
         caption: "Deno",
@@ -24,13 +25,13 @@ module.exports = {
         caption: "Fundamentei",
         image: "/img/users/fundamentei.png",
         infoLink: "https://fundamentei.com/",
-        pinned: true,
+        pinned: false,
       },
       {
         caption: "Framer",
         image: "/img/users/framer.svg",
         infoLink: "https://framer.com/",
-        pinned: true,
+        pinned: false,
       },
       {
         caption: "strapi",
@@ -42,13 +43,13 @@ module.exports = {
         caption: "octopol",
         image: "/img/users/octopol.jpeg",
         infoLink: "https://octopol.io/",
-        pinned: true,
+        pinned: false,
       },
       {
         caption: "Pollen",
         image: "/img/users/pollen.png",
         infoLink: "https://team.pollen.co/",
-        pinned: true,
+        pinned: false,
       },
       {
         caption: "Parcel",
