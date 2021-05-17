@@ -49,6 +49,12 @@ module.exports = {
         image: "/img/users/pollen.png",
         infoLink: "https://team.pollen.co/",
         pinned: true,
+      },
+      {
+        caption: "Parcel",
+        image: "/img/users/parceljs.png",
+        infoLink: "https://parceljs.org/",
+        pinned: true,
       }
     ],
     repoUrl: "https://github.com/swc-project/swc",
