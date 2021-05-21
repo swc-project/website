@@ -17,7 +17,7 @@ See [kdy1/benchmark-done-right](https://github.com/kdy1/benchmark-done-right) fo
 ## How to interpret result.
 
 For most users, most important test result is parallel benchmark.
-It's becuase build tool authors are smart enough to use `await Promise.all(tasks)` and the benchmark scenario which is most close to it is `parallel`.
+It's because build tool authors are smart enough to use `await Promise.all(tasks)` and the benchmark scenario which is most close to it is `parallel`.
 
 If you are not lucky enough and you need to apply transforms synchronously, `synchronous` benchmark matters.
 
