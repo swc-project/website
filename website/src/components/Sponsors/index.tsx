@@ -10,7 +10,7 @@ export function Sponsors() {
         <a href="https://opencollective.com/swc">
           <object
             type="image/svg+xml"
-            data="https://opencollective.com/swc/tiers/gold-sponsors.svg?avatarHeight=36&width=600"
+            data="https://opencollective.com/swc/tiers/gold-sponsors.svg?avatarHeight=36&width=320"
           ></object>
         </a>
 
@@ -18,7 +18,7 @@ export function Sponsors() {
         <a href="https://opencollective.com/swc">
           <object
             type="image/svg+xml"
-            data="https://opencollective.com/swc/tiers/silver-sponsors.svg?avatarHeight=36&width=600"
+            data="https://opencollective.com/swc/tiers/silver-sponsors.svg?avatarHeight=36&width=320"
           ></object>
         </a>
 
@@ -26,7 +26,7 @@ export function Sponsors() {
         <a href="https://opencollective.com/swc">
           <object
             type="image/svg+xml"
-            data="https://opencollective.com/swc/tiers/bronze-sponsors.svg?avatarHeight=36&width=600"
+            data="https://opencollective.com/swc/tiers/bronze-sponsors.svg?avatarHeight=36&width=320"
           ></object>
         </a>
 
@@ -34,7 +34,7 @@ export function Sponsors() {
         <a href="https://opencollective.com/swc">
           <object
             type="image/svg+xml"
-            data="https://opencollective.com/swc/tiers/backer.svg?avatarHeight=36&width=600"
+            data="https://opencollective.com/swc/tiers/backer.svg?avatarHeight=36&width=320"
           ></object>
         </a>
       </div>
