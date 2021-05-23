@@ -8,22 +8,34 @@ export function Sponsors() {
       <div className={styles.flexColumnCenter}>
         <h2>Gold Sponsors</h2>
         <a href="https://opencollective.com/swc">
-          <img src="https://opencollective.com/swc/tiers/gold-sponsers.svg?avatarHeight=64" />
+          <object
+            type="image/svg+xml"
+            data="https://opencollective.com/swc/tiers/gold-sponsors.svg?avatarHeight=36&width=600"
+          ></object>
         </a>
 
         <h2>Silver Sponsors</h2>
         <a href="https://opencollective.com/swc">
-          <img src="https://opencollective.com/swc/tiers/silver-sponsers.svg?avatarHeight=64" />
+          <object
+            type="image/svg+xml"
+            data="https://opencollective.com/swc/tiers/silver-sponsors.svg?avatarHeight=36&width=600"
+          ></object>
         </a>
 
         <h2>Bronze Sponsors</h2>
         <a href="https://opencollective.com/swc">
-          <img src="https://opencollective.com/swc/tiers/bronze-sponsers.svg?avatarHeight=64" />
+          <object
+            type="image/svg+xml"
+            data="https://opencollective.com/swc/tiers/bronze-sponsors.svg?avatarHeight=36&width=600"
+          ></object>
         </a>
 
         <h2>Backers</h2>
         <a href="https://opencollective.com/swc">
-          <img src="https://opencollective.com/swc/tiers/backer.svg?avatarHeight=64" />
+          <object
+            type="image/svg+xml"
+            data="https://opencollective.com/swc/tiers/backer.svg?avatarHeight=36&width=600"
+          ></object>
         </a>
       </div>
       <div className={`padding-vert--lg ${styles.flexRowCenter}`}>
