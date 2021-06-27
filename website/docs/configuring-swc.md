@@ -358,6 +358,14 @@ Requires v1.2.50 or upper and requires target to be es2016 or upper.
 
 Enabling this option will make swc preserve original class names.
 
+## jsc.paths
+
+> Required swc@1.2.62+
+
+Syntax is identical as it of `tsconfig.json`.
+
+See https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping for more details.
+
 ## module
 
 To configure module system, see the [docs](./swcrc-module) for it.
