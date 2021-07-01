@@ -70,6 +70,7 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
+          sidebarPath: require.resolve('./sidebars.json'),
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
