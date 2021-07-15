@@ -226,18 +226,22 @@ Defaults to `React.Fragment`
 Though the JSX spec allows this, it is disabled by default since React's JSX does not currently have support for it.
 
 - `development`
-  Toggles plugins that aid in development, such as `jsx-self` and `jsx-source`.
+  Toggles plugins that aid in development, such as `jsx-self` and `jsx-source`. Automatically read `webpack` mode when used with `swc-loader`
 
 - `useBuiltins`
   Use `Object.assign()` instead of `_extends`. Defaults to false.
 
 - `refresh`
+  Enable [react-refresh](https://www.npmjs.com/package/react-refresh) related transform. Defaults to false as it's considered experimental. Pass true or object to enable this feature.
 
 ```ts
 interface ReactRefreshConfig {
-  refreshReg: String;
-  refreshSig: String;
-  emitFullSignatures: boolean;
+  /** @default "$RefreshReg$" */
+  refreshReg: String
+  /** @default "$RefreshSig$" */
+  refreshSig: String
+  /** @default false */
+  emitFullSignatures: boolean
 }
 ```
 
@@ -266,16 +270,16 @@ interface ReactRefreshConfig {
 ```
 
 ```js
-import { DEBUG } from "@ember/env-flags";
-import { FEATURE_A, FEATURE_B } from "@ember/features";
+import { DEBUG } from '@ember/env-flags'
+import { FEATURE_A, FEATURE_B } from '@ember/features'
 
-console.log(DEBUG, FEATURE_A, FEATURE_B);
+console.log(DEBUG, FEATURE_A, FEATURE_B)
 ```
 
 becomes
 
 ```js
-console.log(true, false, true);
+console.log(true, false, true)
 ```
 
 ### jsc.transform.optimizer
@@ -323,7 +327,7 @@ e.g.
 `npx swc '__DEBUG__' --filename input.js`:
 
 ```js
-true;
+true
 ```
 
 #### jsc.transform.optimizer.jsonify
