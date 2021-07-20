@@ -5,6 +5,7 @@ sidebar_label: Module config
 ---
 
 swc can transpile es6 modules to common js module, umd module or amd module.
+If you don't specify module type, module statements will remain untouched.
 
 ### shared options
 
