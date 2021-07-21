@@ -23,8 +23,11 @@ const codeMirrorOptions: ComponentPropsWithoutRef<
 };
 const noop = () => {};
 
-export const Repl = () => {
+export interface ReplProps {}
+
+export const Repl: React.FC<ReplProps> = () => {
   const [rawCode, setRawCode] = useState(sampleCode);
+  const [rawConfig, setRawConfig] = useState(`{}`);
   const [loadingImportsStatus, setLoadingImportsStatus] = useState<
     "loading" | "success" | "fail"
   >("loading");
@@ -67,8 +70,16 @@ export const Repl = () => {
     if ("success" !== loadingImportsStatus || !swcWasm.current) return;
 
     compileTimeout.current = window.setTimeout(() => {
+      let config: object = {};
+
       try {
-        setCompiledCode(swcWasm.current.transformSync(rawCode, {}).code);
+        config = JSON.parse(rawConfig);
+      } catch (e) {
+        setCompileError(`Failed to parse "swcrc": ${e.message}`);
+        return;
+      }
+      try {
+        setCompiledCode(swcWasm.current.transformSync(rawCode, config).code);
         setCompileError(null);
       } catch (errorMessage) {
         setCompileError(errorMessage);
@@ -78,12 +89,18 @@ export const Repl = () => {
     return () => {
       if (compileTimeout.current) window.clearTimeout(compileTimeout.current);
     };
-  }, [loadingImportsStatus, rawCode]);
+  }, [loadingImportsStatus, rawCode, rawConfig]);
 
   const onRawCodeChange: ComponentPropsWithRef<
     typeof CodeMirror
   >["onBeforeChange"] = useCallback((_editor, _data, value) => {
     setRawCode(value);
+  }, []);
+
+  const onRawConfigChange: ComponentPropsWithRef<
+    typeof CodeMirror
+  >["onBeforeChange"] = useCallback((_editor, _data, value) => {
+    setRawConfig(value);
   }, []);
 
   const onRawCodeEditorDidMount: ComponentPropsWithRef<
@@ -126,15 +143,38 @@ export const Repl = () => {
                   display: "flex",
                 }}
               >
-                <div style={{ width: `100%` }}>
+                <div
+                  style={{
+                    width: `100%`,
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
                   <h2>Your code</h2>
-                  <CodeMirrorLazyImported.current.Controlled
-                    value={rawCode}
-                    options={codeMirrorOptions}
-                    onBeforeChange={onRawCodeChange}
-                    onChange={noop}
-                    editorDidMount={onRawCodeEditorDidMount}
-                  />
+                  <div style={{ flex: 9 }}>
+                    <CodeMirrorLazyImported.current.Controlled
+                      value={rawCode}
+                      options={codeMirrorOptions}
+                      onBeforeChange={onRawCodeChange}
+                      onChange={noop}
+                      editorDidMount={onRawCodeEditorDidMount}
+                    />
+                  </div>
+
+                  <h2>Your swcrc</h2>
+                  <div style={{ flex: 1 }}>
+                    <CodeMirrorLazyImported.current.Controlled
+                      value={rawConfig}
+                      options={{
+                        mode: { name: "json" },
+                        lineNumbers: true,
+                        lineWrapping: true,
+                      }}
+                      onBeforeChange={onRawConfigChange}
+                      onChange={noop}
+                      editorDidMount={noop}
+                    />
+                  </div>
                 </div>
                 <div style={{ width: `100%` }}>
                   <h2>Compiled code</h2>
