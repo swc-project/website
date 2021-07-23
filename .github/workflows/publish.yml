@@ -19,7 +19,7 @@ jobs:
           npm run build
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           REPOSITORY_NAME: swc-project/swc-project.github.io
