@@ -25,8 +25,8 @@
     "@swc/wasm-web": "1.2.62",
     "clsx": "1.1.1",
     "codemirror": "5.62.0",
-    "react": "^16.10.2",
+    "react": "16.14.0",
     "react-codemirror2": "7.2.1",
-    "react-dom": "^16.10.2"
+    "react-dom": "16.14.0"
   }
 }
