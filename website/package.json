@@ -11,22 +11,22 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.0-beta.3",
-    "@tsconfig/docusaurus": "^1.0.2",
-    "@types/codemirror": "^5.60.1",
-    "@types/react": "^17.0.5",
-    "@types/react-helmet": "^6.1.1",
-    "@types/react-router-dom": "^5.1.7",
-    "github-buttons": "^2.17.0",
-    "typescript": "^4.2.4"
+    "@tsconfig/docusaurus": "1.0.2",
+    "@types/codemirror": "5.60.1",
+    "@types/react": "17.0.11",
+    "@types/react-helmet": "6.1.1",
+    "@types/react-router-dom": "5.1.7",
+    "github-buttons": "2.18.1",
+    "typescript": "4.3.5"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.3",
     "@docusaurus/preset-classic": "2.0.0-beta.3",
-    "@swc/wasm-web": "^1.2.62",
-    "clsx": "^1.1.1",
-    "codemirror": "^5.62.0",
+    "@swc/wasm-web": "1.2.62",
+    "clsx": "1.1.1",
+    "codemirror": "5.62.0",
     "react": "^16.10.2",
-    "react-codemirror2": "^7.2.1",
+    "react-codemirror2": "7.2.1",
     "react-dom": "^16.10.2"
   }
 }
