@@ -62,6 +62,8 @@ is identical to
 }
 ```
 
+Please refer to [the compress option](https://terser.org/docs/api-reference.html#compress-options) of `terser`.
+
 #### `arguments`
 
 Defaults to `false`.
@@ -298,6 +300,8 @@ is identical to
   }
 }
 ```
+
+Please refer to [the mangle option](https://terser.org/docs/api-reference.html#mangle-options) of `terser`.
 
 #### `properties`
 
