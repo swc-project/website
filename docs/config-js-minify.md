@@ -299,6 +299,43 @@ is identical to
 }
 ```
 
+#### `properties`
+
+Defaults to `{}`.
+
+#### `topLevel`
+
+Defaults to `false`.
+Aliased as `toplevel` for compatibility with `terser`.
+
+#### `keepClassNames`
+
+Defaults to `false`.
+
+Aliased as `keep_classnames` for compatibility with `terser`.
+
+#### `keepFnNames`
+
+Defaults to `false`.
+
+#### `keepFnNames`
+
+Defaults to `false`.
+
+#### `keepPrivateProps`
+
+Defaults to `false`.
+
+Aliased as `keep_private_props` for compatibility with `terser`.
+
+#### `ie8`
+
+Ignored.
+
+#### `safari10`
+
+Not implemented yet.
+
 ## Usage
 
 ### swc.minify(code, options)
