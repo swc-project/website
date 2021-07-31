@@ -19,7 +19,7 @@ You can configure javascript minifier using `.swcrc`.
 
 Example `.swcrc` looks like:
 
-```json
+```jsonc
 {
   "jsc": {
     "minify": {
@@ -61,6 +61,215 @@ is identical to
   }
 }
 ```
+
+#### `arguments`
+
+Defaults to `false`.
+
+#### `arrows`
+
+Defaults to `true`.
+
+#### `booleans`
+
+Defaults to `true`.
+
+#### `booleans_as_integers`
+
+Defaults to `false`.
+
+#### `collapse_vars`
+
+Defaults to `true`.
+
+#### `comparisons`
+
+Defaults to `true`.
+
+#### `computed_props`
+
+Defaults to `false`.
+
+#### `conditionals`
+
+Defaults to `false`.
+
+#### `dead_code`
+
+Defaults to `false`.
+
+#### `defaults`
+
+Defaults to `true`.
+
+#### `directives`
+
+Defaults to `false`.
+
+#### `drop_console`
+
+Defaults to `false`.
+
+#### `drop_debugger`
+
+Defaults to `true`.
+
+#### `ecma`
+
+Defaults to `5`.
+
+#### `evaluate`
+
+Defaults to `true`.
+
+#### `global_defs`
+
+Defaults to `{}`.
+
+#### `hoist_funs`
+
+Defaults to `false`.
+
+#### `hoist_props`
+
+Defaults to `true`.
+
+#### `hoist_vars`
+
+Defaults to `false`.
+
+#### `ie8`
+
+Ignored.
+
+#### `if_return`
+
+Defaults to `true`.
+
+#### `inline`
+
+Defaults to ``.
+
+#### `join_vars`
+
+Defaults to `true`.
+
+#### `keep_classnames`
+
+Defaults to `false`.
+
+#### `keep_fargs`
+
+Defaults to `false`.
+
+#### `keep_infinity`
+
+Defaults to `false`.
+
+#### `loops`
+
+Defaults to `true`.
+
+#### `negate_iife`
+
+Defaults to `true`.
+
+#### `passes`
+
+Defaults to `0`, which means no limit.
+
+#### `properties`
+
+Defaults to `true`.
+
+#### `pure_getters`
+
+Defaults to ``.
+
+#### `pure_funcs`
+
+Defaults to `[]`.
+Type is an array of string.
+
+#### `reduce_funcs`
+
+Defaults to `false`.
+
+#### `reduce_vars`
+
+Defaults to `false`.
+
+#### `sequences`
+
+Defaults to `true`.
+
+#### `side_effects`
+
+Defaults to `true`.
+
+#### `switches`
+
+Defaults to `false`.
+
+#### `top_retain`
+
+Defaults to ``.
+
+#### `toplevel`
+
+Defaults to ``.
+
+#### `typeofs`
+
+Defaults to `true`.
+
+#### `unsafe`
+
+Defaults to `false`.
+
+#### `unsafe_arrows`
+
+Defaults to `false`.
+
+#### `unsafe_comps`
+
+Defaults to `false`.
+
+#### `unsafe_Function`
+
+Defaults to `false`.
+
+#### `unsafe_math`
+
+Defaults to `false`.
+
+#### `unsafe_symbols`
+
+Defaults to `false`.
+
+#### `unsafe_methods`
+
+Defaults to `false`.
+
+#### `unsafe_proto`
+
+Defaults to `false`.
+
+#### `unsafe_regexp`
+
+Defaults to `false`.
+
+#### `unsafe_undefined`
+
+Defaults to `false`.
+
+#### `unused`
+
+Defaults to `true`.
+
+#### `module`
+
+Ignored. Currently, all files are treated as module.
 
 ### `jsc.minify.mangle`
 
@@ -108,10 +317,7 @@ You can use it like
 import swc from "@swc/core";
 
 const { code, map } = await swc.minify(
-  `
-    import foo from '@src/app';
-    console.log(foo)
-    `,
+  "import foo from '@src/app'; console.log(foo)",
   {
     compress: false,
     mangle: true,
@@ -137,19 +343,14 @@ If you want to reduce build time without waiting for libraries developers to upd
 
 Add the code below to the `package.json` file.
 
-```json
-  "resolutions": {
-    "terser": "npm:@swc/core"
-  }
-```
+````json
+ "resolutions": { "terser": "npm:@swc/core" }  ```
 
 This will allow using the minifier of swc instead of terser for all nested dependencies.
 
 After patching `package.json`, you should remove lockfile and reinstall dependencies.
 
-```sh
-$ rm -rf node_modules yarn.lock
-$ yarn
-```
+```sh $ rm -rf node_modules yarn.lock $ yarn  ```
 
 [yarn]: https://yarnpkg.com/
+````
