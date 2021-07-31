@@ -14,7 +14,7 @@ sidebar_label: Minification
 
 You can configure javascript minifier using `.swcrc`.
 
-Example `.swcrc`:
+Example `.swcrc` looks like:
 
 ```json
 {
@@ -22,14 +22,76 @@ Example `.swcrc`:
     "minify": {
       "compress": {
         "unused": true
-      }
+      },
+      "mangle": true
     }
   },
+  // Enable minification in codgen.
   "minify": true
 }
 ```
 
+### `jsc.minify.compress`
+
+Type: `boolean | object`.
+
+`true` is same as an empty object (`{}`).
+
+```json
+{
+  "jsc": {
+    "minify": {
+      "mangle": true
+    }
+  }
+}
+```
+
+is identical to
+
+```json
+{
+  "jsc": {
+    "minify": {
+      "mangle": {}
+    }
+  }
+}
+```
+
+### `jsc.minify.mangle`
+
+Type: `boolean | object`.
+
+`true` is same as an empty object (`{}`).
+
+```json
+{
+  "jsc": {
+    "minify": {
+      "mangle": true
+    }
+  }
+}
+```
+
+is identical to
+
+```json
+{
+  "jsc": {
+    "minify": {
+      "mangle": {}
+    }
+  }
+}
+```
+
 ## Using
+
+### `minify(code, options)`
+
+    ### `minifySync(code, options)`
 
 ### Replacing terser without waiting for library developers
 
