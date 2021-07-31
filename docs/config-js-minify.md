@@ -10,6 +10,9 @@ sidebar_label: Minification
 
 ## Configuring
 
+The minifier uses options which is almost identical to it of `terser`.
+Options like `ie8` are ignored, but the minifier accepts it and ignores to be compatible with `terser`.
+
 ### via .swcrc
 
 You can configure javascript minifier using `.swcrc`.
@@ -91,7 +94,17 @@ is identical to
 
 ### `minify(code, options)`
 
-    ### `minifySync(code, options)`
+This API exists on `@swc/core`.
+
+---
+
+This API is asynchronous and all of parsing, minification and code generation will be done in background thread.
+
+### `minifySync(code, options)`
+
+This API exists on `@swc/core`, `@swc/wasm`, `@swc/wasm-web`.
+
+### APIs for WASM
 
 ### Replacing terser without waiting for library developers
 
