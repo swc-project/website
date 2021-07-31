@@ -14,7 +14,6 @@ jobs:
 
       - name: Build
         run: |
-          cd website
           npm install
           npm run build
 
@@ -24,5 +23,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           REPOSITORY_NAME: swc-project/swc-project.github.io
           BRANCH: master
-          FOLDER: website/build
+          FOLDER: build
           CLEAN: true
