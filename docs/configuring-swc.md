@@ -364,11 +364,17 @@ Enabling this option will make swc preserve original class names.
 
 ## jsc.paths
 
-> Required swc@1.2.62+
+> Requires swc@1.2.62
 
 Syntax is identical as it of `tsconfig.json`.
 
 See https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping for more details.
+
+## `jsc.minify`
+
+> Requires swc@1.2.67
+
+See [the documentation for minification](/docs/config-js-minify) for more details.
 
 ## module
 
