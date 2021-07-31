@@ -8,7 +8,7 @@ sidebar_label: Minification
 
 ---
 
-## Configuring
+## Config
 
 The minifier uses options which is almost identical to it of `terser`.
 Options like `ie8` are ignored, but the minifier accepts it and ignores to be compatible with `terser`.
@@ -90,19 +90,44 @@ is identical to
 }
 ```
 
-## Using
+## Usage
 
-### `minify(code, options)`
+### swc.minify(code, options)
 
 This API exists on `@swc/core`.
+
+Returns `Promise<{ code: string, map: string }>`.
 
 ---
 
 This API is asynchronous and all of parsing, minification and code generation will be done in background thread.
+The `options` argument is same as `jsc.minify` object.
+You can use it like
 
-### `minifySync(code, options)`
+```js
+import swc from "@swc/core";
+
+const { code, map } = await swc.minify(
+  `
+    import foo from '@src/app';
+    console.log(foo)
+    `,
+  {
+    compress: false,
+    mangle: true,
+  }
+);
+
+expect(code).toMatchInlineSnapshot(`"import a from'@src/app';console.log(a);"`);
+```
+
+### swc.minifySync(code, options)
 
 This API exists on `@swc/core`, `@swc/wasm`, `@swc/wasm-web`.
+
+Returns `{ code: string, map: string }`.
+
+Usage is similar to `swc.minify`.
 
 ### APIs for WASM
 
