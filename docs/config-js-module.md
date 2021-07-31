@@ -1,5 +1,5 @@
 ---
-id: swcrc-module
+id: config-js-module
 title: Configuring module using .swcrc
 sidebar_label: Module config
 ---

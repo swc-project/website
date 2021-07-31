@@ -1,7 +1,12 @@
 {
   "usage": {
     "Getting started": ["installation"],
-    "Configuring swc": ["configuring-swc", "preset-env", "swcrc-module"],
+    "Configuring swc": [
+      "configuring-swc",
+      "preset-env",
+      "config-js-module",
+      "config-js-minify"
+    ],
     "Configuring spack": ["spack-basic", "spack-multi-bundle"],
     "Usage": [
       "usage-swc-cli",

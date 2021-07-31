@@ -237,11 +237,11 @@ Though the JSX spec allows this, it is disabled by default since React's JSX doe
 ```ts
 interface ReactRefreshConfig {
   /** @default "$RefreshReg$" */
-  refreshReg: String
+  refreshReg: String;
   /** @default "$RefreshSig$" */
-  refreshSig: String
+  refreshSig: String;
   /** @default false */
-  emitFullSignatures: boolean
+  emitFullSignatures: boolean;
 }
 ```
 
@@ -270,16 +270,16 @@ interface ReactRefreshConfig {
 ```
 
 ```js
-import { DEBUG } from '@ember/env-flags'
-import { FEATURE_A, FEATURE_B } from '@ember/features'
+import { DEBUG } from "@ember/env-flags";
+import { FEATURE_A, FEATURE_B } from "@ember/features";
 
-console.log(DEBUG, FEATURE_A, FEATURE_B)
+console.log(DEBUG, FEATURE_A, FEATURE_B);
 ```
 
 becomes
 
 ```js
-console.log(true, false, true)
+console.log(true, false, true);
 ```
 
 ### jsc.transform.optimizer
@@ -327,7 +327,7 @@ e.g.
 `npx swc '__DEBUG__' --filename input.js`:
 
 ```js
-true
+true;
 ```
 
 #### jsc.transform.optimizer.jsonify
@@ -364,15 +364,21 @@ Enabling this option will make swc preserve original class names.
 
 ## jsc.paths
 
-> Required swc@1.2.62+
+> Requires swc@1.2.62
 
 Syntax is identical as it of `tsconfig.json`.
 
 See https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping for more details.
 
+## `jsc.minify`
+
+> Requires swc@1.2.67
+
+See [the documentation for minification](/docs/config-js-minify) for more details.
+
 ## module
 
-To configure module system, see the [docs](./swcrc-module) for it.
+To configure module system, see the [docs](./config-js-module) for it.
 
 ## minify
 
