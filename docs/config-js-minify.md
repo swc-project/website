@@ -4,6 +4,8 @@ title: Configuring js minifier
 sidebar_label: Minification
 ---
 
+> Requires v1.2.67
+
 **Note:** Currently, it's far from perfect. I decided to focus on real-world usages and only rules used by famous open source libraries are implemented. If the bundle size of your project is not good enough, please let me know. Feel free to file an issue or email me if it's a secret. ([kdy1997.dev@gmail.com](mailto:kdy1997.dev@gmail.com))
 
 ---
