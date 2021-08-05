@@ -8,7 +8,7 @@ export function Features() {
         {
           title: "Transcompile",
           content:
-            "swc is a typescript / javascript compiler. It consumes a javascript or typescript file which uses recently added features like async-await and emits javascript code which can be executed on old browsers.",
+            "swc is a typescript / javascript compiler. It consumes a javascript or typescript file which uses recently added features like async-await and emits javascript code which can be executed on old browsers. It supports all published typescript versions and all valid ecmascript, including some stage 3 proposals as an input, and supports es3 or higher as an output",
         },
         {
           title: "Super fast",
