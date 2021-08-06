@@ -374,7 +374,7 @@ See https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-map
 
 > Requires swc@1.2.67
 
-See [the documentation for minification](/docs/config-js-minify) for more details.
+See [the documentation for minification](./config-js-minify) for more details.
 
 ## module
 
