@@ -58,7 +58,7 @@ module.exports = {
         pinned: true,
       },
       {
-        caption: "NextJS",
+        caption: "Next.js",
         image: "/img/users/nextjs.svg",
         infoLink: "https://nextjs.org/",
         pinned: true,
