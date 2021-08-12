@@ -56,6 +56,12 @@ module.exports = {
         image: "/img/users/parceljs.png",
         infoLink: "https://parceljs.org/",
         pinned: true,
+      },
+      {
+        caption: "Next.js",
+        image: "/img/users/nextjs.svg",
+        infoLink: "https://nextjs.org/",
+        pinned: true,
       }
     ],
     repoUrl: "https://github.com/swc-project/swc",
