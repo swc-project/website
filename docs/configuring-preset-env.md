@@ -154,4 +154,4 @@ The version of the used core js. Defaults to undefined, which panic when mode is
 - `boolean`
 - Defaults to `false`.
 
-Enable all trnasforms
+Enable all transforms
