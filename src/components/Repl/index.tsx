@@ -4,6 +4,7 @@ import React, {
   MutableRefObject,
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -12,6 +13,7 @@ import type {
   UnControlled as UnControlledCodeBlock,
 } from "react-codemirror2";
 import { sampleCode } from "./sampleCode";
+import { loadReplState, saveReplState } from "./urlHash";
 
 const DEBOUNCE_MS = 500;
 const codeMirrorOptions: ComponentPropsWithoutRef<
@@ -26,8 +28,14 @@ const noop = () => {};
 export interface ReplProps {}
 
 export const Repl: React.FC<ReplProps> = () => {
-  const [rawCode, setRawCode] = useState(sampleCode);
-  const [rawConfig, setRawConfig] = useState(`{}`);
+  const { rawCode: initRawCode, rawConfig: initRawConfig } = useMemo(() => {
+    const restoredReplState = loadReplState();
+    const rawCode = restoredReplState.rawCode || sampleCode;
+    const rawConfig = restoredReplState.rawConfig || "{}";
+    return { rawCode, rawConfig };
+  }, []);
+  const [rawCode, setRawCode] = useState(initRawCode);
+  const [rawConfig, setRawConfig] = useState(initRawConfig);
   const [loadingImportsStatus, setLoadingImportsStatus] = useState<
     "loading" | "success" | "fail"
   >("loading");
@@ -71,6 +79,7 @@ export const Repl: React.FC<ReplProps> = () => {
 
     compileTimeout.current = window.setTimeout(() => {
       let config: object = {};
+      saveReplState({ rawCode, rawConfig });
 
       try {
         config = JSON.parse(rawConfig);
