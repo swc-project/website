@@ -4,6 +4,10 @@ interface ReplState {
 }
 
 export const loadReplState: () => ReplState = function () {
+  if (typeof window === 'undefined') {
+    return {}
+  }
+
   const hash = window.location.hash.slice(1);
   try {
     return JSON.parse(decodeURIComponent(hash));
