@@ -386,14 +386,17 @@ If you want to reduce build time without waiting for libraries developers to upd
 
 Add the code below to the `package.json` file.
 
-````json
- "resolutions": { "terser": "npm:@swc/core" }  ```
+```json
+ "resolutions": { "terser": "npm:@swc/core" }
+```
 
 This will allow using the minifier of swc instead of terser for all nested dependencies.
 
 After patching `package.json`, you should remove lockfile and reinstall dependencies.
 
-```sh $ rm -rf node_modules yarn.lock $ yarn  ```
+```sh
+$ rm -rf node_modules yarn.lock
+$ yarn
+```
 
 [yarn]: https://yarnpkg.com/
-````
