@@ -5,7 +5,7 @@ sidebar_label: Plugin
 ---
 
 > Warning: Plugin apis are going to be deprecated in v2.
-> With v2, swc will provide a rust-based plguin api instead.
+> With v2, swc will provide a rust-based plugin api instead.
 
 ## Helpers
 
