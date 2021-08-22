@@ -4,6 +4,9 @@ title: Using custom plugins with swc
 sidebar_label: Plugin
 ---
 
+> Warning: Plugin apis are going to be deprecated in v2.
+> With v2, swc will provide a rust-based plguin api instead.
+
 ## Helpers
 
 There are some helpers to help writing a transform.
@@ -34,8 +37,8 @@ class ConsoleStripper extends Visitor {
           argument: {
             type: "NumericLiteral",
             span: e.span,
-            value: 0
-          }
+            value: 0,
+          },
         };
       }
     }
@@ -52,7 +55,7 @@ if (foo) {
     console.log("Bar")
 }`,
   {
-    plugin: m => new ConsoleStripper().visitProgram(m)
+    plugin: (m) => new ConsoleStripper().visitProgram(m),
   }
 );
 
@@ -72,6 +75,6 @@ You can turn on optimizer with [`jsc.transform.optimizer`](/docs/configuring-swc
 import { transformSync, plugins } from "@swc/core";
 
 const out = transformSync(src, {
-  plugin: plugins(pluginA, pluginB)
+  plugin: plugins(pluginA, pluginB),
 });
 ```
