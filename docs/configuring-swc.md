@@ -376,6 +376,15 @@ See https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-map
 
 See [the documentation for minification](./config-js-minify) for more details.
 
+## `jsc.experimental`
+
+> Experimental features can be removed, or modified with a semver-incompatible way.
+> Use at your own risk.
+
+### `jsc.experimental.optimizeHygiene`
+
+Reduce variable renaming of swc.
+
 ## module
 
 To configure module system, see the [docs](./config-js-module) for it.
