@@ -12,7 +12,7 @@ See [kdy1/benchmark-done-right](https://github.com/kdy1/benchmark-done-right) fo
 
 > babel does not support parellel transforms.
 
-> esbuild does not support `es3` nor `es2015`
+> esbuild does not support `es3`.
 
 ## How to interpret result.
 
