@@ -10,7 +10,7 @@ sidebar_label: cli (spack)
 npm i --save-dev @swc/cli @swc/core
 ```
 
-Create a `spack.config.js` file. See [docs](./spack-basic) for more detail. Then, just run
+Create a `spack.config.js` file. See [docs](/docs/spack-basic) for more detail. Then, just run
 
 ```sh
 npx spack

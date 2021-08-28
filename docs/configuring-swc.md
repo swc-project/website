@@ -374,7 +374,7 @@ See https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-map
 
 > Requires swc@1.2.67
 
-See [the documentation for minification](./config-js-minify) for more details.
+See [the documentation for minification](/docs/config-js-minify) for more details.
 
 ## `jsc.experimental`
 
@@ -387,7 +387,7 @@ Reduce variable renaming of swc.
 
 ## module
 
-To configure module system, see the [docs](./config-js-module) for it.
+To configure module system, see the [docs](/docs/config-js-module) for it.
 
 ## minify
 
