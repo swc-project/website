@@ -91,7 +91,7 @@ export const Repl: React.FC<ReplProps> = () => {
         setCompiledCode(swcWasm.current.transformSync(rawCode, config).code);
         setCompileError(null);
       } catch (errorMessage) {
-        setCompileError(errorMessage);
+        setCompileError(errorMessage.toString());
       }
     }, DEBOUNCE_MS);
 
