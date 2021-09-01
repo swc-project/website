@@ -12,7 +12,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.0-beta.3",
     "@tsconfig/docusaurus": "1.0.2",
-    "@types/codemirror": "5.60.1",
+    "@types/codemirror": "5.60.2",
     "@types/react": "17.0.11",
     "@types/react-helmet": "6.1.1",
     "@types/react-router-dom": "5.1.7",
@@ -24,7 +24,7 @@
     "@docusaurus/preset-classic": "2.0.0-beta.3",
     "@swc/wasm-web": "1.2.66",
     "clsx": "1.1.1",
-    "codemirror": "5.62.0",
+    "codemirror": "5.62.3",
     "react": "16.14.0",
     "react-codemirror2": "7.2.1",
     "react-dom": "16.14.0"
