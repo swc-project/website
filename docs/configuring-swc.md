@@ -381,9 +381,7 @@ See [the documentation for minification](/docs/config-js-minify) for more detail
 > Experimental features can be removed, or modified with a semver-incompatible way.
 > Use at your own risk.
 
-### `jsc.experimental.optimizeHygiene`
-
-Reduce variable renaming of swc.
+Currently there's no experimental options.
 
 ## module
 
