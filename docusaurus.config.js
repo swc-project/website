@@ -8,7 +8,7 @@ module.exports = {
   favicon: "img/favicon.png",
   customFields: {
     users: [
-      // Pin only open source projects
+      // Pin only open source projects`
       {
         caption: "ByteDance",
         image: "/img/users/byte-dance.png",
@@ -17,7 +17,7 @@ module.exports = {
       },
       {
         caption: "Deno",
-        image: "/img/users/deno.svg",
+        image: "https://deno.land/logo.svg",
         infoLink: "https://deno.land",
         pinned: true,
       },
