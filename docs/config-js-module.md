@@ -9,14 +9,14 @@ If you don't specify module type, module statements will remain untouched.
 
 ### shared options
 
-These options are shared by common js / umd / amd.
+These options are shared by commonjs / es6 / umd / amd.
 
 `.swcrc`:
 
 ```json
 {
   "module": {
-    // You can specify "commonjs", "amd", "umd"
+    // You can specify "commonjs", "es6", "amd", "umd"
     "type": "commonjs",
     "strict": false,
     "strictMode": true,
@@ -73,7 +73,7 @@ In cases where the auto-unwrapping of default is not needed, you can set the noI
 
 Defaults to `false`.
 
-### common js
+### commonjs
 
 To emit a common js module, you can do so by
 
@@ -83,6 +83,26 @@ To emit a common js module, you can do so by
 {
   "module": {
     "type": "commonjs",
+
+    // These are defaults.
+    "strict": false,
+    "strictMode": true,
+    "lazy": false,
+    "noInterop": false
+  }
+}
+```
+
+### es6
+
+To emit an ES6 module, you can do so by
+
+`.swcrc`:
+
+```json
+{
+  "module": {
+    "type": "es6",
 
     // These are defaults.
     "strict": false,
