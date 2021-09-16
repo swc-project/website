@@ -362,13 +362,19 @@ Requires v1.2.50 or upper and requires target to be es2016 or upper.
 
 Enabling this option will make swc preserve original class names.
 
-## jsc.paths
+## `jsc.paths`
 
 > Requires swc@1.2.62
 
 Syntax is identical as it of `tsconfig.json`.
 
 See https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping for more details.
+
+Requires `jsc.baseUrl`. See below.
+
+## `jsc.baseUrl`
+
+See https://www.typescriptlang.org/docs/handbook/module-resolution.html#base-url
 
 ## `jsc.minify`
 
