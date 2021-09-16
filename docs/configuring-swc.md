@@ -480,7 +480,7 @@ Type: Regex / Regex[]
 }
 ```
 
-# sourceMaps
+## `sourceMaps`
 
 Starting from `v1.2.50`, you can enable source map by adding `sourceMaps: true` or `sourceMaps: 'inline'` to the `.swcrc`.
 
@@ -489,5 +489,18 @@ Example:
 ```json
 {
   "sourceMaps": true
+}
+```
+
+## `inlineSourceContents`
+
+If you want to make `swc` inline source map contents, you can set `inlineSourceContents` to true.
+
+Example:
+
+```json
+{
+  "sourceMaps": true,
+  "inlineSourceContents": true
 }
 ```
