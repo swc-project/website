@@ -99,15 +99,12 @@ _Note: you must add [`@swc/helpers`](https://www.npmjs.com/package/@swc/helpers)
 
 ## jsc.target
 
-Starting from `@swc/core` v1.0.27, you can specify the target environment for output code by using the `jsc.target` field.
-
-This will cause only the necessary transforms for the target environment to be applied when compiling the source code.
-
-For example: to disable transforms for es3/es5/es2015, set the target to `es2016` and only the transforms needed to support a es2016 and later runtime will be applied:
+Starting from @swc/core v1.0.27, you can specify the target environment by using the field.
 
 ```json
 {
   "jsc": {
+    // Disable es3 / es5 / es2015 transforms
     "target": "es2016"
   }
 }
@@ -218,7 +215,7 @@ This option can be overrided with `@jsxImportSource foo`.
 
 #### jsc.transform.react.pragma
 
-Replace the function used when compiling JSX expressions.
+When using `runtime: classic`, replaces the function used when compiling JSX expressions.
 
 Defaults to `React.createElement`.
 
@@ -242,7 +239,7 @@ Though the JSX spec allows this, it is disabled by default since React's JSX doe
 
 Toggles debug props `__self` and `__source` on elements generated from JSX, which are used by development tooling such as React Developer Tools.
 
-Automatically read `webpack` mode when used with `swc-loader`.
+This option is set automatically based on the Webpack `mode` setting when used with `swc-loader`. See [Using swc with webpack](/docs/usage-swc-loader/).
 
 #### jsc.transform.react.useBuiltins
 

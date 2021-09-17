@@ -26,3 +26,9 @@ module: {
   ];
 }
 ```
+
+### React development
+
+The [`jsc.transform.react.development`](/docs/configuring-swc#jsctransformreact) option is set automatically based on the Webpack `mode`.
+
+See https://webpack.js.org/configuration/mode/
