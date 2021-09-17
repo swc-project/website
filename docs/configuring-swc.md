@@ -42,9 +42,13 @@ This is optional and defaults to
 
 ## jsc.externalHelpers
 
-You can use helpers from an external module named `@swc/helpers`.
+The output code may depend on helper functions to support the target environment. By default a helper function is inlined into the output files where it is required.
+
+You can use helpers from an external module by enabling `externalHelpers` and the helpers code will be imported by the output files from `node_modules/@swc/helpers`.
 
 While bundling, this option will greatly reduce your file size.
+
+_Note: you must add [`@swc/helpers`](https://www.npmjs.com/package/@swc/helpers) as a dependency in addition to `@swc/core`._
 
 ```json
 {
@@ -108,7 +112,9 @@ Starting from `@swc/core` v1.0.27, you can specify the target environment by usi
 
 ## jsc.loose
 
-Starting from `@swc/core` v1.1.4, you can enable loose mode by
+Starting from `@swc/core` v1.1.4, you can enable "loose" transformations by enabling `jsc.loose` which works like `babel-preset-env` loose mode.
+
+See https://2ality.com/2015/12/babel6-loose-mode.html
 
 ```json
 {
@@ -117,8 +123,6 @@ Starting from `@swc/core` v1.1.4, you can enable loose mode by
   }
 }
 ```
-
-In loose mode, swc generates more efficient code.
 
 ## jsc.transform
 
@@ -149,9 +153,9 @@ Example
 
 ### jsc.transform.legacyDecorator
 
-You can use legacy decorators with `swc`. To enable legacy decorator, set `jsc.transform.legacyDecorator` and `jsc.parser.decorators` to true.
+You can use the legacy (stage 1) class decorators syntax and behaviour.
 
-e.g.
+To enable legacy decorators, set `jsc.transform.legacyDecorator` and `jsc.parser.decorators` to true.
 
 ```json
 {
@@ -192,47 +196,60 @@ Note: This feature requires `v1.2.13+`.
 
 ### jsc.transform.react
 
-- `runtime`
+#### jsc.transform.react.runtime
 
-Possible values: `automatic`, `classic`.
+Possible values: `automatic`, `classic`. This affects how JSX source code will be compiled.
 
-Use `automatic` to use new jsx runtimes.
+- Use `runtime: automatic` to use a JSX runtime module (e.g. `react/jsx-runtime` introduced in React 17).
+- Use `runtime: classic` to use `React.createElement` instead - with this option, you must ensure that `React` is in scope when using JSX.
 
-- `importSource`
+See https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
 
-Only for `runtime: automatic`. `react` by default.
+#### jsc.transform.react.importSource
+
+When using `runtime: automatic`, determines the runtime library to import.
+
+Defaults to `react`.
 
 This option can be overrided with `@jsxImportSource foo`.
 
-Determines the runtime library to import.
+#### jsc.transform.react.pragma
 
-- `pragma`
-  Replace the function used when compiling JSX expressions.
-
-This option can be overrided with `@jsx foo`.
+When using `runtime: classic`, replaces the function used when compiling JSX expressions.
 
 Defaults to `React.createElement`.
 
-- `pragmaFrag`
-  Replace the component used when compiling JSX fragments.
+This option can be overrided with `@jsx foo`.
 
-This option can be overrided with `@jsxFrag foo`.
+#### jsc.transform.react.pragmaFrag
+
+Replace the component used when compiling JSX fragments.
 
 Defaults to `React.Fragment`
 
-- `throwIfNamespace`
-  Toggles whether or not to throw an error if an XML namespaced tag name is used. For example: `<f:image />`
+This option can be overrided with `@jsxFrag foo`.
+
+#### jsc.transform.react.throwIfNamespace
+
+Toggles whether or not to throw an error if an XML namespaced tag name is used. For example: `<f:image />`
 
 Though the JSX spec allows this, it is disabled by default since React's JSX does not currently have support for it.
 
-- `development`
-  Toggles plugins that aid in development, such as `jsx-self` and `jsx-source`. Automatically read `webpack` mode when used with `swc-loader`
+#### jsc.transform.react.development
 
-- `useBuiltins`
-  Use `Object.assign()` instead of `_extends`. Defaults to false.
+Toggles debug props `__self` and `__source` on elements generated from JSX, which are used by development tooling such as React Developer Tools.
 
-- `refresh`
-  Enable [react-refresh](https://www.npmjs.com/package/react-refresh) related transform. Defaults to false as it's considered experimental. Pass true or object to enable this feature.
+This option is set automatically based on the Webpack `mode` setting when used with `swc-loader`. See [Using swc with webpack](/docs/usage-swc-loader/).
+
+#### jsc.transform.react.useBuiltins
+
+Use `Object.assign()` instead of `_extends`. Defaults to false.
+
+#### jsc.transform.react.refresh
+
+Enable [react-refresh](https://www.npmjs.com/package/react-refresh) related transform. Defaults to false as it's considered experimental.
+
+Pass `refresh: true` to enable this feature, or an object with the following:
 
 ```ts
 interface ReactRefreshConfig {
