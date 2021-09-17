@@ -99,7 +99,7 @@ _Note: you must add [`@swc/helpers`](https://www.npmjs.com/package/@swc/helpers)
 
 ## jsc.target
 
-Starting from @swc/core v1.0.27, you can specify the target environment by using the field.
+Starting from `@swc/core` v1.0.27, you can specify the target environment by using the field.
 
 ```json
 {
