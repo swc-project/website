@@ -12,7 +12,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.0-beta.3",
     "@tsconfig/docusaurus": "1.0.2",
-    "@types/codemirror": "5.60.2",
+    "@types/codemirror": "5.60.3",
     "@types/react": "17.0.22",
     "@types/react-helmet": "6.1.1",
     "@types/react-router-dom": "5.1.7",
