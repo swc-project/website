@@ -515,15 +515,15 @@ Example:
 }
 ```
 
-## `inlineSourceContents`
+## `inlineSourcesContent`
 
-If you want to make `swc` inline source map contents, you can set `inlineSourceContents` to true.
+If you want to make `swc` inline source map contents, you can set `inlineSourcesContent` to true.
 
 Example:
 
 ```json
 {
   "sourceMaps": true,
-  "inlineSourceContents": true
+  "inlineSourcesContent": true
 }
 ```
