@@ -13,7 +13,7 @@ module.exports = {
       //
       // Order: 
       //
-      // 1. Open source projects which uses swc thoughtfully.
+      // 1. Open source projects which uses swc thoughtfully. (Ordered by financial contribution)
       // 2. Companies who use swc, sorted by the company size.
       {
         caption: "Next.js",
