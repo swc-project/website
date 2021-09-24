@@ -10,12 +10,6 @@ module.exports = {
     users: [
       // Pin only open source projects
       {
-        caption: "Tencent",
-        image: "/img/users/tencent.svg",
-        infoLink: "https://www.tencent.com",
-        pinned: false,
-      },
-      {
         caption: "ByteDance",
         image: "/img/users/byte-dance.png",
         infoLink: "https://www.bytedance.com",
@@ -68,7 +62,13 @@ module.exports = {
         image: "/img/users/nextjs.svg",
         infoLink: "https://nextjs.org/",
         pinned: true,
-      }
+      },
+      {
+        caption: "Tencent",
+        image: "/img/users/tencent.svg",
+        infoLink: "https://www.tencent.com",
+        pinned: false,
+      },
     ],
     repoUrl: "https://github.com/swc-project/swc",
     sponsors: [],
