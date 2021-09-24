@@ -10,6 +10,12 @@ module.exports = {
     users: [
       // Pin only open source projects
       {
+        caption: "Tencent",
+        image: "/img/users/tencent.svg",
+        infoLink: "https://www.tencent.com",
+        pinned: false,
+      },
+      {
         caption: "ByteDance",
         image: "/img/users/byte-dance.png",
         infoLink: "https://www.bytedance.com",
