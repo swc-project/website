@@ -9,11 +9,23 @@ module.exports = {
   customFields: {
     users: [
       // Pin only open source projects
+      //
+      //
+      // Order: 
+      //
+      // 1. Open source projects which uses swc thoughtfully.
+      // 2. Companies who use swc, sorted by the company size.
       {
-        caption: "ByteDance",
-        image: "/img/users/byte-dance.png",
-        infoLink: "https://www.bytedance.com",
-        pinned: false,
+        caption: "Next.js",
+        image: "/img/users/nextjs.svg",
+        infoLink: "https://nextjs.org/",
+        pinned: true,
+      },
+      {
+        caption: "Parcel",
+        image: "/img/users/parceljs.png",
+        infoLink: "https://parceljs.org/",
+        pinned: true,
       },
       {
         caption: "Deno",
@@ -22,15 +34,27 @@ module.exports = {
         pinned: true,
       },
       {
-        caption: "Fundamentei",
-        image: "/img/users/fundamentei.png",
-        infoLink: "https://fundamentei.com/",
+        caption: "Tencent",
+        image: "/img/users/tencent.svg",
+        infoLink: "https://www.tencent.com",
+        pinned: false,
+      },
+      {
+        caption: "ByteDance",
+        image: "/img/users/byte-dance.png",
+        infoLink: "https://www.bytedance.com",
         pinned: false,
       },
       {
         caption: "Framer",
         image: "/img/users/framer.svg",
         infoLink: "https://framer.com/",
+        pinned: false,
+      },
+      {
+        caption: "Fundamentei",
+        image: "/img/users/fundamentei.png",
+        infoLink: "https://fundamentei.com/",
         pinned: false,
       },
       {
@@ -49,24 +73,6 @@ module.exports = {
         caption: "Pollen",
         image: "/img/users/pollen.png",
         infoLink: "https://team.pollen.co/",
-        pinned: false,
-      },
-      {
-        caption: "Parcel",
-        image: "/img/users/parceljs.png",
-        infoLink: "https://parceljs.org/",
-        pinned: true,
-      },
-      {
-        caption: "Next.js",
-        image: "/img/users/nextjs.svg",
-        infoLink: "https://nextjs.org/",
-        pinned: true,
-      },
-      {
-        caption: "Tencent",
-        image: "/img/users/tencent.svg",
-        infoLink: "https://www.tencent.com",
         pinned: false,
       },
     ],
