@@ -39,7 +39,9 @@ class Users extends React.Component<CommonProps> {
           <h1>Who is Using This?</h1>
           <p>This project is used by many folks</p>
         </div>
-        <div className="padding-vert--lg">{showcase}</div>
+        <div className={`padding-vert--lg ${styles.flexRowContainer}`}>
+          {showcase}
+        </div>
         <p>Are you using this project?</p>
         <LinkButton href={editUrl}>Add your company</LinkButton>
       </div>
