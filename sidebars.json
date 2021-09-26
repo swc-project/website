@@ -10,6 +10,7 @@
     "Configuring spack": ["spack-basic", "spack-multi-bundle"],
     "Usage": [
       "usage-swc-cli",
+      "usage-swc-wasm",
       "usage-spack-cli",
       "usage-swc-loader",
       "usage-swc-jest",
