@@ -46,7 +46,7 @@ Type: `boolean | object`.
 {
   "jsc": {
     "minify": {
-      "mangle": true
+      "compress": true
     }
   }
 }
@@ -58,7 +58,7 @@ is identical to
 {
   "jsc": {
     "minify": {
-      "mangle": {}
+      "compress": {}
     }
   }
 }
