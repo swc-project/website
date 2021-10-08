@@ -4,6 +4,13 @@ title: Configuring spack
 sidebar_label: Configuring spack
 ---
 
+# Changes of name
+
+The bundler of swc was called `spack`, but it will be changed to `swcpack`.
+[There's a project called spack](https://github.com/swc-project/swc/issues/1113), and it's much older than the bundler, so I think it's right to rename new tool.
+
+The support for `spack.config.js` will be dropped in v2. It will be `swcpack.config.js` instead, although the new config file is not supported yet.
+
 ## Config file
 
 spack can be configured with `spack.config.js`. Config file for the spack is almost simillar to webpack. In future, I'll add a webpack-compatible plugin system.
