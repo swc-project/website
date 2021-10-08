@@ -517,7 +517,7 @@ Example:
 
 ## `inlineSourcesContent`
 
-If you want to make `swc` inline source map contents, you can set `inlineSourcesContent` to true.
+If you want to make `swc` store contents of files into sourcemap, you can set `inlineSourcesContent` to true.
 
 Example:
 
