@@ -41,7 +41,7 @@ module.exports = {
       },
       {
         caption: "Shopify",
-        image: "/img/users/shopify.png",
+        image: "/img/users/shopify.svg",
         infoLink: "https://www.shopify.ca/",
         pinned: false,
       },
