@@ -42,7 +42,7 @@ module.exports = {
       {
         caption: "Shopify",
         image: "/img/users/shopify.svg",
-        infoLink: "https://www.shopify.ca/",
+        infoLink: "https://www.shopify.com/",
         pinned: false,
       },
       {
