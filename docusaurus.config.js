@@ -40,6 +40,12 @@ module.exports = {
         pinned: false,
       },
       {
+        caption: "Shopify",
+        image: "/img/users/shopify.png",
+        infoLink: "https://www.shopify.ca/",
+        pinned: false,
+      },
+      {
         caption: "ByteDance",
         image: "/img/users/byte-dance.png",
         infoLink: "https://www.bytedance.com",
