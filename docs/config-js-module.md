@@ -21,7 +21,8 @@ These options are shared by commonjs / es6 / umd / amd.
     "strict": false,
     "strictMode": true,
     "lazy": false,
-    "noInterop": false
+    "noInterop": false,
+    "ignoreDynamic": false
   }
 }
 ```
@@ -72,6 +73,10 @@ This property is then used to determine if the import is the default export or i
 In cases where the auto-unwrapping of default is not needed, you can set the noInterop option to true to avoid the usage of the interopRequireDefault helper (shown in inline form above).
 
 Defaults to `false`.
+
+#### ignoreDynamic
+
+If you set this to `true`, dynamic imports will be preserved.
 
 ### commonjs
 
