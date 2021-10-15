@@ -86,7 +86,7 @@ module.exports = config({
 
 You can change destination directory of the bundler using `output`.
 
-#### Exmaple
+#### Example
 
 ```ts
 const { config } = require("@swc/core/spack");
