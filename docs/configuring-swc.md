@@ -299,7 +299,7 @@ becomes
 console.log(true, false, true);
 ```
 
-### jsc.transform.optimizer
+### `jsc.transform.optimizer`
 
 **Note**: Optimizer of the swc assumes
 
@@ -317,10 +317,39 @@ It means that swc will not focus on reducing the size of non-gzipped file size.
 
 Setting this to `undefined` skips optimizer pass
 
+#### jsc.transform.optimizer.simplify
+
+Starting from `v1.2.101`, you can set this value to false to use `inline_globals` while skipping optimizations.
+
+e.g.
+`.swcrc`:
+
+```json
+{
+  "jsc": {
+    "transform": {
+      "optimizer": {
+        "simplify": false,
+        "globals": {
+          "vars": {
+            "__DEBUG__": "true"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 #### jsc.transform.optimizer.globals
 
 - `vars`
   Variables to inline.
+
+- `typeofs`
+  If you set `{ "window": "object" }`, `typeof window` will be replaced with `"object"`.
+
+This option requires `v1.2.101` or upper.
 
 e.g.
 `.swcrc`:
@@ -516,6 +545,8 @@ Example:
 ```
 
 ## `inlineSourcesContent`
+
+Starting from `v1.2.101`, this is true by default.
 
 If you want to make `swc` store contents of files into sourcemap, you can set `inlineSourcesContent` to true.
 
