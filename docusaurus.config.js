@@ -15,21 +15,28 @@ module.exports = {
       //
       // 1. Open source projects which uses swc thoughtfully. (Ordered by financial contribution)
       // 2. Companies who use swc, sorted by the company size.
+      //
+      // lightImage is used for light theme
+      // darkImage is used for dark theme
+      // If both light and dark theme logos are same, use image:
       {
         caption: "Next.js",
-        image: "/img/users/nextjs.svg",
+        lightImage: "/img/users/nextjs-logotype-light.svg",
+        darkImage: "/img/users/nextjs-logotype-dark.svg",
         infoLink: "https://nextjs.org/",
         pinned: true,
       },
       {
         caption: "Parcel",
-        image: "/img/users/parceljs.png",
+        lightImage: "/img/users/parceljs.png",
+        darkImage: "/img/users/parceljs.png",
         infoLink: "https://parceljs.org/",
         pinned: true,
       },
       {
         caption: "Deno",
-        image: "/img/users/deno.svg",
+        lightImage: "/img/users/deno.svg",
+        darkImage: "/img/users/deno.svg",
         infoLink: "https://deno.land",
         pinned: true,
       },
@@ -65,7 +72,8 @@ module.exports = {
       },
       {
         caption: "strapi",
-        image: "/img/users/strapi.svg",
+        lightImage: "/img/users/strapi.svg",
+        darkImage: "/img/users/strapi-dark.svg",
         infoLink: "https://strapi.io/",
         pinned: true,
       },
