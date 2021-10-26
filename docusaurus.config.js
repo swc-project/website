@@ -1,6 +1,6 @@
 module.exports = {
   title: "swc",
-  tagline: "Super fast javascript / typescript compiler",
+  tagline: "Speedy web compiler",
   url: "https://swc.rs",
   baseUrl: "/",
   organizationName: "swc-project",
