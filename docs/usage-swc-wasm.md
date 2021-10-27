@@ -15,12 +15,12 @@ import { useEffect, useState } from "react";
 import initSwc, { transformSync } from "@swc/wasm-web";
 
 export default function App() {
-  const [initialized, setInitlaized] = useState(false);
+  const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
     async function importAndRunSwcOnMount() {
       await initSwc();
-      setInitlaized(true);
+      setInitialized(true);
     }
     importAndRunSwcOnMount();
   }, []);
