@@ -307,7 +307,7 @@ Please refer to [the mangle option](https://terser.org/docs/api-reference.html#m
 
 #### `properties`
 
-Defaults to `{}`.
+Defaults to `false`, and `true` is identical to `{}`.
 
 #### `topLevel`
 
