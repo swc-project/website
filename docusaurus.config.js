@@ -126,6 +126,11 @@ module.exports = {
         },
         { to: "blog", label: "Blog", position: "right" },
         {
+          href: "https://play.swc.rs/",
+          label: "Playground",
+          position: "right",
+        },
+        {
           href: "https://opencollective.com/swc",
           label: "Donate",
           position: "right",
