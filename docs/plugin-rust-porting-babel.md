@@ -14,6 +14,8 @@ sidebar_label: Cheetsheet
 
 ### Deleting node
 
+### Referencing parent node from handler of child node
+
 ## Alternatives for babel APIs
 
 ### `generateUidIdentifier`
