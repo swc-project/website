@@ -159,5 +159,8 @@ module.exports = {
     gtag: {
       trackingID: "UA-81467907-3",
     },
+    prism: {
+      additionalLanguages: ['rust', 'toml'],
+    },
   },
 };
