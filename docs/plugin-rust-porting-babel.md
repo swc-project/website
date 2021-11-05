@@ -16,6 +16,10 @@ sidebar_label: CheetSheet
 
 ### Referencing parent node from handler of child node
 
+This includes usage of `paths` and `scope`.
+
+### Caching some information about an AST node
+
 ## Alternatives for babel APIs
 
 ### `generateUidIdentifier`
