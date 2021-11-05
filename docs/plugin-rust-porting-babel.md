@@ -1,7 +1,7 @@
 ---
 id: plugin-rust-porting-babel
 title: "CheetSheet: babel -> swc"
-sidebar_label: Cheetsheet
+sidebar_label: CheetSheet
 ---
 
 > This page is currently WIP.
