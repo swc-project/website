@@ -6,7 +6,7 @@ sidebar_label: Cheetsheet
 
 > This page is currently WIP.
 
-## Ownership model
+## Ownership model (of rust)
 
 > This section is not about `swc` itself. But this is described at here because it's the cause of almost all trickyness of APIs.
 
