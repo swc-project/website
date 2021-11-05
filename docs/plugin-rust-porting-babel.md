@@ -16,7 +16,7 @@ sidebar_label: Cheetsheet
 
 This returns a unique identifier with a monotonically increasing integer suffix.
 `swc` does not provide API to do this, because there's a very easy way to do this.
-You can store an integer field in transformer type and using it while calling `quote_ident!` or `private_ident!`.
+You can store an integer field in transformer type and use it while calling `quote_ident!` or `private_ident!`.
 
 ```rust
 
