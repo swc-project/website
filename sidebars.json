@@ -17,7 +17,7 @@
       "usage-core",
       "usage-plugin"
     ],
-    "Creating plugins": ["plugin-rust-guide"],
+    "Writing plugins (swc)": ["plugin-rust-guide", "plugin-rust-porting-babel"],
     "Migration": ["migrating-from-babel-core", "migrating-from-babel-cli"],
     "Comparison": ["comparison-babel"],
     "Benchmark": ["benchmark-autogen", "benchmark-transform"],

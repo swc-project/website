@@ -1,5 +1,5 @@
 ---
-id: plugin-rust
+id: plugin-rust-guide
 title: Creating a rust-based plugin
 sidebar_label: Plugin (rust)
 ---
