@@ -10,7 +10,7 @@ sidebar_label: Cheetsheet
 
 ### Deleting node
 
-## APIs
+## Alternatives for babel APIs
 
 ### `generateUidIdentifier`
 
