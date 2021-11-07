@@ -16,7 +16,7 @@
     "@types/react": "17.0.24",
     "@types/react-helmet": "6.1.1",
     "@types/react-router-dom": "5.1.7",
-    "github-buttons": "2.18.1",
+    "github-buttons": "2.19.1",
     "typescript": "4.4.3"
   },
   "dependencies": {
