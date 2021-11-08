@@ -10,84 +10,104 @@ module.exports = withNextra({
     return [
       {
         source: "/blog",
+        // TODO
         destination: "/blog/type-checker",
-        statusCode: 301,
+        permanent: false,
       },
       {
         source: "/docs/usage-swc-cli",
         destination: "/docs/usage/cli",
+        permanent: true,
       },
       {
         source: "/docs/usage-swc-wasm",
         destination: "/docs/usage/wasm",
+        permanent: true,
       },
       {
         source: "/docs/usage-spack-cli",
         destination: "/docs/usage/bundling",
+        permanent: true,
       },
       {
         source: "/docs/usage-swc-loader",
         destination: "/docs/usage/swc-loader",
+        permanent: true,
       },
       {
         source: "/docs/usage-swc-jest",
         destination: "/docs/usage/jest",
+        permanent: true,
       },
       {
         source: "/docs/usage-core",
         destination: "/docs/usage/core",
+        permanent: true,
       },
       {
         source: "/docs/usage-plugin",
         destination: "/docs/usage/plugins",
+        permanent: true,
       },
       {
         source: "/docs/installation",
         destination: "/docs/getting-started",
+        permanent: true,
       },
       {
         source: "/docs/configuring-swc",
         destination: "/docs/configuration/swcrc",
+        permanent: true,
       },
       {
         source: "/docs/preset-env",
         destination: "/docs/configuration/supported-browsers",
+        permanent: true,
       },
       {
         source: "/docs/config-js-module",
         destination: "/docs/configuration/modules",
+        permanent: true,
       },
       {
         source: "/docs/config-js-minify",
         destination: "/docs/configuration/minification",
+        permanent: true,
       },
       {
         source: "/docs/spack-basic",
         destination: "/docs/configuration/bundling",
+        permanent: true,
       },
       {
         source: "/docs/spack-multi-bundle",
         destination: "/docs/configuration/bundling",
+        permanent: true,
       },
       {
         source: "/docs/migrating-from-babel-core",
         destination: "/docs/migrating-from-babel",
+        permanent: true,
       },
       {
         source: "/docs/migrating-from-babel-cli",
         destination: "/docs/migrating-from-babel",
+        permanent: true,
       },
       {
         source: "/docs/benchmark-autogen",
         destination: "/docs/benchmarks",
+        permanent: true,
       },
       {
         source: "/docs/benchmark-transform",
         destination: "/docs/benchmarks",
+        permanent: true,
       },
       {
         source: "/docs/online-repl",
         destination: "/playground",
+        permanent: true,
       },
     ];
   },
