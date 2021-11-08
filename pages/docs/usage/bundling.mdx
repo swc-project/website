@@ -1,0 +1,29 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Bundling (swcpack)
+
+<Callout emoji="🚧">
+  This feature is still under construction.
+</Callout>
+
+SWC is able to bundle multiple JavaScript or TypeScript files into one.
+
+This feature is currently named `spack`, but will be renamed to `swcpack` in `v2`. `spack.config.js` will be depreated for `swcpack.config.js`.
+
+View a [basic example of bundling](https://github.com/swc-project/cli/tree/master/examples/spack-basic).
+
+## Usage
+
+```sh
+npm i --save-dev @swc/cli @swc/core
+```
+
+Create a `spack.config.js` file and run:
+
+```plaintext
+npx spack
+```
+
+## Configuration
+
+To see all options, [view the configuration](/docs/configuration/bundling).

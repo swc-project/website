@@ -1,20 +1,10 @@
----
-id: usage-core
-title: swc core api
-sidebar_label: swc (core)
----
+# @swc/core
 
-## APIs
+These are the core SWC APIs usefuly for build tool authors.
 
-_Note: If you are **not** developing build tools, you can skip this._
+## transform
 
-### transform
-
-_Note:_
-
-- Package `@swc/core` provides appropriate `.d.ts` file, so you may not need this document
-
-Returns `Promise<{ code: string, map?: string }>`
+`@swc/core` provides appropriate `.d.ts` file, so you may not need this. Returns `Promise<{ code: string, map?: string }>`
 
 ```js
 const swc = require("@swc/core");
@@ -55,4 +45,4 @@ Returns `{ code: string, map?: string }`
 
 ## Options
 
-TODO:
+This still needs to be documented. Contributions welcome!

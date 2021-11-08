@@ -7,7 +7,8 @@
 - The automated benchmark chart needs to be re-added, likely with next/dynamic so it loads client-side
 - GH publish to GH pages - we can remove this right?
 - Do we want algolia or Stork?
-- Port Usage docs, then delete docs folder
+- Delete docs folder
+- Docs are redirected, but blog needs to be
 
 ```json
 algolia: {

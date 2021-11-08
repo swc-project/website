@@ -1,14 +1,10 @@
----
-id: usage-swc-wasm
-title: Using @swc/wasm or @swc/wasm-web
-sidebar_label: "@swc/wasm"
----
+# @swc/wasm-web
 
-## `@swc/wasm-web`
+This modules allows you to synchronously transform code inside the browser using WebAssembly.
 
-You have to initialize the module before you use it.
+## Usage
 
-### Example react component
+You must first initialize the module before you can use it.
 
 ```tsx
 import { useEffect, useState } from "react";
