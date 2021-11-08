@@ -51,3 +51,5 @@ impl Example {
 
 
 ```
+
+### `path.find`
