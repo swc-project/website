@@ -145,7 +145,7 @@ module.exports = {
     image: "img/swc.png",
     footer: {
       links: [],
-      copyright: "Copyright © 2020 The swc project developers",
+      copyright: "Copyright © 2021 The swc project developers",
       logo: {
         src:
           "https://raw.githubusercontent.com/swc-project/logo/master/swc.png",
