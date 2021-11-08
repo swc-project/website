@@ -1,0 +1,182 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Minification
+
+<Callout emoji="🚧">
+  This feature is still under construction. We are working on making the smallest bundle size possible, without breaking changes.
+</Callout>
+
+Starting with `v1.2.67`, you can configure SWC to minify your code by enabling `minify` in your `.swcrc` file:
+
+```json
+{
+  // Enable minification
+  "minify": true,
+  // Optional, configure minifcation options
+  "jsc": {
+    "minify": {
+      "compress": {
+        "unused": true
+      },
+      "mangle": true
+    }
+  }
+}
+```
+
+## Configuration
+
+### `jsc.minify.compress`
+
+Type: `boolean | object`.
+
+Similar to [the compress option](https://terser.org/docs/api-reference.html#compress-options) of `terser`.
+
+```json
+{
+  "jsc": {
+    "minify": {
+      "compress": true // equivalent to {}
+    }
+  }
+}
+```
+
+- `arguments`, defaults to `false`.
+- `arrows`, defaults to `true`.
+- `booleans`, defaults to `true`.
+- `booleans_as_integers`, defaults to `false`.
+- `collapse_vars`, defaults to `true`.
+- `comparisons`, defaults to `true`.
+- `computed_props`, defaults to `false`.
+- `conditionals`, defaults to `false`.
+- `dead_code`, defaults to `false`.
+- `defaults`, defaults to `true`.
+- `directives`, defaults to `false`.
+- `drop_console`, defaults to `false`.
+- `drop_debugger`, defaults to `true`.
+- `ecma`, defaults to `5`.
+- `evaluate`, defaults to `true`.
+- `global_defs`, defaults to `{}`.
+- `hoist_funs`, defaults to `false`.
+- `hoist_props`, defaults to `true`.
+- `hoist_vars`, defaults to `false`.
+- `ie8`, Ignored.
+- `if_return`, defaults to `true`.
+- `inline`, defaults to ``.
+- `join_vars`, defaults to `true`.
+- `keep_classnames`, defaults to `false`.
+- `keep_fargs`, defaults to `false`.
+- `keep_infinity`, defaults to `false`.
+- `loops`, defaults to `true`.
+- `negate_iife`, defaults to `true`.
+- `passes`, defaults to `0`, which means no limit.
+- `properties`, defaults to `true`.
+- `pure_getters`, defaults to ``.
+- `pure_funcs`, defaults to `[]`. Type is an array of string.
+- `reduce_funcs`, defaults to `false`.
+- `reduce_vars`, defaults to `false`.
+- `sequences`, defaults to `true`.
+- `side_effects`, defaults to `true`.
+- `switches`, defaults to `false`.
+- `top_retain`, defaults to ``.
+- `toplevel`, defaults to ``.
+- `typeofs`, defaults to `true`.
+- `unsafe`, defaults to `false`.
+- `unsafe_arrows`, defaults to `false`.
+- `unsafe_comps`, defaults to `false`.
+- `unsafe_Function`, defaults to `false`.
+- `unsafe_math`, defaults to `false`.
+- `unsafe_symbols`, defaults to `false`.
+- `unsafe_methods`, defaults to `false`.
+- `unsafe_proto`, defaults to `false`.
+- `unsafe_regexp`, defaults to `false`.
+- `unsafe_undefined`, defaults to `false`.
+- `unused`, defaults to `true`.
+- `module`, Ignored. Currently, all files are treated as module.
+
+### `jsc.minify.mangle`
+
+Type: `boolean | object`.
+
+Similar to [the mangle option](https://terser.org/docs/api-reference.html#mangle-options) of `terser`.
+
+```json
+{
+  "jsc": {
+    "minify": {
+      "mangle": true // equivalent to {}
+    }
+  }
+}
+```
+
+- `properties`, Defaults to `false`, and `true` is identical to `{}`.
+- `topLevel`, Defaults to `false`. Aliased as `toplevel` for compatibility with `terser`.
+- `keepClassNames`, Defaults to `false`. Aliased as `keep_classnames` for compatibility with `terser`.
+- `keepFnNames`, Defaults to `false`.
+- `keepFnNames`, Defaults to `false`.
+- `keepPrivateProps`, Defaults to `false`. Aliased as `keep_private_props` for compatibility with `terser`.
+- `ie8`, Ignored.
+- `safari10`, Not implemented yet.
+
+## @swc/core Usage
+
+### swc.minify(code, options)
+
+This API is asynchronous and all of parsing, minification, and code generation will be done in background thread. The `options` argument is same as `jsc.minify` object. For example:
+
+```js
+import swc from "@swc/core";
+
+const { code, map } = await swc.minify(
+  "import foo from '@src/app'; console.log(foo)",
+  {
+    compress: false,
+    mangle: true,
+  }
+);
+
+expect(code).toMatchInlineSnapshot(`"import a from'@src/app';console.log(a);"`);
+```
+
+Returns `Promise<{ code: string, map: string }>`.
+
+### swc.minifySync(code, options)
+
+This API exists on `@swc/core`, `@swc/wasm`, `@swc/wasm-web`.
+
+```js
+import swc from "@swc/core";
+
+const { code, map } = swc.minifySync(
+  "import foo from '@src/app'; console.log(foo)",
+  {
+    compress: false,
+    mangle: true,
+  }
+);
+
+expect(code).toMatchInlineSnapshot(`"import a from'@src/app';console.log(a);"`);
+```
+
+Returns `{ code: string, map: string }`.
+
+## APIs for WebAssembly
+
+### Replacing Terser
+
+You can reduce build time and override Terser without needing a library to update their dependencies through [yarn resolutions](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/). Example `package.json` would include:
+
+```json
+{
+  "resolutions": { "terser": "npm:@swc/core" }
+}
+```
+
+This will use the SWC minifier instead of Terser for all nested dependencies. Ensure you remove your lockfile and re-install your dependencies.
+
+```sh
+$ rm -rf node_modules yarn.lock
+$ yarn
+```
