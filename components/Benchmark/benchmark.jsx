@@ -4,58 +4,14 @@
   Copyright (c) 2019 rhysd - MIT License https://raw.githubusercontent.com/benchmark-action/github-action-benchmark/master/LICENSE.txt
 */
 
-import BrowserOnly from "@docusaurus/BrowserOnly";
-import React, { useState, useEffect, ChangeEvent } from "react";
+import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import styles from "./styles.module.css";
 
 const BENCH_DATA_URL =
   "https://raw.githubusercontent.com/swc-project/raw-data/gh-pages/benchmark-data.json";
 
-export interface BenchmarkResult {
-  name: string;
-  value: number;
-  range?: string;
-  unit: string;
-  extra?: string;
-}
-
-interface GitHubUser {
-  email?: string;
-  name: string;
-  username: string;
-}
-
-interface Commit {
-  author: GitHubUser;
-  committer: GitHubUser;
-  id: string;
-  message: string;
-  timestamp: string;
-  url: string;
-}
-
-export interface Benchmark {
-  commit: Commit;
-  date: number;
-  benches: BenchmarkResult[];
-}
-
-interface DataJson {
-  lastUpdate: number;
-  repoUrl: string;
-  entries: {
-    Benchmark: Benchmark[];
-  };
-}
-
-interface PerTestCaseResult {
-  commit: Commit;
-  date: Date;
-  bench: BenchmarkResult;
-}
-
-const getOptions = (dataset: PerTestCaseResult[]) => ({
+const getOptions = (dataset) => ({
   scales: {
     x: {
       title: {
@@ -112,15 +68,15 @@ const getOptions = (dataset: PerTestCaseResult[]) => ({
   },
 });
 
-function BenchmarkImpl() {
-  const [testCase, setTestCase] = useState<string | null>(null);
-  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
-  const [dataMap] = useState<Map<string, PerTestCaseResult[]>>(new Map());
+export default function Benchmark() {
+  const [testCase, setTestCase] = useState(null);
+  const [lastUpdated, setLastUpdated] = useState(null);
+  const [dataMap] = useState(new Map());
 
   useEffect(() => {
     fetch(BENCH_DATA_URL)
       .then((res) => res.json())
-      .then((data: DataJson) => {
+      .then((data) => {
         for (const entry of data.entries.Benchmark) {
           const { commit, date, benches } = entry;
           for (const bench of benches) {
@@ -140,7 +96,7 @@ function BenchmarkImpl() {
 
   const testCaseResults = dataMap.get(testCase);
 
-  const selectHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+  const selectHandler = (e) => {
     const value = e.target.value;
     if (dataMap.has(value)) {
       setTestCase(value);
@@ -178,5 +134,3 @@ function BenchmarkImpl() {
     <>Loading...</>
   );
 }
-
-export default () => <BrowserOnly>{() => <BenchmarkImpl />}</BrowserOnly>;

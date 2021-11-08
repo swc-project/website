@@ -4,7 +4,6 @@
 
 - Add GA `UA-81467907-3` back
 - Add OpenCollective
-- The automated benchmark chart needs to be re-added, likely with next/dynamic so it loads client-side
 - GH publish to GH pages - we can remove this right?
 - Do we want algolia or Stork?
 - Delete docs folder
