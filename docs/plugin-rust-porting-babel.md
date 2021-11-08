@@ -53,3 +53,7 @@ impl Example {
 ```
 
 ### `path.find`
+
+### `state.file.get`/`state.file.set`
+
+You can simply store the value in the transform struct as an instance of transform struct only process one file.
