@@ -218,3 +218,265 @@ This option is set automatically based on the Webpack `mode` setting when used w
 #### jsc.transform.react.useBuiltins
 
 Use `Object.assign()` instead of `_extends`. Defaults to false.
+
+#### jsc.transform.react.refresh
+
+Enable [react-refresh](https://www.npmjs.com/package/react-refresh) related transform. Defaults to `false` as it's considered experimental.
+
+Pass `refresh: true` to enable this feature, or an object with the following:
+
+```ts
+interface ReactRefreshConfig {
+  refreshReg: String;
+  refreshSig: String;
+  emitFullSignatures: boolean;
+}
+```
+
+### jsc.transform.constModules
+
+```json
+{
+  "jsc": {
+    "transform": {
+      "constModules": {
+        "globals": {
+          "@ember/env-flags": {
+            "DEBUG": "true"
+          },
+          "@ember/features": {
+            "FEATURE_A": "false",
+            "FEATURE_B": "true"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Then, source code like:
+
+```js
+import { DEBUG } from "@ember/env-flags";
+import { FEATURE_A, FEATURE_B } from "@ember/features";
+
+console.log(DEBUG, FEATURE_A, FEATURE_B);
+```
+
+is transformed to:
+
+```js
+console.log(true, false, true);
+```
+
+### jsc.transform.optimizer
+
+The SWC optimizier assumes:
+
+- It's a module or wrapped in an iife.
+- Accessing (get) global variables does not have a side-effect. It is the same assumption as the google closure compiler.
+- You don't add fields to literals like a numeric literal, regular expression or a string literal.
+- Files are served as gzipped.
+
+SWC will not focus on reducing the size of non-gzipped file size.
+
+Setting this to `undefined` skips optimizer pass.
+
+#### jsc.transform.optimizer.simplify
+
+> Requires `v1.2.101+`
+
+You can set this to `false` to use `inline_globals` while skipping optimizations.
+
+```json
+{
+  "jsc": {
+    "transform": {
+      "optimizer": {
+        "simplify": false,
+        "globals": {
+          "vars": {
+            "__DEBUG__": "true"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+#### jsc.transform.optimizer.globals
+
+> Requires `v1.2.101+`
+
+- `vars` - Variables to inline.
+- `typeofs` - If you set `{ "window": "object" }`, `typeof window` will be replaced with `"object"`.
+
+```json
+{
+  "jsc": {
+    "transform": {
+      "optimizer": {
+        "globals": {
+          "vars": {
+            "__DEBUG__": "true"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Then, you can use it like `npx swc '__DEBUG__' --filename input.js`.
+
+#### jsc.transform.optimizer.jsonify
+
+> Requires `v1.1.1+`
+
+- `minCost` - If cost of parsing a pure object literal is larger than this value, the object literal is converted to `JSON.parse('{"foo": "bar"}')`. Defaults to 1024.
+
+```json
+{
+  "jsc": {
+    "transform": {
+      "optimizer": {
+        "jsonify": {
+          "minCost": 0
+        }
+      }
+    }
+  }
+}
+```
+
+This will change all **pure** object literals to `JSON.parse("")`.
+
+## jsc.keepClassNames
+
+> Requires `v1.2.50+` and target to be es2016 or higher
+
+Enabling this option will make swc preserve original class names.
+
+## jsc.paths
+
+> Requires `v1.2.62+`
+
+Syntax is identical as it of `tsconfig.json`: [learn more](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping).
+
+Requires `jsc.baseUrl`. See below.
+
+## jsc.baseUrl
+
+[Learn more](https://www.typescriptlang.org/docs/handbook/module-resolution.html#base-url).
+
+## jsc.minify
+
+> Requires `v1.2.67+`
+
+See [the documentation for minification](/docs/configuration/minification) for more details.
+
+## jsc.experimental
+
+Currently, there are no experimental options.
+
+## Multiple Entries
+
+> Requires `v1.0.47+`
+
+```json
+[
+  {
+    "test": ".*.js$",
+    "module": {
+      "type": "commonjs"
+    }
+  },
+  {
+    "test": ".*.ts$",
+    "module": {
+      "type": "amd"
+    }
+  }
+]
+```
+
+This make SWC compile JavaScript files as CommonJS modules and compile TypeScript files as AMD modules.
+
+Note that `test` option can be used to transcompile only typescript files, like
+
+```json
+{
+  "test": ".*.ts$",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": true
+    }
+  }
+}
+```
+
+### test
+
+Type: `Regex / Regex[]`
+
+```json
+{
+  "test": ".*.ts$",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": true
+    }
+  }
+}
+```
+
+### exclude
+
+Type: `Regex / Regex[]`
+
+```json
+{
+  "exclude": [".*.js$", ".*.map$"],
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": true
+    }
+  }
+}
+```
+
+## sourceMaps
+
+> Requires `v1.2.50+`
+
+Enable source map by adding `sourceMaps: true` or `sourceMaps: 'inline'` to the `.swcrc`.
+
+```json
+{
+  "sourceMaps": true
+}
+```
+
+## inlineSourcesContent
+
+> Requires `v1.2.101+`
+
+Defaults to `true`. If you want to make `swc` store contents of files into sourcemap, you can set `inlineSourcesContent` to `true`.
+
+```json
+{
+  "sourceMaps": true,
+  "inlineSourcesContent": true
+}
+```
