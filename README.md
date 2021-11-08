@@ -6,7 +6,6 @@
 - Add OpenCollective
 - GH publish to GH pages - we can remove this right?
 - Do we want algolia or Stork?
-- Delete docs folder
 - Docs are redirected, but blog needs to be
 
 ```json
