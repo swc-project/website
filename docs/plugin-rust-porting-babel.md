@@ -54,6 +54,9 @@ impl Example {
 
 ### `path.find`
 
+Upward traversal is not supported by `swc`.
+It's because upward traversal requires storing information about parent at children nodes, which requires using types like `Arc` or `Mutex` in rust.
+
 ### `state.file.get`/`state.file.set`
 
 You can simply store the value in the transform struct as an instance of transform struct only process one file.
