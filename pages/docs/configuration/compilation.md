@@ -420,7 +420,7 @@ Note that `test` option can be used to transcompile only typescript files, like
 }
 ```
 
-### test
+## test
 
 Type: `Regex / Regex[]`
 
@@ -438,7 +438,7 @@ Type: `Regex / Regex[]`
 }
 ```
 
-### exclude
+## exclude
 
 Type: `Regex / Regex[]`
 
