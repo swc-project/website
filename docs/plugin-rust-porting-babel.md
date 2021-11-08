@@ -57,6 +57,9 @@ impl Example {
 Upward traversal is not supported by `swc`.
 It's because upward traversal requires storing information about parent at children nodes, which requires using types like `Arc` or `Mutex` in rust.
 
+Instead of traversing upward, you should make it top-down.
+For example, if you want to infer name of a jsx component from variable assignments or assignments, you can store `name` of component while visiting `VarDecl` and/or `AssignExpr` and use it from the component handler.
+
 ### `state.file.get`/`state.file.set`
 
 You can simply store the value in the transform struct as an instance of transform struct only process one file.
