@@ -6,6 +6,10 @@ sidebar_label: Plugin (rust)
 
 > This page is currently WIP.
 
+## Types
+
+### `JsWord`
+
 ## Testing your transform
 
 ### logging
