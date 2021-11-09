@@ -1,6 +1,6 @@
 # @swc/core
 
-These are the core SWC APIs usefuly for build tool authors.
+These are the core SWC APIs mainly useful for build tool authors.
 
 ## transform
 
