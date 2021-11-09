@@ -1,4 +1,4 @@
-# Plugins
+# Plugins (v1)
 
 You can create and use custom plugins with SWC.
 
@@ -6,7 +6,7 @@ You can create and use custom plugins with SWC.
 >
 > Therefore, we are concidering two approaches for the next SWC major version:
 >
-> 1. Creating a plugin system in Rust ([#2337](https://github.com/swc-project/swc/discussions/2337))
+> 1. Creating a plugin system in Rust ([#2337](https://github.com/swc-project/swc/issues/2635))
 > 2. Solve the bottleneck to keep a JS plugin system ([#2175](https://github.com/swc-project/swc/issues/2175))
 
 ## Example
