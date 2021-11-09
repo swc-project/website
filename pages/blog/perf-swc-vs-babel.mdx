@@ -1,21 +1,24 @@
 ---
-title: Performance comparison of swc and babel
-author: DongYoon Kang
-authorURL: "http://github.com/kdy1"
-authorFBID: 100024888122318
-draft: true
+image: https://user-images.githubusercontent.com/9113740/140682117-5e9f460e-c8f1-447c-88a0-e75f80779260.png
+description: 'Benchmark and performance comparison of SWC and Babel.'
 ---
 
-## Single core world
+import Callout from 'nextra-theme-docs/callout'
+import Bleed from 'nextra-theme-docs/bleed'
 
-JavaScript is single-threaded. The js thread is not a good place to do heavy computation. Let's talk about `babel` and `swc`, which are both compute-heavy.
+import Authors, { Author } from 'components/authors'
 
-swc repository: [swc][]
-babel homepage: [babel]([https://babeljs.io/)
+# Performance Comparison of SWC and Babel
 
-### Benchmark
+<Authors date="January 31st, 2020">
+  <Author name="DongYoon Kang" link="https://twitter.com/kdy1dev" />
+</Authors>
 
-Let's do a benchmark for the single-core workload. Note that this uses `transformSync`, which is rarely useful in the wild.
+JavaScript is single-threaded. The JS thread is not a good place to do heavy computation. Let's talk about `babel` and `swc`, which are both computation-heavy.
+
+## Synchronous Benchmark
+
+Let's do a benchmark for the single-core workload. Note this uses `transformSync`, which is rarely useful in the wild.
 
 ```sh
 [transform]
@@ -28,12 +31,11 @@ Let's do a benchmark for the single-core workload. Note that this uses `transfor
   babel (es5) x 34.05 ops/sec ±1.15% (58 runs sampled)
 ```
 
-Well, swc is very fast. It is an expected result.
-Although `swc (es3)` do more work than `babel (es5)`, `swc (es3)` is faster than `babel (es5)`.
+SWC is very fast. Although `swc (es3)` does more work than `babel (es5)`, `swc (es3)` is faster than `babel (es5)`.
 
-## Benchmark for real world
+## Real-World Benchmark
 
-However, `transformSync` and `transformFileSync` are rarely used int the real world, as it blocks the current thread and everything stops. Also, `await Promise.all()` is frequently used, as it's much better than
+`transformSync` and `transformFileSync` are rarely used in the real world, as it blocks the current thread. `await Promise.all()` is frequently used as is better than:
 
 ```js
 for (const promise in promises) {
@@ -41,11 +43,11 @@ for (const promise in promises) {
 }
 ```
 
-So let's create a benchmark for actual usages. It should involve `Promise.all()`.
+Let's create a benchmark for actual real-world usage using `Promise.all()`.
 
-### Ideal case
+### Ideal Case
 
-First, I created a benchmark for the _ideal_ case. It invokes n promises at once where n is the number of physical cpu core. See [node-swc repository](https://github.com/swc-project/node-swc/blob/bf7718049d67148e2094d0e431d71d4a21993ec7/benches/multicore.js) for the full code.
+First, I created a benchmark for the _ideal_ case. It invokes `[n]` promises at once where `n` is the number of physical CPU cores. See [node-swc repository](https://github.com/swc-project/node-swc/blob/bf7718049d67148e2094d0e431d71d4a21993ec7/benches/multicore.js) for the full code.
 
 ```js
 const os = require("os");
@@ -80,9 +82,7 @@ SUITES.map(args => {
 });
 ```
 
-I ran benchmarks on my old desktop. It has E3-v1275 and 24GB of ram.
-
-The output below is copied as-is from benchmark output.
+I ran benchmarks on my old desktop. It has E3-v1275 and 24GB of ram. The output below is copied as-is from benchmark output.
 
 ```sh
 CPU Core: 8; Parallelism: 4
@@ -111,9 +111,9 @@ babel (es5) x 27.28 ops/sec ±17.18% (40 runs sampled)
 
 This is an actual result.
 
-The performance of `babel (es5)` is dropped. Async is not free. Even though, `34.05 ops/sec` => `27.28 ops/sec` is much more than I expected,
+The performance of `babel (es5)` is dropped. Async is not free. Even though, `34.05 ops/sec` => `27.28 ops/sec` is much better than I expected.
 
-### Benchmark for many works
+### Benchmark for Many Operations
 
 I modified the benchmark file slightly to make it creates 100 promises per iteration.
 
@@ -142,11 +142,9 @@ It must be multiplied by 100 as above.
   babel (es5) x 32 ops/sec ±19.10% (6 runs sampled)
 ```
 
-You may be curious why does the performance of swc does not drop drastically. The secret is node js. node js internally manages a worker thread pool, and swc runs on it. Thus, even though you create 100 promises at once, the number of worker threads is much smaller than it.
+Why does the performance of SWC not drop drastically? The secret is Node.js. Node.js internally manages a worker thread pool, and SWC runs on it. Thus, even though you create 100 promises at once, the number of worker threads is much smaller than it.
 
 ## Conclusion
-
-Hmm... We need a table.
 
 |        name        | 1 core, sync  |  4 promises   | 100 promises |
 | :----------------: | :-----------: | :-----------: | :----------: |
@@ -158,12 +156,6 @@ Hmm... We need a table.
 | swc-optimize (es3) |  645 ops/sec  | 1716 ops/sec  | 1860 ops/sec |
 |    babel (es5)     | 34.05 ops/sec | 27.28 ops/sec |  32 ops/sec  |
 
-`swc` scales well, as it does almost all work in the worker thread. From the fact that the throughput of `100 promises` was better than `4 promises`, we can conclude that the worker thread pool of node js utilizes hyperthreading.
+`swc` scales well, as it does almost all work in the worker thread. From the fact that the throughput of `100 promises` was better than `4 promises`, we can conclude that the worker thread pool of Node.js utilizes hyperthreading.
 
-For the conclusion, `swc` scales up with the number of cpu cores. `Promise.all` is enough for scaling. No additional process. I recommend trying it.
-
-Repository: [swc][]
-
----
-
-[swc]: https://github.com/swc-project/swc
+`swc` scales up with the number of cpu cores. `Promise.all` is enough for scaling.

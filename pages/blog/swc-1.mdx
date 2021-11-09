@@ -1,6 +1,6 @@
 ---
 image: https://user-images.githubusercontent.com/9113740/140682117-5e9f460e-c8f1-447c-88a0-e75f80779260.png
-description: 'Changelog for SWC'
+description: 'SWC (Speedy Web Compiler) is a super-fast JavaScript and TypeScript compiler.'
 ---
 
 import Callout from 'nextra-theme-docs/callout'
@@ -52,9 +52,9 @@ or
 yarn add --dev @swc/core
 ```
 
-See [installation guide](/docs) for more details.
+See [Getting Started](/docs/getting-started) for more details.
 
-## What is included in SWC 1.0.0?
+## What's included in SWC 1.0?
 
 Swc implements almost all babel plugins. As of 1.0.0, swc can understand various dialects of ecmascript and compiles them into es5.
 
@@ -104,7 +104,7 @@ Swc can also compile typescript / tsx to ecmascript. Note that it does not type-
 }
 ```
 
-See [docs](/docs/configuring-swc) for more details.
+See [docs](/docs/configuration/swcrc) for more details.
 
 ### Various Transforms
 
@@ -158,13 +158,13 @@ Run `npm i --save-dev @swc/core` or `yarn add --dev @swc/core`.
 
 Swc enables all passes by default. So if you are using only standard ecmascript, you can just delete `.babelrc` and change `babel.transform()` to `swc.transform()`.
 
-See [usage docs](/docs/usage-core) and [migration docs](/docs/migrating-from-babel-core) for more details.
+See [usage docs](/docs/usage/core) and [migration docs](/docs/migrating-from-babel) for more details.
 Also note that swc does not support custom plugin yet.
 
 ### @babel/cli
 
 Run `npm i --save-dev @swc/core @swc/cli` or `yarn add --dev @swc/core @swc/cli` to install. CLI apis of `@swc/cli` is almost equivalent to it of `@babel/cli`. So if you are using standard ecmascript, you can just replace `npx babel` to `npx swc`. If it results in an error, please [report an error][issues].
 
-See [usage docs](/docs/usage-swc-cli) and [migration docs](/docs/migrating-from-babel-cli) for more details. Also note that swc does not support custom plugin yet.
+See [usage docs](/docs/usage/cli) and [migration docs](/docs/migrating-from-babel) for more details. Also note that swc does not support custom plugins yet.
 
 [issues]: https://github.com/swc-project/swc/issues
