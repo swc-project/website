@@ -4,7 +4,7 @@ import "nextra-theme-docs/style.css";
 import { useEffect } from "react";
 import Script from "next/script";
 import { useRouter } from "next/router";
-import * as gtag from "../lib/gtag";
+import * as gtag from "lib/gtag";
 
 export default function Nextra({ Component, pageProps }) {
   const router = useRouter();
