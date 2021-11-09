@@ -109,6 +109,16 @@ module.exports = withNextra({
         destination: "/playground",
         permanent: true,
       },
+      {
+        source: "/blog/2019/02/08/Introducing-swc-1.0",
+        destination: "/blog/swc-1",
+        permanent: true,
+      },
+      {
+        source: "/blog/2020/02/16/why-is-swc-fast",
+        destination: "/blog/why-is-swc-fast",
+        permanent: true,
+      },
     ];
   },
 });
