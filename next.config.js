@@ -9,9 +9,8 @@ module.exports = withNextra({
   redirects: () => {
     return [
       {
-        source: "/blog",
-        // TODO
-        destination: "/blog/type-checker",
+        source: "/docs",
+        destination: "/docs/getting-started",
         permanent: false,
       },
       {
