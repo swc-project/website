@@ -1,0 +1,94 @@
+---
+title: Rust-based platform for the Web
+---
+
+import Callout from 'nextra-theme-docs/callout'
+import Bleed from 'nextra-theme-docs/bleed'
+
+<style jsx global>{`
+body {
+  background-image: radial-gradient(#ddd 1px, transparent 0),
+    radial-gradient(#ddd 1px, transparent 0);
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
+}
+.dark body {
+  background-image: radial-gradient(#333 1px, transparent 0),
+    radial-gradient(#333 1px, transparent 0);
+}
+`}</style>
+
+{
+// wrapped with {} to mark it as javascript so mdx will not put it under a p tag
+}
+{<h1 className="text-center font-extrabold md:text-5xl mt-8">SWC</h1>}
+
+<Bleed full>
+    <div className="mx-auto max-w-full w-[880px] text-center px-4 mb-10">
+      <p className="text-lg mb-2 text-gray-600 md:!text-2xl">
+        Rust-based platform for the Web
+      </p>
+    </div>
+</Bleed>
+
+SWC is an extensible Rust-based platform for the next generation of fast developer tools. It's used by tools like Next.js, Parcel, and Deno, as well as companies like Vercel, ByteDance, Tencent, Shopify, and more.
+
+SWC can be used for both compilation and bundling. For compilation, it takes JavaScript / TypeScript files using modern JavaScript features and outputs valid code that is supported by all major browsers.
+
+<Callout emoji="🏎">
+  SWC is <strong>20x faster than Babel</strong> on a single thread and <strong>70x faster</strong> on four cores.
+</Callout>
+
+<div className="mt-16 mb-20 text-center">
+  [Get Started](/docs/getting-started) · [Playground](/playground) · [Blog](/blog) · [Rustdocs](https://rustdoc.swc.rs/swc/) · [GitHub Repository](https://github.com/swc-project/swc) · [Donate](https://opencollective.com/swc)
+</div>
+
+## Overview
+
+```bash
+# Download prebuilt binaries
+npm i -D @swc/cli @swc/core
+
+# Transpile JavaScript file and emit to stdout
+npx swc ./file.js
+```
+
+SWC can be downloaded and used as a pre-built binary, or built from source. Currently, the following binaries are provided:
+
+- Mac (Apple Silicon)
+- Mac (x64)
+- Linux (x86_64)
+- Linux (aarch64)
+- Linux (armv7)
+- Alpine Linux (also install `@swc/core-linux-musl`)
+- Android (aarch64)
+- Windows (win32-x64)
+- Windows (ia32)
+
+## Features
+
+SWC is designed to be extensible. Currently, there is support for:
+
+- Compilation
+- Bundling (`swcpack`)
+- Minification
+- Transforming with WebAssembly
+- Usage inside webpack (`swc-loader`)
+- Improving Jest performance (`@swc/jest`)
+- Custom Plugins
+
+[Learn more](/docs/getting-started).
+
+## Community
+
+<p className="flex h-6">
+  <img alt="stars" src="https://badgen.net/github/stars/swc-project/swc" className="inline-block mr-2"/>
+  <img alt="downloads" src="https://badgen.net/npm/dw/@swc/core
+" className="inline-block mr-2"/>
+  <img alt="crates downloads" src="https://img.shields.io/crates/d/swc_ecma_parser.svg?label=crates.io%20downloads" className="inline-block mr-2"/>
+</p>
+
+SWC is created by [kdy1dev](https://twitter.com/kdy1dev).
+Follow [@kdy1dev](https://twitter.com/kdy1dev) on Twitter for future project updates.
+
+Feel free to join the [discussions on GitHub](https://github.com/swc-project/swc/discussions)!

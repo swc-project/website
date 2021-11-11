@@ -1,33 +1,31 @@
 {
+  "name": "swc-site",
+  "author": "DongYoon Kang",
+  "private": true,
   "scripts": {
-    "examples": "docusaurus-examples",
-    "start": "docusaurus start --host 0.0.0.0",
-    "build": "docusaurus build",
-    "version": "docusaurus-version",
-    "rename-version": "docusaurus-rename-version",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "docusaurus": "docusaurus"
-  },
-  "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.0.0-beta.3",
-    "@tsconfig/docusaurus": "1.0.2",
-    "@types/codemirror": "5.60.3",
-    "@types/react": "17.0.24",
-    "@types/react-helmet": "6.1.1",
-    "@types/react-router-dom": "5.1.7",
-    "github-buttons": "2.18.1",
-    "typescript": "4.4.3"
+    "dev": "next",
+    "start": "next start",
+    "build": "STORK_PATH=$(pwd)/bin/stork.bin next build"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.3",
-    "@docusaurus/preset-classic": "2.0.0-beta.3",
-    "chart.js": "^3.5.1",
-    "clsx": "1.1.1",
-    "codemirror": "5.63.0",
-    "react": "16.14.0",
-    "react-chartjs-2": "^3.1.0",
-    "react-codemirror2": "7.2.1",
-    "react-dom": "16.14.0"
+    "@reach/skip-nav": "^0.16.0",
+    "chart.js": "^3.6.0",
+    "focus-visible": "^5.1.0",
+    "markdown-to-jsx": "^6.11.4",
+    "next": "^12.0.3",
+    "nextra": "^1.1.0",
+    "nextra-theme-docs": "^1.2.6",
+    "react": "^17.0.2",
+    "react-chartjs-2": "^3.3.0",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19"
+  },
+  "prettier": {
+    "embeddedLanguageFormatting": "off",
+    "htmlWhitespaceSensitivity": "strict"
   }
 }
