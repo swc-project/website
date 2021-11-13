@@ -94,6 +94,11 @@ module.exports = withNextra({
         permanent: true,
       },
       {
+        source: "/docs/comparison-babel",
+        destination: "/docs/migrating-from-babel",
+        permanent: true,
+      },
+      {
         source: "/docs/benchmark-autogen",
         destination: "/docs/benchmarks",
         permanent: true,
