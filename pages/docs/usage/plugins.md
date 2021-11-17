@@ -16,7 +16,7 @@ This example, [plugin-strip-console](https://github.com/swc-project/plugin-strip
 You can turn on optimizer with [`jsc.transform.optimizer`](/docs/configuration/compilation#jsctransformoptimizer) to remove `void 0`.
 
 ```ts
-import { CallExpression, Expression } from "@swc/core";
+import { CallExpression, Expression, transformSync } from "@swc/core";
 import Visitor from "@swc/core/Visitor";
 
 class ConsoleStripper extends Visitor {
