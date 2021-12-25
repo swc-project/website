@@ -17,7 +17,7 @@ You can turn on optimizer with [`jsc.transform.optimizer`](/docs/configuration/c
 
 ```ts
 import { CallExpression, Expression, transformSync } from "@swc/core";
-import Visitor from "@swc/core/Visitor";
+import { Visitor } from "@swc/core/Visitor.js";
 
 class ConsoleStripper extends Visitor {
   visitCallExpression(expression: CallExpression): Expression {
@@ -73,7 +73,7 @@ Visitors are a pattern used in AST traversal across languages. They are an objec
 
 ```ts
 /// @ts-check
-import Visitor from "@swc/core/Visitor";
+import { Visitor } from "@swc/core/Visitor.js";
 
 class MyVisitor extends Visitor {
   visitIdentifier(node) {
