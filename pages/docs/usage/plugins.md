@@ -4,7 +4,7 @@ You can create and use custom plugins with SWC.
 
 > Warning: Passing the AST to the JS Plugin system is a performance bottleneck.
 >
-> Therefore, we are concidering two approaches for the next SWC major version:
+> Therefore, we are considering two approaches for the next SWC major version:
 >
 > 1. Creating a plugin system in Rust ([#2337](https://github.com/swc-project/swc/issues/2635))
 > 2. Solve the bottleneck to keep a JS plugin system ([#2175](https://github.com/swc-project/swc/issues/2175))
