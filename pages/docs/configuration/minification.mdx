@@ -1,9 +1,10 @@
-import Callout from 'nextra-theme-docs/callout'
+import Callout from "nextra-theme-docs/callout";
 
 # Minification
 
 <Callout emoji="🚧">
-  This feature is still under construction. We are working on making the smallest bundle size possible, without breaking changes.
+  This feature is still under construction. We are working on making the
+  smallest bundle size possible, without breaking changes.
 </Callout>
 
 Starting with `v1.2.67`, you can configure SWC to minify your code by enabling `minify` in your `.swcrc` file:
@@ -116,6 +117,7 @@ Similar to [the mangle option](https://terser.org/docs/api-reference.html#mangle
 - `keepClassNames`, Defaults to `false`. Aliased as `keep_classnames` for compatibility with `terser`.
 - `keepFnNames`, Defaults to `false`.
 - `keepPrivateProps`, Defaults to `false`. Aliased as `keep_private_props` for compatibility with `terser`.
+- `reserved`, Defaults to `[]`
 - `ie8`, Ignored.
 - `safari10`, Not implemented yet.
 
