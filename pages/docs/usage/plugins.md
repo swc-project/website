@@ -11,7 +11,7 @@ You can create and use custom plugins with SWC.
 
 ## Example
 
-This example, [plugin-strip-console](https://github.com/swc-project/plugin-strip-console), replaces all `console.log` statements with `void 0`.
+This example, [plugin-strip-console](https://github.com/ntrippar/plugin-strip-console), replaces all `console.log` statements with `void 0`.
 
 You can turn on optimizer with [`jsc.transform.optimizer`](/docs/configuration/compilation#jsctransformoptimizer) to remove `void 0`.
 
