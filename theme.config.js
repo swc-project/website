@@ -53,8 +53,6 @@ export default {
           color="#000000"
         />
         <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta name="theme-color" content="#ffffff" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="Content-Language" content="en" />
         <meta
           name="description"
@@ -100,7 +98,7 @@ export default {
       </>
     );
   },
-  footerEditLink: "Edit this page on GitHub",
+  footerEditLink: "Edit this page on GitHub →",
   footerText: () => (
     <a
       href="https://vercel.com/?utm_source=swc"

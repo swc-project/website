@@ -1,8 +1,9 @@
 {
   "swcrc": ".swcrc",
+  "plugins": "Plugins",
   "compilation": "Compilation",
-  "supported-browsers": "Supported Browsers",
   "modules": "Modules",
   "minification": "Minification",
-  "bundling": "Bundling"
+  "bundling": "Bundling",
+  "supported-browsers": "Supported Browsers"
 }
