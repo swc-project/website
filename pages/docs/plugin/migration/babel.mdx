@@ -6,9 +6,19 @@ This page describes the known tricks for porting babel plugins.
 
 > This section is not about `swc` itself. But this is described at here because it's the cause of almost all trickyness of APIs.
 
+In rust, only one variable can _own_ a data, and there's at most one mutable reference to it.
+Also, you need to _own_ the value or have a mutable reference to it if you want to modify the data.
+
+But there's at most one owner/mutable reference, so it means if you have a mutable reference to a value, other code cannot modify the value.
+Every update operation should performed by the code which _owns_ the value or has a mutable reference to it.
+So, some of babel APIs like `node.delete` is super tricky to implement.
+As your code has ownership or mutable refernce to _some_ part of AST, SWC cannot modify the AST.
+
 ## Tricky operations
 
 ### Deleting node
+
+Because of this, you should delete node in two step.
 
 ### Referencing parent node from handler of child node
 
