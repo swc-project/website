@@ -8,6 +8,10 @@ This page describes the known tricks for implementing plugins for ecmascript.
 
 ### Comparing `JsWord` with `&str`
 
+If you don't know what `JsWord` is, see [the rustdoc for swc_atoms](https://rustdoc.swc.rs/swc_atoms/).
+
+You can create `&str` by doing `&val` where `val` is a variable of type `JsWord`.
+
 ### Matching `Box<T>`
 
 ## Ownership model (of rust)
