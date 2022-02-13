@@ -23,30 +23,153 @@ You can delete a node in two step.
 Let's say, we want to drop the variable named `bar` in the code below.
 
 ```js
-
 var foo = 1;
 var bar = 1;
-
 ```
 
 There are two ways to do this.
 
-#### Delete from the parent handler
+#### Mark & Delete
 
-The first way is to delete the node from the parent handler.
-Typically
+The first way is to mark it as _invalid_ and delete it later.
+This is typically more convinient.
 
 ```rust
 
-impl VisitMut for Remover {}
+use swc_plugin::*;
+
+impl VisitMut for Remover {
+    fn visit_mut_var_declarator(&mut self, v: &mut VarDeclarator) {
+        // This is not required in this example, but you typically need this.
+        v.visit_mut_children_with(self);
+
+
+        // v.name is `Pat`.
+        // See https://rustdoc.swc.rs/swc_ecma_ast/enum.Pat.html
+        match v.name {
+            // If we want to delete the node, we should return false.
+            //
+            // Note the `&*` before i.sym.
+            // The type of symbol is `JsWord`, which is an interned string.
+            Pat::Ident(i) => {
+                if &*i.sym == "bar" {
+                    // Take::take() is a helper function, which stores invalid value in the node.
+                    // For Pat, it's `Pat::Invalid`.
+                    v.name.take();
+                }
+            }
+            _ => {
+                // Noop if we don't want to delete the node.
+            }
+        }
+    }
+
+    fn visit_mut_var_declarators(&mut self, vars: &mut Vec<VarDeclarator>) {
+        vars.visit_mut_children_with(self);
+
+        vars.retain(|node| {
+            // We want to remove the node, so we should return false.
+            if node.name.is_invalid() {
+                return false
+            }
+
+            // Return true if we want to keep the node.
+            true
+        });
+    }
+
+    fn visit_mut_stmt(&mut self, s: &mut Stmt) {
+        s.visit_mut_children_with(self);
+
+        match s {
+            Stmt::Decl(Decl::Var(var)) => {
+                if var.decls.is_empty() {
+                    // Variable declaration without declarator is invalid.
+                    //
+                    // After this, `s` becomes `Stmt::Empty`.
+                    s.take();
+                }
+            }
+            _ => {}
+        }
+    }
+
+    fn visit_mut_stmts(&mut self, stmts: &mut Vec<Stmt>) {
+        stmts.visit_mut_children_with(self);
+
+        // We remove `Stmt::Empty` from the statement list.
+        // This is optional, but it's required if you don't want extra `;` in output.
+        stmts.retain(|s| {
+            // We use `matches` macro as this match is trivial.
+            !matches!(s, Stmt::Empty(..))
+        });
+    }
+
+    fn visit_mut_module_items(&mut self, stmts: &mut Vec<ModuleItem>) {
+        stmts.visit_mut_children_with(self);
+
+        // This is also required, because top-level statements are stored in `Vec<ModuleItem>`.
+        stmts.retain(|s| {
+            // We use `matches` macro as this match is trivial.
+            !matches!(s, ModuleItem::Stmt(Stmt::Empty(..)))
+        });
+    }
+}
 
 ```
 
-#### Mark & Delete
+#### Delete from the parent handler
+
+Another way to delete the node is deleting it from the parent handler.
+This can be useful if you want to delete the node only if the parent node is specific type.
+
+e.g. You don't want to touch the variables in for loops while deleting free variable statements.
 
 ```rust
+use swc_plugin::*;
 
-impl VisitMut for Remover {}
+struct Remover;
+
+impl VisitMut for Remover {
+    fn visit_mut_stmt(&mut self, s: &mut Stmt) {
+        // This is not required in this example, but just to show that you typically need this.
+        s.visit_mut_children_with(self);
+
+        match s {
+            Stmt::Decl(Decl::Var(var)) => {
+                if var.decls.len() == 1 {
+                    match var.decls[0].name {
+                        Pat::Ident(i) => {
+                            if &*i.sym == "bar" {
+                                s.take();
+                            }
+                        }
+                    }
+                }
+            }
+            _ => {}
+        }
+    }
+
+
+    fn visit_mut_stmts(&mut self, stmts: &mut Vec<Stmt>) {
+        stmts.visit_mut_children_with(self);
+
+        // We do same thing here.
+        stmts.retain(|s| {
+            !matches!(s, Stmt::Empty(..))
+        });
+    }
+
+    fn visit_mut_module_items(&mut self, stmts: &mut Vec<ModuleItem>) {
+        stmts.visit_mut_children_with(self);
+
+        // We do same thing here.
+        stmts.retain(|s| {
+            !matches!(s, ModuleItem::Stmt(Stmt::Empty(..)))
+        });
+    }
+}
 
 ```
 
