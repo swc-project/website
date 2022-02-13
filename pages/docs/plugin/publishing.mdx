@@ -10,8 +10,10 @@ In your `Cargo.toml` file, you can add the following lines.
 
 ```toml
 [profile.release]
+# This removes more dead code
 codegen-units = 1
 lto = true
+# Optimize for size
 opt-level = "s"
 ```
 
