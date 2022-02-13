@@ -14,6 +14,32 @@ You can create `&str` by doing `&val` where `val` is a variable of type `JsWord`
 
 ### Matching `Box<T>`
 
+You will need to use `match` to match on various nodes, including `Box<T>`.
+For performance reason, all expressions are stored in a boxed form. (`Box<Expr>`)
+
+SWC stores callee of call expressions as a `Callee` enum, and it has `Box<Expr>`.
+
+```rust
+use swc_plugin::*;
+
+struct MatchExample;
+
+impl VisitMut for MatchExample {
+    fn visit_mut_callee(&mut self, callee: &mut Callee) {
+        callee.visit_mut_children_with(self);
+
+        if let Callee::Expr(expr) = callee {
+            // expr is `Box<Expr>`
+            if let Expr::Ident(i) = &mut **expr {
+                i.sym = "foo".into();
+            }
+        }
+    }
+}
+
+
+```
+
 ## Ownership model (of rust)
 
 > This section is not about `swc` itself. But this is described at here because it's the cause of almost all trickyness of APIs.
