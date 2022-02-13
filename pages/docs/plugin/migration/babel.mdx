@@ -18,7 +18,37 @@ As your code has ownership or mutable refernce to _some_ part of AST, SWC cannot
 
 ### Deleting node
 
-Because of this, you should delete node in two step.
+You can delete a node in two step.
+
+Let's say, we want to drop the variable named `bar` in the code below.
+
+```js
+
+var foo = 1;
+var bar = 1;
+
+```
+
+There are two ways to do this.
+
+#### Delete from the parent handler
+
+The first way is to delete the node from the parent handler.
+Typically
+
+```rust
+
+impl VisitMut for Remover {}
+
+```
+
+#### Mark & Delete
+
+```rust
+
+impl VisitMut for Remover {}
+
+```
 
 ### Referencing parent node from handler of child node
 
