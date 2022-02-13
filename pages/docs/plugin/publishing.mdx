@@ -1,0 +1,30 @@
+# Publishing plugins
+
+If you prefer reading codes, you can refer to [the repository for official plugins](https://github.com/swc-project/plugins).
+
+## Adjusting configuration for smaller plugin
+
+You can reduce the size of the plugin by configuring cargo.
+
+In your `Cargo.toml` file, you can add the following lines.
+
+```toml
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+```
+
+## Creating a npm package for plugin
+
+You can build the required wasm file by using `cargo build`.
+
+```sh
+
+cargo build --release --target wasm32-wasi
+# or if you want to use wasm32-unknown-unknown insteadf of wasm32-wasi
+cargo build --release --target wasm32-unknown-unknown
+
+```
+
+## Configuring CI pipeline
