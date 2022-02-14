@@ -1,5 +1,5 @@
 {
-  "plugins": "Plugins",
+  "plugins": "Announcing WebAssembly Plugins for SWC",
   "perf-swc-vs-babel": "Performance Comparison of SWC and Babel",
   "swc-1": "Introducing SWC 1.0"
 }

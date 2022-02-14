@@ -5,13 +5,66 @@ description: 'SWC (Speedy Web Compiler) is a super-fast JavaScript and TypeScrip
 
 import Authors, { Author } from 'components/authors'
 
-# Plugins
+# Announcing WebAssembly Plugins for SWC
 
 <Authors date="February 13th, 2022">
   <Author name="DongYoon Kang" link="https://twitter.com/kdy1dev" />
   <Author name="Lee Robinson" link="https://twitter.com/leeerob" />
 </Authors>
 
-## TODO
+SWC is an extensible Rust-based platform for the next generation of fast developer tools. To enable developers to further extend the platform, we're announcing a **new WebAssembly plugin interface** to write high-performance plugins.
 
-TODO
+## Why WebAssembly?
+
+SWC currently has a [JavaScript plugin interface](https://swc.rs/docs/usage/plugins), but it has a few tradeoffs. These JavaScript plugins are more difficult to integrate with Rust code, and can often lead to performance bottlenecks.
+
+WASM Plugins are currently experimental, as we expect we'll have to iterate on the API and address bug fixes. If you have suggestions or bug reports, please [comment on the discussion](https://github.com/swc-project/swc/discussions/3540).
+
+## Create your first plugin
+
+You can create your first WebAssembly plugin for SWC using the CLI.
+
+First, install the [CLI package](https://crates.io/crates/swc_plugin) through cargo:
+
+```bash
+$ cargo install swc_cli
+```
+
+We've provided helpful code generation to scaffold a new project for creating plugins. Create a new plugin project using the SWC CLI:
+
+```bash
+$ swc plugin new my-plugin --target-type=wasm32-wasi
+```
+
+Here's an example plugin that replaces `console.log(${text})` with `console.log('changed_via_plugin')`:
+
+```rust
+use swc_plugin::{ast::*, errors::HANDLER, plugin_transform, syntax_pos::DUMMY_SP};
+
+struct ConsoleOutputReplacer;
+
+/// An example plugin replaces any `console.log(${text})` into
+/// `console.log('changed_via_plugin')`.
+impl VisitMut for ConsoleOutputReplacer {
+    fn visit_mut_call_expr(&mut self, call: &mut CallExpr) {
+        if let Callee::Expr(expr) = &call.callee {
+            if let Expr::Member(MemberExpr { obj, .. }) = &**expr {
+                if let Expr::Ident(ident) = &**obj {
+                    if ident.sym == *"console" {
+                        call.args[0].expr = Box::new(Expr::Lit(Lit::Str(Str {
+                            span: DUMMY_SP,
+                            has_escape: false,
+                            kind: StrKind::default(),
+                            value: JsWord::from("changed_via_plugin"),
+                        })));
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+## Learn more
+
+- Docs links TODO
