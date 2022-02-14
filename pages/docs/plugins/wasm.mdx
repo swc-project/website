@@ -57,6 +57,22 @@ impl VisitMut for ConsoleOutputReplacer {
 }
 ```
 
+## Loading plugins
+
+```json
+{
+  jsc: {
+   experimental: {
+     // Optional, specify where swc will create wasm bytecode cache.
+     cache_root: String,
+     // If `pluginname` is resolvable to npm package,
+     // it'll try to load from installed npm packages.
+     // Otherwise, it can be an absolute path to the .wasm binary.
+     plugins: [ ['pluginname', pluginOptions: Record<string, any>] ]
+   }
+}
+```
+
 ## Publishing
 
 To publish your WebAssembly plugin to npm, you can build the required `.wasm` file using `cargo build`:
@@ -77,6 +93,26 @@ lto = true
 # Optimize for size
 opt-level = "s"
 ```
+
+## Frequently Asked Questions
+
+### The plugin binary is WASM. Does that mean I can write plugins without Rust?
+
+Yes. As long as you generate a WebAssembly binary, it satisfies SWC's transform interface. However, there are some challenges:
+
+- **Serialization / Deserialization:** there is no other language binding for the serialization / deserialization mechanism used in the plugin.
+- **AST interfaces:** We only have typed AST interface support with Rust so far.
+- **Utility support:** SWC's AST helper is written in Rust.
+
+If you write a plugin without Rust, please let us know and we can add an example.
+
+### I'm using the WASM version of SWC. How does the plugin work?
+
+Currently, the `wasm` version of SWC doesn't support any plugins, except for JavaScript. We are working on solutions here.
+
+### What is the plan for JavaScript plugins?
+
+Existing JavaScript plugins for SWC will continue to work. We aren’t planning to invest in improving the performance of the JS plugins, since we now recommend using WASM instead. We will post a future RFC with the migration path from JavaScript to WASM plugins.
 
 ## Plugins CLI Reference
 
