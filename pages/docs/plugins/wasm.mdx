@@ -1,24 +1,14 @@
----
-image: https://user-images.githubusercontent.com/9113740/140682117-5e9f460e-c8f1-447c-88a0-e75f80779260.png
-description: 'SWC (Speedy Web Compiler) is a super-fast JavaScript and TypeScript compiler.'
----
+import Callout from "nextra-theme-docs/callout";
 
-import Authors, { Author } from 'components/authors'
+# WebAssembly Plugins
 
-# Announcing WebAssembly Plugins for SWC
+<Callout emoji="🚧">
 
-<Authors date="February 13th, 2022">
-  <Author name="DongYoon Kang" link="https://twitter.com/kdy1dev" />
-  <Author name="Lee Robinson" link="https://twitter.com/leeerob" />
-</Authors>
+The WASM plugins interface is still experimental. Please share your [bug reports and feedback](https://github.com/swc-project/swc/discussions/3540).
 
-SWC is an extensible Rust-based platform for the next generation of fast developer tools. To enable developers to further extend the platform, we're announcing a **new WebAssembly plugin interface** to write high-performance plugins.
+</Callout>
 
-## Why WebAssembly?
-
-SWC currently has a [JavaScript plugin interface](https://swc.rs/docs/usage/plugins), but it has a few tradeoffs. These JavaScript plugins are more difficult to integrate with Rust code, and can often lead to performance bottlenecks.
-
-WASM Plugins are currently experimental, as we expect we'll have to iterate on the API and address bug fixes. If you have suggestions or bug reports, please [comment on the discussion](https://github.com/swc-project/swc/discussions/3540).
+Use the WebAssembly interace to extend SWC and create high-performance [plugins](https://github.com/swc-project/plugins).
 
 ## Create your first plugin
 
@@ -35,6 +25,8 @@ We've provided helpful code generation to scaffold a new project for creating pl
 ```bash
 $ swc plugin new my-plugin --target-type=wasm32-wasi
 ```
+
+## Example plugin
 
 Here's an example plugin that replaces `console.log(${text})` with `console.log('changed_via_plugin')`:
 
@@ -65,6 +57,29 @@ impl VisitMut for ConsoleOutputReplacer {
 }
 ```
 
-## Learn more
+## Publishing
 
-[Check out the documentation](/docs/plugins/wasm) for more information.
+To publish your WebAssembly plugin to npm, you can build the required `.wasm` file using `cargo build`:
+
+```sh
+$ cargo build --release --target wasm32-wasi
+```
+
+## Adjusting configuration for smaller plugins
+
+You can reduce the size of your plugin by configuring your `Cargo.toml` file:
+
+```toml
+[profile.release]
+# Remove more dead code
+codegen-units = 1
+lto = true
+# Optimize for size
+opt-level = "s"
+```
+
+## Plugins CLI Reference
+
+- `--target`
+  - `wasm32-wasi`
+  - `wasm32-unknown-unknown`

@@ -2,6 +2,7 @@
   "getting-started": "Getting Started",
   "usage": "Usage",
   "configuration": "Configuration",
+  "plugins": "Plugins",
   "benchmarks": "Benchmarks",
   "migrating-from-babel": "Migrating from Babel"
 }

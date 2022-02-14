@@ -1,6 +1,5 @@
 {
   "swcrc": ".swcrc",
-  "plugins": "Plugins",
   "compilation": "Compilation",
   "modules": "Modules",
   "minification": "Minification",
