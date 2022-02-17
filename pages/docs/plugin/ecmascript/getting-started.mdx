@@ -4,9 +4,24 @@
 
 ### Install required toolchain
 
+As plugin is written in the rust programming language and built as a `.wasm` file, you need to install rust toolchain and wasm target.
+
 #### Install rust
 
+You can follow instructions at ['Install Rust' page from the official rust website](https://www.rust-lang.org/tools/install)
+
 #### Add wasm target to rust
+
+SWC supports two kind of `.wasm` files.
+Those are
+
+- wasm32-wasi
+- wasm32-unknown-unknown
+
+#### Configuring IDE
+
+If you are going to use vscode, it's recommended to install `rust-analyzer` extension.
+`rust-analyzer` is a [language server](https://microsoft.github.io/language-server-protocol/) for the rust programming langauge, which provides good features for code completion, code navigation, and code analysis.
 
 ## Create a project
 
