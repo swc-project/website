@@ -12,15 +12,41 @@ import Authors, { Author } from 'components/authors'
   <Author name="Lee Robinson" link="https://twitter.com/leeerob" />
 </Authors>
 
-SWC is an extensible Rust-based platform for the next generation of fast developer tools. To enable developers to further extend the platform, we're announcing a **new WebAssembly plugin interface** to write high-performance plugins.
+SWC is an extensible Rust-based platform for the next generation of fast and extensible developer tools. To enable developers to further extend the platform, we're announcing a **new WebAssembly plugin interface** to write high-performance plugins.
 
 ## Why WebAssembly?
 
 SWC currently has a [JavaScript plugin interface](https://swc.rs/docs/usage/plugins), but it has a few tradeoffs. These JavaScript plugins are more difficult to integrate with Rust code, and can often lead to performance bottlenecks.
 
-WASM Plugins are currently experimental, as we expect we'll have to iterate on the API and address bug fixes. If you have suggestions or bug reports, please [comment on the discussion](https://github.com/swc-project/swc/discussions/3540).
+When designing our new plugin interface, we oulined a few goals:
 
-## Create your first plugin
+1. Plugin binaries should be able to be loaded into SWC's native binary _without_ using the JavaScript binding interop.
+2. Provide excellent performance while loading and running custom transformations.
+3. Ensure API stability to allow plugin binary to work across different versions of SWC.
+4. Allow developers to write plugins without needing to worry about native platform target binaries.
+
+## Options Evaluated
+
+With these goals defined, we evaluated four different options:
+
+- JavaScript-based plugins, including Babel plugins
+- Plugins based on `abi_stable` and native dynamic libraries
+- WASM plugins based on `wasmtime`
+- WASM plugins based on `wasmer`
+
+After evaluating options, we choose to use WASM plugins based on wasmer. You can view the [full pros / cons list here](https://github.com/swc-project/swc/blob/8652b2df99c37527fcd973bd8f0cd3c54bfa9485/docs/adr/00001-support-transformation-plugin-native.md).
+
+## Benchmarks
+
+### Performance vs. JavaScript Plugins
+
+TODO
+
+### Performance vs. Initial Protoype
+
+TODO
+
+## Create your first WASM plugin
 
 You can create your first WebAssembly plugin for SWC using the CLI.
 
@@ -66,5 +92,7 @@ impl VisitMut for ConsoleOutputReplacer {
 ```
 
 ## Learn more
+
+WASM Plugins are currently experimental, as we expect we'll have to iterate on the API and address bug fixes. If you have suggestions or bug reports, please [comment on the discussion](https://github.com/swc-project/swc/discussions/3540).
 
 [Check out the documentation](/docs/plugins/wasm) for more information.
