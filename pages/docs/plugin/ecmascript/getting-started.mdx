@@ -68,6 +68,12 @@ Let's say, we want
 
 ### logging
 
-`tracing`
+SWC uses `tracing` for logging.
 
 #### Removing log for release mode
+
+If logging of yout crate is too much, you can remove it by enabling `release_max_level_*` of `tracing`, like
+
+```toml
+traicing = { version="0.1", features = ["release_max_level_info"] }
+```
