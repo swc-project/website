@@ -2,21 +2,6 @@
 
 If you prefer reading codes, you can refer to [the repository for official plugins](https://github.com/swc-project/plugins).
 
-## Adjusting configuration for smaller plugin
-
-You can reduce the size of the plugin by configuring cargo.
-
-In your `Cargo.toml` file, you can add the following lines.
-
-```toml
-[profile.release]
-# This removes more dead code
-codegen-units = 1
-lto = true
-# Optimize for size
-opt-level = "s"
-```
-
 ## Creating a npm package for plugin
 
 You can build the required wasm file by using `cargo build`.
@@ -30,6 +15,21 @@ cargo build --release --target wasm32-unknown-unknown
 ```
 
 ## Configuring CI pipeline
+
+## Adjusting configuration for smaller binary
+
+You can reduce the size of the plugin by configuring cargo.
+
+In your `Cargo.toml` file, you can add the following lines.
+
+```toml
+[profile.release]
+# This removes more dead code
+codegen-units = 1
+lto = true
+# Optimize for size
+opt-level = "s"
+```
 
 ## Improving performance
 
