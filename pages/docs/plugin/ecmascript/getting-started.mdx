@@ -12,11 +12,21 @@ You can follow instructions at ['Install Rust' page from the official rust websi
 
 #### Add wasm target to rust
 
-SWC supports two kind of `.wasm` files.
+SWC supports two kinds of `.wasm` files.
 Those are
 
 - wasm32-wasi
 - wasm32-unknown-unknown
+
+In this guide, we will use `wasm-wasi` as a target.
+
+#### Install `swc_cli`
+
+You can install a rust-based CLI for SWC by doing
+
+```sh
+cargo install swc_cli
+```
 
 #### Configuring IDE
 
@@ -24,6 +34,14 @@ If you are going to use vscode, it's recommended to install `rust-analyzer` exte
 `rust-analyzer` is a [language server](https://microsoft.github.io/language-server-protocol/) for the rust programming langauge, which provides good features for code completion, code navigation, and code analysis.
 
 ## Create a project
+
+SWC CLI supports creating a new plugin project.
+
+Run
+
+```
+swc plugin new --target-type wasm32-wasi my-first-plugin
+```
 
 ## Implementing simple plugin
 
