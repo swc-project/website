@@ -47,6 +47,23 @@ swc plugin new --target-type wasm32-wasi my-first-plugin
 
 to create a new plugin, and open `my-first-plugin` with your preferred rust IDE.
 
+### Add logic to the visitor
+
+The generated code has
+
+```rust
+impl VisitMut for TransformVisitor {
+    // Implement necessary visit_mut_* methods for actual custom transform.
+    // A comprehensive list of possible visitor methods can be found here:
+    // https://rustdoc.swc.rs/swc_ecma_visit/trait.VisitMut.html
+}
+```
+
+which is used to transform code.
+[The trait `VisitMut`](https://rustdoc.swc.rs/swc_ecma_visit/trait.VisitMut.html) supports mutating AST nodes, and as it supports all AST types, it has lots of methods.
+
+Let's say, we want
+
 ## Understanding types
 
 ### `JsWord`
