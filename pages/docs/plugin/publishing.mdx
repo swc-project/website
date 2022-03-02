@@ -30,3 +30,13 @@ cargo build --release --target wasm32-unknown-unknown
 ```
 
 ## Configuring CI pipeline
+
+## Improving performance
+
+### Removing log for release mode
+
+If logging of yout crate is too much, you can remove it by enabling `release_max_level_*` of `tracing`, like
+
+```toml
+traicing = { version="0.1", features = ["release_max_level_info"] }
+```

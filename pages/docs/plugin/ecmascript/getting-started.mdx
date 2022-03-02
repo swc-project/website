@@ -1,3 +1,5 @@
+import Callout from 'nextra-theme-docs/callout'
+
 # Implementing a plugin
 
 ## Setup environment
@@ -72,10 +74,6 @@ SWC uses `tracing` for logging.
 
 ## Publising your plugin
 
-### Removing log for release mode
-
-If logging of yout crate is too much, you can remove it by enabling `release_max_level_*` of `tracing`, like
-
-```toml
-traicing = { version="0.1", features = ["release_max_level_info"] }
-```
+<Callout>
+    For more details, please look [plugin publishing guide](../publishing)
+</Callout>
