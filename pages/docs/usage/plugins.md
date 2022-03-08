@@ -1,7 +1,7 @@
 # Plugins
 
-You can create and use custom plugins with SWCs WebAssembly-based runtime.  
-The WASM Api is the successor of the legacy [JS API](/docs/usage/plugins-legacy).
+You can create and use custom plugins with SWCs WebAssembly(WASM) based runtime.  
+The WASM API is the successor of the legacy [JS API](/docs/usage/plugins-legacy).
 
 > Warning: The WASM plugin API is still experimental
 
@@ -20,7 +20,7 @@ Then you can scaffold a new plugin project with the `swc` command (not `swc_cli`
 
 You have to specify the compilation target type. You can choose from two options: 
 
-    - `wasm32-wasi` supports system interfaces as well as macros like `printn!()`
+    - `wasm32-wasi` supports system interfaces as well as macros like `println!()`
     - `wasm32-unknown-unknown` generates slighly smaller binaries
 
 For your first plugin we recommend to use `wasm32-wasi`:
@@ -95,4 +95,4 @@ This example, the [swc-plugin-console-prefix](https://github.com/williamtetlow/s
 
 ## Feedback
 
-If you expirience any issues with the WASM API please let us know in [the github discussion](https://github.com/swc-project/swc/discussions/3540).
+If you experience any issues with the WASM API please let us know in [the github discussion](https://github.com/swc-project/swc/discussions/3540).
