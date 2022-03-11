@@ -16,7 +16,8 @@ Compilation works out of the box with SWC and does not require customization. Op
       "decorators": false,
       "decoratorsBeforeExport": false,
       "topLevelAwait": false,
-      "importMeta": false
+      "importMeta": false,
+      "preserveAllComments": false
     },
     "transform": null,
     "target": "es5",
@@ -380,6 +381,13 @@ See [the documentation for minification](/docs/configuration/minification) for m
 ## jsc.experimental
 
 Currently, there are no experimental options.
+
+## jsc.preserveAllComments
+
+Indicate that all comments should be preserved during compilation. Comments from source may be shifted in order to preserve thier relative location from source
+to compiled output.
+This feature is useful for transpilation that requires comments remain relatively close to the source: e.g. files under test with istanbul-ignore coverage
+annotations.
 
 ## Multiple Entries
 
