@@ -59,7 +59,7 @@ swc
     // Defaults to es3
     target: "es3",
 
-    // Input files are treated as module by default
+    // Input source code are treated as module by default
     isModule: false,
   })
   .then((module) => {
