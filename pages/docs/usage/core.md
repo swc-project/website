@@ -43,6 +43,43 @@ Returns `Promise<{ code: string, map?: string }>`
 
 Returns `{ code: string, map?: string }`
 
+## parse
+
+Returns `Promise<Module>`
+
+```js
+const swc = require('@swc/core')
+
+swc
+  .parse("source code", {
+    syntax: "ecmascript", // "ecmascript" | "typesscript"
+    comments: false,
+    script: true,
+
+    // Defaults to es3
+    target: "es3",
+
+    // Input source code are treated as module by default
+    isModule: false,
+  })
+  .then((module) => {
+    module.type // file type
+    module.body; // AST
+  })
+```
+
+### parseSync
+
+Returns `Script | Module`
+
+### parseFile
+
+Returns `Promise<Script | Module>`
+
+### parseFileSync
+
+Returns `Script | Module`
+
 ## Options
 
 This still needs to be documented. Contributions welcome!
