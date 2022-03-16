@@ -47,9 +47,9 @@ Returns `{ code: string, map?: string }`
 
 ## parse
 
-Returns `Promise<Module>`
+Returns `Promise<Script | Module>`
 
-```js
+```ts
 const swc = require('@swc/core')
 
 swc
@@ -69,6 +69,90 @@ swc
     module.body; // AST
   })
 ```
+
+<TypeDeclarations>
+
+```ts
+export declare function parse(src: string, options: ParseOptions & {
+    isModule: false;
+}): Promise<Script>;
+export declare function parse(src: string, options?: ParseOptions): Promise<Module>;
+export declare function parseSync(src: string, options: ParseOptions & {
+    isModule: false;
+}): Script;
+export declare function parseSync(src: string, options?: ParseOptions): Module;
+export declare function parseFile(path: string, options: ParseOptions & {
+    isModule: false;
+}): Promise<Script>;
+export declare function parseFile(path: string, options?: ParseOptions): Promise<Module>;
+export declare function parseFileSync(path: string, options: ParseOptions & {
+    isModule: false;
+}): Script;
+export declare function parseFileSync(path: string, options?: ParseOptions): Module;
+
+export interface Module extends Node, HasSpan, HasInterpreter {
+    type: "Module";
+    body: ModuleItem[];
+}
+export interface Script extends Node, HasSpan, HasInterpreter {
+    type: "Script";
+    body: Statement[];
+}
+export declare type ParseOptions = ParserConfig & {
+  comments?: boolean;
+  script?: boolean;
+  /**
+   * Defaults to es3.
+   */
+  target?: JscTarget;
+};
+export declare type JscTarget = "es3" | "es5" | "es2015" | "es2016" | "es2017" | "es2018" | "es2019" | "es2020" | "es2021" | "es2022";
+export declare type ParserConfig = TsParserConfig | EsParserConfig;
+export interface TsParserConfig {
+    syntax: "typescript";
+    /**
+     * Defaults to `false`.
+     */
+    tsx?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    decorators?: boolean;
+    /**
+     * Defaults to `false`
+     */
+    dynamicImport?: boolean;
+}
+export interface EsParserConfig {
+    syntax: "ecmascript";
+    /**
+     * Defaults to false.
+     */
+    jsx?: boolean;
+    /**
+     * Defaults to `false`
+     */
+    functionBind?: boolean;
+    /**
+     * Defaults to `false`
+     */
+    decorators?: boolean;
+    /**
+     * Defaults to `false`
+     */
+    decoratorsBeforeExport?: boolean;
+    /**
+     * Defaults to `false`
+     */
+    exportDefaultFrom?: boolean;
+    /**
+     * Defaults to `false`
+     */
+    importAssertions?: boolean;
+}
+```
+
+</TypeDeclarations>
 
 ### parseSync
 
@@ -100,6 +184,9 @@ swc
 <TypeDeclarations>
 
 ```ts
+export declare function minify(src: string, opts?: JsMinifyOptions): Promise<Output>;
+export declare function minifySync(src: string, opts?: JsMinifyOptions): Output;
+
 export interface Output {
     code: string;
     map?: string;
