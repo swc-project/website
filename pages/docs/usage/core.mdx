@@ -93,13 +93,17 @@ swc
   .minify('source code', opts?: JsMinifyOptions)
   .then(output => {
     output.code // transformed code
-    output.map // sourcemap
+    output.map // sourcemap (in string)
   })
 ```
 
 <TypeDeclarations>
 
 ```ts
+export interface Output {
+    code: string;
+    map?: string;
+}
 export declare type TerserEcmaVersion = 5 | 2015 | 2016 | string | number;
 export interface JsMinifyOptions {
     compress?: TerserCompressOptions | boolean;
