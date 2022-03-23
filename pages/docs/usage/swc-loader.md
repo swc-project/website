@@ -28,3 +28,24 @@ module: {
 ### React Development
 
 The [`jsc.transform.react.development`](/docs/configuration/compilation#jsctransformreactdevelopment) option is automatically set based on the [webpack `mode`](https://webpack.js.org/configuration/mode/).
+
+### With babel-loader
+
+When used with babel-loader, the parseMap option must be set to true.
+
+```js
+module: {
+  rules: [
+    {
+      test: /\.m?js$/,
+      exclude: /(node_modules)/,
+      use: {
+        loader: "swc-loader",
+        options: {
+          parseMap: true
+        }
+      }
+    }
+  ];
+}
+```
