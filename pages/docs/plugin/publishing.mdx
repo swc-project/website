@@ -27,8 +27,6 @@ Add the following to your `package.json`:
 }
 ```
 
-### Configuring CI pipeline
-
 ## Advanced: Improving your plugin
 
 ### Adjusting configuration for smaller binary
@@ -44,6 +42,8 @@ codegen-units = 1
 lto = true
 # Optimize for size
 opt-level = "s"
+# Optimize for performance, this is default so you don't need to specify it
+# opt-level = "z"
 ```
 
 ### Removing log for release mode
