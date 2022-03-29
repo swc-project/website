@@ -18,11 +18,10 @@ So SWC interns the string to reduce the number of allocations.
 You can create a `JsWord` from `&str`, or from a `String`.
 Use `.into()` to convert to `JsWord`.
 
-### `Ident`
+### `Ident`, `Id`, `Mark`, `SyntaxContext`
 
-### `Id`
-
-### `SyntaxContext`
+SWC uses a special system for managing variables.
+See [the rustdoc for `Ident`](https://rustdoc.swc.rs/swc_ecma_ast/struct.Ident.html) for details.
 
 ## Common issues
 
