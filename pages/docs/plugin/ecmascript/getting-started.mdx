@@ -49,7 +49,7 @@ swc plugin new --target-type wasm32-wasi my-first-plugin
 
 to create a new plugin, and open `my-first-plugin` with your preferred rust IDE.
 
-### Add logic to the visitor
+### Implementing a visitor
 
 The generated code has
 
@@ -64,7 +64,66 @@ impl VisitMut for TransformVisitor {
 which is used to transform code.
 [The trait `VisitMut`](https://rustdoc.swc.rs/swc_ecma_visit/trait.VisitMut.html) supports mutating AST nodes, and as it supports all AST types, it has lots of methods.
 
-Let's say, we want
+---
+
+We will use
+
+```js
+foo === bar;
+```
+
+as the input. From [the SWC Playground](https://play.swc.rs), you can get actual representation of this code.
+
+```json
+{
+  "type": "Module",
+  "span": {
+    "start": 0,
+    "end": 12,
+    "ctxt": 0
+  },
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "span": {
+        "start": 0,
+        "end": 12,
+        "ctxt": 0
+      },
+      "expression": {
+        "type": "BinaryExpression",
+        "span": {
+          "start": 0,
+          "end": 11,
+          "ctxt": 0
+        },
+        "operator": "===",
+        "left": {
+          "type": "Identifier",
+          "span": {
+            "start": 0,
+            "end": 3,
+            "ctxt": 0
+          },
+          "value": "foo",
+          "optional": false
+        },
+        "right": {
+          "type": "Identifier",
+          "span": {
+            "start": 8,
+            "end": 11,
+            "ctxt": 0
+          },
+          "value": "bar",
+          "optional": false
+        }
+      }
+    }
+  ],
+  "interpreter": null
+}
+```
 
 ## Testing your transform
 
