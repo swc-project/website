@@ -246,6 +246,10 @@ This includes usage of `paths` and `scope`.
 
 ### Caching some information about an AST node
 
+You have two way to use informantion from a parent node.
+For first, you can precompute information from the parent node handler.
+Alternatively, you can clone the parent node and use it in the child node handler.
+
 ## Alternatives for babel APIs
 
 ### `generateUidIdentifier`
