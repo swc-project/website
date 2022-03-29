@@ -170,7 +170,15 @@ If we run this plugin, we will get
 kdy1 === bar;
 ```
 
-See [cheatsheet](./cheatsheet) for more details.
+## Testing your transform
+
+You can simply run `cargo test` to test your plugins.
+
+### logging
+
+SWC uses `tracing` for logging.
+By default, SWC testing library configures the log level to `debug` by default, and this can be controlled by using an environment variable named `RUST_LOG`.
+e.g. `RUST_LOG=trace cargo test` will print all logs, including `trace` logs.
 
 ## Publising your plugin
 
