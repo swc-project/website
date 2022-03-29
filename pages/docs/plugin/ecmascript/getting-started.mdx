@@ -218,3 +218,11 @@ See [the documentation for it](https://docs.rs/crate/tracing/latest/features).
 <Callout>
     For more details, please look [plugin publishing guide](../publishing)
 </Callout>
+
+You can run your plugin as a wasm file by running
+
+```sh
+cargo prepublish --release
+```
+
+It will create `target/wasm32-wasi/release/my_first_plugin.wasm`
