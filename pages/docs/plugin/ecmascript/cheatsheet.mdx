@@ -10,6 +10,14 @@ import Callout from "nextra-theme-docs/callout";
 
 ### `JsWord`
 
+`String` allocates, and 'text'-s of source code has a special trait.
+Those are lots of duplicates. Obviously, if your variable is named `foo`, you need to use `foo` multiple times.
+So SWC interns the string to reduce the number of allocations.
+
+`JsWord` is a string type that is interned.
+You can create a `JsWord` from `&str`, or from a `String`.
+Use `.into()` to convert to `JsWord`.
+
 ### `Ident`
 
 ### `Id`
