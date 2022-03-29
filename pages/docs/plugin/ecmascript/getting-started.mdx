@@ -173,6 +173,36 @@ kdy1 === bar;
 ## Testing your transform
 
 You can simply run `cargo test` to test your plugins.
+SWC also provides a utility to ease fixture testing.
+
+You can take a look at [the real fixture test for typescript type stripper](https://github.com/swc-project/swc/blob/c0abdb394a94bcbc7ea9602163e6ce032c89b996/crates/swc_ecma_transforms_typescript/tests/strip.rs#L4514-L4527).
+
+```rust
+#[testing::fixture("tests/fixture/**/input.ts")]
+#[testing::fixture("tests/fixture/**/input.tsx")]
+fn fixture(input: PathBuf) {
+    let output = input.with_file_name("output.js");
+    test_fixture(
+        Syntax::Typescript(TsConfig {
+            tsx: input.to_string_lossy().ends_with(".tsx"),
+            ..Default::default()
+        }),
+        &|t| chain!(tr(), properties(t, true)),
+        &input,
+        &output,
+    );
+}
+
+```
+
+Things to note:
+
+- The glob provided to `testing::fixture` is relative to the cargo project directory.
+- The output file is `output.js`, and it's stored in a same directory as the input file.
+- `test_fixture` drives the test.
+- You can determine the syntax of the input file by passing the syntax to `test_fixture`.
+- You then provide your visitor implementation as the second argument to `test_fixture`.
+- Then you provide the input file path and the output file path.
 
 ### logging
 
