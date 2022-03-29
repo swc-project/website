@@ -12,19 +12,19 @@ You can run your plugin as a wasm file by running
 cargo prepublish --release
 ```
 
-It will create `target/wasm32-wasi/release/your_plugin_name.wasm`
+It will create `target/wasm32-wasi/release/your_plugin_name.wasm` or `target/wasm32-unknown-unknown/release/your_plugin_name.wasm`, depending on your config.
 
 ### Creating a npm package for plugin
 
-You can build the required wasm file by using `cargo build`.
+Add the following to your `package.json`:
 
-```sh
-
-
-cargo prepublish --release --target wasm32-wasi
-# or if you want to use wasm32-unknown-unknown instead of wasm32-wasi
-cargo build --release --target wasm32-unknown-unknown
-
+```json
+{
+    "main": "your_plugin_name.wasm",
+    "scripts": {
+        "prepack": "cargo prepublish --release && cp target/wasm32-wasi/release/your_plugin_name.wasm ."
+    },
+}
 ```
 
 ### Configuring CI pipeline
