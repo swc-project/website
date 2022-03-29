@@ -2,7 +2,9 @@
 
 If you prefer reading codes, you can refer to [the repository for official plugins](https://github.com/swc-project/plugins).
 
-## Building a plugin as a wasm
+## Creaating a npm package
+
+### Building a plugin as a wasm
 
 You can run your plugin as a wasm file by running
 
@@ -12,7 +14,7 @@ cargo prepublish --release
 
 It will create `target/wasm32-wasi/release/your_plugin_name.wasm`
 
-## Creating a npm package for plugin
+### Creating a npm package for plugin
 
 You can build the required wasm file by using `cargo build`.
 
@@ -25,9 +27,11 @@ cargo build --release --target wasm32-unknown-unknown
 
 ```
 
-## Configuring CI pipeline
+### Configuring CI pipeline
 
-## Adjusting configuration for smaller binary
+## Advanced: Improving your plugin
+
+### Adjusting configuration for smaller binary
 
 You can reduce the size of the plugin by configuring cargo.
 
@@ -41,8 +45,6 @@ lto = true
 # Optimize for size
 opt-level = "s"
 ```
-
-## Improving performance
 
 ### Removing log for release mode
 
