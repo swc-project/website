@@ -2,13 +2,24 @@
 
 If you prefer reading codes, you can refer to [the repository for official plugins](https://github.com/swc-project/plugins).
 
+## Building a plugin as a wasm
+
+You can run your plugin as a wasm file by running
+
+```sh
+cargo prepublish --release
+```
+
+It will create `target/wasm32-wasi/release/your_plugin_name.wasm`
+
 ## Creating a npm package for plugin
 
 You can build the required wasm file by using `cargo build`.
 
 ```sh
 
-cargo build --release --target wasm32-wasi
+
+cargo prepublish --release --target wasm32-wasi
 # or if you want to use wasm32-unknown-unknown instead of wasm32-wasi
 cargo build --release --target wasm32-unknown-unknown
 
