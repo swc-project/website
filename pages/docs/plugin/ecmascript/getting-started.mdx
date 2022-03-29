@@ -125,6 +125,22 @@ as the input. From [the SWC Playground](https://play.swc.rs), you can get actual
 }
 ```
 
+Let's implement a method for `BinExpr`.
+You can do it like
+
+```rust
+use swc_plugin::ast::*;
+
+impl VisitMut for TransformVisitor {
+    fn visit_mut_bin_expr(&mut self, e: &mut BinExpr) {
+        e.visit_mut_children_with(self);
+    }
+}
+```
+
+Note that `visit_mut_children_with` is required if you want to call the method handler for children.
+e.g. `visit_mut_ident` for `foo` and `bar` will called by `e.visit_mut_children_with(self);` above.
+
 ## Testing your transform
 
 ### logging
