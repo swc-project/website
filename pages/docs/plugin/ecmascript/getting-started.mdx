@@ -204,11 +204,14 @@ Things to note:
 - You then provide your visitor implementation as the second argument to `test_fixture`.
 - Then you provide the input file path and the output file path.
 
-### logging
+### Logging
 
 SWC uses `tracing` for logging.
 By default, SWC testing library configures the log level to `debug` by default, and this can be controlled by using an environment variable named `RUST_LOG`.
 e.g. `RUST_LOG=trace cargo test` will print all logs, including `trace` logs.
+
+If you want, you can remove logging for your plugin by using cargo features of `tracing`.
+See [the documentation for it](https://docs.rs/crate/tracing/latest/features).
 
 ## Publising your plugin
 
