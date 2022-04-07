@@ -21,7 +21,7 @@ module: {
         loader: "swc-loader"
       }
     }
-  ];
+  ]
 }
 ```
 
@@ -46,6 +46,6 @@ module: {
         }
       }
     }
-  ];
+  ]
 }
 ```
