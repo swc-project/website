@@ -5,7 +5,7 @@ To make your Jest tests run faster, you can swap out the default JavaScript-base
 ## Installation
 
 ```plaintext
-npm i -D jest @swc/jest
+npm i -D jest @swc/core @swc/jest
 ```
 
 ## Usage
