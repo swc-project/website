@@ -7,6 +7,7 @@ To make your Jest tests run faster, you can swap out the default JavaScript-base
 ```shell
 # if you use npm
 npm i -D jest @swc/core @swc/jest
+
 # if you use yarn
 yarn add -D jest @swc/core @swc/jest
 ```
