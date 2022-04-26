@@ -1,0 +1,55 @@
+# Publishing plugins
+
+If you prefer reading codes, you can refer to [the repository for official plugins](https://github.com/swc-project/plugins).
+
+## Creaating a npm package
+
+### Building a plugin as a wasm
+
+You can run your plugin as a wasm file by running
+
+```sh
+cargo prepublish --release
+```
+
+It will create `target/wasm32-wasi/release/your_plugin_name.wasm` or `target/wasm32-unknown-unknown/release/your_plugin_name.wasm`, depending on your config.
+
+### Creating a npm package for plugin
+
+Add the following to your `package.json`:
+
+```json
+{
+    "main": "your_plugin_name.wasm",
+    "scripts": {
+        "prepack": "cargo prepublish --release && cp target/wasm32-wasi/release/your_plugin_name.wasm ."
+    },
+}
+```
+
+## Advanced: Improving your plugin
+
+### Adjusting configuration for smaller binary
+
+You can reduce the size of the plugin by configuring cargo.
+
+In your `Cargo.toml` file, you can add the following lines.
+
+```toml
+[profile.release]
+# This removes more dead code
+codegen-units = 1
+lto = true
+# Optimize for size
+opt-level = "s"
+# Optimize for performance, this is default so you don't need to specify it
+# opt-level = "z"
+```
+
+### Removing log for release mode
+
+If logging of yout crate is too much, you can remove it by enabling `release_max_level_*` of `tracing`, like
+
+```toml
+traicing = { version="0.1", features = ["release_max_level_info"] }
+```

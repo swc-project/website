@@ -1,0 +1,295 @@
+import Callout from "nextra-theme-docs/callout";
+
+# Plugin cheatsheet
+
+<Callout>
+    This page describes the known hard points for implementing plugins for ecmascript.
+</Callout>
+
+## Understanding types
+
+### `JsWord`
+
+`String` allocates, and 'text'-s of source code has a special trait.
+Those are lots of duplicates. Obviously, if your variable is named `foo`, you need to use `foo` multiple times.
+So SWC interns the string to reduce the number of allocations.
+
+`JsWord` is a string type that is interned.
+You can create a `JsWord` from `&str`, or from a `String`.
+Use `.into()` to convert to `JsWord`.
+
+### `Ident`, `Id`, `Mark`, `SyntaxContext`
+
+SWC uses a special system for managing variables.
+See [the rustdoc for `Ident`](https://rustdoc.swc.rs/swc_ecma_ast/struct.Ident.html) for details.
+
+## Common issues
+
+### Getting AST representation of input
+
+[SWC Playground](https://play.swc.rs) supports getting AST from the input code.
+
+### Variable management of SWC
+
+### Error reporting
+
+See [rustdoc for `swc_common::erorrs::Handler](https://rustdoc.swc.rs/swc_common/errors/struct.Handler.html).
+
+### Comparing `JsWord` with `&str`
+
+If you don't know what `JsWord` is, see [the rustdoc for swc_atoms](https://rustdoc.swc.rs/swc_atoms/).
+
+You can create `&str` by doing `&val` where `val` is a variable of type `JsWord`.
+
+### Matching `Box<T>`
+
+You will need to use `match` to match on various nodes, including `Box<T>`.
+For performance reason, all expressions are stored in a boxed form. (`Box<Expr>`)
+
+SWC stores callee of call expressions as a `Callee` enum, and it has `Box<Expr>`.
+
+```rust
+use swc_plugin::*;
+
+struct MatchExample;
+
+impl VisitMut for MatchExample {
+    fn visit_mut_callee(&mut self, callee: &mut Callee) {
+        callee.visit_mut_children_with(self);
+
+        if let Callee::Expr(expr) = callee {
+            // expr is `Box<Expr>`
+            if let Expr::Ident(i) = &mut **expr {
+                i.sym = "foo".into();
+            }
+        }
+    }
+}
+
+
+```
+
+## Ownership model (of rust)
+
+> This section is not about `swc` itself. But this is described at here because it's the cause of almost all trickyness of APIs.
+
+In rust, only one variable can _own_ a data, and there's at most one mutable reference to it.
+Also, you need to _own_ the value or have a mutable reference to it if you want to modify the data.
+
+But there's at most one owner/mutable reference, so it means if you have a mutable reference to a value, other code cannot modify the value.
+Every update operation should performed by the code which _owns_ the value or has a mutable reference to it.
+So, some of babel APIs like `node.delete` is super tricky to implement.
+As your code has ownership or mutable refernce to _some_ part of AST, SWC cannot modify the AST.
+
+## Tricky operations
+
+### Deleting node
+
+You can delete a node in two step.
+
+Let's say, we want to drop the variable named `bar` in the code below.
+
+```js
+var foo = 1;
+var bar = 1;
+```
+
+There are two ways to do this.
+
+#### Mark & Delete
+
+The first way is to mark it as _invalid_ and delete it later.
+This is typically more convinient.
+
+```rust
+
+use swc_plugin::*;
+
+impl VisitMut for Remover {
+    fn visit_mut_var_declarator(&mut self, v: &mut VarDeclarator) {
+        // This is not required in this example, but you typically need this.
+        v.visit_mut_children_with(self);
+
+
+        // v.name is `Pat`.
+        // See https://rustdoc.swc.rs/swc_ecma_ast/enum.Pat.html
+        match v.name {
+            // If we want to delete the node, we should return false.
+            //
+            // Note the `&*` before i.sym.
+            // The type of symbol is `JsWord`, which is an interned string.
+            Pat::Ident(i) => {
+                if &*i.sym == "bar" {
+                    // Take::take() is a helper function, which stores invalid value in the node.
+                    // For Pat, it's `Pat::Invalid`.
+                    v.name.take();
+                }
+            }
+            _ => {
+                // Noop if we don't want to delete the node.
+            }
+        }
+    }
+
+    fn visit_mut_var_declarators(&mut self, vars: &mut Vec<VarDeclarator>) {
+        vars.visit_mut_children_with(self);
+
+        vars.retain(|node| {
+            // We want to remove the node, so we should return false.
+            if node.name.is_invalid() {
+                return false
+            }
+
+            // Return true if we want to keep the node.
+            true
+        });
+    }
+
+    fn visit_mut_stmt(&mut self, s: &mut Stmt) {
+        s.visit_mut_children_with(self);
+
+        match s {
+            Stmt::Decl(Decl::Var(var)) => {
+                if var.decls.is_empty() {
+                    // Variable declaration without declarator is invalid.
+                    //
+                    // After this, `s` becomes `Stmt::Empty`.
+                    s.take();
+                }
+            }
+            _ => {}
+        }
+    }
+
+    fn visit_mut_stmts(&mut self, stmts: &mut Vec<Stmt>) {
+        stmts.visit_mut_children_with(self);
+
+        // We remove `Stmt::Empty` from the statement list.
+        // This is optional, but it's required if you don't want extra `;` in output.
+        stmts.retain(|s| {
+            // We use `matches` macro as this match is trivial.
+            !matches!(s, Stmt::Empty(..))
+        });
+    }
+
+    fn visit_mut_module_items(&mut self, stmts: &mut Vec<ModuleItem>) {
+        stmts.visit_mut_children_with(self);
+
+        // This is also required, because top-level statements are stored in `Vec<ModuleItem>`.
+        stmts.retain(|s| {
+            // We use `matches` macro as this match is trivial.
+            !matches!(s, ModuleItem::Stmt(Stmt::Empty(..)))
+        });
+    }
+}
+
+```
+
+#### Delete from the parent handler
+
+Another way to delete the node is deleting it from the parent handler.
+This can be useful if you want to delete the node only if the parent node is specific type.
+
+e.g. You don't want to touch the variables in for loops while deleting free variable statements.
+
+```rust
+use swc_plugin::*;
+
+struct Remover;
+
+impl VisitMut for Remover {
+    fn visit_mut_stmt(&mut self, s: &mut Stmt) {
+        // This is not required in this example, but just to show that you typically need this.
+        s.visit_mut_children_with(self);
+
+        match s {
+            Stmt::Decl(Decl::Var(var)) => {
+                if var.decls.len() == 1 {
+                    match var.decls[0].name {
+                        Pat::Ident(i) => {
+                            if &*i.sym == "bar" {
+                                s.take();
+                            }
+                        }
+                    }
+                }
+            }
+            _ => {}
+        }
+    }
+
+
+    fn visit_mut_stmts(&mut self, stmts: &mut Vec<Stmt>) {
+        stmts.visit_mut_children_with(self);
+
+        // We do same thing here.
+        stmts.retain(|s| {
+            !matches!(s, Stmt::Empty(..))
+        });
+    }
+
+    fn visit_mut_module_items(&mut self, stmts: &mut Vec<ModuleItem>) {
+        stmts.visit_mut_children_with(self);
+
+        // We do same thing here.
+        stmts.retain(|s| {
+            !matches!(s, ModuleItem::Stmt(Stmt::Empty(..)))
+        });
+    }
+}
+
+```
+
+### Referencing parent node from handler of child node
+
+This includes usage of `paths` and `scope`.
+
+### Caching some information about an AST node
+
+You have two way to use informantion from a parent node.
+For first, you can precompute information from the parent node handler.
+Alternatively, you can clone the parent node and use it in the child node handler.
+
+## Alternatives for babel APIs
+
+### `generateUidIdentifier`
+
+This returns a unique identifier with a monotonically increasing integer suffix.
+`swc` does not provide API to do this, because there's a very easy way to do this.
+You can store an integer field in transformer type and use it while calling `quote_ident!` or `private_ident!`.
+
+```rust
+
+struct Example {
+    // You don't need to share counter.
+    cnt: usize
+}
+
+impl Example {
+    /// For properties, it's okay to use `quote_ident`.
+    pub fn next_property_id(&mut self) -> Ident {
+        self.cnt += 1;
+        quote_ident!(format!("$_css_{}", self.cnt))
+    }
+
+    /// If you want to create a safe variable, you should use `private_ident`
+    pub fn next_variable_id(&mut self) -> Ident {
+        self.cnt += 1;
+        private_ident!(format!("$_css_{}", self.cnt))
+    }
+}
+
+
+```
+
+### `path.find`
+
+Upward traversal is not supported by `swc`.
+It's because upward traversal requires storing information about parent at children nodes, which requires using types like `Arc` or `Mutex` in rust.
+
+Instead of traversing upward, you should make it top-down.
+For example, if you want to infer name of a jsx component from variable assignments or assignments, you can store `name` of component while visiting `VarDecl` and/or `AssignExpr` and use it from the component handler.
+
+### `state.file.get`/`state.file.set`
+
+You can simply store the value in the transform struct as an instance of transform struct only process one file.
