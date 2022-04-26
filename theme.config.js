@@ -8,7 +8,7 @@ const Vercel = ({ height = 20 }) => (
 );
 
 export default {
-  github: "https://github.com/swc-project/swc",
+  projectLink: "https://github.com/swc-project/swc",
   docsRepositoryBase: "https://github.com/swc-project/website/blob/master",
   titleSuffix: " – SWC",
   search: true,
