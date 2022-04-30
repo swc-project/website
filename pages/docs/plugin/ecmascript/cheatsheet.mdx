@@ -95,6 +95,80 @@ test!(
 
 ```
 
+### Make your handlers stateless
+
+Let's say we are going to handle all array expressions in a function expression.
+You can add a flag to the visitor to check if we are in a function expression.
+You will be tempted to do
+
+```rust
+
+struct Transform {
+    in_fn_expr: bool
+}
+
+impl VisitMut for SafariIdDestructuringCollisionInFunctionExpression {
+    noop_visit_mut_type!();
+
+    fn visit_mut_fn_expr(&mut self, n: &mut FnExpr) {
+        self.in_fn_expr = true;
+        n.visit_mut_children_with(self);
+        self.in_fn_expr = false;
+    }
+
+    fn visit_mut_array_lit(&mut self, n: &mut ArrayLit) {
+        if self.in_fn_expr {
+            // Do something
+        }
+    }
+}
+```
+
+but this cannot handle
+
+```js
+
+const foo = function () {
+    const arr = [1, 2, 3];
+
+    const bar = function () {};
+
+    const arr2 = [2, 4, 6];
+}
+
+```
+
+After visiting `bar`, `in_fn_expr` is `false`.
+You have to do
+
+```rust
+
+struct Transform {
+    in_fn_expr: bool
+}
+
+impl VisitMut for SafariIdDestructuringCollisionInFunctionExpression {
+    noop_visit_mut_type!();
+
+    fn visit_mut_fn_expr(&mut self, n: &mut FnExpr) {
+        let old_in_fn_expr = self.in_fn_expr;
+        self.in_fn_expr = true;
+
+        n.visit_mut_children_with(self);
+
+        self.in_fn_expr = old_in_fn_expr;
+    }
+
+    fn visit_mut_array_lit(&mut self, n: &mut ArrayLit) {
+        if self.in_fn_expr {
+            // Do something
+        }
+    }
+}
+```
+
+instead.
+
 ## Ownership model (of rust)
 
 > This section is not about `swc` itself. But this is described at here because it's the cause of almost all trickyness of APIs.
