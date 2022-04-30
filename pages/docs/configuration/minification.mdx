@@ -27,6 +27,11 @@ Starting with `v1.2.67`, you can configure SWC to minify your code by enabling `
 
 ## Configuration
 
+### Note about comments
+
+If you set `jsc.minify.compress` to `true` or `{}`, SWC will remove all comments.
+If you don't want this, modify `jsc.minify.format`.
+
 ### `jsc.minify.compress`
 
 Type: `boolean | object`.
@@ -120,6 +125,35 @@ Similar to [the mangle option](https://terser.org/docs/api-reference.html#mangle
 - `reserved`, Defaults to `[]`
 - `ie8`, Ignored.
 - `safari10`, Not implemented yet.
+
+### `jsc.minify.format`
+
+These properties are mostly not implemented yet, but it exists to support passing terser config to swc minify without modification.
+
+- `asciiOnly`, Defaults to `false`. Currently noop and aliased as `ascii_only` for compatibility with `terser`.
+- `beautify`, Defaults to `false`. Currently noop.
+- `braces`, Defaults to `false`. Currently noop.
+- `comments`, Defaults to `false`.
+  - `false` removes all comments
+  - `'some'` preserves some comments
+  - `'all'` preserves all comments
+- `ecma`, Defaults to 5. Currently noop.
+- `indentLevel`, Currently noop and aliases as `indent_level` for compatibility with `terser`.
+- `indentStart`, Currently noop and aliases as `indent_start` for compatibility with `terser`.
+- `inlineScript`, Currently noop and aliases as `inline_script` for compatibility with `terser`.
+- `keepNumbers`, Currently noop and aliases as `keep_numbers` for compatibility with `terser`.
+- `keepQuotedProps`, Currently noop and aliases as `keep_quoted_props` for compatibility with `terser`.
+- `maxLineLen`, Currently noop, and aliases as `max_line_len` for compatibility with `terser`.
+- `preamble`, Currently noop
+- `quoteKeys`, Currently noop and aliases as `quote_keys` for compatibility with `terser`.
+- `quoteStyle`, Currently noop and aliases as `quote_style` for compatibility with `terser`.
+- `preserveAnnotations`, Currently noop and aliases as `preserve_annotations` for compatibility with `terser`.
+- `safari10`, Currently noop.
+- `semicolons`, Currently noop.
+- `shebang`, Currently noop.
+- `webkit`, Currently noop.
+- `wrapIife`, Currently noop and aliases as `wrap_iife` for compatibility with `terser`.
+- `wrapFuncArgs`, Currently noop and aliases as `wrap_func_args` for compatibility with `terser`.
 
 ## @swc/core Usage
 
