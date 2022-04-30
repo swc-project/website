@@ -69,6 +69,32 @@ impl VisitMut for MatchExample {
 
 ```
 
+### Apply `resolver` while testing
+
+SWC applies plugin after applying [`resolver`](https://rustdoc.swc.rs/swc_ecma_transforms_base/fn.resolver.html), so it's better to test your transform with it.
+As written in the rustdoc for the `resolver`, you have to use correct `SyntaxContext` if you need to reference global variable (e.g. `__dirname`, `require`) or top-level bindings written by the user.
+
+```rust
+fn tr() -> impl Fold {
+    chain!(
+        resolver(Mark::new(), Mark::new(), false),
+        // Most of transform does not care about globals so it does not need `SyntaxContext`
+        your_transform()
+    )
+}
+
+test!(
+    Syntax::default(),
+    |_| tr(),
+    basic,
+    // input
+    "(function a ([a]) { a });",
+    // output
+    "(function a([_a]) { _a; });"
+);
+
+```
+
 ## Ownership model (of rust)
 
 > This section is not about `swc` itself. But this is described at here because it's the cause of almost all trickyness of APIs.
