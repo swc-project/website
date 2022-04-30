@@ -107,7 +107,7 @@ struct Transform {
     in_fn_expr: bool
 }
 
-impl VisitMut for SafariIdDestructuringCollisionInFunctionExpression {
+impl VisitMut for Transform {
     noop_visit_mut_type!();
 
     fn visit_mut_fn_expr(&mut self, n: &mut FnExpr) {
@@ -147,7 +147,7 @@ struct Transform {
     in_fn_expr: bool
 }
 
-impl VisitMut for SafariIdDestructuringCollisionInFunctionExpression {
+impl VisitMut for Transform {
     noop_visit_mut_type!();
 
     fn visit_mut_fn_expr(&mut self, n: &mut FnExpr) {
