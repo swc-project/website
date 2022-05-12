@@ -15,7 +15,7 @@ First, install `browserslist`. Then, update your `.swcrc`:
       "chrome": "79"
     },
     "mode": "entry",
-    "coreJs": 3
+    "coreJs": "3.22"
   }
 }
 ```
@@ -29,7 +29,7 @@ If you want to use [browserlists](https://github.com/browserslist/browserslist) 
 ```json
 {
   "env": {
-    "coreJs": 3
+    "coreJs": "3.22"
   }
 }
 ```
@@ -109,6 +109,13 @@ Define ES features to skip to reduce bundle size. For example, your `.swcrc` cou
 }
 ```
 
+### coreJs
+
+- `string`, defaults to `undefined`.
+- `coreJs` specifies the version of `core-js` to use, can be any core-js versions supported by swc. E.g., `"3.22"`.
+
+The option has an effect when used alongside `mode: "usage"` or `mode: "entry"`. It is recommended to specify the minor version (E.g. `"3.22"`) otherwise `"3"` will be interpreted as `"3.0"` which may not include polyfills for the latest features.
+
 ## Additional Options
 
 - `debug`: (_boolean_) defaults to `false`.
@@ -116,6 +123,5 @@ Define ES features to skip to reduce bundle size. For example, your `.swcrc` cou
 - `loose`: (_boolean_) defaults to `false`. Enable [loose transformations](http://2ality.com/2015/12/babel6-loose-mode.html) for any plugins that allow them.
 - `include`: (_string[]_) can be a `core-js` module (`es.math.sign`) or an SWC pass (`transform-spread`).
 - `exclude`: (_string[]_) can be a `core-js` module (`es.math.sign`) or an SWC pass (`transform-spread`).
-- `coreJs`: (_string_) defaults to `undefined`. The version of `core-js` to use.
 - `shippedProposals`: (_boolean_) defaults to `false`.
 - `forceAllTransforms`: (_boolean_) defaults to `false`. Enable all possible transforms.
