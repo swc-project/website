@@ -2,7 +2,7 @@
   "index": {
     "title": "Try SWC",
     "theme": {
-      "sidebar": false
+      "layout": "raw"
     }
   }
 }

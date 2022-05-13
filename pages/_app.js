@@ -18,6 +18,8 @@ export default function Nextra({ Component, pageProps }) {
     };
   }, [router.events]);
 
+  const getLayout = Component.getLayout || ((page) => page);
+
   return (
     <>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
@@ -39,7 +41,7 @@ export default function Nextra({ Component, pageProps }) {
           `,
         }}
       />
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </>
   );
 }

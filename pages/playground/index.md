@@ -1,13 +1,12 @@
 ---
 title: SWC Playground
-full: true
 ---
 
 <iframe
   src="https://play.swc.rs"
   style={{
     width: '100%',
-    height: '100%',
+    height: 'calc(100vh - 64px)',
     border: 0,
     overflow: 'hidden',
     background: 'rgb(21, 21, 21)'
