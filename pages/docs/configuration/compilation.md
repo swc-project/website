@@ -380,7 +380,30 @@ See [the documentation for minification](/docs/configuration/minification) for m
 
 ## jsc.experimental
 
-Currently, there are no experimental options.
+### jsc.experimental.keepImportAssertions
+
+Preserve import assertions.
+This is experimental because import assertions are not covered by ecmascript specifications yet.
+
+### jsc.experimental.plugins
+
+It follows resolving rule of node.js, with some exception for official plugins.
+
+Specify the plugin name like
+
+```json
+{
+  "jsc": {
+    "experimental": {
+      "plugins": [
+        ["styled-jsx", {}]
+      ]
+    }
+  }
+}
+```
+
+`styled-jsx` works because it's published as `@swc/plugin-styled-jsx`.
 
 ## jsc.preserveAllComments
 
