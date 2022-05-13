@@ -1,3 +1,8 @@
 {
-  "index": "Try SWC"
+  "index": {
+    "title": "Try SWC",
+    "theme": {
+      "sidebar": false
+    }
+  }
 }
