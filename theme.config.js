@@ -12,7 +12,7 @@ export default {
   docsRepositoryBase: "https://github.com/swc-project/website/blob/master",
   titleSuffix: " – SWC",
   search: true,
-  unstable_stork: true,
+  unstable_flexsearch: true,
   floatTOC: true,
   logo: () => (
     <>
