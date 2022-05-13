@@ -387,7 +387,7 @@ This is experimental because import assertions are not covered by ecmascript spe
 
 ### jsc.experimental.plugins
 
-It follows resolving rule of node.js, with some exception for official plugins.
+It follows resolving rule of node.js,.
 
 Specify the plugin name like
 
@@ -396,7 +396,7 @@ Specify the plugin name like
   "jsc": {
     "experimental": {
       "plugins": [
-        ["styled-jsx", {}]
+        ["@swc/plugin-styled-jsx", {}]
       ]
     }
   }
