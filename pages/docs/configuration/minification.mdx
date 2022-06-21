@@ -121,6 +121,34 @@ Similar to [the mangle option](https://terser.org/docs/api-reference.html#mangle
 - `ie8`, Ignored.
 - `safari10`, Not implemented yet.
 
+#### `jsc.minify.mangle.properties`
+
+Type: `object`.
+
+Similar to [the mangle properties option](https://terser.org/docs/api-reference.html#mangle-properties-options) of `terser`.
+
+```json
+{
+  "jsc": {
+    "minify": {
+      "mangle":{
+        "properties":{
+          "reserved": ["foo", "bar"],
+          "undeclared":false,
+          "regex":"rust regex"
+        }
+      }
+    }
+  }
+}
+```
+
+- `reserved`: Don't use these names as properties.
+
+- `undeclared`: Mangle properties even if it's not delcared.
+
+- `regex`: Mangle properties only if it matches this regex
+
 ### `jsc.minify.format`
 
 These properties are mostly not implemented yet, but it exists to support passing terser config to swc minify without modification.
