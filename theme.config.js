@@ -143,7 +143,6 @@ export default {
             <span>
               <Vercel />
             </span>
-            )
           </a>
         );
     }
