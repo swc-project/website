@@ -1,6 +1,7 @@
 {
   "index": {
     "title": "Try SWC",
+    "type": "page",
     "theme": {
       "layout": "raw"
     }
