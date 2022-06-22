@@ -1,3 +1,13 @@
+import { useRouter } from "next/router";
+
+const TITLE_WITH_TRANSLATIONS = {
+  "en-US": "Rust-based platform for the Web",
+};
+
+const FEEDBACK_LINK_WITH_TRANSLATIONS = {
+  "en-US": "Question? Give us feedback →",
+};
+
 const Vercel = ({ height = 20 }) => (
   <svg height={height} viewBox="0 0 283 64" fill="none">
     <path
@@ -14,17 +24,30 @@ export default {
   search: true,
   unstable_flexsearch: true,
   floatTOC: true,
-  logo: () => (
-    <>
-      <img src="/logo.png" width="50px" loading="lazy" />
-      <span className="mx-2 font-extrabold hidden md:inline select-none">
-        SWC
-      </span>
-      <span className="text-gray-600 font-normal hidden lg:!inline whitespace-no-wrap">
-        Speedy Web Compiler
-      </span>
-    </>
-  ),
+  feedbackLink: () => {
+    const { locale } = useRouter();
+    return (
+      FEEDBACK_LINK_WITH_TRANSLATIONS[locale] ||
+      FEEDBACK_LINK_WITH_TRANSLATIONS["en-US"]
+    );
+  },
+  logo: () => {
+    const { locale } = useRouter();
+    return (
+      <>
+        <img src="/logo.png" width="50px" loading="lazy" />
+        <span className="mx-2 font-extrabold hidden md:inline select-none">
+          SWC
+        </span>
+        <span
+          className="text-gray-600 font-normal hidden lg:!inline whitespace-no-wrap"
+          title={`${TITLE_WITH_TRANSLATIONS[locale] || ""}`}
+        >
+          Speedy Web Compiler
+        </span>
+      </>
+    );
+  },
   head: ({ title, meta }) => {
     return (
       <>
@@ -100,18 +123,30 @@ export default {
       </>
     );
   },
-  footerEditLink: "Edit this page on GitHub",
-  footerText: () => (
-    <a
-      href="https://vercel.com/?utm_source=swc"
-      target="_blank"
-      rel="noopener"
-      className="inline-flex items-center no-underline text-current font-semibold"
-    >
-      <span className="mr-1">Powered by</span>
-      <span>
-        <Vercel />
-      </span>
-    </a>
-  ),
+  footerEditLink: ({ locale }) => {
+    switch (locale) {
+      default:
+        return "Edit this page on GitHub →";
+    }
+  },
+  footerText: ({ locale }) => {
+    switch (locale) {
+      default:
+        return (
+          <a
+            href="https://vercel.com/?utm_source=swc"
+            target="_blank"
+            rel="noopener"
+            className="inline-flex items-center no-underline text-current font-semibold"
+          >
+            <span className="mr-1">Powered by</span>
+            <span>
+              <Vercel />
+            </span>
+            )
+          </a>
+        );
+    }
+  },
+  i18n: [{ locale: "en-US", text: "English" }],
 };
