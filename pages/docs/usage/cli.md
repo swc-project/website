@@ -5,7 +5,11 @@
 Run the following to download pre-built binaries:
 
 ```plaintext
+# if you use npm
 npm i -D @swc/cli @swc/core
+
+# if you use yarn
+yarn add -D @swc/cli @swc/core
 ```
 
 Then, you can transpile your files:
