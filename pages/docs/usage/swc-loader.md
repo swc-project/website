@@ -6,10 +6,10 @@ This module allows you to use SWC with webpack.
 
 ```plaintext
 # if you use npm
-npm i --save-dev @swc/core swc-loader
+npm i -D @swc/core swc-loader
 
 # if you use yarn
-yarn add -D jest @swc/core swc-loader
+yarn add -D @swc/core swc-loader
 ```
 
 ## Usage
