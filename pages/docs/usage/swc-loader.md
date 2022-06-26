@@ -5,7 +5,11 @@ This module allows you to use SWC with webpack.
 ## Installation
 
 ```plaintext
+# if you use npm
 npm i --save-dev @swc/core swc-loader
+
+# if you use yarn
+yarn add -D jest @swc/core swc-loader
 ```
 
 ## Usage
