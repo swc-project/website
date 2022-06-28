@@ -117,7 +117,7 @@ By extending [`@swc/core/Visitor`](https://github.com/swc-project/swc/blob/maste
 - `visitTsImportEqualsDeclaration(n: TsImportEqualsDeclaration): ModuleDeclaration;`
 - `visitTsModuleReference(n: TsModuleReference): TsModuleReference;`
 - `visitTsExternalModuleReference(n: TsExternalModuleReference): TsExternalModuleReference;`
-- `visitExportAllDeclration(n: ExportAllDeclaration): ModuleDeclaration;`
+- `visitExportAllDeclaration(n: ExportAllDeclaration): ModuleDeclaration;`
 - `visitExportDefaultExpression(n: ExportDefaultExpression): ModuleDeclaration;`
 - `visitExportNamedDeclration(n: ExportNamedDeclaration): ModuleDeclaration;`
 - `visitExportSpecifiers(nodes: ExportSpecifier[]): ExportSpecifier[];`
