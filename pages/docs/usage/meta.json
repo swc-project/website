@@ -5,5 +5,5 @@
   "jest": "@swc/jest",
   "swc-loader": "swc-loader",
   "bundling": "Bundling",
-  "plugins": "Plugins"
+  "plugins": "Plugins (Legacy)"
 }

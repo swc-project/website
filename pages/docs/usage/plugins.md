@@ -1,13 +1,9 @@
-# Plugins (v1)
-
-You can create and use custom plugins with SWC.
+# Plugins (legacy)
 
 > Warning: Passing the AST to the JS Plugin system is a performance bottleneck.
+> This is deprecated and will be removed in v2 of SWC.
 >
-> Therefore, we are considering two approaches for the next SWC major version:
->
-> 1. Creating a plugin system in Rust ([#2337](https://github.com/swc-project/swc/issues/2635))
-> 2. Solve the bottleneck to keep a JS plugin system ([#2175](https://github.com/swc-project/swc/issues/2175))
+> Please see [v2 plugin](/docs/plugin/ecmascript/getting-started) instead
 
 ## Example
 
