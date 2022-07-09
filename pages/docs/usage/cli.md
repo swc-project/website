@@ -4,7 +4,7 @@
 
 Run the following to download pre-built binaries:
 
-```plaintext
+```sh
 # if you use npm
 npm i -D @swc/cli @swc/core
 
