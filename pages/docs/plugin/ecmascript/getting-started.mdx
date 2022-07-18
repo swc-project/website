@@ -147,7 +147,7 @@ Let's narrow down it using the binary operator.
 
 ```rust
 use swc_plugin::ast::*;
-use swc_plugin::util::swc_common::Spanned;
+use swc_plugin::utils::swc_common::Spanned;
 
 impl VisitMut for TransformVisitor {
     fn visit_mut_bin_expr(&mut self, e: &mut BinExpr) {
