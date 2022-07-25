@@ -76,8 +76,14 @@ If you want to change `ExportDefaultDecl` to `ExportDefaultExpr`, you should do 
 ### Inserting new nodes
 
 If you want to inject a new `Stmt`, you need to store the value in the sturct, and inject it from `visit_mut_stmts` or `visit_mut_module_items`.
+See [a destructuring core transform](https://github.com/swc-project/swc/blob/6416c675de14b3acec558ab7b4ec69afcd71fa11/crates/swc_ecma_transforms_compat/src/es2015/destructuring.rs#L1025-L1034).
 
-https://github.com/swc-project/swc/blob/6416c675de14b3acec558ab7b4ec69afcd71fa11/crates/swc_ecma_transforms_compat/src/es2015/destructuring.rs#L1025-L1034
+```rust
+struct MyPlugin {
+    stmts: Vec<Stmt>,
+}
+
+```
 
 ## Tips
 
