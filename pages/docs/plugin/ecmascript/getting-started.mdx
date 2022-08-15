@@ -131,7 +131,10 @@ Let's implement a method for `BinExpr`.
 You can do it like
 
 ```rust
-use swc_plugin::ast::*;
+use swc_core::{
+    ast::*,
+    visit::VisitMut,
+};
 
 impl VisitMut for TransformVisitor {
     fn visit_mut_bin_expr(&mut self, e: &mut BinExpr) {
@@ -146,8 +149,8 @@ e.g. `visit_mut_ident` for `foo` and `bar` will be called by `e.visit_mut_childr
 Let's narrow down it using the binary operator.
 
 ```rust
-use swc_plugin::ast::*;
-use swc_plugin::utils::swc_common::Spanned;
+use swc_core::ast::*;
+use swc_core::common::Spanned;
 
 impl VisitMut for TransformVisitor {
     fn visit_mut_bin_expr(&mut self, e: &mut BinExpr) {
