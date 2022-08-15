@@ -49,7 +49,8 @@ For performance reason, all expressions are stored in a boxed form. (`Box<Expr>`
 SWC stores callee of call expressions as a `Callee` enum, and it has `Box<Expr>`.
 
 ```rust
-use swc_plugin::*;
+use swc_core::ast::*;
+use swc_core::visit::{VisitMut, VisitMutWith};
 
 struct MatchExample;
 
@@ -259,7 +260,8 @@ This is typically more convinient.
 
 ```rust
 
-use swc_plugin::*;
+use swc_core::ast::*;
+use swc_core::visit::{VisitMut,VsiitMutWith};
 
 impl VisitMut for Remover {
     fn visit_mut_var_declarator(&mut self, v: &mut VarDeclarator) {
@@ -349,7 +351,8 @@ This can be useful if you want to delete the node only if the parent node is spe
 e.g. You don't want to touch the variables in for loops while deleting free variable statements.
 
 ```rust
-use swc_plugin::*;
+use swc_core::ast::*;
+use swc_core::visit::{VisitMut,VsiitMutWith};
 
 struct Remover;
 
