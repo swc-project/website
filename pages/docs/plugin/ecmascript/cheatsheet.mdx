@@ -259,7 +259,8 @@ This is typically more convinient.
 
 ```rust
 
-use swc_plugin::*;
+use swc_core::ast::*;
+use swc_core::visit::{VisitMut,VsiitMutWith};
 
 impl VisitMut for Remover {
     fn visit_mut_var_declarator(&mut self, v: &mut VarDeclarator) {
