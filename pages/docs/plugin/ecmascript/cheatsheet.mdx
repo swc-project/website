@@ -226,6 +226,12 @@ module.exports = {
 
 See https://github.com/jantimon/css-variable/blob/main/test/swc/jest.config.js
 
+### `Path` is one of unix, while FileName can be one of host OS
+
+This is because linux version of `Path` code is used while compiling to wasm.
+So you may need to replace `\\` with `/` in your plugin.
+As `/` is a valid path separator in windows, it's valid thing to do.
+
 ## Ownership model (of rust)
 
 > This section is not about `swc` itself. But this is described at here because it's the cause of almost all trickyness of APIs.
