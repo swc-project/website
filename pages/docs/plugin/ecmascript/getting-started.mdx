@@ -138,7 +138,7 @@ use swc_core::{
 
 impl VisitMut for TransformVisitor {
     fn visit_mut_bin_expr(&mut self, e: &mut BinExpr) {
-        e.span.visit_mut_children_with(self);
+        e.visit_mut_children_with(self);
     }
 }
 ```
@@ -157,7 +157,7 @@ use swc_core::{
 
 impl VisitMut for TransformVisitor {
     fn visit_mut_bin_expr(&mut self, e: &mut BinExpr) {
-        e.span.visit_mut_children_with(self);
+        e.visit_mut_children_with(self);
 
         if e.op == op!("===") {
             e.left = Box::new(Ident::new("kdy1".into(), e.left.span()).into());
