@@ -27,7 +27,7 @@ Add the following to your `package.json`:
 {
     "main": "your_plugin_name.wasm",
     "scripts": {
-        "prepack": "cargo prepublish --release && cp target/wasm32-wasi/release/your_plugin_name.wasm ."
+        "prepack": "cargo build-wasi --release && cp target/wasm32-wasi/release/your_plugin_name.wasm ."
     },
 }
 ```
