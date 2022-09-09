@@ -2,6 +2,8 @@
 
 If you prefer reading codes, you can refer to [the repository for official plugins](https://github.com/swc-project/plugins).
 
+We assume that `swi_cli` was used to setup the module. See [our Getting Started guide](https://swc.rs/docs/plugin/ecmascript/getting-started).
+
 ## Creating a npm package
 
 ### Building a plugin as a wasm
@@ -12,6 +14,8 @@ You can run your plugin as a wasm file by running
 cargo build-wasi --release // build wasm32-wasi target binary
 cargo build-wasm32 --release // build wasm32-unknown-unknown target binary
 ```
+
+Both `build-wasi` and `build-wasm32` are aliases configured in `.cargo/config` by the `swi_cli`.
 
 It will create `target/wasm32-wasi/release/your_plugin_name.wasm` or `target/wasm32-unknown-unknown/release/your_plugin_name.wasm`, depending on your config.
 
