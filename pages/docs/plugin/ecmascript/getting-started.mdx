@@ -131,7 +131,10 @@ Let's implement a method for `BinExpr`.
 You can do it like
 
 ```rust
-use swc_plugin::ast::*;
+use swc_core::{
+    ast::*,
+    visit::{VisitMut, VisitMutWith},
+};
 
 impl VisitMut for TransformVisitor {
     fn visit_mut_bin_expr(&mut self, e: &mut BinExpr) {
@@ -141,20 +144,23 @@ impl VisitMut for TransformVisitor {
 ```
 
 Note that `visit_mut_children_with` is required if you want to call the method handler for children.
-e.g. `visit_mut_ident` for `foo` and `bar` will called by `e.visit_mut_children_with(self);` above.
+e.g. `visit_mut_ident` for `foo` and `bar` will be called by `e.visit_mut_children_with(self);` above.
 
 Let's narrow down it using the binary operator.
 
 ```rust
-use swc_plugin::ast::*;
-use swc_plugin::utils::swc_common::Spanned;
+use swc_core::{
+    ast::*,
+    visit::{VisitMut, VisitMutWith},
+    common::Spanned,
+};
 
 impl VisitMut for TransformVisitor {
     fn visit_mut_bin_expr(&mut self, e: &mut BinExpr) {
         e.visit_mut_children_with(self);
 
         if e.op == op!("===") {
-            e.left = Ident::new("kdy1".into(), e.left.span()).into();
+            e.left = Box::new(Ident::new("kdy1".into(), e.left.span()).into());
         }
     }
 }
@@ -174,6 +180,18 @@ kdy1 === bar;
 
 You can simply run `cargo test` to test your plugins.
 SWC also provides a utility to ease fixture testing.
+
+You can easily verify the input and output of the transform.
+
+```rust
+test!(
+    Default::default(),
+    |_| as_folder(TransformVisitor),
+    boo,
+    r#"foo === bar;"#,
+    r#"kdy1 === bar;"#
+);
+```
 
 You can take a look at [the real fixture test for typescript type stripper](https://github.com/swc-project/swc/blob/c0abdb394a94bcbc7ea9602163e6ce032c89b996/crates/swc_ecma_transforms_typescript/tests/strip.rs#L4514-L4527).
 

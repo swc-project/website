@@ -420,13 +420,13 @@ annotations.
 ```json
 [
   {
-    "test": ".*.js$",
+    "test": ".*\\.js$",
     "module": {
       "type": "commonjs"
     }
   },
   {
-    "test": ".*.ts$",
+    "test": ".*\\.ts$",
     "module": {
       "type": "amd"
     }
@@ -440,7 +440,7 @@ Note that `test` option can be used to transcompile only typescript files, like
 
 ```json
 {
-  "test": ".*.ts$",
+  "test": ".*\\.ts$",
   "jsc": {
     "parser": {
       "syntax": "typescript",
@@ -458,7 +458,7 @@ Type: `Regex / Regex[]`
 
 ```json
 {
-  "test": ".*.ts$",
+  "test": ".*\\.ts$",
   "jsc": {
     "parser": {
       "syntax": "typescript",
@@ -476,7 +476,7 @@ Type: `Regex / Regex[]`
 
 ```json
 {
-  "exclude": [".*.js$", ".*.map$"],
+  "exclude": [".*\\.js$", ".*\\.map$"],
   "jsc": {
     "parser": {
       "syntax": "typescript",
