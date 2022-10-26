@@ -191,19 +191,19 @@ Possible values: `automatic`, `classic`. This affects how JSX source code will b
 
 - Defaults to `react`.
 - When using `runtime: automatic`, determines the runtime library to import.
-- This option can be overrided with `@jsxImportSource foo`.
+- This option can be overridden with `@jsxImportSource foo`.
 
 #### jsc.transform.react.pragma
 
 - Defaults to `React.createElement`.
 - When using `runtime: classic`, replaces the function used when compiling JSX expressions.
-- This option can be overrided with `@jsx foo`.
+- This option can be overridden with `@jsx foo`.
 
 #### jsc.transform.react.pragmaFrag
 
 - Defaults to `React.Fragment`
 - Replace the component used when compiling JSX fragments.
-- This option can be overrided with `@jsxFrag foo`.
+- This option can be overridden with `@jsxFrag foo`.
 
 #### jsc.transform.react.throwIfNamespace
 
@@ -408,7 +408,7 @@ Specify the plugin name like
 
 ## jsc.preserveAllComments
 
-Indicate that all comments should be preserved during compilation. Comments from source may be shifted in order to preserve thier relative location from source
+Indicate that all comments should be preserved during compilation. Comments from source may be shifted in order to preserve their relative location from source
 to compiled output.
 This feature is useful for transpilation that requires comments remain relatively close to the source: e.g. files under test with istanbul-ignore coverage
 annotations.
@@ -420,13 +420,13 @@ annotations.
 ```json
 [
   {
-    "test": ".*\\.js$",
+    "test": ".*\.js$",
     "module": {
       "type": "commonjs"
     }
   },
   {
-    "test": ".*\\.ts$",
+    "test": ".*\.ts$",
     "module": {
       "type": "amd"
     }
@@ -440,7 +440,7 @@ Note that `test` option can be used to transcompile only typescript files, like
 
 ```json
 {
-  "test": ".*\\.ts$",
+  "test": ".*\.ts$",
   "jsc": {
     "parser": {
       "syntax": "typescript",
@@ -458,7 +458,7 @@ Type: `Regex / Regex[]`
 
 ```json
 {
-  "test": ".*\\.ts$",
+  "test": ".*\.ts$",
   "jsc": {
     "parser": {
       "syntax": "typescript",
@@ -476,7 +476,7 @@ Type: `Regex / Regex[]`
 
 ```json
 {
-  "exclude": [".*\\.js$", ".*\\.map$"],
+  "exclude": [".*\.js$", ".*\.map$"],
   "jsc": {
     "parser": {
       "syntax": "typescript",
