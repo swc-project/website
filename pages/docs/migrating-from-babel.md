@@ -24,7 +24,7 @@ This table outlines the differences between SWC and Babel.
 | babel-plugin-proposal-function-bind                      |   ❌ (stage 0)    |
 | babel-plugin-proposal-function-sent                      |   ❌ (stage 2)    |
 | babel-plugin-proposal-json-strings                       |        ✔️         |
-| babel-plugin-proposal-logical-assignment-operators       |   ❌ (stage 1)    |
+| babel-plugin-proposal-logical-assignment-operators       |        ✔️         |
 | babel-plugin-proposal-nullish-coalescing-operator        |        ✔️         |
 | babel-plugin-proposal-numeric-separator                  |        ✔️         |
 | babel-plugin-proposal-object-rest-spread                 |        ✔️         |
