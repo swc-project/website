@@ -1,4 +1,4 @@
-import Callout from 'nextra-theme-docs/callout'
+import { Callout, Tabs, Tab } from 'nextra-theme-docs'
 import Link from 'next/link'
 
 # Getting Started
@@ -9,13 +9,27 @@ The easiest way to try SWC is using the [Playground](/playground).
 
 Otherwise, run the following to download pre-built binaries:
 
-```plaintext
-npm i -D @swc/cli @swc/core
-```
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    ```bash
+    pnpm i -D @swc/cli @swc/core
+    ```
+  </Tab>
+    <Tab>
+    ```bash
+    npm i -D @swc/cli @swc/core
+    ```
+  </Tab>
+    <Tab>
+    ```bash
+    yarn add -D @swc/cli @swc/core
+    ```
+  </Tab>
+</Tabs>
 
 Then, you can transpile your first file and emit to `stdout`:
 
-```plaintext
+```bash
 npx swc ./file.js
 ```
 

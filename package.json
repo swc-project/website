@@ -11,12 +11,12 @@
     "chart.js": "^3.7.1",
     "focus-visible": "^5.2.0",
     "markdown-to-jsx": "^6.11.4",
-    "next": "^12.0.10",
-    "nextra": "2.0.0-alpha.56",
-    "nextra-theme-docs": "2.0.0-alpha.56",
-    "react": "^17.0.2",
+    "next": "^13.0.6",
+    "nextra": "2.0.1",
+    "nextra-theme-docs": "2.0.1",
+    "react": "^18.2.0",
     "react-chartjs-2": "^3.3.0",
-    "react-dom": "^17.0.2"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.10",
