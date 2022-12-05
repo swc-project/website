@@ -1,10 +1,10 @@
-import Callout from "nextra-theme-docs/callout";
+import { Callout } from 'nextra-theme-docs';
 
 # Minification
 
 Starting with `v1.2.67`, you can configure SWC to minify your code by enabling `minify` in your `.swcrc` file:
 
-```json
+```json filename=".swcrc" copy
 {
   // Enable minification
   "minify": true,
@@ -33,7 +33,7 @@ Type: `boolean | object`.
 
 Similar to [the compress option](https://terser.org/docs/api-reference.html#compress-options) of `terser`.
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "minify": {
@@ -102,7 +102,7 @@ Type: `boolean | object`.
 
 Similar to [the mangle option](https://terser.org/docs/api-reference.html#mangle-options) of `terser`.
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "minify": {
@@ -127,7 +127,7 @@ Type: `object`.
 
 Similar to [the mangle properties option](https://terser.org/docs/api-reference.html#mangle-properties-options) of `terser`.
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "minify": {
@@ -226,7 +226,7 @@ Returns `{ code: string, map: string }`.
 
 You can reduce build time and override Terser without needing a library to update their dependencies through [yarn resolutions](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/). Example `package.json` would include:
 
-```json
+```json filename="package.json"
 {
   "resolutions": { "terser": "npm:@swc/core" }
 }

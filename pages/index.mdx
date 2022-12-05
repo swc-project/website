@@ -2,7 +2,7 @@
 title: Rust-based platform for the Web
 ---
 
-import Callout from 'nextra-theme-docs/callout'
+import { Callout, Tabs, Tab } from 'nextra-theme-docs'
 
 <style jsx global>{`
 body {
@@ -42,14 +42,6 @@ SWC can be used for both compilation and bundling. For compilation, it takes Jav
 
 ## Overview
 
-```bash
-# Download prebuilt binaries
-npm i -D @swc/cli @swc/core
-
-# Transpile JavaScript file and emit to stdout
-npx swc ./file.js
-```
-
 SWC can be downloaded and used as a pre-built binary, or built from source. Currently, the following binaries are provided:
 
 - Mac (Apple Silicon)
@@ -61,6 +53,32 @@ SWC can be downloaded and used as a pre-built binary, or built from source. Curr
 - Android (aarch64)
 - Windows (win32-x64)
 - Windows (ia32)
+
+#### Download prebuilt binaries
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    ```bash copy
+    pnpm i -D @swc/cli @swc/core
+    ```
+  </Tab>
+  <Tab>
+    ```bash copy
+    npm i -D @swc/cli @swc/core
+    ```
+  </Tab>
+  <Tab>
+    ```bash copy
+    yarn add -D @swc/cli @swc/core
+    ```
+  </Tab>
+</Tabs>
+
+#### Transpile JavaScript file and emit to stdout
+
+```bash copy
+npx swc ./file.js
+```
 
 ## Features
 

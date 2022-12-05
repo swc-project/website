@@ -1,4 +1,4 @@
-import Callout from "nextra-theme-docs/callout";
+import { Callout } from 'nextra-theme-docs';
 
 # Plugin cheatsheet
 
@@ -194,7 +194,7 @@ instead.
 
 You can test your transform with `@swc/jest` by adding your plugin to your `jest.config.js`.
 
-```js
+```js filename="jest.config.js"
 module.exports = {
   rootDir: __dirname,
   moduleNameMapper: {
