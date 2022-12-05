@@ -8,7 +8,7 @@ SWC can transpile your code using ES Modules to CommonJS or UMD/AMD. By default,
 
 To emit a CommonJS module, change the `type` in `.swcrc`:
 
-```json
+```json filename=".swcrc" copy
 {
   "$schema": "http://json.schemastore.org/swcrc",
   "module": {
@@ -27,7 +27,7 @@ To emit a CommonJS module, change the `type` in `.swcrc`:
 
 To emit a ES6 module, change the `type` in `.swcrc`:
 
-```json
+```json filename=".swcrc" copy
 {
   "module": {
     "type": "es6",
@@ -45,7 +45,7 @@ To emit a ES6 module, change the `type` in `.swcrc`:
 
 To emit an AMD module, change the `type` in `.swcrc`:
 
-```json
+```json filename=".swcrc" copy
 {
   "module": {
     "type": "amd",
@@ -65,7 +65,7 @@ To emit an AMD module, change the `type` in `.swcrc`:
 
 To emit an UMD module, change the `type` in `.swcrc`:
 
-```json
+```json filename=".swcrc" copy
 {
   "module": {
     "type": "umd",
@@ -84,7 +84,7 @@ To emit an UMD module, change the `type` in `.swcrc`:
 
 These options are shared by `commonjs` / `es6` / `umd` / `amd` inside `.swcrc`:
 
-```json
+```json filename=".swcrc" copy
 {
   "module": {
     // You can specify "commonjs", "es6", "amd", "umd"
@@ -98,7 +98,8 @@ These options are shared by `commonjs` / `es6` / `umd` / `amd` inside `.swcrc`:
 }
 ```
 
-export const EsModuleText = () => <code className="nx-border-black nx-border-opacity-[0.04] nx-bg-opacity-[0.03] nx-bg-black nx-break-words nx-rounded-md nx-border nx-py-0.5 nx-px-[.25em] nx-text-[.9em] dark:nx-border-white/10 dark:nx-bg-white/10">__esModule</code>
+{/* TODO: should fix this in nextra side */}
+export const EsModuleText = () => <code className="nx-border-black nx-border-opacity-[0.04] nx-bg-opacity-[0.03] nx-bg-black nx-break-words nx-rounded-md nx-border nx-py-0.5 nx-px-[.25em] nx-text-[.9em] dark:nx-border-white/10 dark:nx-bg-white/10">{`__esModule`}</code>
 
 ### strict
 

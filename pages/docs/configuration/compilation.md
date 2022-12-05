@@ -2,7 +2,7 @@
 
 Compilation works out of the box with SWC and does not require customization. Optionally, you can override the configuration. Here are the defaults:
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "parser": {
@@ -32,7 +32,7 @@ Compilation works out of the box with SWC and does not require customization. Op
 
 ## jsc.externalHelpers
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "externalHelpers": true
@@ -52,7 +52,7 @@ You must add `@swc/helpers` as a dependency in addition to `@swc/core`.
 
 ### typescript
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "parser": {
@@ -67,7 +67,7 @@ You must add `@swc/helpers` as a dependency in addition to `@swc/core`.
 
 ### ecmascript
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "parser": {
@@ -91,7 +91,7 @@ You must add `@swc/helpers` as a dependency in addition to `@swc/core`.
 
 Starting from `@swc/core` v1.0.27, you can specify the target environment by using the field.
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     // Disable es3 / es5 / es2015 transforms
@@ -100,11 +100,11 @@ Starting from `@swc/core` v1.0.27, you can specify the target environment by usi
 }
 ```
 
-## jsc.loose
+## jsc.loose 
 
 Starting from `@swc/core` v1.1.4, you can enable "loose" transformations by enabling `jsc.loose` which works like `babel-preset-env` [loose mode](https://2ality.com/2015/12/babel6-loose-mode.html).
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "loose": true
@@ -114,7 +114,7 @@ Starting from `@swc/core` v1.1.4, you can enable "loose" transformations by enab
 
 ## jsc.transform
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "transform": {
@@ -141,7 +141,7 @@ Starting from `@swc/core` v1.1.4, you can enable "loose" transformations by enab
 
 You can use the legacy (stage 1) class decorators syntax and behavior.
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "parser": {
@@ -161,7 +161,7 @@ This feature requires `v1.2.13+`.
 
 If you are using typescript and decorators with `emitDecoratorMetadata` enabled, you can use `swc` for faster iteration:
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "parser": {
@@ -237,7 +237,7 @@ interface ReactRefreshConfig {
 
 ### jsc.transform.constModules
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "transform": {
@@ -259,7 +259,7 @@ interface ReactRefreshConfig {
 
 Then, source code like:
 
-```js
+```js filename="source.js"
 import { DEBUG } from "@ember/env-flags";
 import { FEATURE_A, FEATURE_B } from "@ember/features";
 
@@ -268,7 +268,7 @@ console.log(DEBUG, FEATURE_A, FEATURE_B);
 
 is transformed to:
 
-```js
+```js filename="output.js"
 console.log(true, false, true);
 ```
 
@@ -291,7 +291,7 @@ Setting this to `undefined` skips optimizer pass.
 
 You can set this to `false` to use `inline_globals` while skipping optimizations.
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "transform": {
@@ -315,7 +315,7 @@ You can set this to `false` to use `inline_globals` while skipping optimizations
 - `vars` - Variables to inline.
 - `typeofs` - If you set `{ "window": "object" }`, `typeof window` will be replaced with `"object"`.
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "transform": {
@@ -339,7 +339,7 @@ Then, you can use it like `npx swc '__DEBUG__' --filename input.js`.
 
 - `minCost` - If cost of parsing a pure object literal is larger than this value, the object literal is converted to `JSON.parse('{"foo": "bar"}')`. Defaults to 1024.
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "transform": {
@@ -392,7 +392,7 @@ It follows resolving rule of node.js,.
 
 Specify the plugin name like
 
-```json
+```json filename=".swcrc" copy
 {
   "jsc": {
     "experimental": {
@@ -438,7 +438,7 @@ This make SWC compile JavaScript files as CommonJS modules and compile TypeScrip
 
 Note that `test` option can be used to transcompile only typescript files, like
 
-```json
+```json filename=".swcrc" copy
 {
   "test": ".*\\.ts$",
   "jsc": {
@@ -456,7 +456,7 @@ Note that `test` option can be used to transcompile only typescript files, like
 
 Type: `Regex / Regex[]`
 
-```json
+```json filename=".swcrc" copy
 {
   "test": ".*\\.ts$",
   "jsc": {
@@ -474,7 +474,7 @@ Type: `Regex / Regex[]`
 
 Type: `Regex / Regex[]`
 
-```json
+```json filename=".swcrc" copy
 {
   "exclude": [".*\\.js$", ".*\\.map$"],
   "jsc": {
@@ -494,7 +494,7 @@ Type: `Regex / Regex[]`
 
 Enable source map by adding `sourceMaps: true` or `sourceMaps: 'inline'` to the `.swcrc`.
 
-```json
+```json filename=".swcrc" copy
 {
   "sourceMaps": true
 }
@@ -506,7 +506,7 @@ Enable source map by adding `sourceMaps: true` or `sourceMaps: 'inline'` to the 
 
 Defaults to `true`. If you want to make `swc` store contents of files into sourcemap, you can set `inlineSourcesContent` to `true`.
 
-```json
+```json filename=".swcrc" copy
 {
   "sourceMaps": true,
   "inlineSourcesContent": true
