@@ -100,7 +100,7 @@ Starting from `@swc/core` v1.0.27, you can specify the target environment by usi
 }
 ```
 
-## jsc.loose 
+## jsc.loose
 
 Starting from `@swc/core` v1.1.4, you can enable "loose" transformations by enabling `jsc.loose` which works like `babel-preset-env` [loose mode](https://2ality.com/2015/12/babel6-loose-mode.html).
 
@@ -312,8 +312,9 @@ You can set this to `false` to use `inline_globals` while skipping optimizations
 
 > Requires `v1.2.101+`
 
-- `vars` - Variables to inline.
-- `typeofs` - If you set `{ "window": "object" }`, `typeof window` will be replaced with `"object"`.
+- `vars` - Global variables that should be inlined with passed value.
+- `envs` - Names of environment variables that should be inlined with the value of corresponding env during build
+- `typeofs` - Replaces typeof calls for passed variables with corresponding value e.g. if you set `{ "window": "object" }`, `typeof window` will be replaced with `"object"`.
 
 ```json filename=".swcrc" copy
 {
@@ -323,6 +324,10 @@ You can set this to `false` to use `inline_globals` while skipping optimizations
         "globals": {
           "vars": {
             "__DEBUG__": "true"
+          },
+          "envs": ["NODE_ENV", "SWC_ENV"],
+          "typeofs": {
+            "window": "object"
           }
         }
       }
