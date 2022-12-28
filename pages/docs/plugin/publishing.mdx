@@ -28,6 +28,24 @@ Add the following to your `package.json`:
 }
 ```
 
+## Using the npm package
+
+To use the plugin, add it to `devDependencies` (or whatever is the best place for it) in your `package.json`. Note that this is not in your plugin's `package.json`! It has to be added to whatever project is consuming the plugin npm package.
+
+The same package name also needs to be added in the swc configuration. We'll assume that you used the name `swc_plugin` as the name of your npm package. Make sure your `.swcrc` has at least the following:
+
+```jsonc filename=".swcrc" copy
+{
+  "jsc": {
+    "experimental": {
+      "plugins": [["swc_plugin", {}]]
+    }
+  }
+}
+```
+
+Each plugin in the `jsc.experimental.plugins` array is also identified by an array. The first element is the name of the package containing the plugin. The second element is any configuration to be passed to the plugin.
+
 ## Advanced: Improving your plugin
 
 ### Adjusting configuration for smaller binary
