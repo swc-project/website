@@ -46,7 +46,29 @@ Note that this does not work with `jsc.target`.
 
 Possible values:
 
-- Version per browser: `HashMap<String, Version>`
+- Query: `string`
+
+Example:
+
+```json filename=".swcrc" copy
+{
+    "jsc": {
+        "parser": {
+            "syntax": "typescript",
+            "tsx": true,
+        },
+        "externalHelpers": true
+    },
+    "env": {
+        "targets": "Chrome >= 48"
+    }
+}
+
+```
+
+- Queries: `string[]`
+
+- Version per browser: `Map<String, Version>`
 
 Example of targeting `chrome 79`.
 
@@ -70,6 +92,8 @@ Possible values: `"usage" | "entry"`.
 Optional.
 Type: Bool
 
+Enable debug logging.
+
 ### `env.dynamicImport`
 
 Optional.
@@ -79,6 +103,8 @@ Type: Bool
 
 Optional.
 Type: Bool
+
+Enable loose mode.
 
 ### `env.skip`
 
