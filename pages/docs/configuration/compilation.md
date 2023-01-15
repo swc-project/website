@@ -42,18 +42,20 @@ You can
 with `env` entry.
 Note that this does not work with `jsc.target`.
 
-Example of targeting `chrome 79` while transpiling only async/yield.
+### `env.targets`
+
+Possible values:
+
+- Version per browser: `HashMap<String, Version>`
+
+Example of targeting `chrome 79`.
 
 ```json filename=".swcrc" copy
 {
     "env": {
         "targets": {
             "chrome": "79",
-        },
-        "include": [
-            "transform-async-to-generator",
-            "transform-regenerator",
-        ],
+        }
     },
 }
 ```
@@ -88,19 +90,50 @@ Type: `string[]`
 Optional.
 Type: `string[]`
 
+Feature or module to include.
+
+Example of enabling `async`/`yield` transform while targeting chrome 79.
+
+```json filename=".swcrc" copy
+{
+    "env": {
+        "targets": {
+            "chrome": "79",
+        },
+        "include": [
+            "transform-async-to-generator",
+            "transform-regenerator",
+        ],
+    },
+}
+```
+
 ### `env.exclude`
 
 Optional.
 Type: `string[]`
+
+Feature or module to exclude.
 
 ### `env.coreJs`
 
 Optional.
 Type: `string`
 
-### `env.targets`
-
-    pub targets: Option<Targets>,
+```json filename=".swcrc" copy
+{
+    "jsc": {
+        "parser": {
+            "syntax": "ecmascript",
+            "jsx": true
+        }
+    },
+    "env": {
+        "mode": "usage",
+        "coreJs": "3.26.1"
+    }
+}
+```
 
 ### `env.path`
 
