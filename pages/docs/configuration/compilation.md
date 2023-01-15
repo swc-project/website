@@ -58,6 +58,72 @@ Example of targeting `chrome 79` while transpiling only async/yield.
 }
 ```
 
+### `env.mode`
+
+Optional.
+Possible values: `"usage" | "entry"`.
+
+### `env.debug`
+
+Optional.
+Type: Bool
+
+### `env.dynamicImport`
+
+Optional.
+Type: Bool
+
+### `env.loose`
+
+Optional.
+Type: Bool
+
+### `env.skip`
+
+Optional.
+Type: `string[]`
+
+### `env.include`
+
+Optional.
+Type: `string[]`
+
+### `env.exclude`
+
+Optional.
+Type: `string[]`
+
+### `env.coreJs`
+
+Optional.
+Type: `string`
+
+### `env.targets`
+
+    pub targets: Option<Targets>,
+
+### `env.path`
+
+Optional.
+Currently noop.
+
+### `env.shippedProposals`
+
+Optional.
+Type: Bool
+
+### `env.forceAllTransforms`
+
+Optional.
+Type: Bool
+
+### `env.bugfixes`
+
+Optional.
+Type: Bool
+
+Enable bugfix passes.
+
 ## jsc.externalHelpers
 
 ```json filename=".swcrc" copy
