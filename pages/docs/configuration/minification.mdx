@@ -2,6 +2,13 @@ import { Callout } from 'nextra-theme-docs';
 
 # Minification
 
+<Callout emoji="⚠️">
+  This section is for people who want to use swc as a last step of the build process.
+  If you want to use swc minifier with a bundler, please see its documentation for swcMinify.
+  <br/>
+  <a href="https://webpack.js.org/plugins/terser-webpack-plugin/#swc">Webpack doc</a>
+</Callout>
+
 Starting with `v1.2.67`, you can configure SWC to minify your code by enabling `minify` in your `.swcrc` file:
 
 ```json filename=".swcrc" copy
