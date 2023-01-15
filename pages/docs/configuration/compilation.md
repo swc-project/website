@@ -30,6 +30,34 @@ Compilation works out of the box with SWC and does not require customization. Op
 }
 ```
 
+## env
+
+SWC has an alternative for `preset-env`.
+You can
+
+- Set target browsers
+- Use `browserslist`
+- Control transforms
+
+with `env` entry.
+Note that this does not work with `jsc.target`.
+
+Example of targeting `chrome 79` while transpiling only async/yield.
+
+```json filename=".swcrc" copy
+{
+    "env": {
+        "targets": {
+            "chrome": "79",
+        },
+        "include": [
+            "transform-async-to-generator",
+            "transform-regenerator",
+        ],
+    },
+}
+```
+
 ## jsc.externalHelpers
 
 ```json filename=".swcrc" copy
@@ -100,7 +128,7 @@ Starting from `@swc/core` v1.0.27, you can specify the target environment by usi
 }
 ```
 
-## jsc.loose 
+## jsc.loose
 
 Starting from `@swc/core` v1.1.4, you can enable "loose" transformations by enabling `jsc.loose` which works like `babel-preset-env` [loose mode](https://2ality.com/2015/12/babel6-loose-mode.html).
 
