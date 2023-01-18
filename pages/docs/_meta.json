@@ -3,6 +3,7 @@
   "usage": "Usage",
   "configuration": "Configuration",
   "plugin": "Plugin",
+  "sponsors": "Sponsors",
   "benchmarks": "Benchmarks",
   "migrating-from-babel": "Migrating from Babel"
 }
