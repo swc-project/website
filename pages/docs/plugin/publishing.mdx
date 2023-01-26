@@ -45,6 +45,19 @@ The same package name also needs to be added in the swc configuration. We'll ass
 ```
 
 Each plugin in the `jsc.experimental.plugins` array is also identified by an array. The first element is the name of the package containing the plugin. The second element is any configuration to be passed to the plugin.
+For example, if your plugin defines a key `classNames`, you configure it as follows:
+
+```jsonc filename=".swcrc" copy
+{
+  "jsc": {
+    "experimental": {
+      "plugins": [["swc_plugin", {
+        "classNames": ["class1", "class2"]
+      }]]
+    }
+  }
+}
+```
 
 ## Advanced: Improving your plugin
 
