@@ -139,3 +139,13 @@ In cases where the auto-unwrapping of default is not needed, you can set the noI
 ### ignoreDynamic
 
 If set to `true`, dynamic imports will be preserved.
+
+### importInterop
+
+Possible values:
+
+- `swc` (alias: `babel`)
+- `node`
+- `none`
+
+Defaults to `none` if `noInterop` is true, and `swc` otherwise.
