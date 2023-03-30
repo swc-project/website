@@ -566,6 +566,53 @@ to compiled output.
 This feature is useful for transpilation that requires comments remain relatively close to the source: e.g. files under test with istanbul-ignore coverage
 annotations.
 
+## jsc.transform.useDefineForClassFields
+
+Possilbe values:
+
+- `true`:
+
+```js
+class Foo {
+  init = 3;
+}
+
+console.log(Foo.init)
+```
+
+will be compiled as
+
+```js
+class Foo {
+    constructor(){
+        // Helper
+        _defineProperty(this, "init", 3);
+    }
+}
+console.log(Foo.init);
+```
+
+- `false`:
+
+```js
+class Foo {
+  init = 3;
+}
+
+console.log(Foo.init)
+```
+
+will be compiled as
+
+```js
+class Foo {
+    constructor(){
+        this.init = 3;
+    }
+}
+console.log(Foo.init);
+```
+
 ## Multiple Entries
 
 > Requires `v1.0.47+`
