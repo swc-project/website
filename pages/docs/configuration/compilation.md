@@ -613,6 +613,34 @@ class Foo {
 console.log(Foo.init);
 ```
 
+## jsc.transform.decoratorVersion
+
+Starting from `v1.3.47`, you can use stage 3 decorator.
+
+```json filename=".swcrc" copy
+{
+    "jsc": {
+        "parser": {
+            "syntax": "ecmascript",
+            "decorators": true
+        },
+        "transform": {
+            "decoratorVersion": "2022-03"
+        }
+    }
+}
+```
+
+Possible values:
+
+- `"2021-12"` (default)
+
+Legacy decorator.
+
+- `"2022-03"`
+
+Stage 3 decorator.
+
 ## Multiple Entries
 
 > Requires `v1.0.47+`
