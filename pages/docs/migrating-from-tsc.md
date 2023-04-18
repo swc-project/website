@@ -10,7 +10,7 @@ If you encounter these limitations, certain TypeScript features such as const en
 
 In this case, using the [`isolatedModules`][isolatedmodules] flag in TypeScript can help to warn you of any code that may not be correctly interpreted by SWC.
 
-See [a comment on the realted issue](https://github.com/swc-project/swc/issues/7101#issuecomment-1480610668) for more details.
+See [a comment on the related issue](https://github.com/swc-project/swc/issues/7101#issuecomment-1480610668) for more details.
 
 [isolatedmodules]: https://www.typescriptlang.org/tsconfig#isolatedModules
 
