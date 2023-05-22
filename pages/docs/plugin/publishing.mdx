@@ -15,6 +15,10 @@ cargo build-wasm32 --release // build wasm32-unknown-unknown target binary
 
 It will create `target/wasm32-wasi/release/your_plugin_name.wasm` or `target/wasm32-unknown-unknown/release/your_plugin_name.wasm`, depending on your config.
 
+<Callout emoji="ℹ️">
+  Currently link-time optimisation is not supported, and plugins compiled with `lto` will likely panic on execution.
+</Callout>
+
 ### Creating a npm package for plugin
 
 Add the following to your `package.json`:
