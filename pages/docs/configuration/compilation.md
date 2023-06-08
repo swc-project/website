@@ -335,6 +335,7 @@ If you are using typescript and decorators with `emitDecoratorMetadata` enabled,
 
 Possible values: `automatic`, `classic`. This affects how JSX source code will be compiled.
 
+- Defauts to `classic`.
 - Use `runtime: automatic` to use a JSX runtime module (e.g. `react/jsx-runtime` introduced in React 17).
 - Use `runtime: classic` to use `React.createElement` instead - with this option, you must ensure that `React` is in scope when using JSX.
 
