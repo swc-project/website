@@ -85,7 +85,7 @@ Example of targeting `chrome 79`.
 ### `env.mode`
 
 Optional.
-Possible values: `"usage" | "entry"`.
+Possible values: `"usage" | "entry" | false`, defaults to `false`.
 
 ### `env.debug`
 
