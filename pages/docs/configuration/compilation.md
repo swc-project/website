@@ -663,7 +663,7 @@ Stage 3 decorator.
 ]
 ```
 
-This make SWC compile JavaScript files as CommonJS modules and compile TypeScript files as AMD modules.
+This makes SWC compile JavaScript files as CommonJS modules and compile TypeScript files as AMD modules.
 
 Note that `test` option can be used to transcompile only typescript files, like
 
