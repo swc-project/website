@@ -2,7 +2,7 @@
 
 If you are Migrating from TypeScript Compiler(tsc), there are a few things to keep in mind.
 
-## Supported TypeScript version
+## TypeScript version
 
 SWC supports the latest stable TypeScript.
 
