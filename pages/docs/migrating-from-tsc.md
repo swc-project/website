@@ -2,6 +2,10 @@
 
 If you are Migrating from TypeScript Compiler(tsc), there are a few things to keep in mind.
 
+## Supported TypeScript version
+
+SWC supports the latest stable TypeScript.
+
 ## isolatedModules: true
 
 SWC works on file-by-file, so any code transforms that depend on understanding the full type system will not work.
