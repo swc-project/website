@@ -1,3 +1,5 @@
+import { Callout } from 'nextra-theme-docs'
+
 # Compilation
 
 Compilation works out of the box with SWC and does not require customization. Optionally, you can override the configuration. Here are the defaults:
@@ -104,7 +106,7 @@ Type: Bool
 Optional.
 Type: Bool
 
-Enable loose mode.
+Enable loose mode. See [jsc.loose](#jscloose) also.
 
 ### `env.skip`
 
@@ -256,6 +258,25 @@ Starting from `@swc/core` v1.0.27, you can specify the target environment by usi
 ## jsc.loose
 
 Starting from `@swc/core` v1.1.4, you can enable "loose" transformations by enabling `jsc.loose` which works like `babel-preset-env` [loose mode](https://2ality.com/2015/12/babel6-loose-mode.html).
+
+<Callout emoji="⚠️">
+  These [assumptions](https://babeljs.io/docs/assumptions) are made in loose mode by default, you might get unexpected reault if your code doesn't meet these assumptions.
+  - [privateFieldsAsProperties](https://babeljs.io/docs/assumptions#privatefieldsasproperties)
+  - [setPublicClassFields](https://babeljs.io/docs/assumptions#setpublicclassfields)
+  - [constantSuper](https://babeljs.io/docs/assumptions#constantsuper)
+  - [noDocumentAll](https://babeljs.io/docs/assumptions#nodocumentall)
+  - [pureGetters](https://babeljs.io/docs/assumptions#puregetters)
+  - [objectRestNoSymbols](https://babeljs.io/docs/assumptions#objectrestnosymbols)
+  - [setSpreadProperties](https://babeljs.io/docs/assumptions#setspreadproperties)
+  - ignoreFunctionName
+  - [ignoreFunctionLength](https://babeljs.io/docs/assumptions#ignorefunctionlength)
+  - [ignoreToPrimitiveHint](https://babeljs.io/docs/assumptions#ignoretoprimitivehint)
+  - [mutableTemplateObject](https://babeljs.io/docs/assumptions#mutabletemplateobject)
+  - [noClassCalls](https://babeljs.io/docs/assumptions#noclasscalls)
+  - [setClassMethods](https://babeljs.io/docs/assumptions#setclassmethods)
+  - [superIsCallableConstructor](https://babeljs.io/docs/assumptions#superiscallableconstructor)
+  - [iterableIsArray](https://babeljs.io/docs/assumptions#iterableisarray)
+</Callout>
 
 ```json filename=".swcrc" copy
 {
