@@ -194,3 +194,11 @@ npx swc input.js --log-watch-compilation
 ### --extensions
 
 Use specific extensions.
+
+### --strip-leading-paths
+
+Remove the leading directory (including all parent relative paths) when building the final output path. As an example it compiles all modules under `src` folder to `dist` folder, without create the `src` folder inside of `dist`.
+
+```sh
+npx swc src -d dist --strip-leading-paths
+```
