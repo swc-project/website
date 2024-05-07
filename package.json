@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next",
+    "generate": "typescript-json-schema tsconfig.json 'SwcOptions' > public/schema.json",
+    "build": "pnpm run generate && next build",
     "start": "next start"
   },
   "dependencies": {
