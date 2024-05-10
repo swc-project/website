@@ -13,11 +13,43 @@ The page documents the version of `swc_core` you can use for each runtime.
 
 If you use a version in a range of the title, the Wasm plugin will work for the runtimes written in the body.
 
-### `v0.82.x` ~
+### `0.91.x`
+
+We added support for abstract auto-accessors.
+
+- `@swc/core@1.5.0` ~
+
+### `0.90.x`
+
+We refactored AST to make it less error-prone.
+
+- `@swc/core@1.4.0` ~
+- `next@14.1.1-canary.52` ~
+- `@rspack/core@0.6.0` ~
+
+
+### `0.88.x` ~ `0.89.x`
+
+Support for import phase proposal (stage 3) was added.
+
+- `@swc/core@1.3.106` ~ `@swc/core@1.3.107`
+- `@rspack/core@0.5.8` ~ `@rspack/core@0.5.9`
+
+### `v0.82.x` ~ `v0.87.x`
 
 We modified AST definitions because of `with` of [Import Attributes proposal](https://github.com/tc39/proposal-import-attributes).
 
-- `@swc/core@1.3.81` (Unpublsihed) ~
+- `@swc/core@1.3.81` ~ `@swc/core@1.3.105`
+- ~ `next@v14.1.0`
+
+Note: You may need to specify the version of `swc_common`, too, like
+
+```toml
+[dependencies]
+swc_common = "=0.33.15"
+```
+
+
 
 ### `v0.79.x` ~ `v0.81.x`
 
@@ -33,7 +65,7 @@ We modified AST definitions because some of the previous definitions were misdes
 - `@swc/core@1.3.63` ~ `@swc/core@1.3.67`
 - `next@v13.4.8` ~ `next@v13.4.10-canary.0`
 
-### `v0.76.x`
+### `v0.76.x` ~ `v0.77.x`
 
 We modified AST definitions because of [Explicit Resource Management proposal](https://github.com/tc39/proposal-explicit-resource-management), which is stage 3.
 

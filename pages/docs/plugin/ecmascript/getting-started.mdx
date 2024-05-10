@@ -188,10 +188,11 @@ test!(
     Default::default(),
     |_| as_folder(TransformVisitor),
     boo,
-    r#"foo === bar;"#,
-    r#"kdy1 === bar;"#
+    r#"foo === bar;"#
 );
 ```
+
+Then, once you run `UPDATE=1 cargo test`, the snapshot will be updated.
 
 You can take a look at [the real fixture test for typescript type stripper](https://github.com/swc-project/swc/blob/c0abdb394a94bcbc7ea9602163e6ce032c89b996/crates/swc_ecma_transforms_typescript/tests/strip.rs#L4514-L4527).
 

@@ -1,5 +1,18 @@
 import { Callout } from 'nextra-theme-docs'
 
+
+<Callout>
+SWC provides an official JSON Schema for the configuration file.
+
+
+```json filename=".swcrc" copy
+{
+  "$schema": "https://swc.rs/schema.json",
+}
+```
+</Callout>
+
+
 # Modules
 
 SWC can transpile your code using ES Modules to CommonJS or UMD/AMD. By default, module statements will remain untouched.
@@ -10,7 +23,7 @@ To emit a CommonJS module, change the `type` in `.swcrc`:
 
 ```json filename=".swcrc" copy
 {
-  "$schema": "http://json.schemastore.org/swcrc",
+  "$schema": "https://swc.rs/schema.json",
   "module": {
     "type": "commonjs",
 
@@ -98,7 +111,7 @@ These options are shared by `commonjs` / `es6` / `umd` / `amd` inside `.swcrc`:
 }
 ```
 
-{/* TODO: should fix this in nextra side */}
+{ /* TODO: should fix this in nextra side */}
 export const EsModuleText = () => <code className="nx-border-black nx-border-opacity-[0.04] nx-bg-opacity-[0.03] nx-bg-black nx-break-words nx-rounded-md nx-border nx-py-0.5 nx-px-[.25em] nx-text-[.9em] dark:nx-border-white/10 dark:nx-bg-white/10">{`__esModule`}</code>
 
 ### strict
