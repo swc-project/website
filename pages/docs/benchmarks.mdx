@@ -2,13 +2,16 @@ import Benchmark from 'components/benchmarks/dynamic'
 
 # Benchmarks
 
-These benchmarks are used to evaluate the performance of SWC on every commit, as well as against other libraries like Babel or esbuild. You can view the [benchmark source code here](https://github.com/kdy1/benchmark-done-right).
+These benchmarks are used to evaluate the performance of SWC on every commit, as well as against other libraries like Babel or esbuild. You can view the [benchmark source code here](https://github.com/swc-project/swc/blob/main/.github/workflows/bench.yml).
 
 <Benchmark />
 
 ## Transformations (Parallel)
 
+
 This is the most important benchmark, since build tool authors will run tasks concurrently. Note the performance of Babel and `tsx` is indentical for parallel and synchronous benchmarks.
+
+You can view the [benchmark source code here](https://github.com/kdy1/benchmark-done-right).
 
 ### es3
 
