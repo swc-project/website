@@ -90,6 +90,7 @@ struct MyPlugin {
 
 ## Tips
 
+
 ### Apply `resolver` while testing
 
 SWC applies plugin after applying [`resolver`](https://rustdoc.swc.rs/swc_ecma_transforms_base/fn.resolver.html), so it's better to test your transform with it.
@@ -233,6 +234,14 @@ See https://github.com/jantimon/css-variable/blob/main/test/swc/jest.config.js
 This is because linux version of `Path` code is used while compiling to wasm.
 So you may need to replace `\\` with `/` in your plugin.
 As `/` is a valid path separator in windows, it's valid thing to do.
+
+### Comments
+
+A comment belongs to a span of the node. (lo for leading comments, hi for trailing comments)
+If you want to add a leading comment to a node, you can do `PluginCommentsProxy.add_leading(span.lo, comment);`.
+
+See [PluginCommentsProxy](https://rustdoc.swc.rs/swc_plugin_proxy/struct.PluginCommentsProxy.html).
+
 
 ## Ownership model (of rust)
 
@@ -460,3 +469,4 @@ For example, if you want to infer name of a jsx component from variable assignme
 ### `state.file.get`/`state.file.set`
 
 You can simply store the value in the transform struct as an instance of transform struct only process one file.
+
