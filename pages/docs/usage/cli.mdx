@@ -151,6 +151,14 @@ Compile an input directory of modules into an output directory.
 npx swc src -d dist
 ```
 
+### --out-file-extension
+
+Use a specific extension for the output files. Defaults to `js`.
+
+```sh
+npx swc src -d dist --out-file-extension mjs
+```
+
 ### --copy-files (-D)
 
 When compiling a directory, copy over non-compilable files.
