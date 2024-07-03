@@ -7,6 +7,22 @@
 npm install @swc/wasm-typescript
 ```
 
+### Usage
+```typescript
+import init, { transform } from '@swc/wasm-typescript';
+
+const tsSourceCode = `
+export function add(a: number, b: number) {
+    return a + b;
+}
+`;
+
+await init();
+await transform(tsSourceCode, {
+    
+})
+```
+
 ## APIs
 
 ### transform, transformSync
