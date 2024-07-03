@@ -61,30 +61,31 @@ type Options = {
     // Defaults to false.
     sourceMaps?: boolean 
 
-    transform?: TsTransformConfig
+    // Removed because we only strip types.
+    // transform?: TsTransformConfig
     
     codegen?: CodegenConfig
 }
 
-type TsTransformConfig = {
-    verbatim_module_syntax?: boolean
-    import_not_used_as_values?: ImportsNotUsedAsValues,
-    /// Don't create `export {}`.
-    /// By default, strip creates `export {}` for modules to preserve module
-    /// context.
-    ///
-    /// https://github.com/swc-project/swc/issues/1698
-    no_empty_export?: boolean
+// type TsTransformConfig = {
+//     verbatim_module_syntax?: boolean
+//     import_not_used_as_values?: ImportsNotUsedAsValues,
+//     /// Don't create `export {}`.
+//     /// By default, strip creates `export {}` for modules to preserve module
+//     /// context.
+//     ///
+//     /// https://github.com/swc-project/swc/issues/1698
+//     no_empty_export?: boolean
 
-    import_export_assign_config?: TsImportExportAssignConfig
+//     import_export_assign_config?: TsImportExportAssignConfig
 
-    /// Disables an optimization that inlines TS enum member values
-    /// within the same module that assumes the enum member values
-    /// are never modified.
-    ///
-    /// Defaults to false.
-    ts_enum_is_mutable?: boolean
-}
+//     /// Disables an optimization that inlines TS enum member values
+//     /// within the same module that assumes the enum member values
+//     /// are never modified.
+//     ///
+//     /// Defaults to false.
+//     ts_enum_is_mutable?: boolean
+// }
 
 /// # Classic
 ///
