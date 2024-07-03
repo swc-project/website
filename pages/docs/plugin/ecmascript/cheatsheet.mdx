@@ -90,6 +90,12 @@ struct MyPlugin {
 
 ## Tips
 
+### Decorators and TypeScript types
+
+Those  are handled before your plugin is called. So you can't access them from the Wasm plugin.
+This design decision is made to make Wasm plugins easier to write and the Wasm binary smaller.
+
+- Tracking issue: https://github.com/swc-project/swc/issues/9132
 
 ### Apply `resolver` while testing
 
