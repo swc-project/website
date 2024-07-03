@@ -1,4 +1,4 @@
-# `@swc/wasm-typescript`
+/# `@swc/wasm-typescript`
 
 
 ## Installation
@@ -11,3 +11,102 @@ npm install @swc/wasm-typescript
 
 ### transform, transformSync
 
+Signature: `function transform(src: string, options: Options) => Promise<TransformOutput>`
+
+
+### TransformOutput
+
+```typescript
+type TransformOutput = {
+    code: string;
+    map: string | null;
+}
+```
+
+### Types
+
+```typescript
+type Options = {
+    // Defaults to 'unknown', which automatically detects the module type.
+    module?: boolean | 'unknown'
+
+    filename?: string;
+
+    parser?: TsSyntax
+
+    // If true, the output may import `@swc/helpers`. If false, the output will contain all helpers inlined. 
+    //
+    // Defaults to false.
+    externalHelpers?: boolean;
+
+
+    // If true, output.map will be a string containing a source map.
+    //
+    // Defaults to false.
+    sourceMaps?: boolean 
+
+    transform?: TsTransformConfig
+    
+    codegen?: CodegenConfig
+}
+
+type TsTransformConfig = {
+    verbatim_module_syntax?: boolean
+    import_not_used_as_values?: ImportsNotUsedAsValues,
+    /// Don't create `export {}`.
+    /// By default, strip creates `export {}` for modules to preserve module
+    /// context.
+    ///
+    /// https://github.com/swc-project/swc/issues/1698
+    no_empty_export?: boolean
+
+    import_export_assign_config?: TsImportExportAssignConfig
+
+    /// Disables an optimization that inlines TS enum member values
+    /// within the same module that assumes the enum member values
+    /// are never modified.
+    ///
+    /// Defaults to false.
+    ts_enum_is_mutable?: boolean
+}
+
+/// # Classic
+///
+/// - Rewrite `import foo = require("foo")` to `var foo = require("foo")`
+/// - Rewrite `export =` to `module.exports = `
+/// Note: This option is deprecated as all CJS/AMD/UMD can handle it
+/// themselves.
+///
+/// # Preserve
+///
+///  preserve for CJS/AMD/UMD
+///
+/// # NodeNext
+///
+/// Rewrite `import foo = require("foo")` to
+/// ```javascript
+/// import { createRequire as _createRequire } from "module";
+/// const __require = _createRequire(import.meta.url);
+/// const foo = __require("foo");
+/// ```
+///
+/// Report error for `export =`
+///
+/// # EsNext
+///
+/// Both `import =` and `export =` are disabled.
+/// An error will be reported if an import/export assignment is found.
+type TsImportExportAssignConfig = 'Classic' | 'Preserve' | 'NodeNext' | 'EsNext';
+
+type ImportsNotUsedAsValues = "remove" | "preserve";
+
+type CodegenConfig = {
+    target?: EsVersion,
+    asciiOnly: boolean,
+    minify: boolean,
+    omitLastSemi: boolean,
+    emitAssertForImportAttributes: boolean,
+    inlineScript: boolean,
+}
+
+```
