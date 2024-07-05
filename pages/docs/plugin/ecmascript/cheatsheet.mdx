@@ -97,6 +97,14 @@ This design decision is made to make Wasm plugins easier to write and the Wasm b
 
 - Tracking issue: https://github.com/swc-project/swc/issues/9132
 
+### Comments while testing
+
+You can make your pass generic over `C: Comments`. `test_fixture` provides `&mut Tester`, which has `comments` field.
+
+- [Example pass](https://github.com/swc-project/swc/blob/2d6509a7d4b29f61d4d29715e6ab0825fa034020/crates/swc_ecma_transforms_react/src/pure_annotations/mod.rs)
+- [Testing for the test](https://github.com/swc-project/swc/blob/2d6509a7d4b29f61d4d29715e6ab0825fa034020/crates/swc_ecma_transforms_react/src/pure_annotations/tests.rs#L108-L118) 
+
+
 ### Apply `resolver` while testing
 
 SWC applies plugin after applying [`resolver`](https://rustdoc.swc.rs/swc_ecma_transforms_base/fn.resolver.html), so it's better to test your transform with it.
