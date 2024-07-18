@@ -14,11 +14,18 @@ The page documents the version of `swc_core` you can use for each runtime.
 If you use a version in a range of the title, the Wasm plugin will work for the runtimes written in the body.
 
 
-### Unreleased
+### `v0.98.x` ~
+
+#### Changes
 
  - `Span.ctxt` is removed to reduce the size of `Span`.
  - `ctxt: SyntaxContext` is added to various AST nodes.
  - `IdentName` is used instead of `Ident` in some places like `MemberProp`, because those fields does not need `ctxt` or `optional`.
+
+
+#### Versions
+
+- `@swc/core@1.7.x`
 
 
 ### `v0.95.x` ~ `v0.96.9`
