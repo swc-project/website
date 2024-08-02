@@ -160,7 +160,7 @@ impl VisitMut for TransformVisitor {
         e.visit_mut_children_with(self);
 
         if e.op == op!("===") {
-            e.left = Box::new(Ident::new("kdy1".into(), e.left.span()).into());
+            e.left = Box::new(Ident::new_no_ctxt("kdy1".into(), e.left.span()).into());
         }
     }
 }
@@ -231,8 +231,6 @@ e.g. `RUST_LOG=trace cargo test` will print all logs, including `trace` logs.
 
 If you want, you can remove logging for your plugin by using cargo features of `tracing`.
 See [the documentation for it](https://docs.rs/crate/tracing/latest/features).
-
-
 
 ## Publishing your plugin
 
