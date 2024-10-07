@@ -50,6 +50,8 @@ export default function TeamMembers() {
                 src={`https://github.com/${member.github}.png`}
                 alt={`${member.name} avatar`}
                 className="w-16 h-16 rounded-full"
+                width={64}
+                height={64}
               />
               <div className="font-bold text-center">{member.name}</div>
               <div>{member.role}</div>
