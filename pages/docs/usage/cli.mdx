@@ -202,3 +202,57 @@ Remove the leading directory (including all parent relative paths) when building
 ```sh
 npx swc src -d dist --strip-leading-paths
 ```
+
+## use in nodejs script
+```js
+const { swcDir } = require('@swc/cli');
+
+const swcOptions = {
+    jsc: {
+        target: 'esnext',
+        externalHelpers: true,
+    },
+    module: {
+        type: 'commonjs',
+    },
+    sourceMaps: true,
+};
+
+swcDir({
+    cliOptions: {
+        outDir: './dist',
+        watch: true,
+        filenames: ['./src'],
+        extensions: ['.ts'],
+        stripLeadingPaths: true,
+    },
+    swcOptions,
+    callbacks: {
+        onSuccess: e => {
+            console.log(e);
+        },
+        onFail: e => {
+            console.log(e);
+        },
+        onWatchReady: () => {},
+    },
+});
+```
+Please note that when using `callbacks`, the `--quiet (-q)` will always be true.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
