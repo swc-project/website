@@ -43,6 +43,26 @@ module: {
 }
 ```
 
+### Options
+
+Loader options are passed through to SWC as if they were part of your `.swcrc`.
+
+For instance, [to configure `browserslist`-based `targets` for compilation](https://swc.rs/docs/configuration/compilation#env) and see the effect:
+
+```js
+{
+  use: {
+    loader: "swc-loader",
+    options: {
+      env: {
+        targets: "defaults",
+        debug: true
+      }
+    }
+  }
+}
+```
+
 ### React Development
 
 The [`jsc.transform.react.development`](/docs/configuration/compilation#jsctransformreactdevelopment) option is automatically set based on the [webpack `mode`](https://webpack.js.org/configuration/mode/).
