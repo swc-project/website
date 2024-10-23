@@ -37,3 +37,7 @@ next-env.d.ts
 
 # scripts
 .cache/
+
+
+generated/
+.turbo/
