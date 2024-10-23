@@ -34,5 +34,11 @@
     "image": "/img/customers/tripbiz.svg",
     "infoLink": "https://trip.biz",
     "width": 140
+  },
+  {
+    "caption": "Framer",
+    "image": "/img/customers/framer.svg",
+    "infoLink": "https://www.framer.com",
+    "width": 202
   }
 ]
