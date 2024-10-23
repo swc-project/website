@@ -12,21 +12,27 @@
     "width": 180
   },
   {
-    "caption": "Shopify",
-    "image": "/img/customers/shopify.svg",
-    "infoLink": "https://shopify.com",
-    "width": 160
-  },
-  {
     "caption": "Tencent",
     "image": "/img/customers/tencent.svg",
     "infoLink": "https://tencent.com",
     "width": 200
   },
   {
+    "caption": "Shopify",
+    "image": "/img/customers/shopify.svg",
+    "infoLink": "https://shopify.com",
+    "width": 160
+  },
+  {
     "caption": "Trip.com",
     "image": "/img/customers/trip.png",
     "infoLink": "https://trip.com",
     "width": 240
+  },
+  {
+    "caption": "Trip.biz",
+    "image": "/img/customers/tripbiz.svg",
+    "infoLink": "https://trip.biz",
+    "width": 140
   }
 ]
