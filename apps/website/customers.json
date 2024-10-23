@@ -1,0 +1,32 @@
+[
+  {
+    "caption": "Vercel",
+    "image": "/img/customers/vercel.svg",
+    "infoLink": "https://vercel.com",
+    "width": 160
+  },
+  {
+    "caption": "ByteDance",
+    "image": "/img/customers/bytedance.png",
+    "infoLink": "https://bytedance.com",
+    "width": 180
+  },
+  {
+    "caption": "Shopify",
+    "image": "/img/customers/shopify.svg",
+    "infoLink": "https://shopify.com",
+    "width": 160
+  },
+  {
+    "caption": "Tencent",
+    "image": "/img/customers/tencent.svg",
+    "infoLink": "https://tencent.com",
+    "width": 200
+  },
+  {
+    "caption": "Trip.com",
+    "image": "/img/customers/trip.png",
+    "infoLink": "https://trip.com",
+    "width": 240
+  }
+]
