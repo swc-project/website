@@ -1,0 +1,220 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+generator zod {
+  provider         = "zod-prisma-types"
+  output           = "../lib/prisma/zod"
+  createInputTypes = false
+  addIncludeType   = false
+  addSelectType    = false
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+model User {
+  id             String           @id @default(cuid())
+  name           String?
+  email          String           @unique
+  emailVerified  DateTime?
+  role           UserRole         @default(USER)
+  image          String?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  accounts       Account[]
+  sessions       Session[]
+  Authenticator  Authenticator[]
+  TeamMembership TeamMembership[]
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
+}
+
+// Optional for WebAuthn support
+model Authenticator {
+  credentialID         String  @unique
+  userId               String
+  providerAccountId    String
+  credentialPublicKey  String
+  counter              Int
+  credentialDeviceType String
+  credentialBackedUp   Boolean
+  transports           String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, credentialID])
+}
+
+model Team {
+  id          String           @id @default(cuid())
+  name        String
+  slug        String           @unique
+  memberships TeamMembership[]
+  invitations TeamInvitation[]
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+}
+
+enum TeamMemberRole {
+  MEMBER
+  OWNER
+}
+
+model TeamMembership {
+  id        BigInt         @id @default(autoincrement())
+  team      Team           @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  teamId    String
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  role      TeamMemberRole @default(MEMBER)
+  isCreator Boolean        @default(false)
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+
+  @@unique(name: "userPerTeam", [teamId, userId])
+}
+
+model TeamInvitation {
+  id        String         @id @default(cuid())
+  team      Team           @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  teamId    String
+  email     String
+  role      TeamMemberRole @default(MEMBER)
+  createdAt DateTime       @default(now())
+  expiresAt DateTime       @updatedAt
+
+  @@unique(name: "emailPerTeam", [teamId, email])
+}
+
+/// The range of versions of the `swc_core` that a plugin is compatible with.
+model CompatRange {
+  id                     BigInt                   @id @default(autoincrement())
+  from                   String
+  to                     String
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @updatedAt
+  runtimes               SwcRuntimeVersion[]
+  plugins                SwcPluginVersion[]
+  coreVersions           SwcCoreVersion[]
+  SwcPluginRunnerVersion SwcPluginRunnerVersion[]
+
+  @@unique([from, to])
+}
+
+/// Plugin runner
+model SwcRuntime {
+  id        BigInt              @id @default(autoincrement())
+  name      String              @unique
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @updatedAt
+  versions  SwcRuntimeVersion[]
+}
+
+model SwcRuntimeVersion {
+  id                     BigInt      @id @default(autoincrement())
+  runtime                SwcRuntime  @relation(fields: [runtimeId], references: [id], onDelete: Cascade)
+  runtimeId              BigInt
+  version                String
+  /// The version of `swc_core` used by the runtime.
+  swcCoreVersion         String
+  /// The version of `swc_plugin_runner` used by the runtime.
+  swcPluginRunnerVersion String?
+  compatRange            CompatRange @relation(fields: [compatRangeId], references: [id])
+  compatRangeId          BigInt
+  createdAt              DateTime    @default(now())
+  updatedAt              DateTime    @updatedAt
+
+  @@unique([runtimeId, version])
+}
+
+model SwcPlugin {
+  id        BigInt             @id @default(autoincrement())
+  name      String             @unique
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+  versions  SwcPluginVersion[]
+}
+
+model SwcPluginVersion {
+  id             BigInt      @id @default(autoincrement())
+  plugin         SwcPlugin   @relation(fields: [pluginId], references: [id], onDelete: Cascade)
+  pluginId       BigInt
+  /// The version of the plugin.
+  version        String
+  /// The version of `swc_core` used by the plugin.
+  swcCoreVersion String?
+  compatRange    CompatRange @relation(fields: [compatRangeId], references: [id])
+  compatRangeId  BigInt
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  @@unique([pluginId, version])
+}
+
+model SwcCoreVersion {
+  id              BigInt      @id @default(autoincrement())
+  /// The version of the (exact) `swc_core` package.
+  version         String      @unique
+  /// Semver range of the `swc_plugin_runner` package that is compatible with this version of `swc_core`.
+  pluginRunnerReq String?
+  compatRange     CompatRange @relation(fields: [compatRangeId], references: [id])
+  compatRangeId   BigInt
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model SwcPluginRunnerVersion {
+  id            BigInt      @id @default(autoincrement())
+  /// The version of the `swc_plugin_runner` package.
+  version       String      @unique
+  compatRange   CompatRange @relation(fields: [compatRangeId], references: [id])
+  compatRangeId BigInt
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}

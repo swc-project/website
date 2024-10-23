@@ -1,0 +1,8 @@
+{
+    "extends": "next/core-web-vitals",
+    "rules": {
+        "@typescript-eslint/no-unused-vars": "off",
+        "@next/next/no-server-import-in-page": "off",
+        "@typescript-eslint/ban-types": "off"
+    }
+}
