@@ -5,6 +5,7 @@
   "plugin": "Plugin",
   "team": "The Team",
   "sponsors": "Sponsors",
+  "customers": "Customers",
   "benchmarks": "Benchmarks",
   "references": "API References",
   "migrating-from-babel": "Migrating from Babel"
