@@ -8,7 +8,7 @@ export default function Customers() {
     url.searchParams.append("utm_medium", "customers_page");
 
     return (
-      <Link href={url} key={index} style={{border: '0px solid #333'}}>
+      <Link href={url} key={index}>
         <img src={customer.image} style={{
           width: customer.width ? `${customer.width}px` : '128px',
           padding: '16px'
