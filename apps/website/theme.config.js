@@ -92,7 +92,7 @@ export default {
   editLink: {
     text: "Edit this page on GitHub",
   },
-  docsRepositoryBase: "https://github.com/swc-project/website/blob/master",
+  docsRepositoryBase: "https://github.com/swc-project/website/blob/main/apps/website",
   useNextSeoProps() {
     return {
       titleTemplate: "%s – SWC",
