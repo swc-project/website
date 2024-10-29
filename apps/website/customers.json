@@ -40,5 +40,11 @@
     "image": "/img/customers/framer.svg",
     "infoLink": "https://www.framer.com",
     "width": 202
+  },
+  {
+    "caption": "Transloadit",
+    "image": "/img/customers/transloadit.svg",
+    "infoLink": "https://transloadit.com",
+    "width": 200
   }
 ]
