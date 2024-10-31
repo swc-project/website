@@ -165,7 +165,7 @@ model SwcRuntimeVersion {
   swcCoreVersion         String
   /// The version of `swc_plugin_runner` used by the runtime.
   swcPluginRunnerVersion String?
-  compatRange            CompatRange @relation(fields: [compatRangeId], references: [id])
+  compatRange            CompatRange @relation(fields: [compatRangeId], references: [id], onDelete: Cascade)
   compatRangeId          BigInt
   createdAt              DateTime    @default(now())
   updatedAt              DateTime    @updatedAt
@@ -189,7 +189,7 @@ model SwcPluginVersion {
   version        String
   /// The version of `swc_core` used by the plugin.
   swcCoreVersion String?
-  compatRange    CompatRange @relation(fields: [compatRangeId], references: [id])
+  compatRange    CompatRange @relation(fields: [compatRangeId], references: [id], onDelete: Cascade)
   compatRangeId  BigInt
   createdAt      DateTime    @default(now())
   updatedAt      DateTime    @updatedAt
@@ -203,7 +203,7 @@ model SwcCoreVersion {
   version         String      @unique
   /// Semver range of the `swc_plugin_runner` package that is compatible with this version of `swc_core`.
   pluginRunnerReq String?
-  compatRange     CompatRange @relation(fields: [compatRangeId], references: [id])
+  compatRange     CompatRange @relation(fields: [compatRangeId], references: [id], onDelete: Cascade)
   compatRangeId   BigInt
   createdAt       DateTime    @default(now())
   updatedAt       DateTime    @updatedAt
@@ -213,7 +213,7 @@ model SwcPluginRunnerVersion {
   id            BigInt      @id @default(autoincrement())
   /// The version of the `swc_plugin_runner` package.
   version       String      @unique
-  compatRange   CompatRange @relation(fields: [compatRangeId], references: [id])
+  compatRange   CompatRange @relation(fields: [compatRangeId], references: [id], onDelete: Cascade)
   compatRangeId BigInt
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
