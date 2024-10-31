@@ -46,5 +46,17 @@
     "image": "/img/customers/transloadit.svg",
     "infoLink": "https://transloadit.com",
     "width": 200
+  },
+  {
+    "caption": "Affine",
+    "image": "/img/customers/affine.svg",
+    "infoLink": "https://affine.pro",
+    "width": 100
+  },
+  {
+    "caption": "APIMaker",
+    "image": "/img/customers/apimaker.svg",
+    "infoLink": "https://apimaker.dev",
+    "width": 140
   }
 ]
