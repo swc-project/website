@@ -325,8 +325,8 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       "@swc/types":
-        specifier: ^0.1.6
-        version: 0.1.6
+        specifier: ^0.1.12
+        version: 0.1.12
       "@types/node":
         specifier: ^18.11.10
         version: 18.11.10
@@ -3691,10 +3691,10 @@ packages:
       tslib: 2.8.0
     dev: false
 
-  /@swc/types@0.1.6:
+  /@swc/types@0.1.12:
     resolution:
       {
-        integrity: sha512-/JLo/l2JsT/LRd80C3HfbmVpxOAJ11FO2RCEslFrgzLltoP9j8XIbsyDcfCt2WWyX+CM96rBoNM+IToAkFOugg==,
+        integrity: sha512-wBJA+SdtkbFhHjTMYH+dEH1y4VpfGdAc2Kw/LK09i9bXd/K6j6PkDcFCEzb6iVfZMkPRrl/q0e3toqTAJdkIVA==,
       }
     dependencies:
       "@swc/counter": 0.1.3
