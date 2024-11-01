@@ -570,10 +570,10 @@ See [the documentation for minification](/docs/configuration/minification) for m
 
 ## jsc.experimental
 
-### jsc.experimental.keepImportAssertions
+### jsc.experimental.keepImportAttributes
 
-Preserve import assertions.
-This is experimental because import assertions are not covered by ecmascript specifications yet.
+Preserve import attributes.
+This is experimental because import attributes are not covered by ecmascript specifications yet.
 
 ### jsc.experimental.plugins
 
@@ -594,6 +594,23 @@ Specify the plugin name like
 ```
 
 `styled-jsx` works because it's published as `@swc/plugin-styled-jsx`.
+
+
+### jsc.experimental.cacheRoot
+
+Specify the location where SWC stores its intermediate cache files.
+
+Currently only transform plugin uses this. If not specified, SWC will create `.swc` directories.
+
+```json filename=".swcrc" copy
+{
+  "jsc": {
+    "experimental": {
+      "cacheRoot": "node_modules/.cache/swc"
+    }
+  }
+}
+```
 
 ## jsc.preserveAllComments
 
