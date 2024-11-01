@@ -2,6 +2,21 @@ import { Callout } from 'nextra-theme-docs'
 
 # Implementing a plugin
 
+## Important API Changes
+
+<Callout type="warning">
+Recent API changes that may affect your plugin development:
+
+- Replace `chain!` macro with tuples: Use `(` instead of `chain!(`. You can replace all `chain!(` with `(` using IDE features.
+- For `chain!` with 13+ arguments: Use nested tuples for items after the 13th element.
+- Replace `-> impl Fold` with `-> impl Pass` in general.
+- `as_folder` is now `visit_mut_pass` and returns `impl VisitMut + Pass` instead of `impl VisitMut + Fold`.
+- Use `Program.apply` and `Program.mutate` to apply Pass to program:
+  - `fn apply(self, impl Pass) -> Self`
+  - `fn mutate(&mut self, impl Pass)`
+- Replace `noop()` with `noop_pass()`. The new function lives in `swc_ecma_ast` and is a real noop function.
+  </Callout>
+
 ## Setup environment
 
 ### Install required toolchain
@@ -186,7 +201,7 @@ You can easily verify the input and output of the transform.
 ```rust
 test!(
     Default::default(),
-    |_| as_folder(TransformVisitor),
+    |_| visit_mut_pass(TransformVisitor), // Note: Updated to use visit_mut_pass instead of as_folder
     boo,
     r#"foo === bar;"#
 );
@@ -206,12 +221,11 @@ fn fixture(input: PathBuf) {
             tsx: input.to_string_lossy().ends_with(".tsx"),
             ..Default::default()
         }),
-        &|t| chain!(tr(), properties(t, true)),
+        &|t| (tr(), properties(t, true)), // Note: Updated to use tuple syntax instead of chain!
         &input,
         &output,
     );
 }
-
 ```
 
 Things to note:

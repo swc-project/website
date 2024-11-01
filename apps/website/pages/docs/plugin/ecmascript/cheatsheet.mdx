@@ -68,8 +68,6 @@ impl VisitMut for MatchExample {
         }
     }
 }
-
-
 ```
 
 ### Changing AST type
@@ -85,14 +83,13 @@ See [a destructuring core transform](https://github.com/swc-project/swc/blob/641
 struct MyPlugin {
     stmts: Vec<Stmt>,
 }
-
 ```
 
 ## Tips
 
 ### Decorators and TypeScript types
 
-Those  are handled before your plugin is called. So you can't access them from the Wasm plugin.
+Those are handled before your plugin is called. So you can't access them from the Wasm plugin.
 This design decision is made to make Wasm plugins easier to write and the Wasm binary smaller.
 
 - Tracking issue: https://github.com/swc-project/swc/issues/9132
@@ -102,8 +99,7 @@ This design decision is made to make Wasm plugins easier to write and the Wasm b
 You can make your pass generic over `C: Comments`. `test_fixture` provides `&mut Tester`, which has `comments` field.
 
 - [Example pass](https://github.com/swc-project/swc/blob/2d6509a7d4b29f61d4d29715e6ab0825fa034020/crates/swc_ecma_transforms_react/src/pure_annotations/mod.rs)
-- [Testing for the test](https://github.com/swc-project/swc/blob/2d6509a7d4b29f61d4d29715e6ab0825fa034020/crates/swc_ecma_transforms_react/src/pure_annotations/tests.rs#L108-L118) 
-
+- [Testing for the test](https://github.com/swc-project/swc/blob/2d6509a7d4b29f61d4d29715e6ab0825fa034020/crates/swc_ecma_transforms_react/src/pure_annotations/tests.rs#L108-L118)
 
 ### Apply `resolver` while testing
 
@@ -111,8 +107,8 @@ SWC applies plugin after applying [`resolver`](https://rustdoc.swc.rs/swc_ecma_t
 As written in the rustdoc for the `resolver`, you have to use correct `SyntaxContext` if you need to reference global variable (e.g. `__dirname`, `require`) or top-level bindings written by the user.
 
 ```rust
-fn tr() -> impl Fold {
-    chain!(
+fn tr() -> impl Pass {
+    (
         resolver(Mark::new(), Mark::new(), false),
         // Most of transform does not care about globals so it does not need `SyntaxContext`
         your_transform()
@@ -128,7 +124,6 @@ test!(
     // output
     "(function a([_a]) { _a; });"
 );
-
 ```
 
 ### Make your handlers stateless
@@ -138,7 +133,6 @@ You can add a flag to the visitor to check if we are in a function expression.
 You will be tempted to do
 
 ```rust
-
 struct Transform {
     in_fn_expr: bool
 }
@@ -163,7 +157,6 @@ impl VisitMut for Transform {
 but this cannot handle
 
 ```js
-
 const foo = function () {
     const arr = [1, 2, 3];
 
@@ -171,14 +164,12 @@ const foo = function () {
 
     const arr2 = [2, 4, 6];
 }
-
 ```
 
 After visiting `bar`, `in_fn_expr` is `false`.
 You have to do
 
 ```rust
-
 struct Transform {
     in_fn_expr: bool
 }
@@ -238,7 +229,6 @@ module.exports = {
     ],
   },
 };
-
 ```
 
 See https://github.com/jantimon/css-variable/blob/main/test/swc/jest.config.js
@@ -255,7 +245,6 @@ A comment belongs to a span of the node. (lo for leading comments, hi for traili
 If you want to add a leading comment to a node, you can do `PluginCommentsProxy.add_leading(span.lo, comment);`.
 
 See [PluginCommentsProxy](https://rustdoc.swc.rs/swc_plugin_proxy/struct.PluginCommentsProxy.html).
-
 
 ## Ownership model (of rust)
 
@@ -288,7 +277,6 @@ The first way is to mark it as _invalid_ and delete it later.
 This is typically more convenient.
 
 ```rust
-
 use swc_core::ast::*;
 use swc_core::visit::{VisitMut,VisitMutWith};
 
@@ -296,7 +284,6 @@ impl VisitMut for Remover {
     fn visit_mut_var_declarator(&mut self, v: &mut VarDeclarator) {
         // This is not required in this example, but you typically need this.
         v.visit_mut_children_with(self);
-
 
         // v.name is `Pat`.
         // See https://rustdoc.swc.rs/swc_ecma_ast/enum.Pat.html
@@ -369,7 +356,6 @@ impl VisitMut for Remover {
         });
     }
 }
-
 ```
 
 #### Delete from the parent handler
@@ -406,7 +392,6 @@ impl VisitMut for Remover {
         }
     }
 
-
     fn visit_mut_stmts(&mut self, stmts: &mut Vec<Stmt>) {
         stmts.visit_mut_children_with(self);
 
@@ -425,7 +410,6 @@ impl VisitMut for Remover {
         });
     }
 }
-
 ```
 
 ### Referencing parent node from handler of child node
@@ -447,7 +431,6 @@ This returns a unique identifier with a monotonically increasing integer suffix.
 You can store an integer field in transformer type and use it while calling `quote_ident!` or `private_ident!`.
 
 ```rust
-
 struct Example {
     // You don't need to share counter.
     cnt: usize
@@ -466,8 +449,6 @@ impl Example {
         private_ident!(format!("$_css_{}", self.cnt))
     }
 }
-
-
 ```
 
 ### `path.find`
@@ -481,4 +462,3 @@ For example, if you want to infer name of a jsx component from variable assignme
 ### `state.file.get`/`state.file.set`
 
 You can simply store the value in the transform struct as an instance of transform struct only process one file.
-
