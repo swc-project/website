@@ -58,5 +58,35 @@
     "image": "/img/customers/apimaker.svg",
     "infoLink": "https://apimaker.dev",
     "width": 140
+  },
+  {
+    "caption": "MediaBoard",
+    "image": "/img/customers/mediaboard.svg",
+    "infoLink": "https://mediaboard.com/",
+    "width": 180
+  },
+  {
+    "caption": "Galaxus",
+    "image": "/img/customers/galaxus.jpg",
+    "infoLink": "https://www.galaxus.ch/en",
+    "width": 100
+  },
+  {
+    "caption": "Digitec",
+    "image": "/img/customers/digitec.jpg",
+    "infoLink": "https://www.digitec.ch/en",
+    "width": 100
+  },
+  {
+    "caption": "Wayfair",
+    "image": "/img/customers/wayfair.svg",
+    "infoLink": "https://www.wayfair.com/",
+    "width": 180
+  },
+  {
+    "caption": "Fireworks",
+    "image": "/img/customers/fireworks.svg",
+    "infoLink": "https://fireworks.ai/",
+    "width": 180
   }
 ]
