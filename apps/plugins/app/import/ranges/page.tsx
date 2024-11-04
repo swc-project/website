@@ -15,7 +15,9 @@ export default async function Page() {
       where: {
         from: min,
       },
-      update: {},
+      update: {
+        to: max,
+      },
       create: {
         from: min,
         to: max,
