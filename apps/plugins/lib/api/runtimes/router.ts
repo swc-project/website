@@ -53,7 +53,7 @@ export const runtimeRouter = router({
         },
       });
       versions.sort((a, b) => {
-        return compare(a.version, b.version);
+        return compare(b.version, a.version);
       });
 
       return versions;
