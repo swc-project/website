@@ -192,10 +192,7 @@ export const compatRangeRouter = router({
       });
 
       for (const range of compatRanges) {
-        if (
-          semver.gte(version, range.from) &&
-          (range.to === "*" || semver.lte(version, range.to))
-        ) {
+        if (matchRange(range, version)) {
           return range;
         }
       }
@@ -240,10 +237,7 @@ export const compatRangeRouter = router({
 
         function byVersion(swcCoreVersion: string) {
           for (const range of compatRanges) {
-            if (
-              semver.gte(swcCoreVersion, range.from) &&
-              (range.to === "*" || semver.lte(swcCoreVersion, range.to))
-            ) {
+            if (matchRange(range, swcCoreVersion)) {
               return range;
             }
           }
@@ -367,4 +361,20 @@ async function maxSwcPluginRunnerVersion() {
   return pluginRunnerVersions.reduce((max, pluginRunner) => {
     return semver.gt(max, pluginRunner.version) ? max : pluginRunner.version;
   }, "0.0.0");
+}
+
+export function matchRange(
+  range: { from: string; to: string },
+  version: string
+): boolean {
+  if (!semver.gte(version, range.from)) {
+    return false;
+  }
+
+  try {
+    if (semver.satisfies(version, range.to)) {
+      return true;
+    }
+  } catch (ignored) {}
+  return semver.lte(version, range.to);
 }
