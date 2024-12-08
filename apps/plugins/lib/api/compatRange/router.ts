@@ -374,6 +374,8 @@ export function matchRange(
   try {
     if (semver.satisfies(version, range.to)) {
       return true;
+    } else {
+      return false;
     }
   } catch (ignored) {}
   return semver.lte(version, range.to);
