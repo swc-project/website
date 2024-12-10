@@ -105,7 +105,8 @@ These options are shared by `commonjs` / `es6` / `umd` / `amd` inside `.swcrc`:
     "lazy": false,
     "noInterop": false,
     "ignoreDynamic": false,
-    "preserveImportMeta": false
+    "preserveImportMeta": false,
+    "outFileExtension": "js",
   }
 }
 ```
@@ -169,3 +170,8 @@ Defaults to `none` if `noInterop` is true, and `swc` otherwise.
 ### resolveFully
 
 When set to `true`, fully resolves module `import` file paths, including any that end with `index.js`.
+
+### outFileExtension
+
+when supplied with `resolveFully`, this will change the extension of any locally resolved file paths to
+be the one specified.  You should use this extension to match the `--out-file-extension` option for @swc/cli.
