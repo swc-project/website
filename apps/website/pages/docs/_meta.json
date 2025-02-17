@@ -3,11 +3,11 @@
   "usage": "Usage",
   "configuration": "Configuration",
   "plugin": "Plugin",
+  "contributing": "Contributing",
   "team": "The Team",
   "sponsors": "Sponsors",
   "customers": "Customers",
   "benchmarks": "Benchmarks",
   "references": "API References",
-  "migrating-from-babel": "Migrating from Babel",
-  "contributing": "Contributing"
+  "migrating-from-babel": "Migrating from Babel"
 }
