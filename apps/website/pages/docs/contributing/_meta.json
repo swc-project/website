@@ -1,3 +1,4 @@
 {
-  "es-minifier": "Minifier"
+  "es-common": "ECMAScript Commons",
+  "es-minifier": "ECMAScript Minifier"
 }
