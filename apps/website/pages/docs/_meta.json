@@ -8,5 +8,6 @@
   "customers": "Customers",
   "benchmarks": "Benchmarks",
   "references": "API References",
-  "migrating-from-babel": "Migrating from Babel"
+  "migrating-from-babel": "Migrating from Babel",
+  "contributing": "Developer Guide"
 }
