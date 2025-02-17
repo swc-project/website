@@ -1,5 +1,7 @@
 ## String Interning
 
+See [`hstr`][] for more details.
+
 SWC interns strings if it's not too short nor too long.
 This is useful for reducing memory usage and improving performance because SWC is a sort of compiler.
 Many variables share the same string, and we have to perform lots of hash operations on them.
@@ -10,3 +12,5 @@ Typically, long strings are not same to each other.
 
 While interning strings, SWC calculates the hash of the string.
 It makes `hash()` `O(1)`. `eq` becomes much faster although it's not strictly `O(1)`.
+
+[hstr]: https://docs.rs/hstr
