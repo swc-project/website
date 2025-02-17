@@ -1,19 +1,30 @@
 ---
-title: Profiling Memory Usage
+title: Profiling
 ---
 
-## Steps to run the memory profiler for the minifier on mac:
+## Profiling Time Usage
+
+## Profiling Memory Usage
+
+### Steps to run the memory profiler for the minifier on mac:
 
 If you have a problem with SWC minifier about memory allocation and you are on mac, you can use [`ddt`][] to profile the memory usage.
 
-### Step 1. Clone the repository
+#### Step 1. Prepare the inputs
+
+If you want to check the example directory for inputs, you can take a look at https://github.com/kdy1/swc-minifier-inputs.
+
+In this example, we will assume that the link above is cloned to `~/projects/minifier-inputs`.
+(i.e. `git clone https://github.com/kdy1/swc-minifier-inputs.git ~/projects/minifier-inputs`)
+
+#### Step 2. Clone the repository
 
 ```bash
 git clone https://github.com/swc-project/swc.git
 cd ./swc/crates/swc_ecma_minifier
 ```
 
-### Step 2. Run the profiler
+#### Step 3. Run the profiler
 
 The command to run the profiler is as follows:
 
@@ -23,8 +34,6 @@ CARGO_PROFILE_RELEASE_DEBUG=1 RUST_LOG=off ddt profile instruments cargo -t 'Mem
 
 Replace `~/projects/minifier-inputs` with the directory containing your input files. It can be either a file or a directory containing the input files.
 All .js files will be minified, without writing the result to the disk.
-
-If you want to check the example directory for inputs, you can take a look at https://github.com/kdy1/swc-minifier-inputs.
 
 ---
 
