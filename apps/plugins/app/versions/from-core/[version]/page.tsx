@@ -2,18 +2,18 @@ import { createCaller } from "@/lib/server";
 import { redirect } from "next/navigation";
 
 export default async function Page({
-    params: { version },
+  params: { version },
 }: {
-    params: { version: string };
+  params: { version: string };
 }) {
-    const api = await createCaller();
-    const compatRange = await api.compatRange.byCoreVersion({
-        version,
-    });
+  const api = await createCaller();
+  const compatRange = await api.compatRange.byCoreVersion({
+    version,
+  });
 
-    if (compatRange) {
-        return redirect(`/compat/range/${compatRange.id}`);
-    }
+  if (compatRange) {
+    return redirect(`/versions/range/${compatRange.id}`);
+  }
 
-    return <div>No compat range found for swc_core@{version}</div>;
+  return <div>No compat range found for swc_core@{version}</div>;
 }
