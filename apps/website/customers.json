@@ -100,5 +100,11 @@
     "image": "/img/customers/hennge.svg",
     "infoLink": "https://hennge.com",
     "width": 180
+  },
+  {
+    "caption": "Verkada",
+    "image": "/img/customers/verkada.png",
+    "infoLink": "https://www.verkada.com",
+    "width": 200
   }
 ]
