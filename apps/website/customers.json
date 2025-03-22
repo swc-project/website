@@ -136,5 +136,11 @@
     "image": "/img/customers/verkada.png",
     "infoLink": "https://www.verkada.com",
     "width": 200
+  },
+  {
+    "caption": "The MEDIA ANT",
+    "image": "/img/customers/the-media-ant.webp",
+    "infoLink": "https://www.themediaant.com",
+    "width": 200
   }
 ]
