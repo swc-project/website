@@ -1,0 +1,53 @@
+# Variable Management
+
+SWC uses a very unique way to manage variables.
+
+## Syntax context
+
+SWC uses a syntax context to manage variables. Internals are documented at [the rustdoc of the `resolver` pass](https://rustdoc.swc.rs/swc_core/ecma/transforms/base/fn.resolver.html).
+
+Basically the order of processing is like this. This processing should be wrapped by `GLOBALS.set(&Default::default(), || { ... })`.
+
+- `resolver`
+- `your_pass` (can be multiple passes)
+- `hygiene`
+- `fixer` (Optional, but if your transform may produce invalid syntax, this would add necessary parentheses)
+
+## Terms
+
+A `private identifier` is a identifier that is guaranteed to be unique, and it's renamed by the `hygiene` pass if there's a conflict.
+
+## Creating a private identifier
+
+You can use `Ident::new_private` to create a private identifier. Note that this requires an access to `GLOBALS`, which is a scoped thread-local storage.
+
+```rust
+let id = Ident::new_private("my_var");
+```
+
+## Full example
+
+Full example:
+
+```rust
+GLOBALS.set(&Default::default(), || {
+  let unresolved_mark = Mark::new();
+  let top_level_mark = Mark::new();
+
+  // https://rustdoc.swc.rs/swc_core/ecma/transforms/base/fn.resolver.html
+  program.mutate(resolver(unresolved_mark, top_level_mark, is_your_input_file_typescript));
+
+  // Apply your transforms and use Ident::new_private from there
+  program.mutate(your_pass);
+  // or
+  program.visit_mut_with(your_pass);
+  // or
+  program = program.fold(your_pass);
+
+
+
+  // https://rustdoc.swc.rs/swc_core/ecma/transforms/base/hygiene/fn.hygiene.html
+  program.mutate(hygiene());
+
+})
+```

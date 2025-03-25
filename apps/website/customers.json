@@ -24,6 +24,42 @@
     "width": 160
   },
   {
+    "caption": "Parcel",
+    "image": "/img/customers/parceljs.png",
+    "infoLink": "https://parceljs.org/"
+  },
+  {
+    "caption": "Deno",
+    "image": "/img/customers/deno.svg",
+    "infoLink": "https://deno.land"
+  },
+  {
+    "caption": "Framer",
+    "image": "/img/customers/framer.svg",
+    "infoLink": "https://framer.com/",
+    "width": 202
+  },
+  {
+    "caption": "Fundamentei",
+    "image": "/img/customers/fundamentei.png",
+    "infoLink": "https://fundamentei.com/"
+  },
+  {
+    "caption": "strapi",
+    "image": "/img/customers/strapi.svg",
+    "infoLink": "https://strapi.io/"
+  },
+  {
+    "caption": "octopol",
+    "image": "/img/customers/octopol.jpeg",
+    "infoLink": "https://octopol.io/"
+  },
+  {
+    "caption": "Pollen",
+    "image": "/img/customers/pollen.png",
+    "infoLink": "https://team.pollen.co/"
+  },
+  {
     "caption": "Trip.com",
     "image": "/img/customers/trip.png",
     "infoLink": "https://trip.com",
@@ -34,12 +70,6 @@
     "image": "/img/customers/tripbiz.svg",
     "infoLink": "https://trip.biz",
     "width": 140
-  },
-  {
-    "caption": "Framer",
-    "image": "/img/customers/framer.svg",
-    "infoLink": "https://www.framer.com",
-    "width": 202
   },
   {
     "caption": "Transloadit",
@@ -100,5 +130,17 @@
     "image": "/img/customers/hennge.svg",
     "infoLink": "https://hennge.com",
     "width": 180
+  },
+  {
+    "caption": "Verkada",
+    "image": "/img/customers/verkada.png",
+    "infoLink": "https://www.verkada.com",
+    "width": 200
+  },
+  {
+    "caption": "The MEDIA ANT",
+    "image": "/img/customers/the-media-ant.webp",
+    "infoLink": "https://www.themediaant.com",
+    "width": 200
   }
 ]

@@ -1,0 +1,65 @@
+---
+title: Profiling
+---
+
+## Common Profiling Steps
+
+If you have a problem with SWC minifier about memory allocation and you are on mac, you can use [`ddt`][] to profile the memory usage.
+Also, many steps are common to any kind of profiling.
+
+### Step 1. Prepare the inputs
+
+If you want to check the example directory for inputs, you can take a look at https://github.com/kdy1/swc-minifier-inputs.
+These input files are extracted from real next.js projects publicly available on github.
+See [debugging-nextjs-app](/docs/contributing/es-minifier/debugging-nextjs-app) for more details.
+
+In this example, we will assume that the link above is cloned to `~/projects/minifier-inputs`.
+(i.e. `git clone https://github.com/kdy1/swc-minifier-inputs.git ~/projects/minifier-inputs`)
+
+Replace `~/projects/minifier-inputs` in the commands below with the directory containing your input files. It can be either a file or a directory containing the input files.
+All .js files will be minified, without writing the result to the disk.
+
+#### Step 2. Clone the repository
+
+```bash
+git clone https://github.com/swc-project/swc.git
+cd ./swc/crates/swc_ecma_minifier
+```
+
+## Profiling Time Usage
+
+### Step 3. Run the profiler
+
+You have two options. One is to use `samply`, which is cross-platform, and the other is to use XCode Instruments, which is only available on mac.
+
+#### Using `samply`
+
+```bash
+CARGO_PROFILE_RELEASE_DEBUG=1 RUST_LOG=off ddt profile samply cargo --release --features concurrent --example minify-all -- ~/projects/minifier-inputs  to the directory containing your input files. It can be either a file or a directory containing the input files. All .js files will be minified (without writing the result to the disk)
+```
+
+This will open a tab in your browser once the profiling is done.
+
+#### Using XCode Instruments
+
+```bash
+CARGO_PROFILE_RELEASE_DEBUG=1 RUST_LOG=off ddt profile instruments cargo -t time --release --features concurrent --example minify-all -- ~/projects/minifier-inputs  to the directory containing your input files. It can be either a file or a directory containing the input files. All .js files will be minified (without writing the result to the disk)
+```
+
+This will open the Instruments app once the profiling is done.
+
+## Profiling Memory Usage
+
+### Step 3. Run the profiler
+
+The command to run the profiler is as follows:
+
+```bash
+CARGO_PROFILE_RELEASE_DEBUG=1 RUST_LOG=off ddt profile instruments cargo -t 'Memory' --release --features concurrent --example minify-all -- ~/projects/minifier-inputs  to the directory containing your input files. It can be either a file or a directory containing the input files. All .js files will be minified (without writing the result to the disk)
+```
+
+This will open the Instruments app once the profiling is done.
+
+---
+
+[`ddt`]: https://github.com/swc-project/ddt
