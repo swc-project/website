@@ -30,7 +30,9 @@ async function createContext(
     if (!params) {
         console.warn("No params provided to createContext");
         return {
-            getAccessToken: () => undefined,
+            async getAccessToken() {
+                return undefined;
+            },
             user: null,
             abilities: defineAbilitiesFor({ user: null }),
             responseHeaders: null,
@@ -40,7 +42,9 @@ async function createContext(
 
     if ("isAdmin" in params) {
         return {
-            getAccessToken: () => undefined,
+            async getAccessToken() {
+                return undefined;
+            },
             user: null,
             abilities: defineAbilitiesFor({ user: null }),
             responseHeaders: null,
@@ -55,8 +59,8 @@ async function createContext(
     });
 
     return {
-        getAccessToken() {
-            const h = headers();
+        async getAccessToken() {
+            const h = await headers();
             const auth = h.get("authorization");
             return auth ? auth.replace("Bearer ", "") : undefined;
         },
@@ -166,8 +170,8 @@ export const createCaller = async (ctx?: Context) => {
     });
 
     const newCtx: Context = {
-        getAccessToken() {
-            const h = headers();
+        async getAccessToken() {
+            const h = await headers();
             const auth = h.get("authorization");
             return auth ? auth.replace("Bearer ", "") : undefined;
         },

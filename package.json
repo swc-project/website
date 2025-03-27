@@ -32,5 +32,11 @@
       "prettier --write"
     ],
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.0.12",
+      "@types/react-dom": "19.0.4"
+    }
   }
 }

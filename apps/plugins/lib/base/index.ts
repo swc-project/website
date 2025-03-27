@@ -34,7 +34,7 @@ export type Context = {
     /**
      * Get the access token from the request header. (Authorization: Bearer $token)
      */
-    getAccessToken(): string | undefined;
+    getAccessToken(): Promise<string | undefined>;
 
     user: User | null;
     abilities: Abilities;
