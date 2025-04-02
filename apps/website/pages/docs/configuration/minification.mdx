@@ -10,6 +10,32 @@ import { Callout } from 'nextra-theme-docs';
   standalone tool if you only want minification.
 </Callout>
 
+# Assumptions
+
+SWC Minifier makes small amount of assumptions to make the minification efficient. This is similar to other minifiers.
+
+- Acesssing top-level identifiers do not have side effects.
+
+If you declare a variable on globalThis using a getter with side-effects, SWC Minifier will likely break it.
+
+- TDZ violation does not exist.
+
+TDZ violation will be ignored and not preserved.
+
+- Arithmetic expression may **not** have side effects.
+
+This assumption means that you can't rely on the exception thrown by the JS engine when adding a bigint and a number.
+
+```ts
+const a = 1n;
+const b = 1;
+const c = a + b;
+```
+
+If you execute this code, the JS engine will throw an exception. But SWC Minifier will ignore it.
+
+---
+
 Starting with `v1.2.67`, you can configure SWC to minify your code by enabling `minify` in your `.swcrc` file:
 
 ```json filename=".swcrc" copy
@@ -35,8 +61,6 @@ Starting with `v1.2.67`, you can configure SWC to minify your code by enabling `
 If you set `jsc.minify.compress` to `true` or `{}`, SWC will remove all comments starting from `v1.11.11`.
 Previous versions will preserve only license comments.
 If you don't want this, modify `jsc.minify.format`.
-
-
 
 ### `jsc.minify.compress`
 
