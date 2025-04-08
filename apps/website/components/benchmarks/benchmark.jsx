@@ -1,3 +1,5 @@
+"use client";
+
 /*
   This file contains a modified version of code from benchmark-action/github-action-benchmark.
 
