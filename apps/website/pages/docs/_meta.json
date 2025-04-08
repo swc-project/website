@@ -10,5 +10,5 @@
   "benchmarks": "Benchmarks",
   "references": "API References",
   "migrating-from-babel": "Migrating from Babel",
-  "swc-node-vs-swc": "`@swc-node` vs `@swc`"
+  "swc-node-vs-swc": "@swc-node vs @swc"
 }
