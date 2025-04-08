@@ -3,11 +3,9 @@
 Currently, the Wasm plugins are not backwards compatible.
 So you need to select an appropriate version of `swc_core` for your plugin.
 
-
 We provide a simple webapp to help you select the version of `swc_core`.
 
 See: https://plugins.swc.rs
-
 
 You can select the framework and the version of **framework** you are using, and the Wasm plugins compatible with it will be shown.
 
@@ -17,8 +15,6 @@ Please use the webapp instead.
 
 The page documents the version of `swc_core` you can use for each runtime.
 
-
-
 ## Note for next.js
 
 - [next `v13.2.4` ~ `v13.3.1` cannot execute SWC Wasm plugins, due to a bug of `next-swc`](https://github.com/vercel/next.js/issues/46989#issuecomment-1486989081).
@@ -27,25 +23,23 @@ The page documents the version of `swc_core` you can use for each runtime.
 
 If you use a version in a range of the title, the Wasm plugin will work for the runtimes written in the body.
 
-
 ### `v0.98.x` ~
 
 #### Changes
 
- - `Span.ctxt` is removed to reduce the size of `Span`.
- - `ctxt: SyntaxContext` is added to various AST nodes.
- - `IdentName` is used instead of `Ident` in some places like `MemberProp`, because those fields does not need `ctxt` or `optional`.
+- `Span.ctxt` is removed to reduce the size of `Span`.
+- `ctxt: SyntaxContext` is added to various AST nodes.
+- `IdentName` is used instead of `Ident` in some places like `MemberProp`, because those fields does not need `ctxt` or `optional`.
 
 #### Upgrade guide
 
- - The update PR for the official plugins: [plugins#334](https://github.com/swc-project/plugins/pull/334)
+- The update PR for the official plugins: [plugins#334](https://github.com/swc-project/plugins/pull/334)
 
 #### Versions
 
 - `@swc/core@1.7.x`
 - `next@v15.0.0-canary.117` (reverted in `next@v15.0.0-canary.118`)
-- `next@v15.0.0-canary.122` ~ 
-
+- `next@v15.0.0-canary.122` ~
 
 ### `v0.95.x` ~ `v0.96.x`
 
@@ -75,7 +69,6 @@ We refactored AST to make it less error-prone.
 - `next@14.1.1-canary.52` ~ `next@15.0.0-canary.28`
 - `@rspack/core@0.6.0` ~
 
-
 ### `v0.88.x` ~ `v0.89.x`
 
 Support for import phase proposal (stage 3) was added.
@@ -96,8 +89,6 @@ Note: You may need to specify the version of `swc_common`, too, like
 [dependencies]
 swc_common = "=0.33.15"
 ```
-
-
 
 ### `v0.79.x` ~ `v0.81.x`
 
