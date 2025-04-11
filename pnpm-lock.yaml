@@ -180,8 +180,8 @@ importers:
         specifier: 15.3.0
         version: 15.3.0(react-dom@19.0.0)(react@19.0.0)
       next-auth:
-        specifier: 5.0.0-beta.19
-        version: 5.0.0-beta.19(@simplewebauthn/browser@9.0.1)(@simplewebauthn/server@9.0.3)(next@15.3.0)(react@19.0.0)
+        specifier: 5.0.0-beta.25
+        version: 5.0.0-beta.25(@simplewebauthn/browser@9.0.1)(@simplewebauthn/server@9.0.3)(next@15.3.0)(react@19.0.0)
       next-themes:
         specifier: ^0.2.1
         version: 0.2.1(next@15.3.0)(react-dom@19.0.0)(react@19.0.0)
@@ -388,34 +388,6 @@ packages:
       }
     dev: false
 
-  /@auth/core@0.32.0(@simplewebauthn/browser@9.0.1)(@simplewebauthn/server@9.0.3):
-    resolution:
-      {
-        integrity: sha512-3+ssTScBd+1fd0/fscAyQN1tSygXzuhysuVVzB942ggU4mdfiTbv36P0ccVnExKWYJKvu3E2r3/zxXCCAmTOrg==,
-      }
-    peerDependencies:
-      "@simplewebauthn/browser": ^9.0.1
-      "@simplewebauthn/server": ^9.0.2
-      nodemailer: ^6.8.0
-    peerDependenciesMeta:
-      "@simplewebauthn/browser":
-        optional: true
-      "@simplewebauthn/server":
-        optional: true
-      nodemailer:
-        optional: true
-    dependencies:
-      "@panva/hkdf": 1.2.1
-      "@simplewebauthn/browser": 9.0.1
-      "@simplewebauthn/server": 9.0.3
-      "@types/cookie": 0.6.0
-      cookie: 0.6.0
-      jose: 5.9.6
-      oauth4webapi: 2.17.0
-      preact: 10.11.3
-      preact-render-to-string: 5.2.3(preact@10.11.3)
-    dev: false
-
   /@auth/core@0.34.1(@simplewebauthn/browser@9.0.1)(@simplewebauthn/server@9.0.3):
     resolution:
       {
@@ -440,6 +412,34 @@ packages:
       cookie: 0.6.0
       jose: 5.9.6
       oauth4webapi: 2.17.0
+      preact: 10.11.3
+      preact-render-to-string: 5.2.3(preact@10.11.3)
+    dev: false
+
+  /@auth/core@0.37.2(@simplewebauthn/browser@9.0.1)(@simplewebauthn/server@9.0.3):
+    resolution:
+      {
+        integrity: sha512-kUvzyvkcd6h1vpeMAojK2y7+PAV5H+0Cc9+ZlKYDFhDY31AlvsB+GW5vNO4qE3Y07KeQgvNO9U0QUx/fN62kBw==,
+      }
+    peerDependencies:
+      "@simplewebauthn/browser": ^9.0.1
+      "@simplewebauthn/server": ^9.0.2
+      nodemailer: ^6.8.0
+    peerDependenciesMeta:
+      "@simplewebauthn/browser":
+        optional: true
+      "@simplewebauthn/server":
+        optional: true
+      nodemailer:
+        optional: true
+    dependencies:
+      "@panva/hkdf": 1.2.1
+      "@simplewebauthn/browser": 9.0.1
+      "@simplewebauthn/server": 9.0.3
+      "@types/cookie": 0.6.0
+      cookie: 0.7.1
+      jose: 5.9.6
+      oauth4webapi: 3.4.1
       preact: 10.11.3
       preact-render-to-string: 5.2.3(preact@10.11.3)
     dev: false
@@ -3952,7 +3952,7 @@ packages:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
       tiny-warning: 1.0.3
-      tslib: 2.8.0
+      tslib: 2.8.1
     dev: false
 
   /@react-aria/focus@3.20.1(react-dom@19.1.0)(react@19.1.0):
@@ -5293,7 +5293,7 @@ packages:
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
-      semver: 7.6.3
+      semver: 7.7.1
       ts-api-utils: 2.1.0(typescript@4.9.3)
       typescript: 4.9.3
     transitivePeerDependencies:
@@ -5315,7 +5315,7 @@ packages:
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
-      semver: 7.6.3
+      semver: 7.7.1
       ts-api-utils: 2.1.0(typescript@5.5.4)
       typescript: 5.5.4
     transitivePeerDependencies:
@@ -5852,7 +5852,7 @@ packages:
     dependencies:
       pvtsutils: 1.3.5
       pvutils: 1.1.3
-      tslib: 2.8.0
+      tslib: 2.8.1
     dev: false
 
   /ast-types-flow@0.0.8:
@@ -6402,6 +6402,14 @@ packages:
     resolution:
       {
         integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==,
+      }
+    engines: { node: ">= 0.6" }
+    dev: false
+
+  /cookie@0.7.1:
+    resolution:
+      {
+        integrity: sha512-6DnInpx7SJ2AK3+CTUE/ZM0vWTUboZCegxhC2xiIydHR9jNuTAASBrfEpHhiGOZw/nX51bHt6YQl8jsGo4y/0w==,
       }
     engines: { node: ">= 0.6" }
     dev: false
@@ -10874,15 +10882,15 @@ packages:
     engines: { node: ">= 0.6" }
     dev: false
 
-  /next-auth@5.0.0-beta.19(@simplewebauthn/browser@9.0.1)(@simplewebauthn/server@9.0.3)(next@15.3.0)(react@19.0.0):
+  /next-auth@5.0.0-beta.25(@simplewebauthn/browser@9.0.1)(@simplewebauthn/server@9.0.3)(next@15.3.0)(react@19.0.0):
     resolution:
       {
-        integrity: sha512-YHu1igcAxZPh8ZB7GIM93dqgY6gcAzq66FOhQFheAdOx1raxNcApt05nNyNCSB6NegSiyJ4XOPsaNow4pfDmsg==,
+        integrity: sha512-2dJJw1sHQl2qxCrRk+KTQbeH+izFbGFPuJj5eGgBZFYyiYYtvlrBeUw1E/OJJxTRjuxbSYGnCTkUIRsIIW0bog==,
       }
     peerDependencies:
       "@simplewebauthn/browser": ^9.0.1
       "@simplewebauthn/server": ^9.0.2
-      next: ^14 || ^15.0.0-0
+      next: ^14.0.0-0 || ^15.0.0-0
       nodemailer: ^6.6.5
       react: ^18.2.0 || ^19.0.0-0
     peerDependenciesMeta:
@@ -10893,7 +10901,7 @@ packages:
       nodemailer:
         optional: true
     dependencies:
-      "@auth/core": 0.32.0(@simplewebauthn/browser@9.0.1)(@simplewebauthn/server@9.0.3)
+      "@auth/core": 0.37.2(@simplewebauthn/browser@9.0.1)(@simplewebauthn/server@9.0.3)
       "@simplewebauthn/browser": 9.0.1
       "@simplewebauthn/server": 9.0.3
       next: 15.3.0(react-dom@19.0.0)(react@19.0.0)
@@ -11236,6 +11244,13 @@ packages:
     resolution:
       {
         integrity: sha512-lbC0Z7uzAFNFyzEYRIC+pkSVvDHJTbEW+dYlSBAlCYDe6RxUkJ26bClhk8ocBZip1wfI9uKTe0fm4Ib4RHn6uQ==,
+      }
+    dev: false
+
+  /oauth4webapi@3.4.1:
+    resolution:
+      {
+        integrity: sha512-sPv0Phrf0HjFNRr23b1yC7Q9VAeri3fdrx4sr4KKN6PmLLY/zJD3B4UHLs/p7oYlFBbxJVl/VI6bSvjmKBoexg==,
       }
     dev: false
 
@@ -11786,7 +11801,7 @@ packages:
         integrity: sha512-ARvb14YB9Nm2Xi6nBq1ZX6dAM0FsJnuk+31aUp4TrcZEdKUlSqOqsxJHUPJDNE3qiIp+iUPEIeR6Je/tgV7zsA==,
       }
     dependencies:
-      tslib: 2.8.0
+      tslib: 2.8.1
     dev: false
 
   /pvutils@1.1.3:
@@ -11918,7 +11933,7 @@ packages:
       "@types/react": 19.0.12
       react: 19.0.0
       react-style-singleton: 2.2.1(@types/react@19.0.12)(react@19.0.0)
-      tslib: 2.8.0
+      tslib: 2.8.1
     dev: false
 
   /react-remove-scroll@2.5.5(@types/react@19.0.12)(react@19.0.0):
@@ -12011,7 +12026,7 @@ packages:
       get-nonce: 1.0.1
       invariant: 2.2.4
       react: 19.0.0
-      tslib: 2.8.0
+      tslib: 2.8.1
     dev: false
 
   /react-transition-group@4.4.5(react-dom@19.0.0)(react@19.0.0):
@@ -12677,6 +12692,7 @@ packages:
       }
     engines: { node: ">=10" }
     hasBin: true
+    dev: false
 
   /semver@7.7.1:
     resolution:
@@ -14004,7 +14020,7 @@ packages:
     dependencies:
       "@types/react": 19.0.12
       react: 19.0.0
-      tslib: 2.8.0
+      tslib: 2.8.1
     dev: false
 
   /use-sidecar@1.1.2(@types/react@19.0.12)(react@19.0.0):
@@ -14023,7 +14039,7 @@ packages:
       "@types/react": 19.0.12
       detect-node-es: 1.1.0
       react: 19.0.0
-      tslib: 2.8.0
+      tslib: 2.8.1
     dev: false
 
   /usehooks-ts@2.10.0(react-dom@19.0.0)(react@19.0.0):
