@@ -91,6 +91,9 @@ export default async function RootLayout({ children }) {
                   <span className="mx-2 font-extrabold hidden md:inline select-none">
                     SWC
                   </span>
+                  <span className="text-gray-600 font-normal hidden lg:!inline whitespace-no-wrap">
+                    Speedy Web Compiler
+                  </span>
                 </>
               }
               projectLink="https://github.com/swc-project/swc"
