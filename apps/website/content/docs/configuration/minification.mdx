@@ -14,9 +14,27 @@ import { Callout } from 'nextra/components';
 
 SWC Minifier makes small amount of assumptions to make the minification efficient. This is similar to other minifiers.
 
-- Acesssing top-level identifiers do not have side effects.
+- `.toString()` and `.valueOf()` don't have side effects, and for built-in objects they have not been overridden.
 
-If you declare a variable on globalThis using a getter with side-effects, SWC Minifier will likely break it.
+- `undefined`, `NaN` and `Infinity` have not been externally redefined.
+
+- `arguments.callee`, `arguments.caller` and `Function.prototype.caller` are not used.
+
+These are not valid in strict mode.
+
+- The code doesn't expect the contents of `Function.prototype.toString()` or `Error.prototype.stack` to be anything in particular.
+
+- Getting and setting properties on a plain object does not cause other side effects (using `.watch()` or `Proxy`).
+
+- Object properties can be added, removed and modified (not prevented with `Object.defineProperty()`, `Object.defineProperties()`, `Object.freeze()`, `Object.preventExtensions()` or `Object.seal()`).
+
+- `document.all` is not `null`.
+
+- Assigning properties to a class doesn't have side effects and does not throw.
+
+- Acesssing **declared** top-level identifiers do not have side effects.
+
+If you declare a variable on `globalThis` using a getter with side-effects, SWC Minifier will likely break it.
 
 - TDZ violation does not exist.
 
@@ -33,6 +51,8 @@ const c = a + b;
 ```
 
 If you execute this code, the JS engine will throw an exception. But SWC Minifier will ignore it.
+
+Related: [terser - compiler assumptions](https://github.com/terser/terser#compiler-assumptions)
 
 ---
 
