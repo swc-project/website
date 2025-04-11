@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "generate": "typescript-json-schema tsconfig.json 'SwcOptions' > public/schema.json",
-    "build": "pnpm run generate && next build",
+    "build": "pnpm run generate && next build --turbopack",
     "start": "next start"
   },
   "dependencies": {
