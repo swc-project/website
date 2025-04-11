@@ -39,6 +39,11 @@
         "noInterop": {
           "type": "boolean"
         },
+        "outFileExtension": {
+          "description": "Output extension for generated files.\n\nDefaults to `js`.",
+          "enum": ["cjs", "js", "mjs"],
+          "type": "string"
+        },
         "preserveImportMeta": {
           "type": "boolean"
         },
@@ -53,6 +58,101 @@
         "type": {
           "const": "amd",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Assumptions": {
+      "properties": {
+        "arrayLikeIsIterable": {
+          "description": "https://babeljs.io/docs/en/assumptions#arraylikeisiterable",
+          "type": "boolean"
+        },
+        "constantReexports": {
+          "description": "https://babeljs.io/docs/en/assumptions#constantreexports",
+          "type": "boolean"
+        },
+        "constantSuper": {
+          "description": "https://babeljs.io/docs/en/assumptions#constantsuper",
+          "type": "boolean"
+        },
+        "enumerableModuleMeta": {
+          "description": "https://babeljs.io/docs/en/assumptions#enumerablemodulemeta",
+          "type": "boolean"
+        },
+        "ignoreFunctionLength": {
+          "description": "https://babeljs.io/docs/en/assumptions#ignorefunctionlength",
+          "type": "boolean"
+        },
+        "ignoreFunctionName": {
+          "type": "boolean"
+        },
+        "ignoreToPrimitiveHint": {
+          "description": "https://babeljs.io/docs/en/assumptions#ignoretoprimitivehint",
+          "type": "boolean"
+        },
+        "iterableIsArray": {
+          "description": "https://babeljs.io/docs/en/assumptions#iterableisarray",
+          "type": "boolean"
+        },
+        "mutableTemplateObject": {
+          "description": "https://babeljs.io/docs/en/assumptions#mutabletemplateobject",
+          "type": "boolean"
+        },
+        "noClassCalls": {
+          "description": "https://babeljs.io/docs/en/assumptions#noclasscalls",
+          "type": "boolean"
+        },
+        "noDocumentAll": {
+          "description": "https://babeljs.io/docs/en/assumptions#nodocumentall",
+          "type": "boolean"
+        },
+        "noIncompleteNsImportDetection": {
+          "description": "https://babeljs.io/docs/en/assumptions#noincompletensimportdetection",
+          "type": "boolean"
+        },
+        "noNewArrows": {
+          "description": "https://babeljs.io/docs/en/assumptions#nonewarrows",
+          "type": "boolean"
+        },
+        "objectRestNoSymbols": {
+          "description": "https://babeljs.io/docs/en/assumptions#objectrestnosymbols",
+          "type": "boolean"
+        },
+        "privateFieldsAsProperties": {
+          "description": "https://babeljs.io/docs/en/assumptions#privatefieldsasproperties",
+          "type": "boolean"
+        },
+        "pureGetters": {
+          "description": "https://babeljs.io/docs/en/assumptions#puregetters",
+          "type": "boolean"
+        },
+        "setClassMethods": {
+          "description": "https://babeljs.io/docs/en/assumptions#setclassmethods",
+          "type": "boolean"
+        },
+        "setComputedProperties": {
+          "description": "https://babeljs.io/docs/en/assumptions#setcomputedproperties",
+          "type": "boolean"
+        },
+        "setPublicClassFields": {
+          "description": "https://babeljs.io/docs/en/assumptions#setpublicclassfields",
+          "type": "boolean"
+        },
+        "setSpreadProperties": {
+          "description": "https://babeljs.io/docs/en/assumptions#setspreadproperties",
+          "type": "boolean"
+        },
+        "skipForOfIteratorClosing": {
+          "description": "https://babeljs.io/docs/en/assumptions#skipforofiteratorclosing",
+          "type": "boolean"
+        },
+        "superIsCallableConstructor": {
+          "description": "https://babeljs.io/docs/en/assumptions#superiscallableconstructor",
+          "type": "boolean"
+        },
+        "tsEnumIsReadonly": {
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -100,6 +200,11 @@
         },
         "noInterop": {
           "type": "boolean"
+        },
+        "outFileExtension": {
+          "description": "Output extension for generated files.\n\nDefaults to `js`.",
+          "enum": ["cjs", "js", "mjs"],
+          "type": "string"
         },
         "preserveImportMeta": {
           "type": "boolean"
@@ -225,6 +330,11 @@
         "noInterop": {
           "type": "boolean"
         },
+        "outFileExtension": {
+          "description": "Output extension for generated files.\n\nDefaults to `js`.",
+          "enum": ["cjs", "js", "mjs"],
+          "type": "string"
+        },
         "preserveImportMeta": {
           "type": "boolean"
         },
@@ -245,6 +355,18 @@
     },
     "EsParserConfig": {
       "properties": {
+        "allowReturnOutsideFunction": {
+          "description": "Defaults to `false`",
+          "type": "boolean"
+        },
+        "allowSuperOutsideMethod": {
+          "description": "Defaults to `false`",
+          "type": "boolean"
+        },
+        "autoAccessors": {
+          "description": "Defaults to `false`",
+          "type": "boolean"
+        },
         "classPrivateProperty": {
           "type": "boolean"
         },
@@ -262,6 +384,10 @@
         "dynamicImport": {
           "type": "boolean"
         },
+        "explicitResourceManagement": {
+          "description": "Defaults to `false`",
+          "type": "boolean"
+        },
         "exportDefaultFrom": {
           "description": "Defaults to `false`",
           "type": "boolean"
@@ -274,6 +400,9 @@
           "type": "boolean"
         },
         "importAssertions": {
+          "type": "boolean"
+        },
+        "importAttributes": {
           "description": "Defaults to `false`",
           "type": "boolean"
         },
@@ -372,7 +501,7 @@
         },
         "inlineScript": {
           "description": "Currently noop.",
-          "type": "number"
+          "type": "boolean"
         },
         "keepNumbers": {
           "description": "Currently noop.",
@@ -482,7 +611,7 @@
           ]
         },
         "module": {
-          "type": "boolean"
+          "enum": [false, true, "unknown"]
         },
         "outputPath": {
           "type": "string"
@@ -501,6 +630,9 @@
     },
     "JscConfig": {
       "properties": {
+        "assumptions": {
+          "$ref": "#/definitions/Assumptions"
+        },
         "baseUrl": {
           "type": "string"
         },
@@ -511,12 +643,24 @@
               "description": "Specify the location where SWC stores its intermediate cache files.\nCurrently only transform plugin uses this. If not specified, SWC will\ncreate `.swc` directories.",
               "type": "string"
             },
+            "disableAllLints": {
+              "description": "Disable all lint rules.",
+              "type": "boolean"
+            },
             "disableBuiltinTransformsForInternalTesting": {
               "description": "Disable builtin transforms. If enabled, only Wasm plugins are used.",
               "type": "boolean"
             },
             "emitAssertForImportAttributes": {
               "description": "Use `assert` instead of `with` for imports and exports.\nThis option only works when `keepImportAttributes` is `true`.",
+              "type": "boolean"
+            },
+            "emitIsolatedDts": {
+              "description": "Emit isolated dts files for each module.",
+              "type": "boolean"
+            },
+            "keepImportAssertions": {
+              "description": "Keep import assertions.",
               "type": "boolean"
             },
             "keepImportAttributes": {
@@ -542,6 +686,10 @@
                 "type": "array"
               },
               "type": "array"
+            },
+            "runPluginFirst": {
+              "description": "Run Wasm plugins before stripping TypeScript or decorators.\n\nSee https://github.com/swc-project/swc/issues/9132 for more details.",
+              "type": "boolean"
             }
           },
           "type": "object"
@@ -596,6 +744,8 @@
         "es2020",
         "es2021",
         "es2022",
+        "es2023",
+        "es2024",
         "es3",
         "es5",
         "esnext"
@@ -661,6 +811,11 @@
         },
         "noInterop": {
           "type": "boolean"
+        },
+        "outFileExtension": {
+          "description": "Output extension for generated files.\n\nDefaults to `js`.",
+          "enum": ["cjs", "js", "mjs"],
+          "type": "string"
         },
         "preserveImportMeta": {
           "type": "boolean"
@@ -731,8 +886,29 @@
           "type": "string"
         },
         "refresh": {
-          "description": "Enable fast refresh feature for React app",
-          "type": "boolean"
+          "anyOf": [
+            {
+              "properties": {
+                "emitFullSignatures": {
+                  "description": "Flag to emit full signatures.\n\nDefaults to `false`",
+                  "type": "boolean"
+                },
+                "refreshReg": {
+                  "description": "Identifier for the `react-refresh` register function.\n\nDefaults to `$RefreshReg$`",
+                  "type": "string"
+                },
+                "refreshSig": {
+                  "description": "Identifier for the `react-refresh` signature function.\n\nDefaults to `$RefreshSig$`",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "type": "boolean"
+            }
+          ],
+          "description": "Enable fast refresh feature for React app"
         },
         "runtime": {
           "description": "jsx runtime",
@@ -943,6 +1119,18 @@
         "ie8": {
           "type": "boolean"
         },
+        "keepClassNames": {
+          "description": "Pass `true` to not mangle class names.",
+          "type": "boolean"
+        },
+        "keepFnNames": {
+          "description": "Pass `true` to not mangle function names.",
+          "type": "boolean"
+        },
+        "keepPrivateProps": {
+          "description": "Pass `true` to not mangle private props.",
+          "type": "boolean"
+        },
         "keep_classnames": {
           "type": "boolean"
         },
@@ -962,6 +1150,10 @@
           "type": "array"
         },
         "safari10": {
+          "type": "boolean"
+        },
+        "topLevel": {
+          "description": "Pass `true` to mangle names declared in the top level scope.",
           "type": "boolean"
         },
         "toplevel": {
@@ -997,7 +1189,7 @@
           "type": "number"
         },
         "inline_script": {
-          "type": "number"
+          "type": "boolean"
         },
         "keep_numbers": {
           "type": "number"
@@ -1056,7 +1248,7 @@
           "$ref": "#/definitions/ConstModulesConfig"
         },
         "decoratorMetadata": {
-          "description": "https://swc.rs/docs/configuring-swc.html#jsctransformdecoratormetadata",
+          "description": "https://swc.rs/docs/configuration/compilation#jsctransformdecoratormetadata",
           "type": "boolean"
         },
         "decoratorVersion": {
@@ -1065,7 +1257,7 @@
           "type": "string"
         },
         "legacyDecorator": {
-          "description": "https://swc.rs/docs/configuring-swc.html#jsctransformlegacydecorator",
+          "description": "https://swc.rs/docs/configuration/compilation#jsctransformlegacydecorator",
           "type": "boolean"
         },
         "optimizer": {
@@ -1080,6 +1272,11 @@
           "type": "boolean"
         },
         "useDefineForClassFields": {
+          "description": "https://www.typescriptlang.org/tsconfig#useDefineForClassFields",
+          "type": "boolean"
+        },
+        "verbatimModuleSyntax": {
+          "description": "https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax",
           "type": "boolean"
         }
       },
@@ -1092,7 +1289,6 @@
           "type": "boolean"
         },
         "dynamicImport": {
-          "description": "Defaults to `false`",
           "type": "boolean"
         },
         "syntax": {
@@ -1146,6 +1342,11 @@
         },
         "noInterop": {
           "type": "boolean"
+        },
+        "outFileExtension": {
+          "description": "Output extension for generated files.\n\nDefaults to `js`.",
+          "enum": ["cjs", "js", "mjs"],
+          "type": "string"
         },
         "preserveImportMeta": {
           "type": "boolean"

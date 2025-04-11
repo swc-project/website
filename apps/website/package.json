@@ -3,7 +3,7 @@
   "author": "DongYoon Kang",
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "generate": "typescript-json-schema tsconfig.json 'SwcOptions' > public/schema.json",
     "build": "pnpm run generate && next build",
     "start": "next start"
@@ -13,25 +13,31 @@
     "chart.js": "^3.7.1",
     "focus-visible": "^5.2.0",
     "markdown-to-jsx": "^6.11.4",
-    "next": "^13.0.6",
-    "nextra": "2.2.20",
-    "nextra-theme-docs": "2.2.20",
-    "react": "^18.2.0",
+    "next": "15.3.0",
+    "nextra": "4.2.17",
+    "nextra-theme-docs": "4.2.17",
+    "react": "19.1.0",
     "react-chartjs-2": "^3.3.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
     "@swc/types": "^0.1.20",
+    "@tailwindcss/postcss": "^4.1.3",
     "@types/node": "^18.11.10",
-    "@types/react": "^17.0.39",
+    "@types/react": "19.1.0",
     "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.6",
-    "tailwindcss": "^2.2.19",
+    "eslint-config-next": "15.3.0",
+    "tailwindcss": "^4.1.3",
     "typescript": "^4.9.3",
     "typescript-json-schema": "^0.63.0"
   },
   "prettier": {
     "embeddedLanguageFormatting": "off",
     "htmlWhitespaceSensitivity": "strict"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.1.0"
+    }
   }
 }

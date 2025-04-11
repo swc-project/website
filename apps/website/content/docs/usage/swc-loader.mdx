@@ -1,0 +1,89 @@
+import { Callout, Tabs, Tab } from 'nextra/components'
+
+# swc-loader
+
+This module allows you to use SWC with webpack.
+
+For Rspack users, you can use Rspack's [builtin:swc-loader](https://rspack.dev/guide/features/builtin-swc-loader), without the need to install the swc-loader package.
+
+## Installation
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tabs.Tab>
+    ```bash copy
+    pnpm i -D @swc/core swc-loader
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash copy
+    npm i -D @swc/core swc-loader
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash copy
+    yarn add -D @swc/core swc-loader
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+
+```js filename="webpack.config.js" copy
+module: {
+  rules: [
+    {
+      test: /\.m?js$/,
+      exclude: /(node_modules)/,
+      use: {
+        // `.swcrc` can be used to configure swc
+        loader: "swc-loader"
+      }
+    }
+  ]
+}
+```
+
+### Options
+
+Loader options are passed through to SWC as if they were part of your `.swcrc`.
+
+For instance, [to configure `browserslist`-based `targets` for compilation](https://swc.rs/docs/configuration/compilation#env) and see the effect:
+
+```js
+{
+  use: {
+    loader: "swc-loader",
+    options: {
+      env: {
+        targets: "defaults",
+        debug: true
+      }
+    }
+  }
+}
+```
+
+### React Development
+
+The [`jsc.transform.react.development`](/docs/configuration/compilation#jsctransformreactdevelopment) option is automatically set based on the [webpack `mode`](https://webpack.js.org/configuration/mode/).
+
+### With babel-loader
+
+When used with babel-loader, the parseMap option must be set to true.
+
+```js filename="webpack.config.js" copy
+module: {
+  rules: [
+    {
+      test: /\.m?js$/,
+      exclude: /(node_modules)/,
+      use: {
+        loader: "swc-loader",
+        options: {
+          parseMap: true
+        }
+      }
+    }
+  ]
+}
+```
