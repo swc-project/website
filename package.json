@@ -24,7 +24,7 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "turbo": "^2.0.14"
+    "turbo": "^2.5.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
