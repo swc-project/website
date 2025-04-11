@@ -7,21 +7,21 @@ import { Callout, Tabs, Tab } from 'nextra/components'
 Run the following to download pre-built binaries:
 
 <Tabs items={['pnpm', 'npm', 'yarn']}>
-  <Tab>
+  <Tabs.Tab>
     ```bash copy
     pnpm i -D @swc/cli @swc/core
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```bash copy
     npm i -D @swc/cli @swc/core
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```bash copy
     yarn add -D @swc/cli @swc/core
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 Then, you can transpile your files:
