@@ -5,7 +5,7 @@
   "scripts": {
     "db:build": "prisma generate",
     "db:push": "prisma db push --accept-data-loss",
-    "build:next": "next build",
+    "build:next": "next build --turbopack",
     "dev": "next dev --turbopack -p 50000",
     "lint": "next lint",
     "start": "next start",
@@ -60,7 +60,7 @@
     "lodash-es": "^4.17.21",
     "lucide-react": "^0.316.0",
     "next": "15.3.0",
-    "next-auth": "5.0.0-beta.19",
+    "next-auth": "5.0.0-beta.25",
     "next-themes": "^0.2.1",
     "next-usequerystate": "^1.17.8",
     "nextjs-toploader": "^1.6.4",

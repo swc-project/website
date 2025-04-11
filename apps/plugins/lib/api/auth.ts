@@ -1,6 +1,6 @@
 import { auth } from "@/lib/auth";
 import { User } from "@/lib/base";
-import { UserRole } from "@/lib/generated/prisma";
+import { UserRole } from "@prisma/client";
 import { db } from "@/lib/prisma";
 
 export async function getCurrentUser(): Promise<User | null> {
