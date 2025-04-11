@@ -12,3 +12,5 @@ public/*.toml
 public/schema.json
 
 .turbo/
+
+_pagefind/
