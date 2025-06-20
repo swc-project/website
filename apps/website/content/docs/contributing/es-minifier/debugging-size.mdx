@@ -1,0 +1,209 @@
+# Debugging size difference between SWC and Terser
+
+you can use `dbg-swc` to spot input files that is larger with SWC minifier than terser.
+
+## Step 1. Installation
+
+1. Install rust (https://rustup.rs/)
+2. `cargo install dbg-swc`
+
+## Step 2. Run dbg-swc
+
+Note that it may take a while to run because it will run `terser`, which is a heavy process, for each input file.
+
+```bash
+dbg-swc es minifier ensure-size path/to/your/minifier/inputs
+
+# e.g.
+# dbg-swc es minifier ensure-size ~/projects/minifier-inputs
+```
+
+## Step 3. Check the result
+
+It prints all the files that are larger with SWC minifier than `terser`.
+
+```
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/7513/input.js
+  No-mangle
+    swc: 1474171 bytes
+    terser: 1454104 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/4011/input.js
+  Gzipped
+    swc: 100759 bytes
+    terser: 99564 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/app/(app)/environments/[environmentId]/settings/(organization)/billing/page/input.js
+  Gzipped
+    swc: 36019 bytes
+    terser: 35937 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/1469/input.js
+  Gzipped
+    swc: 8795 bytes
+    terser: 8769 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/app/(app)/environments/[environmentId]/settings/(organization)/general/page/input.js
+  Gzipped
+    swc: 22059 bytes
+    terser: 22029 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/5138/input.js
+  Gzipped
+    swc: 54356 bytes
+    terser: 54209 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/1055/input.js
+  Gzipped
+    swc: 54361 bytes
+    terser: 54214 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/app/api/billing/stripe-webhook/route/input.js
+  Gzipped
+    swc: 21439 bytes
+    terser: 21420 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/app/(app)/environments/[environmentId]/integrations/page/input.js
+  Gzipped
+    swc: 19111 bytes
+    terser: 19083 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/9103/input.js
+  Gzipped
+    swc: 10173 bytes
+    terser: 10159 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/92/input.js
+  Gzipped
+    swc: 10095 bytes
+    terser: 10071 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/4105/input.js
+  Gzipped
+    swc: 9259 bytes
+    terser: 9190 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/app/(app)/environments/[environmentId]/settings/(organization)/enterprise/page/input.js
+  Gzipped
+    swc: 12698 bytes
+    terser: 12632 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/2615/input.js
+  Gzipped
+    swc: 9645 bytes
+    terser: 9591 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/2171/input.js
+  Gzipped
+    swc: 7003 bytes
+    terser: 6994 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/9242/input.js
+  Gzipped
+    swc: 5069 bytes
+    terser: 4982 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/255/input.js
+  Gzipped
+    swc: 4775 bytes
+    terser: 4761 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/6626/input.js
+  Gzipped
+    swc: 7811 bytes
+    terser: 7760 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/1606/input.js
+  Gzipped
+    swc: 14604 bytes
+    terser: 14502 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/4150/input.js
+  Gzipped
+    swc: 12041 bytes
+    terser: 11926 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/app/page/input.js
+  Gzipped
+    swc: 4867 bytes
+    terser: 4860 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/app/[shortUrlId]/page/input.js
+  Gzipped
+    swc: 4265 bytes
+    terser: 4253 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/4483/input.js
+  No-mangle
+    swc: 23857 bytes
+    terser: 23777 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/6916/input.js
+  Gzipped
+    swc: 1812 bytes
+    terser: 1806 bytes
+  Mangled
+    swc: 4335 bytes
+    terser: 4311 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/571/input.js
+  Gzipped
+    swc: 1812 bytes
+    terser: 1805 bytes
+  Mangled
+    swc: 4334 bytes
+    terser: 4310 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/edge-runtime-webpack/input.js
+  Mangled
+    swc: 1947 bytes
+    terser: 1890 bytes
+  No-mangle
+    swc: 3758 bytes
+    terser: 3723 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/webpack-runtime/input.js
+  Gzipped
+    swc: 861 bytes
+    terser: 842 bytes
+  Mangled
+    swc: 1683 bytes
+    terser: 1585 bytes
+  No-mangle
+    swc: 3320 bytes
+    terser: 3262 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/8991/input.js
+  Gzipped
+    swc: 15466 bytes
+    terser: 15413 bytes
+  Mangled
+    swc: 60682 bytes
+    terser: 59783 bytes
+
+/Users/kdy1/projects/minifier-inputs/formbricks-webapp/instrumentation/input.js
+  Gzipped
+    swc: 89232 bytes
+    terser: 88325 bytes
+  Mangled
+    swc: 345209 bytes
+    terser: 343076 bytes
+  No-mangle
+    swc: 407779 bytes
+    terser: 404269 bytes
+Total
+  swc: 36565606 bytes
+  terser: 36969776 bytes
+  Size ratio: 0.9890675561572242
+swc produced smaller or equal output for 236 files out of 242 files, 97.52%
+Total (gzipped)
+  swc: 5605826 bytes
+  terser: 5654953 bytes
+  Size ratio: 0.991312571474953
+swc produced smaller or equal output for 216 files out of 242 files, 89.26%
+
+```
+
+## Step 4. Debug the size difference
+
+If you think there's a bug in the SWC minifier, please file an issue at https://github.com/swc-project/swc/issues.
