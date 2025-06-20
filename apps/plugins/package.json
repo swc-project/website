@@ -59,7 +59,7 @@
     "input-otp": "^1.2.4",
     "lodash-es": "^4.17.21",
     "lucide-react": "^0.316.0",
-    "next": "15.3.0",
+    "next": "15.3.4",
     "next-auth": "5.0.0-beta.25",
     "next-themes": "^0.2.1",
     "next-usequerystate": "^1.17.8",
