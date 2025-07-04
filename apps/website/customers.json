@@ -142,5 +142,11 @@
     "image": "/img/customers/the-media-ant.webp",
     "infoLink": "https://www.themediaant.com",
     "width": 200
+  },
+  {
+    "caption": "EverShop",
+    "image": "/img/customers/evershop.png",
+    "infoLink": "https://evershop.io/",
+    "width": 110
   }
 ]
