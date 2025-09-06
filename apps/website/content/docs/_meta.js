@@ -5,7 +5,7 @@ export default {
   plugin: "Plugin",
   contributing: "Contributing",
   team: "The Team",
-roadmap: "Roadmap",
+  roadmap: "Roadmap",
   sponsors: "Sponsors",
   customers: "Customers",
   benchmarks: "Benchmarks",
