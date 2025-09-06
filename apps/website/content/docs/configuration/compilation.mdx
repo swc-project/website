@@ -365,11 +365,52 @@ If you are using typescript and decorators with `emitDecoratorMetadata` enabled,
 
 #### jsc.transform.react.runtime
 
-Possible values: `automatic`, `classic`. This affects how JSX source code will be compiled.
+Possible values: `automatic`, `classic`, `preserve`.
 
-- Defauts to `classic`.
-- Use `runtime: automatic` to use a JSX runtime module (e.g. `react/jsx-runtime` introduced in React 17).
-- Use `runtime: classic` to use `React.createElement` instead - with this option, you must ensure that `React` is in scope when using JSX.
+Decides which runtime to use when transforming JSX.
+
+- Defaults to `'classic'`.
+- Use `runtime: 'automatic'` to use a JSX runtime module (e.g. `react/jsx-runtime` introduced in React 17). This is the modern approach introduced in React 17+ that eliminates the need to manually import React in every file that uses JSX.
+
+```json filename=".swcrc" copy
+{
+  "jsc": {
+    "transform": {
+      "react": {
+        "runtime": "automatic"
+      }
+    }
+  }
+}
+```
+
+- Use `runtime: 'classic'` to use the traditional JSX transform that relies on `React.createElement` calls - with this option, you must ensure that `React` is in scope when using JSX.
+
+```json filename=".swcrc" copy
+{
+  "jsc": {
+    "transform": {
+      "react": {
+        "runtime": "classic"
+      }
+    }
+  }
+}
+```
+
+- Use `runtime: 'preserve'` to leave JSX syntax unchanged without transforming it.
+
+```json filename=".swcrc" copy
+{
+  "jsc": {
+    "transform": {
+      "react": {
+        "runtime": "preserve"
+      }
+    }
+  }
+}
+```
 
 [Learn more here](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html).
 
