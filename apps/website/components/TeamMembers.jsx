@@ -32,6 +32,12 @@ const members = [
     role: "Core Team",
   },
   {
+    name: "bohan",
+    link: "https://github.com/bvanjoi",
+    github: "bvanjoi",
+    role: "Core Team",
+  },
+  {
     name: "LongYinan",
     link: "https://github.com/Brooooooklyn",
     github: "Brooooooklyn",
