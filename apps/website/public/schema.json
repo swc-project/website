@@ -47,10 +47,6 @@
         "preserveImportMeta": {
           "type": "boolean"
         },
-        "resolveFully": {
-          "description": "If set to true, This will resolve top .mjs",
-          "type": "boolean"
-        },
         "strict": {
           "description": "By default, when using exports with babel a non-enumerable `__esModule`\nproperty is exported. In some cases this property is used to determine\nif the import is the default export or if it contains the default export.\n\nIn order to prevent the __esModule property from being exported, you\n can set the strict option to true.\n\nDefaults to `false`.",
           "type": "boolean"
@@ -213,10 +209,6 @@
         "preserveImportMeta": {
           "type": "boolean"
         },
-        "resolveFully": {
-          "description": "If set to true, This will resolve top .mjs",
-          "type": "boolean"
-        },
         "strict": {
           "description": "By default, when using exports with babel a non-enumerable `__esModule`\nproperty is exported. In some cases this property is used to determine\nif the import is the default export or if it contains the default export.\n\nIn order to prevent the __esModule property from being exported, you\n can set the strict option to true.\n\nDefaults to `false`.",
           "type": "boolean"
@@ -344,10 +336,6 @@
           "type": "string"
         },
         "preserveImportMeta": {
-          "type": "boolean"
-        },
-        "resolveFully": {
-          "description": "If set to true, This will resolve top .mjs",
           "type": "boolean"
         },
         "strict": {
@@ -494,21 +482,9 @@
           "type": "boolean"
         },
         "comments": {
-          "anyOf": [
-            {
-              "properties": {
-                "regex": {
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            },
-            {
-              "enum": ["all", false, "some"]
-            }
-          ],
           "default": false,
-          "description": "- `false`: removes all comments\n- `'some'`: preserves some comments\n- `'all'`: preserves all comments\n- `{ regex: string }`: preserves comments that match the regex"
+          "description": "- `false`: removes all comments\n- `'some'`: preserves some comments\n- `'all'`: preserves all comments",
+          "enum": ["all", false, "some"]
         },
         "ecma": {
           "$ref": "#/definitions/TerserEcmaVersion",
@@ -732,17 +708,6 @@
         "minify": {
           "$ref": "#/definitions/JsMinifyOptions"
         },
-        "output": {
-          "properties": {
-            "charset": {
-              "default": "'utf8'",
-              "description": "This can be used to keep the output ascii-only.\nIf this option is set, `minify.format.asciiOnly` will be ignored.",
-              "enum": ["ascii", "utf8"],
-              "type": "string"
-            }
-          },
-          "type": "object"
-        },
         "parser": {
           "$ref": "#/definitions/ParserConfig",
           "description": "Defaults to EsParserConfig"
@@ -853,10 +818,6 @@
           "type": "string"
         },
         "preserveImportMeta": {
-          "type": "boolean"
-        },
-        "resolveFully": {
-          "description": "If set to true, This will resolve top .mjs",
           "type": "boolean"
         },
         "strict": {
@@ -1216,19 +1177,7 @@
           "type": "boolean"
         },
         "comments": {
-          "anyOf": [
-            {
-              "properties": {
-                "regex": {
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            },
-            {
-              "enum": ["all", false, "some"]
-            }
-          ]
+          "enum": ["all", false, "some"]
         },
         "ecma": {
           "$ref": "#/definitions/TerserEcmaVersion"
@@ -1400,10 +1349,6 @@
           "type": "string"
         },
         "preserveImportMeta": {
-          "type": "boolean"
-        },
-        "resolveFully": {
-          "description": "If set to true, This will resolve top .mjs",
           "type": "boolean"
         },
         "strict": {
