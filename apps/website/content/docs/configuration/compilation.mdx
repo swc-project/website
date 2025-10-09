@@ -208,11 +208,22 @@ Enable bugfix passes.
 
 The output code may depend on helper functions to support the target environment. By default, a helper function is inlined into the output files where it is required.
 
-You can use helpers from an external module by enabling `externalHelpers` and the helpers code will be imported by the output files from `node_modules/@swc/helpers`.
+By setting `"externalHelpers": true` SWC will inject import statements for these helpers from the `@swc/helpers` package instead of inlining them.
 
 While bundling, this option will greatly reduce your file size.
 
 You must add `@swc/helpers` as a dependency in addition to `@swc/core`.
+
+<Callout emoji="⚠️">
+When using `externalHelpers`, you might want to also configure [`"isModule": "unknown"`](#ismodule).
+
+By default, SWC will inject helpers methods with ESM style imports.
+
+So if your file is a commonjs module for example, then SWC will still inject ESM import statements for the helper methods and you'll have a file with mixed ESM and CommonJS imports which can lead to runtime errors.
+
+Setting `"isModule": "unknown"` will make SWC infer the module type of each file by reading it's import/export syntax and inject the helper imports with esm/commojs import statements accordingly.
+
+</Callout>
 
 ## jsc.parser
 
