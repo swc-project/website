@@ -1,0 +1,56 @@
+# Compatibility for wasm plugin
+
+In the past, SWC Wasm plugins were not compatible between `@swc/core` versions. This meant that developers using Wasm plugins often had to update them with each new release of @swc/core to ensure compatibility, and the Wasm plugins maintainers should also update their `swc_core` Rust dependencies. This created friction, added maintenance overhead, and could disrupt development workflows.
+
+However, starting from @swc/core v1.15.0, our Wasm plugins are now compatible between `@swc/core` versions to some extent.
+
+This document explains from the implementation perspective why Wasm plugins were not compatible before, and how you can make your plugins compatible in the new version.
+
+## Background
+
+[WebAssembly (Wasm)](https://webassembly.org/) is designed as a portable compilation target for programming languages, enabling execution within a memory-safe, sandboxed environment. The Wasm artifacts compiled by the SWC Wasm plugin are loaded and executed by runtimes such as Wasmer or Wasmtime within `@swc/core`.
+
+Wasm plugins cannot directly manipulate the Rust AST data structures within the `@swc/core` host environment. Instead, when invoking a Wasm plugin, the host environment serializes the entire AST into a byte array with the [rkyv](https://rkyv.org/) serialization and transmits it to the Wasm runtime. Prior to executing the Wasm plugin, the wasm plugin deserializes the byte array back into a Rust AST and performs the transformation. And then, the wasm plugin serializes the transformed AST back into a byte array and sends it back to the host environment.
+
+![Overview](./compatibility/overview.png)
+
+**However, a critical issue arises here: the serialization logic and the deserialization are compiled into both the host (`@swc/core`) and the Wasm plugin.** This implies that whenever **`@swc/core` modifies the AST** and releases a new version, the older logic in old Wasm plugins becomes incompatible and ceases to function correctly.
+
+## What SWC has done
+
+There are two primary changes that SWC has implemented to address this issue:
+
+1. **Replacing the serialization scheme [rkyv](https://rkyv.org/) with the self-describing serialization scheme [cbor](https://www.rfc-editor.org/rfc/rfc8949.html).** The rkyv scheme typically requires the ABI layout of serialization and deserialization to match exactly. It is highly sensitive to changes in the memory layout of data structures, and any modification to a field can cause compatibility problems. In contrast, cbor is a self-describing serialization/deserialization scheme that records the memory layout of fields as metadata within the byte array. Although this approach sacrifices some performance and data compactness, it enables the serialization and deserialization process to be aware of changes in the data structure.
+
+2. **Making enums extensible.** For each AST enum data type, SWC has added an `Unknown` variant to accommodate differences in data between different versions of `@swc/core` and Wasm plugins. This allows data introduced in newer versions of `@swc/core`, which older versions of the plugin cannot recognize—to, be preserved across serialization and deserialization.
+
+To clarify, based on the above technical principles, SWC does not resolve all compatibility issues, such as those caused by field deletions or changes in field types. In practice, these cases are relatively rare since changes to the AST data structures primarily arise from support for new ECMAScript standards. Therefore, we continue to minimize the frequency of breaking changes in Wasm plugins through CI checks and version release strategies.
+
+## Make your plugin compatible
+
+It's very simple to enable your Wasm plugin to benefit from the aforementioned changes.
+
+1. Make sure your Wasm plugin depends on `swc_core >= 47`.
+2. Enable `swc_ast_unknown` cfg in your `.cargo/config.toml` file.
+
+```toml
+[target.'cfg(target_arch = "wasm32")']
+rustflags = [
+  "--cfg=swc_ast_unknown"
+]
+```
+
+3. For each pattern-match code with ast enum, add a match arm for the `Unknown` variant, and just `panic!()` it. For example:
+
+```rs
+match imported {
+    ModuleExportName::Ident(v) => v.sym == exported.name,
+    ModuleExportName::Str(v) => {
+        v.value.as_str() == Some(exported.name.as_str())
+    }
+    #[cfg(swc_ast_unknown)]
+    _ => panic!("unknown node")
+}
+```
+
+Why is it the `panic!()` here? What's the difference between the old version and the new version with `panic!()`? Consider a scenario where ECMAScript introduces a new type of AST node. With the older version of SWC, the Wasm plugin would fail immediately during the deserialization, regardless of whether the actual code or the parsed AST contains the newly introduced node type. In contrast, with the newer version of SWC, the Wasm plugin is able to work correctly on ASTs that do not contain the new node type.
