@@ -20,11 +20,11 @@
   "devDependencies": {
     "eslint": "8.23.0",
     "eslint-plugin-simple-import-sort": "^9.0.0",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.11",
+    "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "turbo": "^2.5.0"
+    "turbo": "^2.6.3"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
