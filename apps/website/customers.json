@@ -148,5 +148,11 @@
     "image": "/img/customers/evershop.png",
     "infoLink": "https://evershop.io/",
     "width": 110
+  },
+  {
+    "caption": "Supabase",
+    "image": "/img/customers/supabase.png",
+    "infoLink": "https://supabase.com/",
+    "width": 128
   }
 ]
