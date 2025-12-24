@@ -154,5 +154,11 @@
     "image": "/img/customers/supabase.png",
     "infoLink": "https://supabase.com/",
     "width": 128
+  },
+  {
+    "caption": "Miro",
+    "image": "/img/customers/miro.svg",
+    "infoLink": "https://miro.com",
+    "width": 128
   }
 ]
