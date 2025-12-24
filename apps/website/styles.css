@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@layer base {
+  body {
+    --nextra-content-width: 100vw;
+    --nextra-menu-height: 4rem;
+  }
+}
