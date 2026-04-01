@@ -23,9 +23,20 @@ const Home: FC = () => (
         </p>
       </div>
       <RuntimeVersionSelector />
-      <Button variant="link" asChild>
-        <Link href="/versions/range">or see all versions</Link>
-      </Button>
+      <div className="flex flex-col items-center">
+        <Button variant="link" asChild>
+          <Link href="/versions/range">or see all versions</Link>
+        </Button>
+        <Button variant="link" asChild>
+          <Link
+            href="https://swc.rs/docs/plugin/registering-plugins"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Registration guide
+          </Link>
+        </Button>
+      </div>
     </div>
   </main>
 );
