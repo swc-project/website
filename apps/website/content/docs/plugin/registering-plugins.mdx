@@ -1,0 +1,36 @@
+# Registering plugins on plugins.swc.rs
+
+If you want your Wasm plugin to appear on [plugins.swc.rs](https://plugins.swc.rs), submit a pull request to [swc-project/crawl-core-version](https://github.com/swc-project/crawl-core-version/tree/main/pkgs/plugins).
+
+The crawler reads plugin definitions from [`pkgs/plugins/*.yml`](https://github.com/swc-project/crawl-core-version/tree/main/pkgs/plugins).
+
+## 1. Add a `.yml` file under `pkgs/plugins`
+
+Create a file like `pkgs/plugins/your-plugin.yml`:
+
+```yml
+repo: https://github.com/your-org/your-plugin-repo.git
+packages:
+  - "@your-org/swc-plugin-foo"
+  - "@your-org/swc-plugin-bar"
+```
+
+## 2. Open a pull request
+
+Commit the new `.yml` file and open a PR against `main` in `crawl-core-version`.
+
+## Rules and notes
+
+- Only files ending with `.yml` are crawled.
+- Each entry in `packages` must exactly match the npm package name.
+- A single file can include multiple npm packages from the same repository.
+- `repo` should be a cloneable Git repository URL.
+
+## When will it show up on plugins.swc.rs?
+
+After your PR is merged, data is updated by the [`Auto Update` workflow](https://github.com/swc-project/crawl-core-version/blob/main/.github/workflows/auto-update.yml) in `crawl-core-version` (scheduled daily, and also runnable manually). Once that update runs, your plugin data can appear on `plugins.swc.rs`.
+
+## See also
+
+- [Publishing plugins](./publishing)
+- [Selecting swc_core](./selecting-swc-core)
