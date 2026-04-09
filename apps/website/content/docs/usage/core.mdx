@@ -33,6 +33,25 @@ swc
   });
 ```
 
+### Flow input
+
+To transform Flow code, set `jsc.parser.syntax` to `"flow"`. SWC will parse
+Flow syntax and strip type-only constructs as part of the transform pipeline.
+
+```js copy
+const swc = require("@swc/core");
+
+swc.transform("const value: number = 1;", {
+  jsc: {
+    parser: {
+      syntax: "flow",
+    },
+  },
+});
+```
+
+See the [Flow guide](/docs/usage/flow) for `.swcrc`, CLI, and parser options.
+
 ### transformSync
 
 Returns `{ code: string, map?: string }`
@@ -54,7 +73,7 @@ const swc = require('@swc/core')
 
 swc
   .parse("source code", {
-    syntax: "ecmascript", // "ecmascript" | "typescript"
+    syntax: "ecmascript", // "ecmascript" | "typescript" | "flow"
     comments: false,
     script: true,
 
@@ -107,7 +126,7 @@ export declare type ParseOptions = ParserConfig & {
   target?: JscTarget;
 };
 export declare type JscTarget = "es3" | "es5" | "es2015" | "es2016" | "es2017" | "es2018" | "es2019" | "es2020" | "es2021" | "es2022";
-export declare type ParserConfig = TsParserConfig | EsParserConfig;
+export declare type ParserConfig = TsParserConfig | EsParserConfig | FlowParserConfig;
 export interface TsParserConfig {
     syntax: "typescript";
     /**
@@ -122,6 +141,37 @@ export interface TsParserConfig {
      * Defaults to `false`
      */
     dynamicImport?: boolean;
+}
+export interface FlowParserConfig {
+    syntax: "flow";
+    /**
+     * Defaults to `false`.
+     */
+    jsx?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    all?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    requireDirective?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    enums?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    decorators?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    components?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    patternMatching?: boolean;
 }
 export interface EsParserConfig {
     syntax: "ecmascript";
