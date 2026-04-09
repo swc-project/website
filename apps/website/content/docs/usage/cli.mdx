@@ -37,6 +37,29 @@ npx swc ./file.js -o output.js
 npx swc ./my-dir -d output
 ```
 
+## Flow input
+
+To compile Flow code with the CLI, point `swc` at a `.swcrc` file that sets
+`jsc.parser.syntax` to `"flow"`:
+
+```json filename=".swcrc" copy
+{
+  "jsc": {
+    "parser": {
+      "syntax": "flow"
+    }
+  }
+}
+```
+
+```sh copy
+npx swc input.js --config-file .swcrc -o output.js
+```
+
+For JSX-flavored Flow files, set `jsx: true` and compile `.jsx` inputs with the
+same config. See the [Flow guide](/docs/usage/flow) for the full list of parser
+options.
+
 ## Options
 
 ### `--filename` (-f)

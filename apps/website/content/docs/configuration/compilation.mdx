@@ -242,6 +242,28 @@ Setting `"isModule": "unknown"` will make SWC infer the module type of each file
 }
 ```
 
+### flow
+
+```json filename=".swcrc" copy
+{
+  "jsc": {
+    "parser": {
+      "syntax": "flow",
+      "jsx": false,
+      "all": false,
+      "requireDirective": false,
+      "enums": false,
+      "decorators": false,
+      "components": false,
+      "patternMatching": false
+    }
+  }
+}
+```
+
+See the [Flow guide](/docs/usage/flow) for `@swc/core`, CLI, and `.swcrc`
+examples.
+
 ### ecmascript
 
 ```json filename=".swcrc" copy
