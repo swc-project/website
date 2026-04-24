@@ -22,7 +22,7 @@
     "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "@swc/types": "^0.1.25",
+    "@swc/types": "^0.1.26",
     "@tailwindcss/postcss": "^4.1.17",
     "@types/node": "^18.19.130",
     "@types/react": "19.0.12",
