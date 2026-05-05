@@ -47,6 +47,10 @@
         "preserveImportMeta": {
           "type": "boolean"
         },
+        "resolveFully": {
+          "description": "If set to true, This will resolve top .mjs",
+          "type": "boolean"
+        },
         "strict": {
           "description": "By default, when using exports with babel a non-enumerable `__esModule`\nproperty is exported. In some cases this property is used to determine\nif the import is the default export or if it contains the default export.\n\nIn order to prevent the __esModule property from being exported, you\n can set the strict option to true.\n\nDefaults to `false`.",
           "type": "boolean"
@@ -209,6 +213,10 @@
         "preserveImportMeta": {
           "type": "boolean"
         },
+        "resolveFully": {
+          "description": "If set to true, This will resolve top .mjs",
+          "type": "boolean"
+        },
         "strict": {
           "description": "By default, when using exports with babel a non-enumerable `__esModule`\nproperty is exported. In some cases this property is used to determine\nif the import is the default export or if it contains the default export.\n\nIn order to prevent the __esModule property from being exported, you\n can set the strict option to true.\n\nDefaults to `false`.",
           "type": "boolean"
@@ -338,6 +346,10 @@
         "preserveImportMeta": {
           "type": "boolean"
         },
+        "resolveFully": {
+          "description": "If set to true, This will resolve top .mjs",
+          "type": "boolean"
+        },
         "strict": {
           "description": "By default, when using exports with babel a non-enumerable `__esModule`\nproperty is exported. In some cases this property is used to determine\nif the import is the default export or if it contains the default export.\n\nIn order to prevent the __esModule property from being exported, you\n can set the strict option to true.\n\nDefaults to `false`.",
           "type": "boolean"
@@ -403,7 +415,6 @@
           "type": "boolean"
         },
         "importAttributes": {
-          "description": "Defaults to `false`",
           "type": "boolean"
         },
         "importMeta": {
@@ -482,9 +493,21 @@
           "type": "boolean"
         },
         "comments": {
+          "anyOf": [
+            {
+              "properties": {
+                "regex": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "enum": ["all", false, "some"]
+            }
+          ],
           "default": false,
-          "description": "- `false`: removes all comments\n- `'some'`: preserves some comments\n- `'all'`: preserves all comments",
-          "enum": ["all", false, "some"]
+          "description": "- `false`: removes all comments\n- `'some'`: preserves some comments\n- `'all'`: preserves all comments\n- `{ regex: string }`: preserves comments that match the regex"
         },
         "ecma": {
           "$ref": "#/definitions/TerserEcmaVersion",
@@ -659,6 +682,10 @@
               "description": "Emit isolated dts files for each module.",
               "type": "boolean"
             },
+            "emitSourceMapScopes": {
+              "description": "Emit ECMA-426 source-map scopes metadata.",
+              "type": "boolean"
+            },
             "keepImportAssertions": {
               "description": "Keep import assertions.",
               "type": "boolean"
@@ -707,6 +734,17 @@
         },
         "minify": {
           "$ref": "#/definitions/JsMinifyOptions"
+        },
+        "output": {
+          "properties": {
+            "charset": {
+              "default": "'utf8'",
+              "description": "This can be used to keep the output ascii-only.\nIf this option is set, `minify.format.asciiOnly` will be ignored.",
+              "enum": ["ascii", "utf8"],
+              "type": "string"
+            }
+          },
+          "type": "object"
         },
         "parser": {
           "$ref": "#/definitions/ParserConfig",
@@ -820,6 +858,10 @@
         "preserveImportMeta": {
           "type": "boolean"
         },
+        "resolveFully": {
+          "description": "If set to true, This will resolve top .mjs",
+          "type": "boolean"
+        },
         "strict": {
           "description": "By default, when using exports with babel a non-enumerable `__esModule`\nproperty is exported. In some cases this property is used to determine\nif the import is the default export or if it contains the default export.\n\nIn order to prevent the __esModule property from being exported, you\n can set the strict option to true.\n\nDefaults to `false`.",
           "type": "boolean"
@@ -874,7 +916,8 @@
           "type": "boolean"
         },
         "importSource": {
-          "description": "Declares the module specifier to be used for importing the `jsx` and `jsxs` factory functions when using `runtime` 'automatic'",
+          "default": "react",
+          "description": "Declares the module specifier to be used for importing the `jsx` and `jsxs` factory\nfunctions when using `runtime` 'automatic'",
           "type": "string"
         },
         "pragma": {
@@ -911,8 +954,9 @@
           "description": "Enable fast refresh feature for React app"
         },
         "runtime": {
-          "description": "jsx runtime",
-          "enum": ["automatic", "classic"],
+          "default": "classic",
+          "description": "Decides which runtime to use when transforming JSX.\n- `\"automatic\"` - Automatically imports the functions that JSX transpiles to.\nThis is the modern approach introduced in React 17+ that eliminates the need to\nmanually import React in every file that uses JSX.\n- `\"classic\"` - Uses the traditional JSX transform that relies on `React.createElement`\ncalls. Requires React to be in scope, which was the standard behavior before React 17.\n- `\"preserve\"` - Leaves JSX syntax unchanged without transforming it.",
+          "enum": ["automatic", "classic", "preserve"],
           "type": "string"
         },
         "throwIfNamespace": {
@@ -1084,6 +1128,12 @@
         "unsafe_function": {
           "type": "boolean"
         },
+        "unsafe_hoist_global_objects_alias": {
+          "type": "boolean"
+        },
+        "unsafe_hoist_static_method_alias": {
+          "type": "boolean"
+        },
         "unsafe_math": {
           "type": "boolean"
         },
@@ -1177,7 +1227,19 @@
           "type": "boolean"
         },
         "comments": {
-          "enum": ["all", false, "some"]
+          "anyOf": [
+            {
+              "properties": {
+                "regex": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "enum": ["all", false, "some"]
+            }
+          ]
         },
         "ecma": {
           "$ref": "#/definitions/TerserEcmaVersion"
@@ -1253,7 +1315,7 @@
         },
         "decoratorVersion": {
           "description": "https://swc.rs/docs/configuration/compilation#jsctransformdecoratorversion",
-          "enum": ["2021-12", "2022-03"],
+          "enum": ["2021-12", "2022-03", "2023-11"],
           "type": "string"
         },
         "legacyDecorator": {
@@ -1269,6 +1331,9 @@
           "description": "Effective only if `syntax` supports ƒ."
         },
         "treatConstEnumAsEnum": {
+          "type": "boolean"
+        },
+        "tsEnumIsMutable": {
           "type": "boolean"
         },
         "useDefineForClassFields": {
@@ -1351,6 +1416,10 @@
         "preserveImportMeta": {
           "type": "boolean"
         },
+        "resolveFully": {
+          "description": "If set to true, This will resolve top .mjs",
+          "type": "boolean"
+        },
         "strict": {
           "description": "By default, when using exports with babel a non-enumerable `__esModule`\nproperty is exported. In some cases this property is used to determine\nif the import is the default export or if it contains the default export.\n\nIn order to prevent the __esModule property from being exported, you\n can set the strict option to true.\n\nDefaults to `false`.",
           "type": "boolean"
@@ -1413,7 +1482,7 @@
       "type": ["string", "boolean"]
     },
     "isModule": {
-      "enum": [false, true, "unknown"]
+      "enum": ["commonjs", false, true, "unknown"]
     },
     "jsc": {
       "$ref": "#/definitions/JscConfig"
@@ -1436,7 +1505,7 @@
       "type": "string"
     },
     "rootMode": {
-      "description": "This option, combined with the \"root\" value, defines how Swc chooses\nits project root. The different modes define different ways that Swc\ncan process the \"root\" value to get the final project root.\n\n\"root\" - Passes the \"root\" value through as unchanged.\n\"upward\" - Walks upward from the \"root\" directory, looking for a directory\ncontaining a swc.config.js file, and throws an error if a swc.config.js\nis not found.\n\"upward-optional\" - Walk upward from the \"root\" directory, looking for\na directory containing a swc.config.js file, and falls back to \"root\"\n if a swc.config.js is not found.\n\n\n\"root\" is the default mode because it avoids the risk that Swc\nwill accidentally load a swc.config.js that is entirely outside\nof the current project folder. If you use \"upward-optional\",\nbe aware that it will walk up the directory structure all the\nway to the filesystem root, and it is always possible that someone\nwill have a forgotten swc.config.js in their home directory,\nwhich could cause unexpected errors in your builds.\n\n\nUsers with monorepo project structures that run builds/tests on a\nper-package basis may well want to use \"upward\" since monorepos\noften have a swc.config.js in the project root. Running Swc\nin a monorepo subdirectory without \"upward\", will cause Swc\nto skip loading any swc.config.js files in the project root,\nwhich can lead to unexpected errors and compilation failure.",
+      "description": "This option, combined with the \"root\" value, defines how Swc chooses\nits project root. The different modes define different ways that Swc\ncan process the \"root\" value to get the final project root.\n\n\"root\" - Passes the \"root\" value through as unchanged.\n\"upward\" - Walks upward from the \"root\" directory, looking for a directory\ncontaining a .swcrc file, and throws an error if a .swcrc\nis not found.\n\"upward-optional\" - Walk upward from the \"root\" directory, looking for\na directory containing a .swcrc file, and falls back to \"root\"\n if a .swcrc is not found.\n\n\n\"root\" is the default mode because it avoids the risk that Swc\nwill accidentally load a .swcrc that is entirely outside\nof the current project folder. If you use \"upward-optional\",\nbe aware that it will walk up the directory structure all the\nway to the filesystem root, and it is always possible that someone\nwill have a forgotten .swcrc in their home directory,\nwhich could cause unexpected errors in your builds.\n\n\nUsers with monorepo project structures that run builds/tests on a\nper-package basis may well want to use \"upward\" since monorepos\noften have a .swcrc in the project root. Running Swc\nin a monorepo subdirectory without \"upward\", will cause Swc\nto skip loading any .swcrc files in the project root,\nwhich can lead to unexpected errors and compilation failure.",
       "enum": ["root", "upward", "upward-optional"],
       "type": "string"
     },

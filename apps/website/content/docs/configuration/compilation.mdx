@@ -242,6 +242,28 @@ Setting `"isModule": "unknown"` will make SWC infer the module type of each file
 }
 ```
 
+### flow
+
+```json filename=".swcrc" copy
+{
+  "jsc": {
+    "parser": {
+      "syntax": "flow",
+      "jsx": false,
+      "all": false,
+      "requireDirective": false,
+      "enums": false,
+      "decorators": false,
+      "components": false,
+      "patternMatching": false
+    }
+  }
+}
+```
+
+See the [Flow guide](/docs/usage/flow) for `@swc/core`, CLI, and `.swcrc`
+examples.
+
 ### ecmascript
 
 ```json filename=".swcrc" copy
@@ -742,7 +764,11 @@ Legacy decorator.
 
 - `"2022-03"`
 
-Stage 3 decorator.
+Initial Stage 3 decorator.
+
+- `"2023-11"`
+
+TC39 decorator with proposal updates as of November 2023.
 
 ### jsc.output
 
