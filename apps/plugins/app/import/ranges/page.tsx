@@ -1,45 +1,13 @@
-import { db } from "@/lib/prisma";
-import fs from "node:fs/promises";
+import { importWasmPluginCompatRanges } from "@/lib/import-compat-ranges";
 
 export default async function Page() {
   if (process.env.NODE_ENV === "production") {
     return <div>Not allowed</div>;
   }
 
-  const ranges: { min: string; max: string }[] = JSON.parse(
-    await fs.readFile("./data/ranges.json", "utf8")
-  );
+  const { ranges } = await importWasmPluginCompatRanges();
 
-  for (const { min, max } of ranges) {
-    await db.compatRange.upsert({
-      where: {
-        from: min,
-      },
-      update: {
-        to: max,
-      },
-      create: {
-        from: min,
-        to: max,
-      },
-    });
-  }
-
-  const runtimes = ["@swc/core", "next", "rspack", "farm"];
-
-  for (const runtime of runtimes) {
-    await db.swcRuntime.upsert({
-      where: {
-        name: runtime,
-      },
-      update: {},
-      create: {
-        name: runtime,
-      },
-    });
-  }
-
-  return <div>Done</div>;
+  return <div>Imported {ranges} ranges</div>;
 }
 
 export const dynamic = "force-dynamic";
