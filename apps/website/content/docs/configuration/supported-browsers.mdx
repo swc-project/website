@@ -96,6 +96,8 @@ Define ES features to skip to reduce bundle size. For example, your `.swcrc` cou
 
 The option has an effect when used alongside `mode: "usage"` or `mode: "entry"`. It is recommended to specify the minor version (E.g. `"3.22"`) otherwise `"3"` will be interpreted as `"3.0"` which may not include polyfills for the latest features.
 
+When `coreJs` is `undefined`, SWC falls back to `core-js@3.0.0`.
+
 ## Additional Options
 
 - `debug`: (_boolean_) defaults to `false`.
