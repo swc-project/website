@@ -6,7 +6,7 @@
   },
   {
     "text": "Playground",
-    "link": "/playground/index",
+    "link": "/playground/",
     "activeMatch": "^/playground/"
   },
   {

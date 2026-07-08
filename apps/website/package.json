@@ -6,7 +6,8 @@
     "dev": "rspress dev",
     "build": "pnpm generate && rspress build",
     "preview": "rspress preview",
-    "generate": "typescript-json-schema tsconfig.schema.json SwcOptions -o docs/public/schema.json"
+    "generate": "typescript-json-schema tsconfig.schema.json SwcOptions -o docs/public/schema.json",
+    "start": "rspress preview"
   },
   "dependencies": {
     "@rspress/core": "2.0.16",
@@ -29,5 +30,9 @@
     "typescript": "^6.0.3",
     "typescript-json-schema": "^0.63.0"
   },
-  "type": "module"
+  "type": "module",
+  "prettier": {
+    "embeddedLanguageFormatting": "off",
+    "htmlWhitespaceSensitivity": "strict"
+  }
 }
