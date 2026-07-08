@@ -1,0 +1,32 @@
+[
+  {
+    "type": "file",
+    "name": "swcrc",
+    "label": ".swcrc"
+  },
+  {
+    "type": "file",
+    "name": "compilation",
+    "label": "Compilation"
+  },
+  {
+    "type": "file",
+    "name": "supported-browsers",
+    "label": "Supported Browsers"
+  },
+  {
+    "type": "file",
+    "name": "modules",
+    "label": "Modules"
+  },
+  {
+    "type": "file",
+    "name": "minification",
+    "label": "Minification"
+  },
+  {
+    "type": "file",
+    "name": "bundling",
+    "label": "Bundling"
+  }
+]

@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const members = [
   {
     name: "kdy1 / Donny",
@@ -50,7 +48,7 @@ export default function TeamMembers() {
     <div className="grid grid-cols-3 gap-4 mt-4">
       {members.map((member, index) => {
         return (
-          <Link href={`https://github.com/${member.github}`} key={index}>
+          <a href={`https://github.com/${member.github}`} key={index}>
             <div className="flex flex-col items-center">
               <img
                 src={`https://github.com/${member.github}.png`}
@@ -62,7 +60,7 @@ export default function TeamMembers() {
               <div className="font-bold text-center">{member.name}</div>
               <div>{member.role}</div>
             </div>
-          </Link>
+          </a>
         );
       })}
     </div>

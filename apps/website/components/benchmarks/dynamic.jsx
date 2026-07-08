@@ -1,5 +1,16 @@
-import dynamic from "next/dynamic";
+import { BrowserOnly } from "@rspress/core/runtime";
+import { lazy, Suspense } from "react";
 
-const Benchmark = dynamic(() => import("./benchmark"));
+const Benchmark = lazy(() => import("./benchmark"));
 
-export default Benchmark;
+export default function DynamicBenchmark() {
+  return (
+    <BrowserOnly fallback={<span>Loading...</span>}>
+      {() => (
+        <Suspense fallback={<span>Loading...</span>}>
+          <Benchmark />
+        </Suspense>
+      )}
+    </BrowserOnly>
+  );
+}

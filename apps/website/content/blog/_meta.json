@@ -1,0 +1,12 @@
+[
+  {
+    "type": "file",
+    "name": "perf-swc-vs-babel",
+    "label": "Performance Comparison of SWC and Babel"
+  },
+  {
+    "type": "file",
+    "name": "swc-1",
+    "label": "Introducing SWC 1.0"
+  }
+]

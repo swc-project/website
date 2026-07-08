@@ -1,0 +1,67 @@
+[
+  {
+    "type": "file",
+    "name": "getting-started",
+    "label": "Getting Started"
+  },
+  {
+    "type": "dir",
+    "name": "usage",
+    "label": "Usage"
+  },
+  {
+    "type": "dir",
+    "name": "configuration",
+    "label": "Configuration"
+  },
+  {
+    "type": "dir",
+    "name": "plugin",
+    "label": "Plugin"
+  },
+  {
+    "type": "dir",
+    "name": "contributing",
+    "label": "Contributing"
+  },
+  {
+    "type": "file",
+    "name": "team",
+    "label": "The Team"
+  },
+  {
+    "type": "file",
+    "name": "roadmap",
+    "label": "Roadmap"
+  },
+  {
+    "type": "file",
+    "name": "sponsors",
+    "label": "Sponsors"
+  },
+  {
+    "type": "file",
+    "name": "customers",
+    "label": "Customers"
+  },
+  {
+    "type": "file",
+    "name": "benchmarks",
+    "label": "Benchmarks"
+  },
+  {
+    "type": "dir",
+    "name": "references",
+    "label": "API References"
+  },
+  {
+    "type": "file",
+    "name": "migrating-from-babel",
+    "label": "Migrating from Babel"
+  },
+  {
+    "type": "file",
+    "name": "swc-node-vs-swc",
+    "label": "@swc-node vs @swc"
+  }
+]

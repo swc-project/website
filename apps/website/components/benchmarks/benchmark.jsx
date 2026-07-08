@@ -7,6 +7,7 @@
 */
 
 import React, { useState, useEffect } from "react";
+import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import styles from "./styles.module.css";
 

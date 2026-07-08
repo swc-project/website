@@ -1,0 +1,42 @@
+[
+  {
+    "type": "file",
+    "name": "cli",
+    "label": "@swc/cli"
+  },
+  {
+    "type": "file",
+    "name": "core",
+    "label": "@swc/core"
+  },
+  {
+    "type": "file",
+    "name": "flow",
+    "label": "Flow"
+  },
+  {
+    "type": "file",
+    "name": "wasm",
+    "label": "@swc/wasm"
+  },
+  {
+    "type": "file",
+    "name": "jest",
+    "label": "@swc/jest"
+  },
+  {
+    "type": "file",
+    "name": "swc-loader",
+    "label": "swc-loader"
+  },
+  {
+    "type": "file",
+    "name": "html",
+    "label": "@swc/html"
+  },
+  {
+    "type": "file",
+    "name": "bundling",
+    "label": "Bundling"
+  }
+]

@@ -1,5 +1,4 @@
-import Link from "next/link";
-import customers from '../customers.json';
+import customers from "../customers.json";
 
 export default function Customers() {
   const showcase = customers.map((customer, index) => {
@@ -8,16 +7,20 @@ export default function Customers() {
     url.searchParams.append("utm_medium", "customers_page");
 
     return (
-      <Link href={url} key={index}>
-        <img src={customer.image} style={{
-          width: customer.width ? `${customer.width}px` : '128px',
-          padding: '16px'
-        }} alt={customer.caption}/>
-      </Link>
+      <a href={url.toString()} key={index}>
+        <img
+          src={customer.image}
+          style={{
+            width: customer.width ? `${customer.width}px` : "128px",
+            padding: "16px",
+          }}
+          alt={customer.caption}
+        />
+      </a>
     );
   });
   return (
-    <div className={'flex items-center flex-wrap justify-center gap-6'}>
+    <div className={"flex items-center flex-wrap justify-center gap-6"}>
       {showcase}
     </div>
   );

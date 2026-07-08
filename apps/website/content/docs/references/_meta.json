@@ -1,0 +1,7 @@
+[
+  {
+    "type": "file",
+    "name": "wasm-typescript",
+    "label": "@swc/wasm-typescript"
+  }
+]

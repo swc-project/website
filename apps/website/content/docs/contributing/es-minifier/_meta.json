@@ -1,0 +1,12 @@
+[
+  {
+    "type": "file",
+    "name": "profiling",
+    "label": "Profiling"
+  },
+  {
+    "type": "file",
+    "name": "debugging-nextjs-app",
+    "label": "Debugging Next.js App"
+  }
+]

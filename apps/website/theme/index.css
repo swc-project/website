@@ -1,0 +1,24 @@
+.powered-by-zephyr {
+  border-top: 1px solid var(--rp-c-divider);
+  color: var(--rp-c-text-2);
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.powered-by-zephyr a {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.powered-by-zephyr a:hover {
+  color: var(--rp-c-brand);
+}
+
+.powered-by-zephyr strong {
+  color: var(--rp-c-text-1);
+  font-weight: 700;
+}

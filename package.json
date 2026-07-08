@@ -9,7 +9,8 @@
     "run-turbo": "turbo",
     "prepare": "husky install",
     "dev": "turbo run dev",
-    "build": "turbo run build",
+    "build": "pnpm --filter swc-site build",
+    "build:all": "turbo run build",
     "start": "turbo run start",
     "lint": "turbo run lint",
     "test": "turbo run test"
