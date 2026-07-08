@@ -1,0 +1,17 @@
+[
+  {
+    "text": "Docs",
+    "link": "/docs/getting-started",
+    "activeMatch": "^/docs/"
+  },
+  {
+    "text": "Playground",
+    "link": "/playground/index",
+    "activeMatch": "^/playground/"
+  },
+  {
+    "text": "Blog",
+    "link": "/blog/perf-swc-vs-babel",
+    "activeMatch": "^/blog/"
+  }
+]

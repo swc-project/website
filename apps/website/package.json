@@ -1,45 +1,33 @@
 {
   "name": "swc-site",
-  "author": "DongYoon Kang",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "generate": "typescript-json-schema tsconfig.json 'SwcOptions' > public/schema.json",
-    "build": "pnpm run generate && next build --turbopack",
-    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
-    "start": "next start"
+    "dev": "rspress dev",
+    "build": "pnpm generate && rspress build",
+    "preview": "rspress preview",
+    "generate": "typescript-json-schema tsconfig.schema.json SwcOptions -o docs/public/schema.json"
   },
   "dependencies": {
-    "@reach/skip-nav": "^0.16.0",
-    "chart.js": "^3.9.1",
-    "focus-visible": "^5.2.1",
-    "markdown-to-jsx": "^7.4.0",
-    "next": "15.4.9",
-    "nextra": "4.2.17",
-    "nextra-theme-docs": "4.2.17",
-    "react": "19.1.0",
-    "react-chartjs-2": "^3.3.0",
-    "react-dom": "19.1.0"
+    "@rspress/core": "2.0.16",
+    "chart.js": "^4.4.7",
+    "react": "^19.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@rspress/plugin-client-redirects": "2.0.16",
+    "@rspress/plugin-twoslash": "2.0.16",
+    "@swc/cli": "^0.8.1",
+    "@swc/core": "^1.15.43",
+    "@swc/html": "^1.15.43",
     "@swc/types": "^0.1.26",
-    "@tailwindcss/postcss": "^4.1.17",
+    "@swc/wasm-typescript": "^1.15.43",
+    "@swc/wasm-web": "^1.15.43",
     "@types/node": "^18.19.130",
-    "@types/react": "19.0.12",
-    "autoprefixer": "^10.4.22",
-    "eslint-config-next": "15.3.0",
-    "pagefind": "^1.4.0",
-    "tailwindcss": "^4.1.17",
-    "typescript": "^4.9.5",
+    "@types/react": "^19.0.12",
+    "typescript": "^6.0.3",
     "typescript-json-schema": "^0.63.0"
   },
-  "prettier": {
-    "embeddedLanguageFormatting": "off",
-    "htmlWhitespaceSensitivity": "strict"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.1.0"
-    }
-  }
+  "type": "module"
 }

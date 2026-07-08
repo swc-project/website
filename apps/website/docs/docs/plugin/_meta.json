@@ -1,0 +1,14 @@
+[
+  {
+    "type": "file",
+    "name": "selecting-swc-core",
+    "label": "Selecting swc_core"
+  },
+  { "type": "dir", "name": "ecmascript", "label": "ECMAScript" },
+  { "type": "file", "name": "publishing", "label": "Publishing" },
+  {
+    "type": "file",
+    "name": "registering-plugins",
+    "label": "Registering Plugins"
+  }
+]
