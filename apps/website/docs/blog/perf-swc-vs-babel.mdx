@@ -1,9 +1,9 @@
 ---
 image: https://user-images.githubusercontent.com/9113740/140682117-5e9f460e-c8f1-447c-88a0-e75f80779260.png
-description: "Benchmark and performance comparison of SWC and Babel."
+description: 'Benchmark and performance comparison of SWC and Babel.'
 ---
 
-import Authors, { Author } from "@components/Authors";
+import Authors, { Author } from '@components/Authors';
 
 # Performance Comparison of SWC and Babel
 
@@ -69,11 +69,11 @@ console.info(
   `Note that output of this benchmark should be multiplied by ${arr.length} as this test uses Promise.all`
 );
 
-SUITES.map((args) => {
+SUITES.map(args => {
   const [name, requirePath, fn] = args;
   const func = fn.bind(null, require(requirePath));
-  bench(name, async (done) => {
-    await Promise.all(arr.map((v) => func()));
+  bench(name, async done => {
+    await Promise.all(arr.map(v => func()));
     done();
   });
 });

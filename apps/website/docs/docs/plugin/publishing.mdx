@@ -27,10 +27,10 @@ Add the following to your `package.json`:
 
 ```json title="package.json"
 {
-  "main": "your_plugin_name.wasm",
-  "scripts": {
-    "prepack": "cargo prepublish --release && cp target/wasm32-wasi/release/your_plugin_name.wasm ."
-  }
+    "main": "your_plugin_name.wasm",
+    "scripts": {
+        "prepack": "cargo prepublish --release && cp target/wasm32-wasi/release/your_plugin_name.wasm ."
+    },
 }
 ```
 

@@ -1,11 +1,11 @@
-import Callout from "@components/Callout";
+import Callout from '@components/Callout';
 
 <Callout>
 SWC provides an official JSON Schema for the configuration file.
 
 ```json title=".swcrc"
 {
-  "$schema": "https://swc.rs/schema.json"
+  "$schema": "https://swc.rs/schema.json",
 }
 ```
 
@@ -65,17 +65,18 @@ Example:
 
 ```json title=".swcrc"
 {
-  "jsc": {
-    "parser": {
-      "syntax": "typescript",
-      "tsx": true
+    "jsc": {
+        "parser": {
+            "syntax": "typescript",
+            "tsx": true,
+        },
+        "externalHelpers": true
     },
-    "externalHelpers": true
-  },
-  "env": {
-    "targets": "Chrome >= 48"
-  }
+    "env": {
+        "targets": "Chrome >= 48"
+    }
 }
+
 ```
 
 - Queries: `string[]`
@@ -86,11 +87,11 @@ Example of targeting `chrome 79`.
 
 ```json title=".swcrc"
 {
-  "env": {
-    "targets": {
-      "chrome": "79"
-    }
-  }
+    "env": {
+        "targets": {
+            "chrome": "79",
+        }
+    },
 }
 ```
 
@@ -134,12 +135,15 @@ Example of enabling `async`/`yield` transform while targeting chrome 79.
 
 ```json title=".swcrc"
 {
-  "env": {
-    "targets": {
-      "chrome": "79"
+    "env": {
+        "targets": {
+            "chrome": "79",
+        },
+        "include": [
+            "transform-async-to-generator",
+            "transform-regenerator",
+        ],
     },
-    "include": ["transform-async-to-generator", "transform-regenerator"]
-  }
 }
 ```
 
@@ -157,16 +161,16 @@ Type: `string`
 
 ```json title=".swcrc"
 {
-  "jsc": {
-    "parser": {
-      "syntax": "ecmascript",
-      "jsx": true
+    "jsc": {
+        "parser": {
+            "syntax": "ecmascript",
+            "jsx": true
+        }
+    },
+    "env": {
+        "mode": "usage",
+        "coreJs": "3.26.1"
     }
-  },
-  "env": {
-    "mode": "usage",
-    "coreJs": "3.26.1"
-  }
 }
 ```
 
@@ -300,27 +304,21 @@ Starting from `@swc/core` v1.0.27, you can specify the target environment by usi
 Starting from `@swc/core` v1.1.4, you can enable "loose" transformations by enabling `jsc.loose` which works like `babel-preset-env` [loose mode](https://2ality.com/2015/12/babel6-loose-mode.html).
 
 <Callout emoji="⚠️">
-  These [assumptions](https://babeljs.io/docs/assumptions) are made in loose
-  mode by default, you might get unexpected reault if your code doesn't meet
-  these assumptions. -
-  [privateFieldsAsProperties](https://babeljs.io/docs/assumptions#privatefieldsasproperties)
-  -
-  [setPublicClassFields](https://babeljs.io/docs/assumptions#setpublicclassfields)
-  - [constantSuper](https://babeljs.io/docs/assumptions#constantsuper) -
-  [noDocumentAll](https://babeljs.io/docs/assumptions#nodocumentall) -
-  [pureGetters](https://babeljs.io/docs/assumptions#puregetters) -
-  [objectRestNoSymbols](https://babeljs.io/docs/assumptions#objectrestnosymbols)
-  -
-  [setSpreadProperties](https://babeljs.io/docs/assumptions#setspreadproperties)
-  - ignoreFunctionName -
-  [ignoreFunctionLength](https://babeljs.io/docs/assumptions#ignorefunctionlength)
-  -
-  [ignoreToPrimitiveHint](https://babeljs.io/docs/assumptions#ignoretoprimitivehint)
-  -
-  [mutableTemplateObject](https://babeljs.io/docs/assumptions#mutabletemplateobject)
-  - [noClassCalls](https://babeljs.io/docs/assumptions#noclasscalls) -
-  [setClassMethods](https://babeljs.io/docs/assumptions#setclassmethods) -
-  [superIsCallableConstructor](https://babeljs.io/docs/assumptions#superiscallableconstructor)
+  These [assumptions](https://babeljs.io/docs/assumptions) are made in loose mode by default, you might get unexpected reault if your code doesn't meet these assumptions.
+  - [privateFieldsAsProperties](https://babeljs.io/docs/assumptions#privatefieldsasproperties)
+  - [setPublicClassFields](https://babeljs.io/docs/assumptions#setpublicclassfields)
+  - [constantSuper](https://babeljs.io/docs/assumptions#constantsuper)
+  - [noDocumentAll](https://babeljs.io/docs/assumptions#nodocumentall)
+  - [pureGetters](https://babeljs.io/docs/assumptions#puregetters)
+  - [objectRestNoSymbols](https://babeljs.io/docs/assumptions#objectrestnosymbols)
+  - [setSpreadProperties](https://babeljs.io/docs/assumptions#setspreadproperties)
+  - ignoreFunctionName
+  - [ignoreFunctionLength](https://babeljs.io/docs/assumptions#ignorefunctionlength)
+  - [ignoreToPrimitiveHint](https://babeljs.io/docs/assumptions#ignoretoprimitivehint)
+  - [mutableTemplateObject](https://babeljs.io/docs/assumptions#mutabletemplateobject)
+  - [noClassCalls](https://babeljs.io/docs/assumptions#noclasscalls)
+  - [setClassMethods](https://babeljs.io/docs/assumptions#setclassmethods)
+  - [superIsCallableConstructor](https://babeljs.io/docs/assumptions#superiscallableconstructor)
   - [iterableIsArray](https://babeljs.io/docs/assumptions#iterableisarray)
 </Callout>
 
@@ -660,7 +658,9 @@ Specify the plugin name like
 {
   "jsc": {
     "experimental": {
-      "plugins": [["@swc/plugin-styled-jsx", {}]]
+      "plugins": [
+        ["@swc/plugin-styled-jsx", {}]
+      ]
     }
   }
 }
@@ -702,17 +702,17 @@ class Foo {
   init = 3;
 }
 
-console.log(Foo.init);
+console.log(Foo.init)
 ```
 
 will be compiled as
 
 ```js
 class Foo {
-  constructor() {
-    // Helper
-    _defineProperty(this, "init", 3);
-  }
+    constructor(){
+        // Helper
+        _defineProperty(this, "init", 3);
+    }
 }
 console.log(Foo.init);
 ```
@@ -724,16 +724,16 @@ class Foo {
   init = 3;
 }
 
-console.log(Foo.init);
+console.log(Foo.init)
 ```
 
 will be compiled as
 
 ```js
 class Foo {
-  constructor() {
-    this.init = 3;
-  }
+    constructor(){
+        this.init = 3;
+    }
 }
 console.log(Foo.init);
 ```
@@ -744,15 +744,15 @@ Starting from `v1.3.47`, you can use stage 3 decorator.
 
 ```json title=".swcrc"
 {
-  "jsc": {
-    "parser": {
-      "syntax": "ecmascript",
-      "decorators": true
-    },
-    "transform": {
-      "decoratorVersion": "2022-03"
+    "jsc": {
+        "parser": {
+            "syntax": "ecmascript",
+            "decorators": true
+        },
+        "transform": {
+            "decoratorVersion": "2022-03"
+        }
     }
-  }
 }
 ```
 

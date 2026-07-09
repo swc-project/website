@@ -1,4 +1,4 @@
-import { Tab, Tabs } from "@rspress/core/theme";
+import { Tab, Tabs } from '@rspress/core/theme';
 
 # @swc/cli
 
@@ -7,9 +7,21 @@ import { Tab, Tabs } from "@rspress/core/theme";
 Run the following to download pre-built binaries:
 
 <Tabs>
-  <Tab label="pnpm">```bash pnpm i -D @swc/cli @swc/core ```</Tab>
-  <Tab label="npm">```bash npm i -D @swc/cli @swc/core ```</Tab>
-  <Tab label="yarn">```bash yarn add -D @swc/cli @swc/core ```</Tab>
+  <Tab label="pnpm">
+    ```bash
+    pnpm i -D @swc/cli @swc/core
+    ```
+  </Tab>
+  <Tab label="npm">
+    ```bash
+    npm i -D @swc/cli @swc/core
+    ```
+  </Tab>
+  <Tab label="yarn">
+    ```bash
+    yarn add -D @swc/cli @swc/core
+    ```
+  </Tab>
 </Tabs>
 
 Then, you can transpile your files:
@@ -217,37 +229,37 @@ npx swc src -d dist --strip-leading-paths
 ## use in nodejs script
 
 ```js
-const { swcDir } = require("@swc/cli");
+const { swcDir } = require('@swc/cli');
 
 const swcOptions = {
-  jsc: {
-    target: "esnext",
-    externalHelpers: true,
-  },
-  module: {
-    type: "commonjs",
-  },
-  sourceMaps: true,
+    jsc: {
+        target: 'esnext',
+        externalHelpers: true,
+    },
+    module: {
+        type: 'commonjs',
+    },
+    sourceMaps: true,
 };
 
 swcDir({
-  cliOptions: {
-    outDir: "./dist",
-    watch: true,
-    filenames: ["./src"],
-    extensions: [".ts"],
-    stripLeadingPaths: true,
-  },
-  swcOptions,
-  callbacks: {
-    onSuccess: (e) => {
-      console.log(e);
+    cliOptions: {
+        outDir: './dist',
+        watch: true,
+        filenames: ['./src'],
+        extensions: ['.ts'],
+        stripLeadingPaths: true,
     },
-    onFail: (e) => {
-      console.log(e);
+    swcOptions,
+    callbacks: {
+        onSuccess: e => {
+            console.log(e);
+        },
+        onFail: e => {
+            console.log(e);
+        },
+        onWatchReady: () => {},
     },
-    onWatchReady: () => {},
-  },
 });
 ```
 

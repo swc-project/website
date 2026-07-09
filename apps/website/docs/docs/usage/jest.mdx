@@ -1,4 +1,4 @@
-import { Tab, Tabs } from "@rspress/core/theme";
+import { Tab, Tabs } from '@rspress/core/theme';
 
 # @swc/jest
 
@@ -7,9 +7,21 @@ To make your Jest tests run faster, you can swap out the default JavaScript-base
 ## Installation
 
 <Tabs>
-  <Tab label="pnpm">```bash pnpm i -D jest @swc/core @swc/jest ```</Tab>
-  <Tab label="npm">```bash npm i -D jest @swc/core @swc/jest ```</Tab>
-  <Tab label="yarn">```bash yarn add -D jest @swc/core @swc/jest ```</Tab>
+  <Tab label="pnpm">
+    ```bash
+    pnpm i -D jest @swc/core @swc/jest
+    ```
+  </Tab>
+  <Tab label="npm">
+    ```bash
+    npm i -D jest @swc/core @swc/jest
+    ```
+  </Tab>
+  <Tab label="yarn">
+    ```bash
+    yarn add -D jest @swc/core @swc/jest
+    ```
+  </Tab>
 </Tabs>
 
 ## Usage
@@ -19,26 +31,23 @@ Inside `jest.config.js`, configure Jest to use SWC:
 ```js title="jest.config.js"
 module.exports = {
   transform: {
-    "^.+\\.(t|j)sx?$": "@swc/jest",
+    '^.+\\.(t|j)sx?$': '@swc/jest',
   },
-};
+}
 ```
 
 It will load the SWC configuration from `.swcrc` by default. You also can customize it:
 
 ```js title="jest.config.js"
-const fs = require("fs");
+const fs = require('fs')
 
-const config = JSON.parse(fs.readFileSync(`${__dirname}/.swcrc`, "utf-8"));
+const config = JSON.parse(fs.readFileSync(`${__dirname}/.swcrc`, 'utf-8'))
 
 module.exports = {
   transform: {
-    "^.+\\.(t|j)sx?$": [
-      "@swc/jest",
-      { ...config /* custom configuration in Jest */ },
-    ],
+    '^.+\\.(t|j)sx?$': ['@swc/jest', { ...config, /* custom configuration in Jest */ }],
   },
-};
+}
 ```
 
 ## Q & A
@@ -61,8 +70,8 @@ For TypeScript, edit `jest.config.js` as follows:
 ```js title="jest.config.js"
 module.exports = {
   // ...
-  extensionsToTreatAsEsm: [".ts", ".tsx"],
-};
+  extensionsToTreatAsEsm: ['.ts', '.tsx'],
+}
 ```
 
 Run test with `--experimental-vm-modules`:
@@ -92,15 +101,15 @@ You can customize this by setting an explicit version in `jest.config.js`:
 
 ```js title="jest.config.js"
 module.exports = {
-  transform: {
-    "^.+\\.(t|j)sx?$": [
-      "@swc/jest",
-      {
-        jsc: {
-          target: "es2021",
-        },
-      },
-    ],
-  },
-};
+    transform: {
+        "^.+\\.(t|j)sx?$": [
+            "@swc/jest",
+            {
+                jsc: {
+                    target: "es2021",
+                },
+            },
+        ],
+    },
+}
 ```

@@ -1,4 +1,4 @@
-import TypeDeclarations from "@components/TypeDeclarations";
+import TypeDeclarations from '@components/TypeDeclarations';
 
 # @swc/core
 
@@ -84,60 +84,39 @@ swc
     isModule: false,
   })
   .then((module) => {
-    module.type; // file type
+    module.type // file type
     //     ^?
     module.body; // AST
-  });
+  })
 ```
 
 <TypeDeclarations>
 
 ```ts
-export declare function parse(
-  src: string,
-  options: ParseOptions & {
+export declare function parse(src: string, options: ParseOptions & {
     isModule: false;
-  }
-): Promise<Script>;
-export declare function parse(
-  src: string,
-  options?: ParseOptions
-): Promise<Module>;
-export declare function parseSync(
-  src: string,
-  options: ParseOptions & {
+}): Promise<Script>;
+export declare function parse(src: string, options?: ParseOptions): Promise<Module>;
+export declare function parseSync(src: string, options: ParseOptions & {
     isModule: false;
-  }
-): Script;
+}): Script;
 export declare function parseSync(src: string, options?: ParseOptions): Module;
-export declare function parseFile(
-  path: string,
-  options: ParseOptions & {
+export declare function parseFile(path: string, options: ParseOptions & {
     isModule: false;
-  }
-): Promise<Script>;
-export declare function parseFile(
-  path: string,
-  options?: ParseOptions
-): Promise<Module>;
-export declare function parseFileSync(
-  path: string,
-  options: ParseOptions & {
+}): Promise<Script>;
+export declare function parseFile(path: string, options?: ParseOptions): Promise<Module>;
+export declare function parseFileSync(path: string, options: ParseOptions & {
     isModule: false;
-  }
-): Script;
-export declare function parseFileSync(
-  path: string,
-  options?: ParseOptions
-): Module;
+}): Script;
+export declare function parseFileSync(path: string, options?: ParseOptions): Module;
 
 export interface Module extends Node, HasSpan, HasInterpreter {
-  type: "Module";
-  body: ModuleItem[];
+    type: "Module";
+    body: ModuleItem[];
 }
 export interface Script extends Node, HasSpan, HasInterpreter {
-  type: "Script";
-  body: Statement[];
+    type: "Script";
+    body: Statement[];
 }
 export declare type ParseOptions = ParserConfig & {
   comments?: boolean;
@@ -147,93 +126,80 @@ export declare type ParseOptions = ParserConfig & {
    */
   target?: JscTarget;
 };
-export declare type JscTarget =
-  | "es3"
-  | "es5"
-  | "es2015"
-  | "es2016"
-  | "es2017"
-  | "es2018"
-  | "es2019"
-  | "es2020"
-  | "es2021"
-  | "es2022";
-export declare type ParserConfig =
-  | TsParserConfig
-  | EsParserConfig
-  | FlowParserConfig;
+export declare type JscTarget = "es3" | "es5" | "es2015" | "es2016" | "es2017" | "es2018" | "es2019" | "es2020" | "es2021" | "es2022";
+export declare type ParserConfig = TsParserConfig | EsParserConfig | FlowParserConfig;
 export interface TsParserConfig {
-  syntax: "typescript";
-  /**
-   * Defaults to `false`.
-   */
-  tsx?: boolean;
-  /**
-   * Defaults to `false`.
-   */
-  decorators?: boolean;
-  /**
-   * Defaults to `false`
-   */
-  dynamicImport?: boolean;
+    syntax: "typescript";
+    /**
+     * Defaults to `false`.
+     */
+    tsx?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    decorators?: boolean;
+    /**
+     * Defaults to `false`
+     */
+    dynamicImport?: boolean;
 }
 export interface FlowParserConfig {
-  syntax: "flow";
-  /**
-   * Defaults to `false`.
-   */
-  jsx?: boolean;
-  /**
-   * Defaults to `false`.
-   */
-  all?: boolean;
-  /**
-   * Defaults to `false`.
-   */
-  requireDirective?: boolean;
-  /**
-   * Defaults to `false`.
-   */
-  enums?: boolean;
-  /**
-   * Defaults to `false`.
-   */
-  decorators?: boolean;
-  /**
-   * Defaults to `false`.
-   */
-  components?: boolean;
-  /**
-   * Defaults to `false`.
-   */
-  patternMatching?: boolean;
+    syntax: "flow";
+    /**
+     * Defaults to `false`.
+     */
+    jsx?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    all?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    requireDirective?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    enums?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    decorators?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    components?: boolean;
+    /**
+     * Defaults to `false`.
+     */
+    patternMatching?: boolean;
 }
 export interface EsParserConfig {
-  syntax: "ecmascript";
-  /**
-   * Defaults to false.
-   */
-  jsx?: boolean;
-  /**
-   * Defaults to `false`
-   */
-  functionBind?: boolean;
-  /**
-   * Defaults to `false`
-   */
-  decorators?: boolean;
-  /**
-   * Defaults to `false`
-   */
-  decoratorsBeforeExport?: boolean;
-  /**
-   * Defaults to `false`
-   */
-  exportDefaultFrom?: boolean;
-  /**
-   * Defaults to `false`
-   */
-  importAssertions?: boolean;
+    syntax: "ecmascript";
+    /**
+     * Defaults to false.
+     */
+    jsx?: boolean;
+    /**
+     * Defaults to `false`
+     */
+    functionBind?: boolean;
+    /**
+     * Defaults to `false`
+     */
+    decorators?: boolean;
+    /**
+     * Defaults to `false`
+     */
+    decoratorsBeforeExport?: boolean;
+    /**
+     * Defaults to `false`
+     */
+    exportDefaultFrom?: boolean;
+    /**
+     * Defaults to `false`
+     */
+    importAssertions?: boolean;
 }
 ```
 
@@ -269,97 +235,95 @@ swc
 <TypeDeclarations>
 
 ```ts
-export declare function minify(
-  src: string,
-  opts?: JsMinifyOptions
-): Promise<Output>;
+export declare function minify(src: string, opts?: JsMinifyOptions): Promise<Output>;
 export declare function minifySync(src: string, opts?: JsMinifyOptions): Output;
 
 export interface Output {
-  code: string;
-  map?: string;
+    code: string;
+    map?: string;
 }
 export declare type TerserEcmaVersion = 5 | 2015 | 2016 | string | number;
 export interface JsMinifyOptions {
-  compress?: TerserCompressOptions | boolean;
-  mangle?: TerserMangleOptions | boolean;
-  ecma?: TerserEcmaVersion;
-  keep_classnames?: boolean;
-  keep_fnames?: boolean;
-  module?: boolean | "unknown";
-  safari10?: boolean;
-  toplevel?: boolean;
-  sourceMap?: boolean;
-  outputPath?: string;
-  inlineSourcesContent?: boolean;
+    compress?: TerserCompressOptions | boolean;
+    mangle?: TerserMangleOptions | boolean;
+    ecma?: TerserEcmaVersion;
+    keep_classnames?: boolean;
+    keep_fnames?: boolean;
+    module?: boolean | "unknown";
+    safari10?: boolean;
+    toplevel?: boolean;
+    sourceMap?: boolean;
+    outputPath?: string;
+    inlineSourcesContent?: boolean;
 }
 export interface TerserCompressOptions {
-  arguments?: boolean;
-  arrows?: boolean;
-  booleans?: boolean;
-  booleans_as_integers?: boolean;
-  collapse_vars?: boolean;
-  comparisons?: boolean;
-  computed_props?: boolean;
-  conditionals?: boolean;
-  dead_code?: boolean;
-  defaults?: boolean;
-  directives?: boolean;
-  drop_console?: boolean;
-  drop_debugger?: boolean;
-  ecma?: TerserEcmaVersion;
-  evaluate?: boolean;
-  expression?: boolean;
-  global_defs?: any;
-  hoist_funs?: boolean;
-  hoist_props?: boolean;
-  hoist_vars?: boolean;
-  ie8?: boolean;
-  if_return?: boolean;
-  inline?: 0 | 1 | 2 | 3;
-  join_vars?: boolean;
-  keep_classnames?: boolean;
-  keep_fargs?: boolean;
-  keep_fnames?: boolean;
-  keep_infinity?: boolean;
-  loops?: boolean;
-  negate_iife?: boolean;
-  passes?: number;
-  properties?: boolean;
-  pure_getters?: any;
-  pure_funcs?: string[];
-  reduce_funcs?: boolean;
-  reduce_vars?: boolean;
-  sequences?: any;
-  side_effects?: boolean;
-  switches?: boolean;
-  top_retain?: any;
-  toplevel?: any;
-  typeofs?: boolean;
-  unsafe_passes?: boolean;
-  unsafe_arrows?: boolean;
-  unsafe_comps?: boolean;
-  unsafe_function?: boolean;
-  unsafe_math?: boolean;
-  unsafe_symbols?: boolean;
-  unsafe_methods?: boolean;
-  unsafe_proto?: boolean;
-  unsafe_regexp?: boolean;
-  unsafe_undefined?: boolean;
-  unused?: boolean;
-  module?: boolean;
+    arguments?: boolean;
+    arrows?: boolean;
+    booleans?: boolean;
+    booleans_as_integers?: boolean;
+    collapse_vars?: boolean;
+    comparisons?: boolean;
+    computed_props?: boolean;
+    conditionals?: boolean;
+    dead_code?: boolean;
+    defaults?: boolean;
+    directives?: boolean;
+    drop_console?: boolean;
+    drop_debugger?: boolean;
+    ecma?: TerserEcmaVersion;
+    evaluate?: boolean;
+    expression?: boolean;
+    global_defs?: any;
+    hoist_funs?: boolean;
+    hoist_props?: boolean;
+    hoist_vars?: boolean;
+    ie8?: boolean;
+    if_return?: boolean;
+    inline?: 0 | 1 | 2 | 3;
+    join_vars?: boolean;
+    keep_classnames?: boolean;
+    keep_fargs?: boolean;
+    keep_fnames?: boolean;
+    keep_infinity?: boolean;
+    loops?: boolean;
+    negate_iife?: boolean;
+    passes?: number;
+    properties?: boolean;
+    pure_getters?: any;
+    pure_funcs?: string[];
+    reduce_funcs?: boolean;
+    reduce_vars?: boolean;
+    sequences?: any;
+    side_effects?: boolean;
+    switches?: boolean;
+    top_retain?: any;
+    toplevel?: any;
+    typeofs?: boolean;
+    unsafe_passes?: boolean;
+    unsafe_arrows?: boolean;
+    unsafe_comps?: boolean;
+    unsafe_function?: boolean;
+    unsafe_math?: boolean;
+    unsafe_symbols?: boolean;
+    unsafe_methods?: boolean;
+    unsafe_proto?: boolean;
+    unsafe_regexp?: boolean;
+    unsafe_undefined?: boolean;
+    unused?: boolean;
+    module?: boolean;
 }
 export interface TerserMangleOptions {
-  props?: TerserManglePropertiesOptions;
-  top_level?: boolean;
-  keep_class_names?: boolean;
-  keep_fn_names?: boolean;
-  keep_private_props?: boolean;
-  ie8?: boolean;
-  safari10?: boolean;
-  reserved?: string[];
+    props?: TerserManglePropertiesOptions;
+    top_level?: boolean;
+    keep_class_names?: boolean;
+    keep_fn_names?: boolean;
+    keep_private_props?: boolean;
+    ie8?: boolean;
+    safari10?: boolean;
+    reserved?: string[];
 }
-export interface TerserManglePropertiesOptions {}
+export interface TerserManglePropertiesOptions {
+}
 ```
 
 </TypeDeclarations>
@@ -521,7 +485,7 @@ interface Options extends Config {
    */
   sourceRoot?: string;
   plugin?: Plugin;
-  isModule?: boolean | "unknown";
+  isModule?: boolean | 'unknown';
   /**
    * Destination path. Note that this value is used only to fix source path
    * of source map files and swc does not write output to this path.

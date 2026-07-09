@@ -2,15 +2,27 @@
 title: "@swc/html"
 ---
 
-import { Tab, Tabs } from "@rspress/core/theme";
-import TypeDeclarations from "@components/TypeDeclarations";
+import { Tab, Tabs } from '@rspress/core/theme';
+import TypeDeclarations from '@components/TypeDeclarations';
 
 ## Installation
 
 <Tabs>
-  <Tab label="pnpm">```bash pnpm i -D @swc/html ```</Tab>
-  <Tab label="npm">```bash npm i -D @swc/html ```</Tab>
-  <Tab label="yarn">```bash yarn add -D @swc/html ```</Tab>
+  <Tab label="pnpm">
+    ```bash
+    pnpm i -D @swc/html
+    ```
+  </Tab>
+  <Tab label="npm">
+    ```bash
+    npm i -D @swc/html
+    ```
+  </Tab>
+  <Tab label="yarn">
+    ```bash
+    yarn add -D @swc/html
+    ```
+  </Tab>
 </Tabs>
 
 ## Usage
@@ -20,9 +32,11 @@ import TypeDeclarations from "@components/TypeDeclarations";
 If you are minifying a whole HTML document, you can use the `minify()` function.
 
 ```ts twoslash
-import { minify } from "@swc/html";
+import { minify } from '@swc/html';
 
-const html = await minify("<div>Hello, world!</div>", {});
+const html = await minify('<div>Hello, world!</div>', {
+
+});
 ```
 
 ### `minifyFragment()` / `minifyFragmentSync()`
@@ -30,7 +44,9 @@ const html = await minify("<div>Hello, world!</div>", {});
 If you are minifying a fragment of HTML, you can use the `minifyFragment()` function.
 
 ```ts twoslash
-import { minifyFragment } from "@swc/html";
+import { minifyFragment } from '@swc/html';
 
-const html = await minifyFragment("<div>Hello, world!</div>", {});
+const html = await minifyFragment('<div>Hello, world!</div>', {
+
+});
 ```

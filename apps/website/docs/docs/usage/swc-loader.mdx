@@ -1,4 +1,4 @@
-import { Tab, Tabs } from "@rspress/core/theme";
+import { Tab, Tabs } from '@rspress/core/theme';
 
 # swc-loader
 
@@ -9,9 +9,21 @@ For Rspack users, you can use Rspack's [builtin:swc-loader](https://rspack.rs/gu
 ## Installation
 
 <Tabs>
-  <Tab label="pnpm">```bash pnpm i -D @swc/core swc-loader ```</Tab>
-  <Tab label="npm">```bash npm i -D @swc/core swc-loader ```</Tab>
-  <Tab label="yarn">```bash yarn add -D @swc/core swc-loader ```</Tab>
+  <Tab label="pnpm">
+    ```bash
+    pnpm i -D @swc/core swc-loader
+    ```
+  </Tab>
+  <Tab label="npm">
+    ```bash
+    npm i -D @swc/core swc-loader
+    ```
+  </Tab>
+  <Tab label="yarn">
+    ```bash
+    yarn add -D @swc/core swc-loader
+    ```
+  </Tab>
 </Tabs>
 
 ## Usage
@@ -24,10 +36,10 @@ module: {
       exclude: /(node_modules)/,
       use: {
         // `.swcrc` can be used to configure swc
-        loader: "swc-loader",
-      },
-    },
-  ];
+        loader: "swc-loader"
+      }
+    }
+  ]
 }
 ```
 
@@ -68,10 +80,10 @@ module: {
       use: {
         loader: "swc-loader",
         options: {
-          parseMap: true,
-        },
-      },
-    },
-  ];
+          parseMap: true
+        }
+      }
+    }
+  ]
 }
 ```

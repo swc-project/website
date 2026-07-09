@@ -34,5 +34,6 @@
   "prettier": {
     "embeddedLanguageFormatting": "off",
     "htmlWhitespaceSensitivity": "strict"
-  }
+  },
+  "packageManager": "pnpm@10.33.1"
 }

@@ -9,7 +9,7 @@ npm install @swc/wasm-typescript
 ### Usage
 
 ```ts twoslash
-import { transform } from "@swc/wasm-typescript";
+import { transform } from '@swc/wasm-typescript';
 
 const tsSourceCode = `
 export function add(a: number, b: number) {
@@ -17,7 +17,9 @@ export function add(a: number, b: number) {
 }
 `;
 
-const code = await transform(tsSourceCode, {});
+const code = await transform(tsSourceCode, {
+
+})
 ```
 
 ## APIs
@@ -31,11 +33,11 @@ const code = await transform(tsSourceCode, {});
 
 ```typescript
 type Options = {
-  // Defaults to 'unknown', which automatically detects the module type.
-  module?: boolean | "unknown";
+    // Defaults to 'unknown', which automatically detects the module type.
+    module?: boolean | 'unknown'
 
-  filename?: string;
+    filename?: string;
 
-  parser?: TsSyntax;
-};
+    parser?: TsSyntax
+}
 ```

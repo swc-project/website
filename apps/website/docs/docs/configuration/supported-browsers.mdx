@@ -1,4 +1,4 @@
-import Callout from "@components/Callout";
+import Callout from '@components/Callout';
 
 # Supported Browsers
 
@@ -73,10 +73,8 @@ If `targets` is not specified, SWC uses `browserslist` to get target information
 - Possible values: `usage`, `entry`, `undefined` (this matches [`useBuiltIns`](https://babeljs.io/docs/en/babel-preset-env#usebuiltins) from Babel)
 
 <Callout emoji="⚠️">
-  The <code>usage</code> mode is currently not as efficient as Babel, iff you
-  have a usage like `"foo"["a" + "t"]()`. SWC does not evaluate the expression{" "}
-  <code>"a" + "t"</code> and will not include the{" "}
-  <code>String.prototype.at</code> polyfill.
+  The <code>usage</code> mode is currently not as efficient as Babel, iff you have a usage like `"foo"["a" + "t"]()`.
+  SWC does not evaluate the expression <code>"a" + "t"</code> and will not include the <code>String.prototype.at</code> polyfill.
 </Callout>
 
 ### skip

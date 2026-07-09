@@ -3,6 +3,7 @@
   "buildCommand": "pnpm build",
   "outputDirectory": "doc_build",
   "framework": null,
+  "cleanUrls": true,
   "redirects": [
     {
       "source": "/docs",

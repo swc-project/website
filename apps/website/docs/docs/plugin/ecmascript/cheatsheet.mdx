@@ -1,10 +1,9 @@
-import Callout from "@components/Callout";
+import Callout from '@components/Callout';
 
 # Plugin cheatsheet
 
 <Callout>
-  This page describes the known hard points for implementing plugins for
-  ecmascript.
+    This page describes the known hard points for implementing plugins for ecmascript.
 </Callout>
 
 You may find documentation at https://rustdoc.swc.rs/swc useful, especially if you are dealing with a visitor or `Id` issue.
@@ -159,12 +158,12 @@ but this cannot handle
 
 ```js
 const foo = function () {
-  const arr = [1, 2, 3];
+    const arr = [1, 2, 3];
 
-  const bar = function () {};
+    const bar = function () {};
 
-  const arr2 = [2, 4, 6];
-};
+    const arr2 = [2, 4, 6];
+}
 ```
 
 After visiting `bar`, `in_fn_expr` is `false`.
