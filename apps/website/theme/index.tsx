@@ -1,7 +1,9 @@
-import { Layout as OriginalLayout } from "@rspress/core/theme-original";
+import { usePage } from "@rspress/core/runtime";
+import { Layout as OriginalLayout, Link } from "@rspress/core/theme-original";
+import type { PropsWithChildren } from "react";
 import "./index.css";
 
-const Vercel = ({ height = 18 }: { height?: number }) => (
+const Vercel = ({ height = 20 }: { height?: number }) => (
   <svg height={height} viewBox="0 0 283 64" fill="none">
     <path
       fill="currentColor"
@@ -10,9 +12,37 @@ const Vercel = ({ height = 18 }: { height?: number }) => (
   </svg>
 );
 
+const SwcNavTitle = () => (
+  <div className="rp-nav__title swc-nav-title">
+    <Link href="/" className="rp-nav__title__link" aria-label="SWC home">
+      <img
+        src="/logo.png"
+        width={50}
+        loading="lazy"
+        alt=""
+        className="swc-nav-title__logo"
+      />
+      <span className="swc-nav-title__name">SWC</span>
+      <span className="swc-nav-title__tagline">Speedy Web Compiler</span>
+    </Link>
+  </div>
+);
+
+const SwcMdxWrapper = ({ children }: PropsWithChildren) => {
+  const { page } = usePage();
+
+  return page.routePath === "/" ? (
+    <div className="swc-home">{children}</div>
+  ) : (
+    <>{children}</>
+  );
+};
+
 export function Layout() {
   return (
     <OriginalLayout
+      components={{ wrapper: SwcMdxWrapper }}
+      navTitle={<SwcNavTitle />}
       bottom={
         <footer className="swc-footer">
           <a
