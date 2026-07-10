@@ -39,22 +39,6 @@
   --rp-code-block-bg: #ffffff;
   --rp-code-block-border: 1px solid #d8dee9;
   --rp-code-block-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
-
-  --rp-home-hero-secondary-color: #f6b73c;
-  --rp-home-hero-title-color: transparent;
-  --rp-home-hero-title-bg: #f26b21;
-  --rp-home-background-bg: radial-gradient(
-      circle at 15% 0%,
-      rgba(255, 196, 77, 0.2),
-      transparent 32rem
-    ),
-    radial-gradient(
-      circle at 88% 6%,
-      rgba(242, 107, 33, 0.1),
-      transparent 28rem
-    ),
-    #fbfbfc;
-  --rp-home-feature-bg: rgba(255, 255, 255, 0.82);
 }
 
 .dark {
@@ -78,21 +62,6 @@
   --rp-c-text-code-border: rgba(148, 163, 184, 0.08);
   --rp-code-block-bg: #15181e;
   --rp-code-block-border: 1px solid rgba(226, 232, 240, 0.12);
-
-  --rp-home-hero-secondary-color: #ffc44d;
-  --rp-home-hero-title-bg: #ff9b42;
-  --rp-home-background-bg: radial-gradient(
-      circle at 15% 0%,
-      rgba(255, 196, 77, 0.12),
-      transparent 32rem
-    ),
-    radial-gradient(
-      circle at 88% 6%,
-      rgba(242, 107, 33, 0.1),
-      transparent 28rem
-    ),
-    #111318;
-  --rp-home-feature-bg: rgba(25, 28, 35, 0.84);
 }
 
 html {
@@ -108,34 +77,33 @@ body {
 }
 
 /* Header */
-.rp-nav {
-  border-bottom-color: var(--rp-c-divider-light);
-  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
-}
-
 .rp-nav__title__link {
   font-size: 1.25rem;
   font-weight: 750;
   letter-spacing: -0.025em;
 }
 
-.rp-nav__title__logo {
-  margin-right: 0.5rem;
+.swc-nav-title__logo {
+  display: block;
+  width: 50px;
+  height: auto;
 }
 
-.rp-nav__title__logo-image {
-  width: auto;
-  height: 32px;
+.swc-nav-title__name {
+  margin: 0 0.5rem;
+  font-weight: 800;
+  user-select: none;
 }
 
-.rp-nav__title__link::after {
-  content: "Speedy Web Compiler";
-  margin-left: 0.65rem;
+.swc-nav-title__tagline {
   color: var(--rp-c-text-2);
   font-size: 0.95rem;
-  font-weight: 450;
-  letter-spacing: -0.01em;
+  font-weight: 400;
   white-space: nowrap;
+}
+
+.dark .swc-nav-title__tagline {
+  color: #9ca3af;
 }
 
 .rp-nav__right {
@@ -183,161 +151,11 @@ body {
   font-weight: 650;
 }
 
-/* Home */
-.rp-home-hero {
-  align-items: center;
-  max-width: 1200px;
-  margin: 4.75rem auto 3.75rem;
-  padding: 2rem 40px;
-}
-
-.rp-home-hero__container {
-  gap: 28px;
-}
-
-.rp-home-hero__content {
-  max-width: 760px;
-}
-
-.rp-home-hero__title,
-.rp-home-hero__subtitle {
-  color: var(--rp-c-text-0);
-  font-weight: 780;
-  line-height: 1.08;
-  letter-spacing: -0.05em;
-}
-
-.rp-home-hero__title {
-  font-size: clamp(4.5rem, 7vw, 6.5rem);
-}
-
-.rp-home-hero__title-brand {
-  width: auto;
-}
-
-.rp-home-hero__subtitle {
-  max-width: 760px;
-  margin-top: 0.25rem;
-  font-size: clamp(2.6rem, 4.2vw, 4rem);
-}
-
-.rp-home-hero__tagline {
-  max-width: 720px;
-  color: var(--rp-c-text-2);
-  font-size: 1.15rem;
-  line-height: 1.75;
-}
-
-.rp-home-hero__actions {
-  gap: 0.75rem;
-}
-
-.rp-home-hero .rp-button {
-  min-width: 0;
-  height: 46px;
-  padding: 0 1.25rem;
-  border-radius: 9px;
-  font-size: 0.95rem;
-}
-
-.rp-home-hero .rp-button--brand {
-  background: #f26b21;
-  box-shadow: 0 8px 24px rgba(242, 107, 33, 0.2);
-}
-
-.rp-home-hero .rp-button--brand:hover {
-  background: #dc5b14;
-  box-shadow: 0 10px 28px rgba(242, 107, 33, 0.28);
-  opacity: 1;
-  transform: translateY(-1px);
-}
-
-.rp-home-hero .rp-button--alt {
-  border-color: var(--rp-c-divider-light);
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
-}
-
-.rp-home-hero__image {
-  position: relative;
-  flex: 0 1 340px;
-  justify-content: center;
-  max-width: 340px;
-  padding: 2rem;
-}
-
-.rp-home-hero__image::before {
-  position: absolute;
-  z-index: -1;
-  width: 280px;
-  height: 280px;
-  border: 1px solid rgba(242, 107, 33, 0.14);
-  border-radius: 50%;
-  background: rgba(255, 196, 77, 0.12);
-  box-shadow: 0 0 0 32px rgba(255, 196, 77, 0.05),
-    0 24px 80px rgba(242, 107, 33, 0.12);
-  content: "";
-  inset: 50% auto auto 50%;
-  transform: translate(-50%, -50%);
-}
-
-.rp-home-hero__image-img {
-  width: 100%;
-  filter: drop-shadow(0 18px 30px rgba(242, 107, 33, 0.12));
-}
-
-.rp-home-feature {
-  --rp-home-feature-gap: 18px;
-  max-width: 1200px;
-  margin-bottom: 4rem;
-  padding: 0 40px;
-}
-
-.rp-home-feature__card {
-  padding: 1.5rem;
-  border-color: var(--rp-c-divider-light);
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.035);
-  backdrop-filter: blur(12px);
-}
-
-.rp-home-feature__card:hover {
-  border-color: rgba(242, 107, 33, 0.45);
-  color: inherit;
-  box-shadow: 0 12px 34px rgba(242, 107, 33, 0.09);
-  transform: translateY(-2px);
-}
-
-.rp-home-feature__icon {
-  min-width: 2.75rem;
-  min-height: 2.75rem;
-  border: 0;
-  border-radius: 10px;
-  background: rgba(255, 196, 77, 0.14);
-  font-size: 1.35rem;
-}
-
-.rp-home-feature__title {
-  color: var(--rp-c-text-0);
-  font-size: 1rem;
-}
-
-.rp-home-feature__detail {
-  font-size: 0.9rem;
-  font-weight: 430;
-  line-height: 1.65;
-}
-
-.rp-home-content {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 40px 5rem;
-}
-
 /* Sidebar */
 .rp-doc-layout__sidebar {
-  --swc-sidebar-heading: #667085;
+  --swc-sidebar-heading: #475467;
   --swc-sidebar-icon: #98a2b3;
-  --swc-sidebar-text: #747b88;
+  --swc-sidebar-text: #667085;
 
   padding: 22px 14px 48px;
   border-right-color: var(--rp-c-divider-light);
@@ -363,8 +181,11 @@ body {
 
 .rp-sidebar-item:hover,
 .rp-sidebar-item--pending {
-  color: var(--swc-sidebar-heading);
-  background: color-mix(in srgb, var(--rp-c-bg-mute) 52%, transparent);
+  background: transparent;
+}
+
+.rp-sidebar-item:hover {
+  color: var(--swc-sidebar-text);
 }
 
 .rp-sidebar-group {
@@ -373,6 +194,15 @@ body {
   color: var(--swc-sidebar-heading);
   font-weight: 600;
   letter-spacing: 0.005em;
+}
+
+.rp-sidebar-group:hover {
+  color: var(--swc-sidebar-heading);
+}
+
+.rp-doc-layout__sidebar .rp-sidebar-item .rp-doc {
+  color: inherit;
+  font-size: inherit;
 }
 
 .rp-sidebar-item[data-depth="0"] {
@@ -413,7 +243,7 @@ body {
 
 .rp-sidebar-item--active,
 .rp-sidebar-item--active:hover {
-  color: var(--rp-c-brand-dark);
+  color: var(--rp-c-brand);
   background: transparent;
   font-weight: 600;
 }
@@ -501,6 +331,13 @@ body {
 .rp-doc :not(:where(.rp-not-doc, .rp-not-doc *)):where(:not(pre) > code) {
   border-radius: 5px;
   padding: 0.12em 0.35em;
+}
+
+.rp-doc :not(:where(.rp-not-doc, .rp-not-doc *)):where(table),
+.rp-doc :not(:where(.rp-not-doc, .rp-not-doc *)):where(thead),
+.rp-doc :not(:where(.rp-not-doc, .rp-not-doc *)):where(tbody),
+.rp-doc :not(:where(.rp-not-doc, .rp-not-doc *)):where(tbody tr):hover {
+  background: var(--rp-code-block-bg);
 }
 
 /* Code blocks and package-manager tabs */
@@ -625,37 +462,8 @@ body {
     min-width: 190px;
   }
 
-  .rp-nav__title__link::after {
+  .swc-nav-title__tagline {
     display: none;
-  }
-}
-
-@media (width <= 1000px) {
-  .rp-home-hero {
-    gap: 1rem;
-    margin: 2.5rem auto 3rem;
-    padding: 1.5rem 32px;
-  }
-
-  .rp-home-hero__image {
-    flex-basis: auto;
-    width: 220px;
-    padding: 1.5rem;
-  }
-
-  .rp-home-hero__image::before {
-    width: 190px;
-    height: 190px;
-  }
-
-  .rp-home-hero__content,
-  .rp-home-hero__subtitle,
-  .rp-home-hero__tagline {
-    max-width: 680px;
-  }
-
-  .rp-home-feature {
-    padding: 0 32px;
   }
 }
 
@@ -666,8 +474,8 @@ body {
     --rp-content-padding-y: 36px;
   }
 
-  .rp-nav__title__logo-image {
-    height: 28px;
+  .swc-nav-title__name {
+    display: none;
   }
 
   .rp-doc :not(:where(.rp-not-doc, .rp-not-doc *)):where(h1) {
@@ -690,39 +498,5 @@ body {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
     font-size: 0.875rem;
-  }
-
-  .rp-home-hero {
-    margin-top: 1.5rem;
-    padding-right: 22px;
-    padding-left: 22px;
-  }
-
-  .rp-home-hero__title {
-    font-size: 3.6rem;
-  }
-
-  .rp-home-hero__subtitle {
-    font-size: 2.35rem;
-  }
-
-  .rp-home-hero__tagline {
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  .rp-home-hero__actions {
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .rp-home-feature {
-    padding: 0 22px;
-  }
-
-  .rp-home-content {
-    padding-right: 22px;
-    padding-left: 22px;
   }
 }
