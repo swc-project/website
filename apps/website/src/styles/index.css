@@ -69,6 +69,20 @@
   padding-top: 1rem;
 }
 
+@media (width >= 1280px) {
+  /* Balance the outline rail so the homepage stays centered in the viewport. */
+  .rp-doc-layout__container:has(.swc-home)
+    > .rp-doc-layout__sidebar-placeholder {
+    width: var(--rp-outline-width);
+    margin-left: var(--rp-outline-margin-right);
+  }
+
+  .rp-doc-layout__doc-container:has(.swc-home) {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+
 .swc-home {
   width: 100%;
   max-width: 52rem;
