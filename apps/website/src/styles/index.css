@@ -51,6 +51,10 @@
   min-width: 0;
 }
 
+.swc-callout .rp-codeblock {
+  --rp-code-title-bg: var(--rp-c-bg-soft);
+}
+
 /* MDX children come wrapped in <p>/<ul> with doc-theme margins; strip the
    outer ones so content aligns with the emoji instead of sagging below it. */
 .swc-callout__content > *:first-child {
