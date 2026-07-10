@@ -1,4 +1,4 @@
-import { Tab, Tabs } from '@rspress/core/theme';
+import { PackageManagerTabs } from '@rspress/core/theme';
 
 # @swc/cli
 
@@ -6,23 +6,7 @@ import { Tab, Tabs } from '@rspress/core/theme';
 
 Run the following to download pre-built binaries:
 
-<Tabs>
-  <Tab label="pnpm">
-    ```bash
-    pnpm add -D @swc/cli @swc/core
-    ```
-  </Tab>
-  <Tab label="npm">
-    ```bash
-    npm i -D @swc/cli @swc/core
-    ```
-  </Tab>
-  <Tab label="yarn">
-    ```bash
-    yarn add -D @swc/cli @swc/core
-    ```
-  </Tab>
-</Tabs>
+<PackageManagerTabs command="install -D @swc/cli @swc/core" />
 
 Then, you can transpile your files:
 
@@ -116,9 +100,7 @@ npx swc src --only **/*.js
 
 To automatically recompile files on changes, install `chokidar`:
 
-```sh
-npm i -D chokidar
-```
+<PackageManagerTabs command="install -D chokidar" />
 
 Then, add the `-w` flag:
 

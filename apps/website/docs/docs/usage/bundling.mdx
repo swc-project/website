@@ -1,4 +1,4 @@
-import { Tab, Tabs } from '@rspress/core/theme';
+import { PackageManagerTabs } from '@rspress/core/theme';
 import Callout from '@components/Callout';
 
 # Bundling (swcpack)
@@ -18,23 +18,7 @@ View a [basic example of bundling](https://github.com/swc-project/pkgs/tree/main
 
 ## Usage
 
-<Tabs>
-  <Tab label="pnpm">
-    ```bash
-    pnpm add -D @swc/cli @swc/core
-    ```
-  </Tab>
-  <Tab label="npm">
-    ```bash
-    npm i -D @swc/cli @swc/core
-    ```
-  </Tab>
-  <Tab label="yarn">
-    ```bash
-    yarn add -D @swc/cli @swc/core
-    ```
-  </Tab>
-</Tabs>
+<PackageManagerTabs command="install -D @swc/cli @swc/core" />
 
 Create a `spack.config.js` file and run:
 

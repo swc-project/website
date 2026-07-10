@@ -1,4 +1,4 @@
-import { Tab, Tabs } from '@rspress/core/theme';
+import { PackageManagerTabs } from '@rspress/core/theme';
 
 # @swc/jest
 
@@ -6,23 +6,7 @@ To make your Jest tests run faster, you can swap out the default JavaScript-base
 
 ## Installation
 
-<Tabs>
-  <Tab label="pnpm">
-    ```bash
-    pnpm add -D jest @swc/core @swc/jest
-    ```
-  </Tab>
-  <Tab label="npm">
-    ```bash
-    npm i -D jest @swc/core @swc/jest
-    ```
-  </Tab>
-  <Tab label="yarn">
-    ```bash
-    yarn add -D jest @swc/core @swc/jest
-    ```
-  </Tab>
-</Tabs>
+<PackageManagerTabs command="install -D jest @swc/core @swc/jest" />
 
 ## Usage
 
