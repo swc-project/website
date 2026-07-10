@@ -1,0 +1,127 @@
+# Flow
+
+SWC can parse Flow syntax and strip Flow type-only constructs during transform.
+
+This guide covers the most common ways to use Flow support:
+
+- `.swcrc`
+- `@swc/core`
+- `@swc/cli`
+
+## `.swcrc`
+
+Configure the parser with `syntax: "flow"`:
+
+```json title=".swcrc"
+{
+  "$schema": "https://swc.rs/schema.json",
+  "jsc": {
+    "parser": {
+      "syntax": "flow",
+      "jsx": false
+    }
+  }
+}
+```
+
+For Flow code that uses a file pragma, enable `requireDirective`:
+
+```json title=".swcrc"
+{
+  "jsc": {
+    "parser": {
+      "syntax": "flow",
+      "requireDirective": true
+    }
+  }
+}
+```
+
+Other supported Flow parser options map to the Flow parser configuration in SWC:
+
+```json title=".swcrc"
+{
+  "jsc": {
+    "parser": {
+      "syntax": "flow",
+      "all": false,
+      "enums": false,
+      "decorators": false,
+      "components": false,
+      "patternMatching": false
+    }
+  }
+}
+```
+
+## `@swc/core`
+
+Use `jsc.parser.syntax = "flow"` when transforming Flow input:
+
+```ts twoslash
+import * as swc from "@swc/core";
+
+swc
+  .transform("const value: number = 1;", {
+    filename: "input.js",
+    jsc: {
+      parser: {
+        syntax: "flow",
+      },
+    },
+  })
+  .then((output) => {
+    output.code; // const value = 1;
+  });
+```
+
+You can also parse Flow syntax directly:
+
+```ts twoslash
+import * as swc from "@swc/core";
+
+swc
+  .parse("const value: number = 1;", {
+    syntax: "flow",
+  })
+  .then((module) => {
+    module.type;
+    module.body;
+  });
+```
+
+## `@swc/cli`
+
+Point the CLI at a `.swcrc` with `syntax: "flow"`:
+
+```json title=".swcrc"
+{
+  "jsc": {
+    "parser": {
+      "syntax": "flow"
+    }
+  }
+}
+```
+
+```sh
+npx swc input.js --config-file .swcrc -o output.js
+```
+
+For JSX-flavored Flow input, set `jsx: true` and compile `.jsx` inputs with the
+same config:
+
+```json title=".swcrc"
+{
+  "jsc": {
+    "parser": {
+      "syntax": "flow",
+      "jsx": true
+    }
+  }
+}
+```
+
+```sh
+npx swc component.jsx --config-file .swcrc -o component.js
+```

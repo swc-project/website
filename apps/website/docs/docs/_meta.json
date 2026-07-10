@@ -1,0 +1,16 @@
+[
+  "getting-started",
+  { "type": "dir", "name": "usage", "label": "Usage" },
+  { "type": "dir", "name": "configuration", "label": "Configuration" },
+  { "type": "dir", "name": "plugin", "label": "Plugin" },
+  { "type": "dir", "name": "contributing", "label": "Contributing" },
+  "team",
+  { "type": "file", "name": "roadmap", "label": "Roadmap" },
+  "sponsors",
+  "customers",
+  "benchmarks",
+  { "type": "dir", "name": "references", "label": "API References" },
+  "migrating-from-babel",
+  "migrating-from-tsc",
+  { "type": "file", "name": "swc-node-vs-swc", "label": "@swc-node vs @swc" }
+]

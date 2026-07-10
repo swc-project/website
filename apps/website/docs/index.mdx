@@ -1,0 +1,89 @@
+---
+pageType: home
+title: Rust-based platform for the Web
+hero:
+  name: SWC
+  text: Rust-based platform for the Web
+  tagline: SWC is an extensible Rust-based platform for the next generation of fast developer tools. 20x faster than Babel on a single thread, 70x faster on four cores.
+  image:
+    src: /logo.png
+    alt: SWC logo
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /docs/getting-started
+    - theme: alt
+      text: Playground
+      link: /playground/
+    - theme: alt
+      text: GitHub
+      link: https://github.com/swc-project/swc
+features:
+  - title: Compilation
+    details: Takes JavaScript / TypeScript files using modern JavaScript features and outputs valid code that is supported by all major browsers.
+    icon: ⚡️
+  - title: Minification
+    details: A fast, Terser-compatible JavaScript minifier written in Rust.
+    icon: 📦
+  - title: WebAssembly
+    details: Transform code with WebAssembly builds — run SWC anywhere JavaScript runs.
+    icon: 🕸
+  - title: webpack & Rspack
+    details: Use swc-loader to speed up builds inside webpack and Rspack.
+    icon: 🔧
+  - title: Jest
+    details: Improve Jest performance dramatically with @swc/jest.
+    icon: 🃏
+  - title: Custom Plugins
+    details: Extend SWC with custom Wasm plugins written in Rust.
+    icon: 🔌
+---
+
+import { PackageManagerTabs } from "@rspress/core/theme";
+
+## Overview
+
+SWC is used by tools like Next.js, Parcel, and Deno, as well as companies like Vercel, ByteDance, Tencent, Shopify, Trip.com, and [more](/docs/customers).
+
+SWC can be used for both compilation and bundling. It can be downloaded and used as a pre-built binary, or built from source. Currently, the following binaries are provided:
+
+- Mac (Apple Silicon)
+- Mac (x64)
+- Linux (x86_64)
+- Linux (aarch64)
+- Linux (armv7)
+- Alpine Linux (also install `@swc/core-linux-musl`)
+- Android (aarch64)
+- Windows (win32-x64)
+- Windows (ia32)
+
+#### Download prebuilt binaries
+
+<PackageManagerTabs command="install -D @swc/cli @swc/core" />
+
+#### Transpile JavaScript file and emit to stdout
+
+```bash
+npx swc ./file.js
+```
+
+## Community
+
+<div className="swc-badges">
+  <img alt="stars" src="https://badgen.net/github/stars/swc-project/swc" />
+  <img
+    alt="downloads"
+    src="https://badgen.net/npm/dw/@swc/core?label=downloads%20(@swc/core)"
+  />
+  <img
+    alt="downloads"
+    src="https://badgen.net/npm/dw/@swc/helpers?label=downloads%20(3rd%20party)"
+  />
+</div>
+
+SWC is created by [kdy1](https://github.com/kdy1).
+Follow [@kdy1dev](https://twitter.com/kdy1dev) on Twitter for future project updates.
+
+Feel free to join the [discussions on GitHub](https://github.com/swc-project/swc/discussions)!
+
+[Get Started](/docs/getting-started) · [Playground](/playground/) · [Blog](/blog/perf-swc-vs-babel) · [Rustdocs](https://rustdoc.swc.rs/swc/) · [GitHub Repository](https://github.com/swc-project/swc) · [Donate](https://opencollective.com/swc)
