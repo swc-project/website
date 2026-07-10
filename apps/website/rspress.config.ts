@@ -134,9 +134,24 @@ export default defineConfig({
         },
         {
           tag: "meta",
-          attrs: { name: "msapplication-TileColor", content: "#ffffff" },
+          attrs: { name: "msapplication-TileColor", content: "#fafafa" },
         },
-        { tag: "meta", attrs: { name: "theme-color", content: "#ffffff" } },
+        {
+          tag: "meta",
+          attrs: {
+            name: "theme-color",
+            media: "(prefers-color-scheme: light)",
+            content: "#fafafa",
+          },
+        },
+        {
+          tag: "meta",
+          attrs: {
+            name: "theme-color",
+            media: "(prefers-color-scheme: dark)",
+            content: "#111111",
+          },
+        },
         {
           tag: "meta",
           attrs: { name: "twitter:card", content: "summary_large_image" },
