@@ -4,6 +4,7 @@
   "outputDirectory": "doc_build",
   "framework": null,
   "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     {
       "source": "/docs",
