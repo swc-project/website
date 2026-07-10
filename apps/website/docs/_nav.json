@@ -8,5 +8,10 @@
     "text": "Playground",
     "link": "/playground/",
     "activeMatch": "^/playground/"
+  },
+  {
+    "text": "Blog",
+    "link": "/blog/perf-swc-vs-babel",
+    "activeMatch": "^/blog/"
   }
 ]

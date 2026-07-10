@@ -86,6 +86,7 @@ export default defineConfig({
   route: {
     cleanUrls: true,
   },
+  llms: true,
   builderConfig: {
     resolve: {
       alias: {

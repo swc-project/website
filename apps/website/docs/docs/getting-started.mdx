@@ -1,4 +1,4 @@
-import { Tab, Tabs } from '@rspress/core/theme';
+import { PackageManagerTabs } from '@rspress/core/theme';
 
 # Getting Started
 
@@ -8,23 +8,7 @@ The easiest way to try SWC is using the [Playground](/playground/).
 
 Otherwise, run the following to download pre-built binaries:
 
-<Tabs>
-  <Tab label="pnpm">
-    ```bash
-    pnpm add -D @swc/cli @swc/core
-    ```
-  </Tab>
-    <Tab label="npm">
-    ```bash
-    npm i -D @swc/cli @swc/core
-    ```
-  </Tab>
-    <Tab label="yarn">
-    ```bash
-    yarn add -D @swc/cli @swc/core
-    ```
-  </Tab>
-</Tabs>
+<PackageManagerTabs command="install -D @swc/cli @swc/core" />
 
 Then, you can transpile your first file and emit to `stdout`:
 
