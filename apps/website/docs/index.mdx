@@ -1,51 +1,35 @@
 ---
-pageType: home
+pageType: doc
 title: Rust-based platform for the Web
-hero:
-  name: SWC
-  text: Rust-based platform for the Web
-  tagline: SWC is an extensible Rust-based platform for the next generation of fast developer tools. 20x faster than Babel on a single thread, 70x faster on four cores.
-  image:
-    src: /logo.png
-    alt: SWC logo
-  actions:
-    - theme: brand
-      text: Get Started
-      link: /docs/getting-started
-    - theme: alt
-      text: Playground
-      link: /playground/
-    - theme: alt
-      text: GitHub
-      link: https://github.com/swc-project/swc
-features:
-  - title: Compilation
-    details: Takes JavaScript / TypeScript files using modern JavaScript features and outputs valid code that is supported by all major browsers.
-    icon: ⚡️
-  - title: Minification
-    details: A fast, Terser-compatible JavaScript minifier written in Rust.
-    icon: 📦
-  - title: WebAssembly
-    details: Transform code with WebAssembly builds — run SWC anywhere JavaScript runs.
-    icon: 🕸
-  - title: webpack & Rspack
-    details: Use swc-loader to speed up builds inside webpack and Rspack.
-    icon: 🔧
-  - title: Jest
-    details: Improve Jest performance dramatically with @swc/jest.
-    icon: 🃏
-  - title: Custom Plugins
-    details: Extend SWC with custom Wasm plugins written in Rust.
-    icon: 🔌
+sidebar: false
+outline: true
+footer: false
 ---
 
 import { PackageManagerTabs } from "@rspress/core/theme";
+import Callout from "@components/Callout";
+
+# SWC
+
+<div className="swc-home__subtitle">
+  Rust-based platform for the Web
+</div>
+
+SWC is an extensible Rust-based platform for the next generation of fast developer tools. It's used by tools like Next.js, Parcel, and Deno, as well as companies like Vercel, ByteDance, Tencent, Shopify, Trip.com, and [more](/docs/customers).
+
+SWC can be used for both compilation and bundling. For compilation, it takes JavaScript / TypeScript files using modern JavaScript features and outputs valid code that is supported by all major browsers.
+
+<Callout emoji="🏎">
+  SWC is <strong>20x faster than Babel</strong> on a single thread and <strong>70x faster</strong> on four cores.
+</Callout>
+
+<div className="swc-home__links">
+  [Get Started](/docs/getting-started) · [Playground](/playground/) · [Rustdocs](https://rustdoc.swc.rs/swc/) · [GitHub Repository](https://github.com/swc-project/swc) · [Donate](https://opencollective.com/swc)
+</div>
 
 ## Overview
 
-SWC is used by tools like Next.js, Parcel, and Deno, as well as companies like Vercel, ByteDance, Tencent, Shopify, Trip.com, and [more](/docs/customers).
-
-SWC can be used for both compilation and bundling. It can be downloaded and used as a pre-built binary, or built from source. Currently, the following binaries are provided:
+SWC can be downloaded and used as a pre-built binary, or built from source. Currently, the following binaries are provided:
 
 - Mac (Apple Silicon)
 - Mac (x64)
@@ -59,13 +43,32 @@ SWC can be used for both compilation and bundling. It can be downloaded and used
 
 #### Download prebuilt binaries
 
-<PackageManagerTabs command="install -D @swc/cli @swc/core" />
+<PackageManagerTabs
+  command={{
+    pnpm: "pnpm add -D @swc/cli @swc/core",
+    npm: "npm i -D @swc/cli @swc/core",
+    yarn: "yarn add -D @swc/cli @swc/core",
+  }}
+/>
 
 #### Transpile JavaScript file and emit to stdout
 
 ```bash
 npx swc ./file.js
 ```
+
+## Features
+
+SWC is designed to be extensible. Currently, there is support for:
+
+- Compilation
+- Minification
+- Transforming with WebAssembly
+- Usage inside webpack and Rspack (`swc-loader`)
+- Improving Jest performance (`@swc/jest`)
+- Custom Plugins
+
+[Learn more](/docs/getting-started).
 
 ## Community
 
@@ -85,5 +88,3 @@ SWC is created by [kdy1](https://github.com/kdy1).
 Follow [@kdy1dev](https://twitter.com/kdy1dev) on Twitter for future project updates.
 
 Feel free to join the [discussions on GitHub](https://github.com/swc-project/swc/discussions)!
-
-[Get Started](/docs/getting-started) · [Playground](/playground/) · [Blog](/blog/perf-swc-vs-babel) · [Rustdocs](https://rustdoc.swc.rs/swc/) · [GitHub Repository](https://github.com/swc-project/swc) · [Donate](https://opencollective.com/swc)

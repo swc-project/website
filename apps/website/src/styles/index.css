@@ -2,31 +2,49 @@
 
 .swc-callout {
   display: flex;
-  gap: 0.75rem;
   align-items: flex-start;
+  overflow-x: auto;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 1rem 1.25rem;
-  margin: 1rem 0;
-  line-height: 1.75;
+  border: 1px solid;
+  padding: 0.5rem 1rem 0.5rem 0;
+  margin: 1.5rem 0 0;
+  line-height: 1.75rem;
 }
 
 .swc-callout--default {
-  background: rgba(59, 130, 246, 0.08);
-  border-color: rgba(59, 130, 246, 0.4);
+  color: oklch(0.47 0.157 37.304);
+  background: oklch(0.98 0.016 73.684);
+  border-color: oklch(0.954 0.038 75.164);
 }
 
 .swc-callout--warning {
-  background: rgba(234, 179, 8, 0.1);
-  border-color: rgba(234, 179, 8, 0.4);
+  color: oklch(0.421 0.095 57.708);
+  background: oklch(0.987 0.026 102.212);
+  border-color: oklch(0.973 0.071 103.193);
+}
+
+.dark .swc-callout--default {
+  color: oklch(0.837 0.128 66.29);
+  background: color-mix(in oklab, oklch(0.75 0.183 55.934) 20%, transparent);
+  border-color: color-mix(in oklab, oklch(0.75 0.183 55.934) 30%, transparent);
+}
+
+.dark .swc-callout--warning {
+  color: oklch(0.945 0.129 101.54);
+  background: color-mix(in oklab, oklch(0.554 0.135 66.442) 30%, transparent);
+  border-color: color-mix(in oklab, oklch(0.945 0.129 101.54) 30%, transparent);
 }
 
 /* Inherit the text line-height so the emoji's line box matches the first
    line of content and both top-align. */
 .swc-callout__emoji {
-  font-size: 1.125rem;
+  padding-right: 0.5rem;
+  padding-left: 0.75rem;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.25rem;
   line-height: inherit;
   flex-shrink: 0;
+  user-select: none;
 }
 
 .swc-callout__content {
@@ -41,6 +59,95 @@
 
 .swc-callout__content > *:last-child {
   margin-bottom: 0;
+}
+
+.rp-doc-layout__doc-container:has(.swc-home) {
+  padding-top: 1rem;
+}
+
+.swc-home {
+  width: 100%;
+  max-width: 52rem;
+  margin: 0 auto;
+  color: oklch(0.372 0.044 257.287);
+}
+
+.dark .swc-home {
+  color: oklch(0.929 0.013 255.508);
+}
+
+.swc-home > h1:first-child {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  color: oklch(0.208 0.042 265.755);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+}
+
+.dark .swc-home > h1:first-child {
+  color: oklch(0.984 0.003 247.858);
+}
+
+.swc-home > h1:first-child .rp-header-anchor {
+  display: none;
+}
+
+.swc-home__subtitle {
+  width: 100%;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+  color: oklch(0.446 0.03 256.802);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+.dark .swc-home__subtitle {
+  color: oklch(0.707 0.022 261.325);
+}
+
+.swc-home__subtitle > p {
+  margin: 0;
+}
+
+.swc-home__links {
+  margin: 4rem 0 5rem;
+  text-align: center;
+}
+
+.swc-home__links > p {
+  margin: 0;
+}
+
+.swc-home > h2 {
+  margin-top: 2.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--rp-c-divider-light);
+  color: oklch(0.208 0.042 265.755);
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.dark .swc-home > h2 {
+  color: oklch(0.968 0.007 247.896);
+}
+
+.swc-home > h2:first-of-type::before {
+  display: none;
+}
+
+@media (width < 768px) {
+  .swc-home > h1:first-child {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .swc-home__subtitle {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 .swc-authors {
