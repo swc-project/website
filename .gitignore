@@ -14,6 +14,3 @@ public/schema.json
 .turbo/
 
 _pagefind/
-# rspress build output
-apps/website/doc_build/
-apps/website/docs/public/schema.json

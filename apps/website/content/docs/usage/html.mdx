@@ -1,0 +1,48 @@
+import { Callout, Tabs, Tab } from 'nextra/components'
+import TypeDeclarations from 'components/TypeDeclarations'
+
+## Installation
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tabs.Tab>
+    ```bash copy
+    pnpm i -D @swc/html
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash copy
+    npm i -D @swc/html
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash copy
+    yarn add -D @swc/html
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+
+### `minify()` / `minifySync()`
+
+If you are minifying a whole HTML document, you can use the `minify()` function.
+
+```typescript
+import { minify } from '@swc/html';
+
+const html = await minify('<div>Hello, world!</div>', {
+
+});
+```
+
+### `minifyFragment()` / `minifyFragmentSync()`
+
+If you are minifying a fragment of HTML, you can use the `minifyFragment()` function.
+
+```typescript
+import { minifyFragment } from '@swc/html';
+
+const html = await minifyFragment('<div>Hello, world!</div>', {
+
+});
+```

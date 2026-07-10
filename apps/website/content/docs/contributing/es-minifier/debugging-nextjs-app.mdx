@@ -1,0 +1,26 @@
+## Steps to extract the inputs to the SWC minifier.
+
+### Step 1. Clone the SWC repository
+
+You would need to clone the SWC repository to your local machine, and invoke a script in the repository from the project root of your next.js app.
+So in this example, we will assume that the link above is cloned to `~/projects/swc`.
+
+```bash
+git clone https://github.com/swc-project/swc.git ~/projects/swc
+```
+
+### Step 2. Do everything except the `next build` step.
+
+This depends on your project.
+You should install all the dependencies, run the dependency tasks for your next.js app, like the ones invoked automatically by monorepo management tools like `turbo`.
+
+### Step 3. Invoke the script
+
+```bash
+~/projects/swc/crates/swc_ecma_minifier/scripts/next/add-test.sh
+```
+
+This will run the `next build` step, and it will copy all inputs to the SWC minifier into test directory of your SWC clone.
+You can move those files to your minifier inputs directory.
+
+The lead maintainer (@kdy1) maintains a repository for the minifier inputs at https://github.com/kdy1/swc-minifier-inputs to profile the performance of the minifier.

@@ -1,5 +1,0 @@
-[
-  { "type": "dir", "name": "commons", "label": "Commons" },
-  { "type": "dir", "name": "es-commons", "label": "ECMAScript Commons" },
-  { "type": "dir", "name": "es-minifier", "label": "ECMAScript Minifier" }
-]
