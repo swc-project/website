@@ -1,6 +1,7 @@
 [
   { "type": "file", "name": "swcrc", "label": ".swcrc" },
   "compilation",
+  "react-compiler",
   "supported-browsers",
   "modules",
   "minification",
