@@ -1,0 +1,305 @@
+# React Compiler
+
+> Requires `@swc/core` v1.15.43 or later.
+
+SWC includes a native implementation of the React Compiler transform. Enable it
+with `jsc.transform.reactCompiler`. The transform runs before SWC transforms
+JSX, so it works with the existing `jsc.transform.react` configuration.
+
+## Getting started
+
+Set `reactCompiler` to `true` to use the default configuration:
+
+```json title=".swcrc"
+{
+  "$schema": "https://swc.rs/schema.json",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true
+    },
+    "transform": {
+      "reactCompiler": true,
+      "react": {
+        "runtime": "automatic"
+      }
+    }
+  }
+}
+```
+
+The same configuration can be passed to the `transform` and `transformSync`
+APIs:
+
+```ts
+import { transformSync } from "@swc/core";
+
+const output = transformSync(source, {
+  jsc: {
+    parser: {
+      syntax: "typescript",
+      tsx: true,
+    },
+    transform: {
+      reactCompiler: true,
+      react: {
+        runtime: "automatic",
+      },
+    },
+  },
+});
+```
+
+Set `reactCompiler` to `false` or omit it to disable the transform.
+
+## Runtime target
+
+The compiled output imports a memoization runtime. Select the runtime that
+matches the React version used by the application:
+
+| `target`         | Runtime import           | Setup                                                          |
+| ---------------- | ------------------------ | -------------------------------------------------------------- |
+| `"19"` (default) | `react/compiler-runtime` | Provided by React 19.                                          |
+| `"17"` or `"18"` | `react-compiler-runtime` | Install `react-compiler-runtime` as an application dependency. |
+
+For example, a React 18 application can use:
+
+```sh
+pnpm add react-compiler-runtime
+```
+
+```json title=".swcrc"
+{
+  "jsc": {
+    "transform": {
+      "reactCompiler": {
+        "target": "18"
+      }
+    }
+  }
+}
+```
+
+## Options
+
+Pass an object instead of `true` to override individual compiler options.
+Unspecified fields retain their defaults.
+
+```json title=".swcrc"
+{
+  "jsc": {
+    "transform": {
+      "reactCompiler": {
+        "compilationMode": "infer",
+        "panicThreshold": "none",
+        "target": "19",
+        "outputMode": "client",
+        "isDev": false
+      }
+    }
+  }
+}
+```
+
+### compilationMode
+
+Type: `"infer" | "syntax" | "annotation" | "all"`
+
+Default: `"infer"`
+
+Controls which functions the compiler attempts to compile:
+
+- `"infer"` identifies React components and hooks using naming and code
+  conventions.
+- `"syntax"` compiles declared component and hook syntax, as well as functions
+  with an opt-in directive.
+- `"annotation"` compiles only functions with an opt-in directive such as
+  `"use memo"`.
+- `"all"` attempts to compile every function.
+
+### panicThreshold
+
+Type: `"none" | "critical_errors" | "all_errors"`
+
+Default: `"none"`
+
+Controls which compiler errors stop the transform. With the default value,
+functions that cannot be compiled are left unchanged instead of failing the
+transform.
+
+### target
+
+Type: `"17" | "18" | "19"`
+
+Default: `"19"`
+
+Selects the React runtime version. See [Runtime target](#runtime-target) for the
+corresponding runtime dependency.
+
+### noEmit
+
+Type: `boolean`
+
+Default: `false`
+
+Analyzes the source and reports diagnostics without emitting React Compiler
+transformations. This also selects lint output behavior.
+
+### outputMode
+
+Type: `"client" | "ssr" | "lint"`
+
+Default: `"client"`
+
+Selects client, server-side rendering, or lint output behavior. `noEmit: true`
+also uses lint output behavior.
+
+### ignoreUseNoForget
+
+Type: `boolean`
+
+Default: `false`
+
+Compiles functions even when they contain a standard opt-out directive such as
+`"use no memo"` or `"use no forget"`.
+
+### flowSuppressions
+
+Type: `boolean`
+
+Default: `true`
+
+Treats matching Flow suppression comments as opt-outs from compilation.
+
+### enableReanimated
+
+Type: `boolean`
+
+Default: `false`
+
+Enables compatibility with `react-native-reanimated` worklets.
+
+### isDev
+
+Type: `boolean`
+
+Default: `false`
+
+Enables development-mode compiler output.
+
+### eslintSuppressionRules
+
+Type: `string[]`
+
+Specifies ESLint rule names whose suppression comments opt a function out of
+compilation.
+
+```json title=".swcrc"
+{
+  "jsc": {
+    "transform": {
+      "reactCompiler": {
+        "eslintSuppressionRules": ["react-hooks/exhaustive-deps"]
+      }
+    }
+  }
+}
+```
+
+### customOptOutDirectives
+
+Type: `string[]`
+
+Replaces the standard opt-out directives with a custom list of function
+directives that opt out of compilation.
+
+```json title=".swcrc"
+{
+  "jsc": {
+    "transform": {
+      "reactCompiler": {
+        "customOptOutDirectives": ["use no optimize"]
+      }
+    }
+  }
+}
+```
+
+### gating
+
+Type: `{ source: string; importSpecifierName: string }`
+
+Emits both the original and compiled functions and selects between them by
+calling an imported gating function.
+
+```json title=".swcrc"
+{
+  "jsc": {
+    "transform": {
+      "reactCompiler": {
+        "gating": {
+          "source": "./feature-flags",
+          "importSpecifierName": "isReactCompilerEnabled"
+        }
+      }
+    }
+  }
+}
+```
+
+This configuration imports `isReactCompilerEnabled` from `./feature-flags` and
+uses its return value to choose the compiled or original function.
+
+### dynamicGating
+
+Type: `{ source: string }`
+
+Enables per-function gating with a `"use memo if(identifier)"` directive. The
+identifier is imported from `source` and called as the gate for that function.
+
+```json title=".swcrc"
+{
+  "jsc": {
+    "transform": {
+      "reactCompiler": {
+        "dynamicGating": {
+          "source": "./feature-flags"
+        }
+      }
+    }
+  }
+}
+```
+
+```tsx title="component.tsx"
+export function FilteredList() {
+  "use memo if(isFilteredListCompilerEnabled)";
+  // ...
+}
+```
+
+### environment.enableFunctionOutlining
+
+Type: `boolean`
+
+Default: `true`
+
+> Requires `@swc/core` v1.15.47 or later.
+
+Controls whether anonymous functions that do not capture local variables are
+extracted into top-level helper functions. The `environment` object currently
+exposes only this option.
+
+```json title=".swcrc"
+{
+  "jsc": {
+    "transform": {
+      "reactCompiler": {
+        "environment": {
+          "enableFunctionOutlining": false
+        }
+      }
+    }
+  }
+}
+```

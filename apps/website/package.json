@@ -22,7 +22,7 @@
     "@swc/cli": "^0.8.1",
     "@swc/core": "^1.15.43",
     "@swc/html": "^1.15.43",
-    "@swc/types": "^0.1.26",
+    "@swc/types": "^0.1.28",
     "@swc/wasm-typescript": "^1.15.43",
     "@swc/wasm-web": "^1.15.43",
     "@types/node": "^18.19.130",
