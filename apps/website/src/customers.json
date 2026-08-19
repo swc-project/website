@@ -160,5 +160,11 @@
     "image": "/img/customers/miro.svg",
     "infoLink": "https://miro.com",
     "width": 128
+  },
+  {
+    "caption": "X.com",
+    "image": "/img/customers/x.svg",
+    "infoLink": "https://x.com",
+    "width": 128
   }
 ]
