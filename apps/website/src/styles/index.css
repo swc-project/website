@@ -229,6 +229,10 @@
   filter: invert(1);
 }
 
+.dark .swc-customer-trellis {
+  filter: brightness(0) invert(1);
+}
+
 .swc-benchmark-top {
   display: flex;
   align-items: center;

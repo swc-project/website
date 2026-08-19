@@ -21,7 +21,13 @@ export default function Customers() {
                 width: customer.width ? `${customer.width}px` : "128px",
                 padding: "16px",
               }}
-              className={customer.caption === "Faire" ? "swc-customer-faire" : undefined}
+              className={
+                customer.caption === "Faire"
+                  ? "swc-customer-faire"
+                  : customer.caption === "Trellis"
+                    ? "swc-customer-trellis"
+                    : undefined
+              }
               alt={customer.caption}
               loading="lazy"
             />
