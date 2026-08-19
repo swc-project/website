@@ -166,5 +166,11 @@
     "image": "/img/customers/x.svg",
     "infoLink": "https://x.com",
     "width": 128
+  },
+  {
+    "caption": "Nodecraft",
+    "image": "/img/customers/nodecraft.svg",
+    "infoLink": "https://nodecraft.com/",
+    "width": 128
   }
 ]
