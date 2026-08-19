@@ -184,5 +184,17 @@
     "image": "/img/customers/nodecraft.svg",
     "infoLink": "https://nodecraft.com/",
     "width": 128
+  },
+  {
+    "caption": "Trellis",
+    "image": "/img/customers/trellis.png",
+    "infoLink": "https://trellis.org/",
+    "width": 180
+  },
+  {
+    "caption": "Faire",
+    "image": "/img/customers/faire.svg",
+    "infoLink": "https://www.faire.com/",
+    "width": 180
   }
 ]
