@@ -48,6 +48,12 @@
     "width": 160
   },
   {
+    "caption": "Ant Group",
+    "image": "/img/customers/antgroup.svg",
+    "infoLink": "https://www.antgroup.com/",
+    "width": 160
+  },
+  {
     "caption": "Parcel",
     "image": "/img/customers/parceljs.png",
     "infoLink": "https://parceljs.org/"
