@@ -225,10 +225,6 @@
   gap: 1.5rem;
 }
 
-.dark .swc-customer-faire {
-  filter: invert(1);
-}
-
 .swc-benchmark-top {
   display: flex;
   align-items: center;
