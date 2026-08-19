@@ -42,6 +42,12 @@
     "width": 128
   },
   {
+    "caption": "Microsoft",
+    "image": "/img/customers/microsoft.svg",
+    "infoLink": "https://www.microsoft.com",
+    "width": 160
+  },
+  {
     "caption": "Parcel",
     "image": "/img/customers/parceljs.png",
     "infoLink": "https://parceljs.org/"
