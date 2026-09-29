@@ -226,13 +226,53 @@ These properties are mostly not implemented yet, but it exists to support passin
 - `preamble`, Supported since `v1.3.66`.
 - `quoteKeys`, Currently noop and aliases as `quote_keys` for compatibility with `terser`.
 - `quoteStyle`, Currently noop and aliases as `quote_style` for compatibility with `terser`.
-- `preserveAnnotations`, Currently noop and aliases as `preserve_annotations` for compatibility with `terser`.
+- `preserveAnnotations`, Defaults to `false` and aliased as `preserve_annotations` for compatibility with `terser`. When `comments` is `'some'`, also keeps `__PURE__`, `__INLINE__` and `__NOINLINE__` annotation comments in the output. See [Annotations](#annotations).
 - `safari10`, Currently noop.
 - `semicolons`, Currently noop.
 - `shebang`, Currently noop.
 - `webkit`, Currently noop.
 - `wrapIife`, Currently noop and aliases as `wrap_iife` for compatibility with `terser`.
 - `wrapFuncArgs`, Currently noop and aliases as `wrap_func_args` for compatibility with `terser`.
+
+## Annotations
+
+SWC Minifier reads annotation comments that tell it things it can't work out on its own, in the same format as Terser, Rollup and esbuild.
+An annotation is a block comment, like `/*#__PURE__*/` or `/* @__PURE__ */`, or a line of a JSDoc comment. Annotations are only read when `compress` is enabled.
+
+### `__PURE__`
+
+Marks a call, `new` expression or tagged template as free of side effects, so it can be removed if its result is unused.
+Arguments are still evaluated, so `/*#__PURE__*/ foo(sideEffect())` becomes `sideEffect()`.
+See the [`__PURE__` notation spec](https://github.com/javascript-compiler-hints/compiler-notations-spec/blob/main/pure-notation/pure-notation-spec.md).
+
+```js
+const unused = /*#__PURE__*/ createStore(); // removed
+```
+
+### `__NO_SIDE_EFFECTS__`
+
+Marks every call to a function as pure, so you don't need `__PURE__` at each call site.
+It works on function declarations and on function expressions assigned to a variable.
+See the [`__NO_SIDE_EFFECTS__` notation spec](https://github.com/javascript-compiler-hints/compiler-notations-spec/blob/main/no-side-effects-notation/no-side-effects-notation-spec.md).
+
+```js
+/*#__NO_SIDE_EFFECTS__*/
+function createStore() {}
+
+const createTheme = /*#__NO_SIDE_EFFECTS__*/ () => {};
+```
+
+### `__NOINLINE__`
+
+Stops the minifier from inlining the function called at that call site.
+
+```js
+export const x = /*#__NOINLINE__*/ add(1, 2);
+```
+
+### `@const`
+
+On a `var` declaration, `/** @const */` tells the minifier the variable is never reassigned, so it is optimized as if it were declared with `const`.
 
 ## @swc/core Usage
 
