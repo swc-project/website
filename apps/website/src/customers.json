@@ -196,5 +196,11 @@
     "image": "/img/customers/faire.svg",
     "infoLink": "https://www.faire.com/",
     "width": 180
+  },
+  {
+    "caption": "Extension.js",
+    "image": "/img/customers/extensionjs.svg",
+    "infoLink": "https://extension.js.org",
+    "width": 150
   }
 ]
