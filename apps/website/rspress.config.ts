@@ -80,6 +80,21 @@ export default defineConfig({
   description:
     "SWC is an extensible Rust-based platform for the next generation of fast developer tools. It's used by tools like Next.js, Parcel, and Deno, as well as companies like Vercel, ByteDance, Tencent, Shopify, Trip.com, and more.",
   icon: "/favicon.ico",
+  head: [
+    ["meta", { property: "og:image", content: "https://swc.rs/og.png" }],
+    ["meta", { property: "og:image:width", content: "1686" }],
+    ["meta", { property: "og:image:height", content: "882" }],
+    ["meta", { property: "og:image:type", content: "image/png" }],
+    [
+      "meta",
+      { property: "og:image:alt", content: "SWC — Speedy Web Compiler" },
+    ],
+    ["meta", { name: "twitter:image", content: "https://swc.rs/og.png" }],
+    [
+      "meta",
+      { name: "twitter:image:alt", content: "SWC — Speedy Web Compiler" },
+    ],
+  ],
   logo: "/logo.png",
   logoText: "SWC",
   globalStyles: path.join(__dirname, "src/styles/index.css"),
