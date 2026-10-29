@@ -97,7 +97,7 @@ export default defineConfig({
         image: "https://swc.rs/og.png",
         description: "Rust-based platform for the Web",
         twitter: {
-          site: "@kdy1dev",
+          site: "@swc_rs",
           card: "summary_large_image",
           image: "https://swc.rs/og.png",
         },
