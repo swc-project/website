@@ -2,6 +2,7 @@ import * as path from "node:path";
 import { defineConfig } from "@rspress/core";
 import { pluginClientRedirects } from "@rspress/plugin-client-redirects";
 import { pluginTwoslash } from "@rspress/plugin-twoslash";
+import { pluginOpenGraph } from "rsbuild-plugin-open-graph";
 import ts from "typescript";
 
 export default defineConfig({
@@ -80,21 +81,6 @@ export default defineConfig({
   description:
     "SWC is an extensible Rust-based platform for the next generation of fast developer tools. It's used by tools like Next.js, Parcel, and Deno, as well as companies like Vercel, ByteDance, Tencent, Shopify, Trip.com, and more.",
   icon: "/favicon.ico",
-  head: [
-    ["meta", { property: "og:image", content: "https://swc.rs/og.png" }],
-    ["meta", { property: "og:image:width", content: "1686" }],
-    ["meta", { property: "og:image:height", content: "882" }],
-    ["meta", { property: "og:image:type", content: "image/png" }],
-    [
-      "meta",
-      { property: "og:image:alt", content: "SWC — Speedy Web Compiler" },
-    ],
-    ["meta", { name: "twitter:image", content: "https://swc.rs/og.png" }],
-    [
-      "meta",
-      { name: "twitter:image:alt", content: "SWC — Speedy Web Compiler" },
-    ],
-  ],
   logo: "/logo.png",
   logoText: "SWC",
   globalStyles: path.join(__dirname, "src/styles/index.css"),
@@ -103,6 +89,20 @@ export default defineConfig({
   },
   llms: true,
   builderConfig: {
+    plugins: [
+      pluginOpenGraph({
+        siteName: "SWC",
+        type: "website",
+        url: "https://swc.rs/",
+        image: "https://swc.rs/og.png",
+        description: "Rust-based platform for the Web",
+        twitter: {
+          site: "@kdy1dev",
+          card: "summary_large_image",
+          image: "https://swc.rs/og.png",
+        },
+      }),
+    ],
     resolve: {
       alias: {
         "@components": path.join(__dirname, "src/components"),
@@ -168,11 +168,6 @@ export default defineConfig({
             content: "#111111",
           },
         },
-        {
-          tag: "meta",
-          attrs: { name: "twitter:card", content: "summary_large_image" },
-        },
-        { tag: "meta", attrs: { name: "twitter:site", content: "@kdy1dev" } },
         {
           tag: "meta",
           attrs: { name: "apple-mobile-web-app-title", content: "SWC" },
