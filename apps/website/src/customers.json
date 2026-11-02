@@ -202,5 +202,11 @@
     "image": "/img/customers/extensionjs.svg",
     "infoLink": "https://extension.js.org",
     "width": 150
+  },
+  {
+    "caption": "BackupDrill",
+    "image": "/img/customers/backupdrill.svg",
+    "infoLink": "https://backupdrill.com/",
+    "width": 128
   }
 ]
