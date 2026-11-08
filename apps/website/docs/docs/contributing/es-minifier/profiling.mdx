@@ -30,20 +30,20 @@ cd ./swc/crates/swc_ecma_minifier
 
 ### Step 3. Run the profiler
 
-You have two options. One is to use `samply`, which is cross-platform, and the other is to use XCode Instruments, which is only available on mac.
+You have two options. One is to use `samply`, which is cross-platform, and the other is to use Xcode Instruments, which is only available on mac.
 
 #### Using `samply`
 
 ```bash
-CARGO_PROFILE_RELEASE_DEBUG=1 RUST_LOG=off ddt profile samply cargo --release --features concurrent --example minify-all -- ~/projects/minifier-inputs  to the directory containing your input files. It can be either a file or a directory containing the input files. All .js files will be minified (without writing the result to the disk)
+CARGO_PROFILE_RELEASE_DEBUG=1 RUST_LOG=off ddt profile samply cargo --release --features concurrent --example minify-all -- ~/projects/minifier-inputs
 ```
 
 This will open a tab in your browser once the profiling is done.
 
-#### Using XCode Instruments
+#### Using Xcode Instruments
 
 ```bash
-CARGO_PROFILE_RELEASE_DEBUG=1 RUST_LOG=off ddt profile instruments cargo -t time --release --features concurrent --example minify-all -- ~/projects/minifier-inputs  to the directory containing your input files. It can be either a file or a directory containing the input files. All .js files will be minified (without writing the result to the disk)
+CARGO_PROFILE_RELEASE_DEBUG=1 RUST_LOG=off ddt profile instruments cargo -t time --release --features concurrent --example minify-all -- ~/projects/minifier-inputs
 ```
 
 This will open the Instruments app once the profiling is done.
@@ -55,7 +55,7 @@ This will open the Instruments app once the profiling is done.
 The command to run the profiler is as follows:
 
 ```bash
-CARGO_PROFILE_RELEASE_DEBUG=1 RUST_LOG=off ddt profile instruments cargo -t 'Memory' --release --features concurrent --example minify-all -- ~/projects/minifier-inputs  to the directory containing your input files. It can be either a file or a directory containing the input files. All .js files will be minified (without writing the result to the disk)
+CARGO_PROFILE_RELEASE_DEBUG=1 RUST_LOG=off ddt profile instruments cargo -t 'Memory' --release --features concurrent --example minify-all -- ~/projects/minifier-inputs
 ```
 
 This will open the Instruments app once the profiling is done.
