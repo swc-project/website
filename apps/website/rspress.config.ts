@@ -1,6 +1,7 @@
 import * as path from "node:path";
 import { defineConfig } from "@rspress/core";
 import { pluginClientRedirects } from "@rspress/plugin-client-redirects";
+import { pluginRss } from "@rspress/plugin-rss";
 import { pluginTwoslash } from "@rspress/plugin-twoslash";
 import ts from "typescript";
 
@@ -60,6 +61,12 @@ export default defineConfig({
           to: "/blog/perf-swc-vs-babel",
         },
       ],
+    }),
+    // Atom feed of blog posts, served at /rss/blog.xml. Post dates come
+    // from the `date` frontmatter field.
+    pluginRss({
+      siteUrl: "https://swc.rs",
+      feed: { id: "blog", test: "/blog/", title: "SWC Blog" },
     }),
     // Twoslash type-hover annotations for fences tagged `ts twoslash`
     pluginTwoslash({
