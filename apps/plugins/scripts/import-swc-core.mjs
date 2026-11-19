@@ -3,7 +3,7 @@ import fs from "fs/promises";
 
 await fs.mkdir("./.cache", { recursive: true });
 
-// Fetch .cahce/swc_core.json from https://index.crates.io/sw/c_/swc_core if it doesn't exist
+// Fetch .cache/swc_core.json from https://index.crates.io/sw/c_/swc_core if it doesn't exist
 async function load(crate) {
     const cachePath = `./.cache/${crate}.json`;
     try {
