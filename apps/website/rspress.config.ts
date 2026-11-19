@@ -2,6 +2,7 @@ import * as path from "node:path";
 import { defineConfig } from "@rspress/core";
 import { pluginClientRedirects } from "@rspress/plugin-client-redirects";
 import { pluginTwoslash } from "@rspress/plugin-twoslash";
+import { pluginOpenGraph } from "rsbuild-plugin-open-graph";
 import ts from "typescript";
 
 export default defineConfig({
@@ -88,6 +89,20 @@ export default defineConfig({
   },
   llms: true,
   builderConfig: {
+    plugins: [
+      pluginOpenGraph({
+        siteName: "SWC",
+        type: "website",
+        url: "https://swc.rs/",
+        image: "https://swc.rs/og.png",
+        description: "Rust-based platform for the Web",
+        twitter: {
+          site: "@swc_rs",
+          card: "summary_large_image",
+          image: "https://swc.rs/og.png",
+        },
+      }),
+    ],
     resolve: {
       alias: {
         "@components": path.join(__dirname, "src/components"),
@@ -153,11 +168,6 @@ export default defineConfig({
             content: "#111111",
           },
         },
-        {
-          tag: "meta",
-          attrs: { name: "twitter:card", content: "summary_large_image" },
-        },
-        { tag: "meta", attrs: { name: "twitter:site", content: "@kdy1dev" } },
         {
           tag: "meta",
           attrs: { name: "apple-mobile-web-app-title", content: "SWC" },
